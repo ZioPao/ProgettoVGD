@@ -2191,8 +2191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
-  maxY: 0
-  player: {fileID: 0}
+  maxY: 500
+  player: {fileID: 1924981766}
 --- !u!1 &155360311
 GameObject:
   m_ObjectHideFlags: 0
@@ -27835,6 +27835,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 100
+--- !u!4 &1924981766 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5318329388254402685, guid: f2599dc31b492264da14cba6ad622959,
+    type: 3}
+  m_PrefabInstance: {fileID: 1531521722}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1930107356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7d626b52dc7a9c24e95f55619a456158,
