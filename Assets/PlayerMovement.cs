@@ -8,20 +8,19 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float movementSpeed = 30f;
     [SerializeField] private float jumpForce = 10.0f;
-    [SerializeField] private float maxJump = 105.0f;
 
     private CharacterController controller;
     private Transform pt;
-    private Rigidbody rb;
-    private bool isJumping = false;
-    private bool checkGrounded;
-    private float maxHeight = 0;
-    private float lastHeight = 0;
+
+    private bool isJumping = false;     //keeps track if the player is still jumping or not
+    private float lastHeight = -1;      //keeps track of the last known height
+
+    private bool checkJump;
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        rb = GetComponent<Rigidbody>();
         pt = GetComponent<Transform>();
     }
 
@@ -33,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         movePlayer();
-        jumpMovement();
+        jumpAction();
     }
 
     void movePlayer()
@@ -54,63 +53,53 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void jumpMovement()
+    void jumpAction()
     {
 
         if (Input.GetKey("space") && controller.isGrounded)
         {
-            maxHeight = pt.position.y + maxJump;
-
-            print("Started a jump");
-            print("Max height: " + (maxHeight.ToString()));
+            //print("Started a jump");
             isJumping = true;
         }
 
 
+        //last one diventa meno della precedente, segnamo in un bool
+        //se questo bool è attivo e last one diventa piu della precedente, stop
+
         if (isJumping)
         {
-
-            //keeps going up until gravity starts doing its job
+            //print("Last height: " + lastHeight.ToString());
+            //print("checkjump :" + checkJump);
             controller.Move(new Vector3(0, jumpForce * Time.deltaTime, 0));
 
 
+            if (checkJump && lastHeight < pt.position.y)
+            {
+                //print("Current height: " + pt.position.y.ToString());
+                //print("Finito salto!");
+                isJumping = false;
+                checkJump = false;
+
+                lastHeight = -1;        //reset
+            }
+
+            else if (lastHeight > pt.position.y && checkJump == false)
+            {
+                //print("Stopped going up");
+                checkJump = true;
+            }
+ 
         }
 
-        // print(pt.position.y.ToString() + " >= " + maxHeight.ToString());
-        //print(lastHeight);
-        if (isJumping && (pt.position.y >= maxHeight || lastHeight > pt.position.y))
-        {
-            print("ended a jump");
-            isJumping = false;
-            maxHeight = 0;      //reset
-        }
-        
+        //Keeps in a variable the last known height
         lastHeight = pt.position.y;
+
+
+
     }
 
+  
 
-    //    //float jumpMov = Convert.ToInt32(Input.GetKey("space")) * jumpForce * Time.deltaTime;
-    //    while (false)
-    //        {
-    //            isJumping = true;
-    //        }
-
-    //    }
-    //    else if (!controller.isGrounded && isJumping)
-    //    {
-    //        //add another mov
-    //        print("still jumping");
-    //        controller.Move(new Vector3(0, jumpForce * Time.deltaTime, 0));
-
-    //    }
-    //    else if (controller.isGrounded && pt.position.y >= maxHeight)
-    //    {
-    //        // when it has finished jumping
-    //        print("Jumping finished");
-    //        isJumping = false;
-    //    }
-        
-    //}
 }
 
  

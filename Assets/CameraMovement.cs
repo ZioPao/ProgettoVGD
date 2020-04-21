@@ -35,7 +35,7 @@ public class CameraMovement : MonoBehaviour
 
         //Check clamping
         maxY += mouseY;
-        print(maxY);
+        //print(maxY);
 
         if (maxY > 90.0f)
         {
