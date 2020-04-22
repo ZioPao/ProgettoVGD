@@ -5,16 +5,16 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
 
-    //[SerializeField] private string mouseX, mouseY;
-    [SerializeField] private float mouseSensitivity;
-    // Start is called before the first frame update
-    [SerializeField] private float maxY = 0;
-    [SerializeField] private Transform player;      //Sarebbe il player controller
-   
+    [SerializeField] private float mouseSensitivity = 100;
+    [SerializeField] private Transform player = null;      //Sarebbe il player controller
+
+    private float maxY;
 
     void Start()
     {
+
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
