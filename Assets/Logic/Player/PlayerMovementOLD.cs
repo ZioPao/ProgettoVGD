@@ -76,7 +76,11 @@ public class PlayerMovement : MonoBehaviour
 
         //Checks if it's touching our character feet
         if (Vector3.Dot(contact.normal, Vector3.up) > 0.5)
+        {
+            print("Touched terrain");
             return true;
+        }
+
         else
             return false;
 
