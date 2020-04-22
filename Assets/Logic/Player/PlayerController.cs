@@ -18,7 +18,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 movementVec;
     private float movementSpeed = 10;
     private bool isJumping = false;
+    private bool canMove = true;
 
+
+
+    //Stuff for moving 
+    private float oldXMovement;
+    private float oldYMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -32,20 +38,37 @@ public class PlayerController : MonoBehaviour
         GetMovement();
         Move();
         Jump();
+        //print(rb.velocity);
     }
 
 
     private void GetMovement()
     {
-        float xMovement = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-        float yMovement = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+        float xMovement;
+        float yMovement;
+        if (canMove)
+        {
+            xMovement = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
+            yMovement = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+
+            oldXMovement = xMovement;
+            oldYMovement = yMovement;
+        }
+        else
+        {
+            xMovement = oldXMovement / 2;
+            yMovement = oldYMovement / 2;
+        }
+
+
 
         Vector3 forwardMov = transform.forward * yMovement;
         Vector3 rightMov = transform.right * xMovement;
-        
-        
-        //Saves all of it in that private variable
-        movementVec = (forwardMov + rightMov + GetGravitySpeed());
+
+
+            //Saves all of it in that private variable
+         movementVec = (forwardMov + rightMov + GetGravitySpeed());
+
     }
 
 
@@ -76,14 +99,11 @@ public class PlayerController : MonoBehaviour
             //timerCheckCollision = 2f;        //Sets the initial timer
 
 
-
-
-            Vector3 tmp = transform.up * jumpForce * Time.deltaTime;
-            rb.AddForce(tmp, ForceMode.VelocityChange);
+            //Continue going towards that way
+            Vector3 tmp = (transform.up * jumpForce);
+            rb.AddForce(tmp, ForceMode.Force);
         }
 
-        //else if (isJumping) //decrease the timer
-        //    timerCheckCollision -= Time.deltaTime;
           
     }
 
@@ -104,15 +124,41 @@ public class PlayerController : MonoBehaviour
             return false;
 
     }
+
+
     private void OnCollisionEnter(Collision collision)
     {
 
         /* Jumping stuff*/
         bool isGrounded = isPlayerGrounded(collision);
-        if (isGrounded && isJumping)
+        if (isGrounded)
         {
-            isJumping = false;
+            canMove = true;
+
+            if (isJumping)
+                isJumping = false;
         }
+     
+    }
+
+
+    private void OnCollisionExit(Collision collision)
+    {
+
+
+        //Check the contacts
+
+        //todo add a better check to determine if it's a terrain and not only this
+        if (collision.contacts.Length == 0)
+        {
+            //todo add check if last collision was terrain
+
+            canMove = false;
+        }
+
+        
+
+
     }
 
 
