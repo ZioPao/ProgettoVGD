@@ -6,22 +6,21 @@ using System;
 public class PlayerMovement : MonoBehaviour
 {
 
-    [SerializeField] private float movementSpeed = 30f;
+    [SerializeField] private float movementSpeed = 500f;
     [SerializeField] private float jumpForce = 10.0f;
 
     private CharacterController controller;
-    private Transform pt;
+
+
+    private Vector3 vecMov = new Vector3(0, 0, 0);
 
     private bool isJumping = false;     //keeps track if the player is still jumping or not
-    private float lastHeight = -1;      //keeps track of the last known height
-
-    private bool checkJump;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        pt = GetComponent<Transform>();
+
     }
 
     // Update is called once per frame
@@ -31,11 +30,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        movePlayer();
-        jumpAction();
+
+        //Creates a Vector with the new movement to do
+        manageBasicMovement();
+        manageJumping();
+
+        //Using a SimpleMove we're kinda activating gravity on our player controller. 
+        //Using two Moves isn't pretty clean, but it works and it seems kinda ok
+        controller.SimpleMove(vecMov);
+
     }
 
-    void movePlayer()
+    void manageBasicMovement()
     {
 
         float xMovement = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
@@ -45,61 +51,45 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forwardMov = transform.forward * yMovement;
         Vector3 rightMov = transform.right * xMovement;
 
-        Vector3 finalMov = forwardMov + rightMov;
-        //print(finalMov);
-
-        controller.SimpleMove(forwardMov + rightMov);
-
+        vecMov = forwardMov + rightMov;
 
     }
 
-    void jumpAction()
+    void manageJumping()
     {
+        //Jumping will stop once a collision with the terrain is found.
 
-        if (Input.GetKey("space") && controller.isGrounded)
-        {
-            //print("Started a jump");
+        if (Input.GetKey("space"))
             isJumping = true;
-        }
-
-
-        //last one diventa meno della precedente, segnamo in un bool
-        //se questo bool è attivo e last one diventa piu della precedente, stop
 
         if (isJumping)
-        {
-            //print("Last height: " + lastHeight.ToString());
-            //print("checkjump :" + checkJump);
             controller.Move(new Vector3(0, jumpForce * Time.deltaTime, 0));
-
-
-            if (checkJump && lastHeight < pt.position.y)
-            {
-                //print("Current height: " + pt.position.y.ToString());
-                //print("Finito salto!");
-                isJumping = false;
-                checkJump = false;
-
-                lastHeight = -1;        //reset
-            }
-
-            else if (lastHeight > pt.position.y && checkJump == false)
-            {
-                //print("Stopped going up");
-                checkJump = true;
-            }
- 
-        }
-
-        //Keeps in a variable the last known height
-        lastHeight = pt.position.y;
-
-
 
     }
 
-  
+
+    bool checkGrounded(Collision collision)
+    {
+
+        //Gets the contact point that our charchter is colliding with
+        ContactPoint contact = collision.GetContact(0);
+
+        //Checks if it's touching our character feet
+        if (Vector3.Dot(contact.normal, Vector3.up) > 0.5)
+            return true;
+        else
+            return false;
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        /* Jumping stuff*/
+        if (checkGrounded(collision) && isJumping)
+        {
+            isJumping = false;
+        }
+    }
+
 
 }
-
- 
