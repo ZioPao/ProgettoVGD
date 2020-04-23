@@ -16,21 +16,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 50000f;
 
     private Rigidbody rb;
+    private Animator anim;
+
     private Vector3 movementVec;
     private float movementSpeed = 10;
     
     private bool isJumping = false;
     private bool canMove = true;
-    private bool isGrounded = true;
-
+    private bool isRunning = false;
 
 
     //Stuff for moving 
     private float oldXMovement;
     private float oldYMovement;
-
-    //Stuff for collisionChecking
-    private Collision lastCollision;
 
 
     // Start is called before the first frame update
@@ -38,11 +36,16 @@ public class PlayerController : MonoBehaviour
     {
         movementSpeed *= movementMultiplier;
         rb = GetComponent<Rigidbody>();
+        anim = GetComponentInChildren<Animator>();
+
     }
 
     private void FixedUpdate()
     {
         GetMovement();
+
+
+        SetAnimations();
         Move();
         Jump();
         //print(rb.velocity);
@@ -60,7 +63,15 @@ public class PlayerController : MonoBehaviour
         {
 
             if (Input.GetKey(KeyCode.LeftShift))
+            {
                 movementSpeedCustom *= boostSpeed;
+                isRunning = true;
+
+            }
+
+            else
+                isRunning = false;
+
             xMovement = Input.GetAxis("Horizontal") * movementSpeedCustom * Time.deltaTime;
             yMovement = Input.GetAxis("Vertical") * movementSpeedCustom * Time.deltaTime;
 
@@ -71,6 +82,10 @@ public class PlayerController : MonoBehaviour
         {
             xMovement = oldXMovement / 2;
             yMovement = oldYMovement / 2;
+
+
+            // mid air, doesn't make sense to keep the animation
+            isRunning = false;
         }
 
 
@@ -91,8 +106,9 @@ public class PlayerController : MonoBehaviour
         float gravityVelocity = rb.velocity.y;
         return new Vector3(0, gravityVelocity, 0);
     }
-    public void Move()
+
     //Using the rigidbody we add a force to push our character until topSpeed
+    private void Move()
     {
 
         rb.velocity = movementVec;
@@ -101,7 +117,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-    public void Jump()
+
+    private void Jump()
      
     {
 
@@ -120,8 +137,31 @@ public class PlayerController : MonoBehaviour
           
     }
 
+    private void Shoot()
+    {
+        bool isShooting = Input.GetMouseButton(0);
+
+        if (isShooting)
+        {
+            //todo starts shooting animation
+        }
+    }
+
+    private void SetAnimations()
+    {
+        if (isRunning)
+        {
+            if (movementVec.x != 0 || movementVec.z != 0)
+                anim.SetBool("isRunning", true);
+            
+        }
+        else
+            anim.SetBool("isRunning", false);
+
+    }
 
 
+    /*Check collisioni*/
 
     private bool isPlayerGrounded(Collision collision)
     {
@@ -141,7 +181,6 @@ public class PlayerController : MonoBehaviour
             return false;
 
     }
-
 
     private void OnCollisionEnter(Collision collision)
     {
