@@ -23,12 +23,13 @@ public class PlayerController : MonoBehaviour
     
     private bool isJumping = false;
     private bool canMove = true;
+    private bool movingOnSlope = false;
     private bool isRunning = false;
 
 
     //Stuff for moving 
-    private float oldXMovement;
-    private float oldYMovement;
+    private float oldForwardMovement;
+    private float oldRightMovement;
 
 
     // Start is called before the first frame update
@@ -48,61 +49,81 @@ public class PlayerController : MonoBehaviour
         SetAnimations();
         Move();
         Jump();
-        //print(rb.velocity);
+
+
+        //Debug stuff
+        //print("CanMove: " + canMove);
+        //print("movingOnSlope: " + movingOnSlope);
     }
 
 
     private void GetMovement()
     {
-        float xMovement;
-        float yMovement;
+        float forwardMovement, rightMovement;
 
         float movementSpeedCustom = movementSpeed;
 
         if (canMove)
         {
 
+            //Boost
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 movementSpeedCustom *= boostSpeed;
                 isRunning = true;
 
             }
-
             else
+            {
                 isRunning = false;
 
-            xMovement = Input.GetAxis("Horizontal") * movementSpeedCustom * Time.deltaTime;
-            yMovement = Input.GetAxis("Vertical") * movementSpeedCustom * Time.deltaTime;
+            }
+            
+            //CheckOnSlope
+            if (movingOnSlope)
+            {
+                movementSpeedCustom -= 150;
 
-            oldXMovement = xMovement;
-            oldYMovement = yMovement;
+            }
+
+            forwardMovement = Input.GetAxis("Vertical") * movementSpeedCustom * Time.deltaTime;
+            rightMovement = Input.GetAxis("Horizontal") * movementSpeedCustom * Time.deltaTime;
+
+            //Check Diagonale
+            if (forwardMovement != 0 && rightMovement != 0)
+            {
+                forwardMovement /= 1.42f;       //todo determinare se è sempre questo valore
+                rightMovement /= 1.42f;
+            }
+
+
+            oldForwardMovement = forwardMovement;
+            oldRightMovement = rightMovement;
         }
         else
         {
-            xMovement = oldXMovement / 2;
-            yMovement = oldYMovement / 2;
+            forwardMovement = oldForwardMovement / 2;
+            rightMovement = oldRightMovement / 2;
 
 
             // mid air, doesn't make sense to keep the animation
             isRunning = false;
         }
 
+       
+        Vector3 forwardMov = transform.forward * forwardMovement;
+        Vector3 rightMov = transform.right * rightMovement;
 
-
-        Vector3 forwardMov = transform.forward * yMovement;
-        Vector3 rightMov = transform.right * xMovement;
-
-
-            //Saves all of it in that private variable
-         movementVec = (forwardMov + rightMov + GetGravitySpeed());
+        //Saves all of it in that private variable
+        movementVec = (forwardMov + rightMov + GetGravitySpeed());
+        
+      
 
     }
 
-
     private Vector3 GetGravitySpeed()
     {
-
+        //Testing a much stronger force
         float gravityVelocity = rb.velocity.y;
         return new Vector3(0, gravityVelocity, 0);
     }
@@ -171,9 +192,9 @@ public class PlayerController : MonoBehaviour
         ContactPoint contact = collision.GetContact(0);
 
         //Checks if it's touching our character feet
-        if (Vector3.Dot(contact.normal, Vector3.up) > 0.5)
+        if (Vector3.Dot(contact.normal, Vector3.up) > 0.8)
         {
-            //print("Touched terrain");
+            //print(Vector3.Dot(contact.normal, Vector3.up));
             return true;
         }
 
@@ -182,6 +203,18 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private bool isPlayerOnASlope(Collision collision)
+    {
+        ContactPoint contact = collision.GetContact(0);
+
+        if (Vector3.Dot(contact.normal, Vector3.up) < 0.85)
+        {
+            return true;
+        }
+
+        else
+            return false;
+    }
     private void OnCollisionEnter(Collision collision)
     {
 
@@ -194,13 +227,37 @@ public class PlayerController : MonoBehaviour
             if (isJumping)
                 isJumping = false;
         }
+        //Slopes
+        else
+        {
+            if (!isJumping)
+            {
+                movingOnSlope = true;
+                canMove = true;
+
+            }
+
+        }
+
+        if (isJumping)
+        {
+            //Stop movement?
+            oldForwardMovement = 0;
+            oldRightMovement = 0;
+        }
+
      
     }
 
     private void OnCollisionExit(Collision collision)
     {
         if (collision.contactCount == 0)
+        {
             canMove = false;
+            movingOnSlope = false;
+
+        }
+
     }
 
     private void OnCollisionStay(Collision collision)
@@ -213,3 +270,7 @@ public class PlayerController : MonoBehaviour
     }
 
 }
+
+
+//if we're not touching anything, then jumping - no wasd
+//if we're touching something but on a slope - nerfed wasd
