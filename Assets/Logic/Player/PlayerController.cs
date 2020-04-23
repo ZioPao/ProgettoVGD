@@ -12,19 +12,26 @@ public class PlayerController : MonoBehaviour
 
     
     [SerializeField] private float movementMultiplier = 50f;
-    [SerializeField] private float jumpForce = 500f;
+    [SerializeField] private float boostSpeed = 2f;
+    [SerializeField] private float jumpForce = 50000f;
 
     private Rigidbody rb;
     private Vector3 movementVec;
     private float movementSpeed = 10;
+    
     private bool isJumping = false;
     private bool canMove = true;
+    private bool isGrounded = true;
 
 
 
     //Stuff for moving 
     private float oldXMovement;
     private float oldYMovement;
+
+    //Stuff for collisionChecking
+    private Collision lastCollision;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +53,16 @@ public class PlayerController : MonoBehaviour
     {
         float xMovement;
         float yMovement;
+
+        float movementSpeedCustom = movementSpeed;
+
         if (canMove)
         {
-            xMovement = Input.GetAxis("Horizontal") * movementSpeed * Time.deltaTime;
-            yMovement = Input.GetAxis("Vertical") * movementSpeed * Time.deltaTime;
+
+            if (Input.GetKey(KeyCode.LeftShift))
+                movementSpeedCustom *= boostSpeed;
+            xMovement = Input.GetAxis("Horizontal") * movementSpeedCustom * Time.deltaTime;
+            yMovement = Input.GetAxis("Vertical") * movementSpeedCustom * Time.deltaTime;
 
             oldXMovement = xMovement;
             oldYMovement = yMovement;
@@ -94,7 +107,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey("space") && !isJumping)
         {
-            print("Jumping");
+            //print("Jumping");
             isJumping = true;
             //timerCheckCollision = 2f;        //Sets the initial timer
 
@@ -107,8 +120,12 @@ public class PlayerController : MonoBehaviour
           
     }
 
-    bool isPlayerGrounded(Collision collision)
+
+
+
+    private bool isPlayerGrounded(Collision collision)
     {
+        //This check must start ONLY if we know that we're touching something flat
 
         //Gets the contact point that our charchter is colliding with
         ContactPoint contact = collision.GetContact(0);
@@ -116,7 +133,7 @@ public class PlayerController : MonoBehaviour
         //Checks if it's touching our character feet
         if (Vector3.Dot(contact.normal, Vector3.up) > 0.5)
         {
-            print("Touched terrain");
+            //print("Touched terrain");
             return true;
         }
 
@@ -141,33 +158,19 @@ public class PlayerController : MonoBehaviour
      
     }
 
-
     private void OnCollisionExit(Collision collision)
     {
-
-
-        //Check the contacts
-
-        //todo add a better check to determine if it's a terrain and not only this
-        if (collision.contacts.Length == 0)
-        {
-            //todo add check if last collision was terrain
-
+        if (collision.contactCount == 0)
             canMove = false;
-        }
+    }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (isPlayerGrounded(collision))
+            canMove = true;
         
 
 
     }
-
-
-
-
-
-
-
-
-
 
 }

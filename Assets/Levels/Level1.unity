@@ -53735,8 +53735,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0f7f48918c31f43967fe5104cac015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementMultiplier: 100
-  jumpForce: 50000
+  movementMultiplier: 50
+  boostSpeed: 2.5
+  jumpForce: 30000
 --- !u!4 &1224691188
 Transform:
   m_ObjectHideFlags: 0
