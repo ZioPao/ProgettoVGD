@@ -9,22 +9,30 @@ public class PlayerController : MonoBehaviour
 
     //Reimplementation of the original controller made by unity
 
+        //we need to implement separate parts for shooting
+
+
+
 
     
     [SerializeField] private float movementMultiplier = 50f;
     [SerializeField] private float boostSpeed = 2f;
     [SerializeField] private float jumpForce = 50000f;
+    [SerializeField] private Rigidbody projectilePrefab = null;
 
     private Rigidbody rb;
     private Animator anim;
+    private GameObject bulletSpawnPoint;
 
     private Vector3 movementVec;
     private float movementSpeed = 10;
     
+    //Various booleans
     private bool isJumping = false;
-    private bool canMove = true;
-    private bool movingOnSlope = false;
     private bool isRunning = false;
+    private bool isMovingOnSlope = false;
+    private bool isShooting = false;
+    private bool canMove = true;
 
 
     //Stuff for moving 
@@ -38,12 +46,14 @@ public class PlayerController : MonoBehaviour
         movementSpeed *= movementMultiplier;
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
+        bulletSpawnPoint = GameObject.Find("Camera_Main");
 
     }
 
     private void FixedUpdate()
     {
         GetMovement();
+        Shoot();
 
 
         SetAnimations();
@@ -80,7 +90,7 @@ public class PlayerController : MonoBehaviour
             }
             
             //CheckOnSlope
-            if (movingOnSlope)
+            if (isMovingOnSlope)
             {
                 movementSpeedCustom -= 150;
 
@@ -160,12 +170,25 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        bool isShooting = Input.GetMouseButton(0);
+        isShooting = Input.GetMouseButtonDown(0);
 
         if (isShooting)
         {
-            //todo starts shooting animation
+            Rigidbody p = Instantiate(projectilePrefab, bulletSpawnPoint.transform.position , bulletSpawnPoint.transform.rotation);
+
+            p.transform.Rotate(0, 90f, 90f);
+            p.velocity = bulletSpawnPoint.transform.forward * 20;
         }
+
+
+        //on collision we need to delete the newly generated bullets
+
+
+        
+
+        //for testing, shoot a ball or something
+
+
     }
 
     private void SetAnimations()
@@ -178,6 +201,18 @@ public class PlayerController : MonoBehaviour
         }
         else
             anim.SetBool("isRunning", false);
+
+
+
+        //todo add if is running and shooting, since it doesnt work right now
+        if (isShooting)
+        {
+            anim.SetBool("isShooting", true);
+        }
+        else
+        {
+            anim.SetBool("isShooting",false);
+        }
 
     }
 
@@ -232,7 +267,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!isJumping)
             {
-                movingOnSlope = true;
+                isMovingOnSlope = true;
                 canMove = true;
 
             }
@@ -254,7 +289,7 @@ public class PlayerController : MonoBehaviour
         if (collision.contactCount == 0)
         {
             canMove = false;
-            movingOnSlope = false;
+            isMovingOnSlope = false;
 
         }
 
