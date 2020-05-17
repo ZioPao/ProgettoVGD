@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     private Animator anim;
+    private GameObject bulletRotationPoint;
     private GameObject bulletSpawnPoint;
 
     private Vector3 movementVec;
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         bulletSpawnPoint = GameObject.Find("Camera_Main");
+        //bulletSpawnPoint = GameObject.Find("bullet_spawn_point");
 
     }
 
@@ -174,22 +176,26 @@ public class PlayerController : MonoBehaviour
 
         if (isShooting)
         {
-            Rigidbody p = Instantiate(projectilePrefab, bulletSpawnPoint.transform.position , bulletSpawnPoint.transform.rotation);
+            RaycastHit projectile;
 
-            p.transform.Rotate(0, 90f, 90f);
-            p.velocity = bulletSpawnPoint.transform.forward * 20;
+            if (Physics.Raycast(bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.forward, out projectile, 100))
+            {
+                //ParticleSystem exp = GetComponent<ParticleSystem>();
+                //exp.Play();
+                Destroy(projectile.transform.gameObject);
+                //when it hits something, it destroys it
+                //print(projectile.transform);
+            }
+
         }
 
-
-        //on collision we need to delete the newly generated bullets
-
-
-        
 
         //for testing, shoot a ball or something
 
 
+
     }
+
 
     private void SetAnimations()
     {
