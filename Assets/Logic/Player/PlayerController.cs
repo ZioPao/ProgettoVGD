@@ -5,20 +5,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+
 
     //Reimplementation of the original controller made by unity
 
-        //we need to implement separate parts for shooting
+    //if we're not touching anything, then jumping - no wasd
+    //if we're touching something but on a slope - nerfed wasd
 
 
-
-
-    
     [SerializeField] private float movementMultiplier = 50f;
     [SerializeField] private float boostSpeed = 2f;
     [SerializeField] private float jumpForce = 50000f;
-    [SerializeField] private Rigidbody projectilePrefab = null;
 
     private Rigidbody rb;
     private Animator anim;
@@ -48,7 +45,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         bulletSpawnPoint = GameObject.Find("Camera_Main");
-        //bulletSpawnPoint = GameObject.Find("bullet_spawn_point");
 
     }
 
@@ -256,6 +252,8 @@ public class PlayerController : MonoBehaviour
         else
             return false;
     }
+
+    //Overrided methods
     private void OnCollisionEnter(Collision collision)
     {
 
@@ -289,7 +287,6 @@ public class PlayerController : MonoBehaviour
 
      
     }
-
     private void OnCollisionExit(Collision collision)
     {
         if (collision.contactCount == 0)
@@ -300,7 +297,6 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
     private void OnCollisionStay(Collision collision)
     {
         if (isPlayerGrounded(collision))
@@ -312,6 +308,3 @@ public class PlayerController : MonoBehaviour
 
 }
 
-
-//if we're not touching anything, then jumping - no wasd
-//if we're touching something but on a slope - nerfed wasd
