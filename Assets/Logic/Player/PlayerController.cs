@@ -28,8 +28,8 @@ public class PlayerController : MonoBehaviour
     //Various booleans
     private bool isJumping = false;
     private bool isRunning = false;
-    private bool isMovingOnSlope = false;
     private bool isShooting = false;
+    private bool isMovingOnSlope = false;
     private bool canMove = true;
 
 
@@ -45,6 +45,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         bulletSpawnPoint = GameObject.Find("Camera_Main");
+        
 
     }
 
@@ -65,10 +66,14 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    /** MOVEMENT 
+     */
     private void GetMovement()
     {
-        float forwardMovement, rightMovement;
 
+
+
+        float forwardMovement, rightMovement;
         float movementSpeedCustom = movementSpeed;
 
         if (canMove)
@@ -86,7 +91,7 @@ public class PlayerController : MonoBehaviour
                 isRunning = false;
 
             }
-            
+
             //CheckOnSlope
             if (isMovingOnSlope)
             {
@@ -98,6 +103,8 @@ public class PlayerController : MonoBehaviour
             rightMovement = Input.GetAxis("Horizontal") * movementSpeedCustom * Time.deltaTime;
 
             //Check Diagonale
+
+            //todo there must be a better way
             if (forwardMovement != 0 && rightMovement != 0)
             {
                 forwardMovement /= 1.42f;       //todo determinare se è sempre questo valore
@@ -129,6 +136,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void moveOnSlope()
+    {
+        //The steeper the slope, the less speed we can have
+    }
     private Vector3 GetGravitySpeed()
     {
         //Testing a much stronger force
@@ -155,7 +166,7 @@ public class PlayerController : MonoBehaviour
         {
             //print("Jumping");
             isJumping = true;
-            //timerCheckCollision = 2f;        //Sets the initial timer
+            //timerCheckCollision = 2f;        //Sets the initial timer            
 
 
             //Continue going towards that way
@@ -165,7 +176,8 @@ public class PlayerController : MonoBehaviour
 
           
     }
-
+    /** Check e attivazione dello shooting
+     */
     private void Shoot()
     {
         isShooting = Input.GetMouseButtonDown(0);
@@ -256,45 +268,60 @@ public class PlayerController : MonoBehaviour
     //Overrided methods
     private void OnCollisionEnter(Collision collision)
     {
-
-        /* Jumping stuff*/
-        bool isGrounded = isPlayerGrounded(collision);
-        if (isGrounded)
+     
+        if (isPlayerGrounded(collision))
         {
             canMove = true;
 
+            //Reactivate jump
             if (isJumping)
                 isJumping = false;
         }
-        //Slopes
-        else
+        else if (!isJumping && !isPlayerGrounded(collision))
         {
-            if (!isJumping)
-            {
-                isMovingOnSlope = true;
-                canMove = true;
-
-            }
-
+            isMovingOnSlope = true; 
+            canMove = true;
         }
+        ///* Jumping stuff*/
+        //bool isGrounded = isPlayerGrounded(collision);
+        //if (isGrounded)
+        //{
+        //    canMove = true;
 
-        if (isJumping)
-        {
-            //Stop movement?
-            oldForwardMovement = 0;
-            oldRightMovement = 0;
-        }
+        //    if (isJumping)
+        //        isJumping = false;
+        //}
+        ////Slopes
+        //else
+        //{
+        //    if (!isJumping)
+        //    {
+        //        isMovingOnSlope = true;
+        //        canMove = true;
+
+        //    }
+
+        //}
+
+        //if (isJumping)
+        //{
+        //    //Stop movement?
+        //    oldForwardMovement = 0;
+        //    oldRightMovement = 0;
+        //}
 
      
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.contactCount == 0)
-        {
-            canMove = false;
             isMovingOnSlope = false;
+        //if (collision.contactCount == 0)
+        //{
+        //    canMove = false;
+        //   // isMovingOnSlope = false;
 
-        }
+        //}
 
     }
     private void OnCollisionStay(Collision collision)
