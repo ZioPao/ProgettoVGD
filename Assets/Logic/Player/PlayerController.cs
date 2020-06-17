@@ -180,25 +180,24 @@ public class PlayerController : MonoBehaviour
      */
     private void Shoot()
     {
-        isShooting = Input.GetMouseButtonDown(0);
-
-        if (isShooting)
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit projectile;
-
+            isShooting = true;
             if (Physics.Raycast(bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.forward, out projectile, 100))
             {
+                if (projectile.transform.gameObject.CompareTag("EnemyModel"))
+                    Destroy(projectile.transform.parent.gameObject);
+
                 //ParticleSystem exp = GetComponent<ParticleSystem>();
                 //exp.Play();
-                Destroy(projectile.transform.gameObject);
                 //when it hits something, it destroys it
                 //print(projectile.transform);
             }
 
         }
-
-
-        //for testing, shoot a ball or something
+        else
+            isShooting = false;
 
 
 
@@ -207,10 +206,13 @@ public class PlayerController : MonoBehaviour
 
     private void SetAnimations()
     {
+        //todo something is broken about the running anim 
         if (isRunning)
         {
             if (movementVec.x != 0 || movementVec.z != 0)
                 anim.SetBool("isRunning", true);
+            else
+                anim.SetBool("isRunning", false);
             
         }
         else
