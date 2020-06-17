@@ -6,11 +6,12 @@ public class EnemyShooting : MonoBehaviour
 {
     public LineRenderer laserLineRenderer;
     public SpottingScript spotting;
+    private Transform playerCamera; 
     public float laserWidth = 0.1f;
     public float laserMaxLength = 5f;
 
-    private float timerShooting = 2f;       //
-    private float timerShootingLeft = 2f;
+    private float timerShooting = 1f;       //
+    private float timerShootingLeft = 1f;
     
     void Start()
     {
@@ -18,6 +19,8 @@ public class EnemyShooting : MonoBehaviour
         laserLineRenderer.SetPositions(initLaserPositions);
         laserLineRenderer.startWidth = laserWidth;
         laserLineRenderer.useWorldSpace = false;        //local to the transform
+
+        playerCamera = GameObject.Find("Camera_Main").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -25,28 +28,29 @@ public class EnemyShooting : MonoBehaviour
     {
         if (spotting.isPlayerVisible)
         {
+            print(timerShootingLeft);
             timerShootingLeft -= Time.deltaTime;        //Decrease timer. Shoot only once every sec
-            if (Mathf.RoundToInt(Mathf.Abs(timerShootingLeft)) % 2 == 0)
+
+            
+            if (Mathf.RoundToInt(timerShootingLeft) < 0)
             {
-                Ray ray = new Ray(transform.position, Vector3.forward);
-                RaycastHit raycastHit;
-                Vector3 endPosition = transform.position + (laserMaxLength * Vector3.forward);
+                //Spara e disattiva
                 laserLineRenderer.SetPositions(new Vector3[2] { transform.forward, transform.right });
-
-
-                if (Physics.Raycast(ray, out raycastHit, laserMaxLength))
+                if (Physics.Linecast(transform.position, playerCamera.position))
                 {
-                    endPosition = raycastHit.point + new Vector3(0, 2, 0);
+                    laserLineRenderer.SetPosition(0, new Vector3(0, 0, 0)); ;
+                    laserLineRenderer.SetPosition(1, playerCamera.position);
+                    laserLineRenderer.enabled = true;
                 }
 
-                laserLineRenderer.SetPosition(0, new Vector3(0, 0, 0)); ;
-                laserLineRenderer.SetPosition(1, endPosition);
-                laserLineRenderer.enabled = true;
+                timerShootingLeft = timerShooting;      //Reset timer
+
             }
             else
             {
-                laserLineRenderer.enabled = false;      //turn it off for a sec
+                laserLineRenderer.enabled = false;
             }
+           
         }
         else
         {
