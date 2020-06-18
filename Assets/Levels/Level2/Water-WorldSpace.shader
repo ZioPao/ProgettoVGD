@@ -10,8 +10,8 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Transparent" }
-        LOD 200
+         Tags { "Queue" = "Transparent" "RenderType" = "Transparent" }      
+         LOD 200
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
@@ -28,6 +28,7 @@
         {
             float3 worldNormal;
             float3 worldPos;
+            float opacity;
 
         };
 

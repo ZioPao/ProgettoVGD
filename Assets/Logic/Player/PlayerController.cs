@@ -13,9 +13,10 @@ public class PlayerController : MonoBehaviour
     //if we're touching something but on a slope - nerfed wasd
 
 
-    [SerializeField] private float movementMultiplier = 50f;
     [SerializeField] private float boostSpeed = 2f;
     [SerializeField] private float jumpForce = 50000f;
+    [SerializeField] private float movementSpeed = 5f;
+
 
     private Rigidbody rb;
     private Animator anim;
@@ -23,13 +24,11 @@ public class PlayerController : MonoBehaviour
     private GameObject bulletSpawnPoint;
 
     private Vector3 movementVec;
-    private float movementSpeed = 10;
     
     //Various booleans
     private bool isJumping = false;
     private bool isRunning = false;
     private bool isShooting = false;
-    private bool isMovingOnSlope = false;
     private bool canMove = true;
 
 
@@ -41,7 +40,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        movementSpeed *= movementMultiplier;
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
         bulletSpawnPoint = GameObject.Find("Camera_Main");
@@ -56,13 +54,13 @@ public class PlayerController : MonoBehaviour
 
 
         SetAnimations();
-        Move();
+
+        //Move the player
+        rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
+
+        //Check jumping
         Jump();
 
-
-        //Debug stuff
-        //print("CanMove: " + canMove);
-        //print("movingOnSlope: " + movingOnSlope);
     }
 
 
@@ -92,19 +90,16 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            //CheckOnSlope
-            if (isMovingOnSlope)
-            {
-                movementSpeedCustom -= 150;
+      
 
-            }
-
-            forwardMovement = Input.GetAxis("Vertical") * movementSpeedCustom * Time.deltaTime;
-            rightMovement = Input.GetAxis("Horizontal") * movementSpeedCustom * Time.deltaTime;
+            forwardMovement = Input.GetAxis("Vertical") * movementSpeedCustom;
+            rightMovement = Input.GetAxis("Horizontal") * movementSpeedCustom;
 
             //Check Diagonale
 
             //todo there must be a better way
+
+            /*
             if (forwardMovement != 0 && rightMovement != 0)
             {
                 forwardMovement /= 1.42f;       //todo determinare se è sempre questo valore
@@ -125,34 +120,20 @@ public class PlayerController : MonoBehaviour
             isRunning = false;
         }
 
-       
-        Vector3 forwardMov = transform.forward * forwardMovement;
-        Vector3 rightMov = transform.right * rightMovement;
+       */
 
-        //Saves all of it in that private variable
-        movementVec = (forwardMov + rightMov + GetGravitySpeed());
-        
-      
+            float speedMultiplier = 1 - (getSlopeAngle() / 90);
+            print(speedMultiplier);
+            //forwardMovement *= slopeAngle;
+            //rightMovement *= slopeAngle;
 
-    }
 
-    private void moveOnSlope()
-    {
-        //The steeper the slope, the less speed we can have
-    }
-    private Vector3 GetGravitySpeed()
-    {
-        //Testing a much stronger force
-        float gravityVelocity = rb.velocity.y;
-        return new Vector3(0, gravityVelocity, 0);
-    }
+            Vector3 forwardMov = transform.forward * forwardMovement * speedMultiplier;
+            Vector3 rightMov = transform.right * rightMovement * speedMultiplier;
 
-    //Using the rigidbody we add a force to push our character until topSpeed
-    private void Move()
-    {
-
-        rb.velocity = movementVec;
-
+            //Saves all of it in that private variable
+            movementVec = (forwardMov + rightMov);
+        }
     }
 
 
@@ -164,10 +145,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey("space") && !isJumping)
         {
-            //print("Jumping");
             isJumping = true;
-            //timerCheckCollision = 2f;        //Sets the initial timer            
-
 
             //Continue going towards that way
             Vector3 tmp = (transform.up * jumpForce);
@@ -254,17 +232,22 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private bool isPlayerOnASlope(Collision collision)
+    private float getSlopeAngle()
     {
-        ContactPoint contact = collision.GetContact(0);
-
-        if (Vector3.Dot(contact.normal, Vector3.up) < 0.85)
+        float slopeRaycastLength = 5f;
+        float slopeRaycastSpread = 0.08f;
+        float slopeAngle = 0;
+        RaycastHit ray, ray2;
+        if (Physics.Raycast(rb.transform.position + new Vector3(slopeRaycastSpread, 0, 0), Vector3.down, out ray, slopeRaycastLength))
         {
-            return true;
-        }
+            Debug.DrawLine(transform.position, ray.point, Color.blue);
 
-        else
-            return false;
+            if (Physics.Raycast(rb.transform.position - new Vector3(slopeRaycastSpread, 0, 0), Vector3.down, out ray2, slopeRaycastLength))
+                slopeAngle = Mathf.Atan2(ray.point.y - ray2.point.y, ray.point.x - ray2.point.x) * 180 / Mathf.PI;
+
+        }
+        return slopeAngle;
+        
     }
 
     //Overrided methods
@@ -279,51 +262,16 @@ public class PlayerController : MonoBehaviour
             if (isJumping)
                 isJumping = false;
         }
-        else if (!isJumping && !isPlayerGrounded(collision))
+        else if (!isJumping)
         {
-            isMovingOnSlope = true; 
             canMove = true;
         }
-        ///* Jumping stuff*/
-        //bool isGrounded = isPlayerGrounded(collision);
-        //if (isGrounded)
-        //{
-        //    canMove = true;
-
-        //    if (isJumping)
-        //        isJumping = false;
-        //}
-        ////Slopes
-        //else
-        //{
-        //    if (!isJumping)
-        //    {
-        //        isMovingOnSlope = true;
-        //        canMove = true;
-
-        //    }
-
-        //}
-
-        //if (isJumping)
-        //{
-        //    //Stop movement?
-        //    oldForwardMovement = 0;
-        //    oldRightMovement = 0;
-        //}
-
+      
      
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.contactCount == 0)
-            isMovingOnSlope = false;
-        //if (collision.contactCount == 0)
-        //{
-        //    canMove = false;
-        //   // isMovingOnSlope = false;
 
-        //}
 
     }
     private void OnCollisionStay(Collision collision)
