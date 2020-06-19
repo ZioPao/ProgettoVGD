@@ -16,6 +16,7 @@ public class CameraMovement : MonoBehaviour
 
     private bool isCameraInWater;
     private ColorGrading colorGrading;
+    private LensDistortion lensDistortion;
 
     void Start()
     {
@@ -38,8 +39,10 @@ public class CameraMovement : MonoBehaviour
 
         /*Adds effects based on some bools*/
         post.profile.TryGetSettings(out colorGrading);
-        colorGrading.enabled.value = isCameraInWater;
+        post.profile.TryGetSettings(out lensDistortion);
 
+        colorGrading.enabled.value = isCameraInWater;
+        lensDistortion.enabled.value = isCameraInWater;
    
     }
 
