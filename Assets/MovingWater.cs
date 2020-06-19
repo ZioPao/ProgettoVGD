@@ -37,7 +37,5 @@ public class MovingWater : MonoBehaviour
             if (countdownMovingWaterCurrent >= countdownMovingWater)
                 isMovingUp = true;
         }
-
-
     }
 }

@@ -17,12 +17,25 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 50000f;
     [SerializeField] private float movementSpeed = 5f;
 
+    [SerializeField] private float maxOxygen = 100f;
+    [SerializeField] private float maxStamina = 100f;
+    [SerializeField] private float maxHealth = 100f;
+
+
+
 
     private Rigidbody rb;
     private Animator anim;
-    private GameObject mainCamera;
+    private CameraMovement cameraScript;
+    private GameObject cameraMain;
 
     private Vector3 movementVec;
+
+
+    //Stats
+    private float health;
+    private float stamina;
+    private float oxygen;
 
     //Various booleans
     private bool isGrounded;
@@ -31,6 +44,7 @@ public class PlayerController : MonoBehaviour
     private bool isShooting = false;
 
     protected bool isInWater = false;
+    
 
 
     //Raycasting
@@ -44,26 +58,37 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-        mainCamera = GameObject.Find("Camera_Main");
-        //capsuleCollider = GetComponent<CapsuleCollider>();
+        cameraScript = GetComponentInChildren<CameraMovement>();
+        cameraMain = GameObject.Find("Camera_Main");
+
+        /*Setup basic stats*/
+        oxygen = maxOxygen;
+        health = maxHealth;
+        stamina = maxStamina;
 
 
     }
 
     private void FixedUpdate()
     {
+
+        /*Manage movements*/
         CheckCollisions();
         GetMovement();
-        Shoot();
-
-
-        SetAnimations();
-
-        //Move the player
+        Jump();
         rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
 
-        //Check jumping
-        Jump();
+
+        /*Manage stats*/
+        ManageOxygen();
+        print(oxygen);
+
+        /* Manage actions*/
+        Shoot();
+
+        /*Additional stuff*/
+        SetAnimations();
+
 
     }
 
@@ -132,7 +157,7 @@ public class PlayerController : MonoBehaviour
         {
             RaycastHit projectile;
             isShooting = true;
-            if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out projectile, 100))
+            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out projectile, 100))
             {
                 if (projectile.transform.gameObject.CompareTag("EnemyModel"))
                     Destroy(projectile.transform.parent.gameObject);
@@ -150,6 +175,25 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    private void ManageHealth() { }
+
+    private void ManageOxygen() {
+
+        if (cameraScript.IsCameraUnderWater())
+        {
+            oxygen -= Time.deltaTime*2;
+
+        }
+        else
+        {
+            if (oxygen < maxOxygen)
+                oxygen += Time.deltaTime*5;
+        }
+
+    }
+
+    private void ManageStamina() { }
 
     private void SetAnimations()
     {
@@ -197,9 +241,9 @@ public class PlayerController : MonoBehaviour
         RaycastHit rayWall3 = new RaycastHit();
 
         isTouchingWall =
-            (Physics.Raycast(mainCamera.transform.position + new Vector3(0, 0, raycastSpread), mainCamera.transform.forward, out rayWall1, 2)
-            || Physics.Raycast(mainCamera.transform.position - new Vector3(0, 0, raycastSpread), mainCamera.transform.forward, out rayWall2, 2)
-            || Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out rayWall3, 2));
+            (Physics.Raycast(cameraMain.transform.position + new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out rayWall1, 2)
+            || Physics.Raycast(cameraMain.transform.position - new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out rayWall2, 2)
+            || Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out rayWall3, 2));
          
 
     }

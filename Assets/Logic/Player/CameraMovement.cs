@@ -96,5 +96,12 @@ public class CameraMovement : MonoBehaviour
             isCameraInWater = false;
     }
 
+
+    //Getters
+
+    public bool IsCameraUnderWater()
+    {
+        return isCameraInWater;
+    }
 }
 
