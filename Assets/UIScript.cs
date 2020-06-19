@@ -27,8 +27,8 @@ public class UIScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        healthText.text = playerStatus.GetHealth().ToString();
-        staminaText.text = playerStatus.GetStamina().ToString();
+        healthText.text = Mathf.RoundToInt(playerStatus.GetHealth()).ToString();
+        staminaText.text = Mathf.RoundToInt(playerStatus.GetStamina()).ToString();
 
 
         float oxygen = playerStatus.GetOxygen();
@@ -36,7 +36,7 @@ public class UIScript : MonoBehaviour
         if (oxygen < playerStatus.GetMaxOxygen())
         {
             oxygenCanvas.SetActive(true);
-            oxygenText.text = oxygen.ToString();
+            oxygenText.text = Mathf.RoundToInt(oxygen).ToString();
         }
         else
         {

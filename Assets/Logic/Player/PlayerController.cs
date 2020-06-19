@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
 
         /*Manage stats*/
+        ManageHealth();
         ManageOxygen();
         ManageStamina();
 
@@ -182,12 +183,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void ManageHealth() { }
+    private void ManageHealth() {
+
+        if (oxygen < 1)
+            health -= Time.deltaTime * 10;
+    }
 
     private void ManageOxygen() {
 
         if (cameraScript.IsCameraUnderWater())
-            oxygen -= Time.deltaTime*2;
+        {
+            if (Mathf.RoundToInt(oxygen) > 0)
+                oxygen -= Time.deltaTime * 2;
+        }
+
         else if (oxygen < maxOxygen)
                 oxygen += Time.deltaTime*5;
         
