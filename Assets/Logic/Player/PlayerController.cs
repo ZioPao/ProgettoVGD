@@ -19,15 +19,14 @@ public class PlayerController : MonoBehaviour
 
 
     private Rigidbody rb;
-    private CapsuleCollider capsuleCollider;
     private Animator anim;
-    private GameObject bulletSpawnPoint;
+    private GameObject mainCamera;
 
     private Vector3 movementVec;
 
     //Various booleans
     private bool isGrounded;
-    private bool isJumping;
+    private bool isTouchingWall;
     private bool isRunning = false;
     private bool isShooting = false;
 
@@ -45,8 +44,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-        bulletSpawnPoint = GameObject.Find("Camera_Main");
-        capsuleCollider = GetComponent<CapsuleCollider>();
+        mainCamera = GameObject.Find("Camera_Main");
+        //capsuleCollider = GetComponent<CapsuleCollider>();
 
 
     }
@@ -78,7 +77,7 @@ public class PlayerController : MonoBehaviour
         float slopeSpeedMultiplier = 1 - (GetSlopeAngle() / 90);
 
         /*Boost*/
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall)
             movementSpeedMod = SetBoost();
         else
             isRunning = false;
@@ -90,6 +89,13 @@ public class PlayerController : MonoBehaviour
         /*Get movement*/
         forwardMovement = Input.GetAxis("Vertical") * movementSpeedMod;
         rightMovement = Input.GetAxis("Horizontal") * movementSpeedMod;
+
+        /*Fix diagonal speed*/
+        if (forwardMovement != 0 && rightMovement != 0)
+        {
+            forwardMovement /= 1.42f;       //todo determinare se è sempre questo valore
+            rightMovement /= 1.42f;
+        }
 
         /*Setup vectors*/
         Vector3 forwardVec = transform.forward * forwardMovement * slopeSpeedMultiplier;
@@ -126,7 +132,7 @@ public class PlayerController : MonoBehaviour
         {
             RaycastHit projectile;
             isShooting = true;
-            if (Physics.Raycast(bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.forward, out projectile, 100))
+            if (Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out projectile, 100))
             {
                 if (projectile.transform.gameObject.CompareTag("EnemyModel"))
                     Destroy(projectile.transform.parent.gameObject);
@@ -185,7 +191,17 @@ public class PlayerController : MonoBehaviour
         //check ground
         isGrounded = Physics.Raycast
             (rb.transform.position, Vector3.down, out RaycastHit rayGround, 2);     //todo determina l'altezza corretta
-      
+
+        RaycastHit rayWall1 = new RaycastHit();
+        RaycastHit rayWall2 = new RaycastHit();
+        RaycastHit rayWall3 = new RaycastHit();
+
+        isTouchingWall =
+            (Physics.Raycast(mainCamera.transform.position + new Vector3(0, 0, raycastSpread), mainCamera.transform.forward, out rayWall1, 2)
+            || Physics.Raycast(mainCamera.transform.position - new Vector3(0, 0, raycastSpread), mainCamera.transform.forward, out rayWall2, 2)
+            || Physics.Raycast(mainCamera.transform.position, mainCamera.transform.forward, out rayWall3, 2));
+         
+
     }
 
     private float GetSlopeAngle()
@@ -201,8 +217,10 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
     private void OnTriggerEnter(Collider collider)
     {
+
         if (collider.gameObject.CompareTag("Water"))
             isInWater = true;
     }
