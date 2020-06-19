@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         /*Manage stats*/
         ManageOxygen();
-        print(oxygen);
+        ManageStamina();
 
         /* Manage actions*/
         Shoot();
@@ -139,9 +139,10 @@ public class PlayerController : MonoBehaviour
     private void Jump()
      
     {
-        if (Input.GetKey("space") && isGrounded)
+        if (Input.GetKey("space") && isGrounded && stamina >= 5)
         {
-            //Continue going towards that way
+            //Continue going towards that wayì
+            stamina -= 1;       //decrease stamina
             Vector3 tmp = (transform.up * jumpForce);
             rb.AddForce(tmp, ForceMode.Force);
         }
@@ -181,19 +182,23 @@ public class PlayerController : MonoBehaviour
     private void ManageOxygen() {
 
         if (cameraScript.IsCameraUnderWater())
-        {
             oxygen -= Time.deltaTime*2;
-
-        }
-        else
-        {
-            if (oxygen < maxOxygen)
+        else if (oxygen < maxOxygen)
                 oxygen += Time.deltaTime*5;
-        }
+        
 
     }
 
-    private void ManageStamina() { }
+    private void ManageStamina() {
+
+        //todo adda che se è fermo la stamina torna molto più rapidamente
+
+        if (isRunning)
+            stamina -= Time.deltaTime * 2;
+        else if (stamina < maxStamina)
+            stamina += Time.deltaTime * 5;
+   
+    }
 
     private void SetAnimations()
     {
@@ -281,5 +286,15 @@ public class PlayerController : MonoBehaviour
     public bool IsInWater()
     {
         return isInWater;
+    }
+
+    public float GetHealth()
+    {
+        return health;
+    }
+
+    public float GetStamina()
+    {
+        return stamina;
     }
 }

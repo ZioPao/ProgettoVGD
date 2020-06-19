@@ -9,7 +9,6 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float mouseSensitivity = 100;
     [SerializeField] private Transform player = null;      //Sarebbe il player controller
 
-    private PlayerController pc;
     private PostProcessVolume post;
 
     private float maxY;
@@ -21,7 +20,6 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
 
-        pc = GetComponentInParent<PlayerController>();
         post = GetComponent<PostProcessVolume>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
