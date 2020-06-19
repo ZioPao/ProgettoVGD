@@ -139,11 +139,16 @@ public class PlayerController : MonoBehaviour
     private void Jump()
      
     {
-        if (Input.GetKey("space") && isGrounded && stamina >= 5)
+        if (Input.GetKey("space") && stamina >= 5 && (isGrounded || isInWater))
         {
+            float jumpForceMod = jumpForce;
             //Continue going towards that wayì
             stamina -= 1;       //decrease stamina
-            Vector3 tmp = (transform.up * jumpForce);
+
+            if (isInWater)
+                jumpForceMod /= 5;
+
+            Vector3 tmp = (transform.up * jumpForceMod);
             rb.AddForce(tmp, ForceMode.Force);
         }
 
@@ -296,5 +301,15 @@ public class PlayerController : MonoBehaviour
     public float GetStamina()
     {
         return stamina;
+    }
+
+    public float GetOxygen()
+    {
+        return oxygen;
+    }
+
+    public float GetMaxOxygen()
+    {
+        return maxOxygen;
     }
 }

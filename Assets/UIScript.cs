@@ -8,14 +8,20 @@ public class UIScript : MonoBehaviour
 
     private PlayerController playerStatus;
 
+    private GameObject oxygenCanvas;
     private Text healthText, staminaText, oxygenText;
 
     // Start is called before the first frame update
     void Start()
     {
+
         playerStatus = GetComponentInParent<PlayerController>();
+
+        oxygenCanvas = GameObject.Find("Oxygen_Canvas");
+
         healthText = GameObject.Find("health_edit").GetComponent<Text>();
         staminaText = GameObject.Find("stamina_edit").GetComponent<Text>();
+        oxygenText = GameObject.Find("oxygen_edit").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -23,5 +29,18 @@ public class UIScript : MonoBehaviour
     {
         healthText.text = playerStatus.GetHealth().ToString();
         staminaText.text = playerStatus.GetStamina().ToString();
+
+
+        float oxygen = playerStatus.GetOxygen();
+
+        if (oxygen < playerStatus.GetMaxOxygen())
+        {
+            oxygenCanvas.SetActive(true);
+            oxygenText.text = oxygen.ToString();
+        }
+        else
+        {
+            oxygenCanvas.SetActive(false);
+        }
     }
 }
