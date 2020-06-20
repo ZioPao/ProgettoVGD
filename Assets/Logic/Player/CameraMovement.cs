@@ -5,36 +5,37 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-
+    
     [SerializeField] private float mouseSensitivity = 100;
     [SerializeField] private Transform player = null;      //Sarebbe il player controller
 
-    private PostProcessVolume post;
 
     private float maxY;
 
+    /*Enemy viewing stuff*/
+    private EnemyBase enemyBase;
+    private GameObject[] enemyList;
+    /*Graphical stuff*/
     private bool isCameraInWater;
+    private PostProcessVolume post;
     private ColorGrading colorGrading;
     private LensDistortion lensDistortion;
 
     void Start()
     {
+        enemyBase = GameObject.Find("Enemies").GetComponent<EnemyBase>();
+        enemyList = enemyBase.GetAllEnemies();      //todo gestire nel caso volessimo aggiungere nemici
+
 
         post = GetComponent<PostProcessVolume>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         CameraRotation();
-
+        ManageSpriteViewing();
         /*Adds effects based on some bools*/
         post.profile.TryGetSettings(out colorGrading);
         post.profile.TryGetSettings(out lensDistortion);
@@ -82,24 +83,66 @@ public class CameraMovement : MonoBehaviour
         eulerRotation.x = value;        //La blocca
         transform.eulerAngles = eulerRotation;  //Setta la rotazione del player
     }
-    private void OnTriggerEnter(Collider collider)
+    
+    
+    /* Raycasting for enemy sprites*/
+    private void ManageSpriteViewing()
     {
-        if (collider.gameObject.CompareTag("Water"))
-            isCameraInWater = true;
+
+        //todo dovrebbe sapere da prima che nemici sono
+        RaycastHit rayEnemySprite = new RaycastHit();
+
+        //Prende una lista di tutti i nemici. Seleziona solo quelli che sono distanti meno di tot metri
+        if (enemyList.Length != 0)
+        {
+            //determina che nemici sono a seconda del livello
+            //todo deve gestire anche animazioni
+            Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
+            foreach (GameObject enemy in enemyList)
+            {
+                Debug.DrawLine(transform.position, enemy.transform.position);
+
+                if (Physics.Linecast(transform.position, enemy.transform.position, out rayEnemySprite, LayerMask.GetMask("Enemy")))
+                {
+                    print(rayEnemySprite.collider.name);
+                    Renderer enemyRenderer = enemy.GetComponentInChildren<MeshRenderer>();
+                    switch (rayEnemySprite.collider.name)
+                    {
+                        case "Front":
+                            enemyRenderer.material.mainTexture = Resources.Load<Texture2D>("Enemies/Level1/enemy_idle_front");
+                            break;
+                        case "Left":
+                            enemyRenderer.material.mainTexture = Resources.Load<Texture>("Enemies/Level1/enemy_idle_left");
+                            break;
+                        case "Right":
+                            enemyRenderer.material.mainTexture = Resources.Load<Texture>("Enemies/Level1/enemy_idle_right");
+                            
+                            break;
+
+                    }
+
+                }
+
+
+            }
+
+        }
     }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        if (collider.gameObject.CompareTag("Water"))
-            isCameraInWater = false;
-    }
-
-
+    
+   
     //Getters
 
     public bool IsCameraUnderWater()
     {
         return isCameraInWater;
     }
+
+    //Setters
+    public void SetCameraStatus(bool isUnderWater)
+    {
+        isCameraInWater = isUnderWater;
+    }
+
+
 }
 

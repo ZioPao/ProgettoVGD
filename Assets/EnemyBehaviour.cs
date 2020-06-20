@@ -9,6 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     Transform playerTransform;
     NavMeshAgent agent;
     SpottingScript visibilityCone;
+    Transform textureRenderer;
 
     [SerializeField] private float memoryTime = 5f;        //How long does the enemy remember the player?
     private float memoryTimeLeft = 0f;
@@ -17,15 +18,23 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-        visibilityCone = GameObject.Find("VisibilityCone").GetComponent<SpottingScript>();
+        visibilityCone = transform.Find("VisibilityCone").GetComponent<SpottingScript>();
         agent = GetComponent<NavMeshAgent>();
-
+        textureRenderer = transform.Find("Model").Find("Texture");
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
+
+        //Look at player
+        Vector3 targetPostition = new Vector3(playerTransform.position.x,
+                                       0,
+                                       playerTransform.position.z);
+        textureRenderer.LookAt(targetPostition);
+
         //Check wheter or not it spotted the player. 
         if (visibilityCone.isPlayerVisible)
         {
