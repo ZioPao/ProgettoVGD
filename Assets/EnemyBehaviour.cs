@@ -31,9 +31,11 @@ public class EnemyBehaviour : MonoBehaviour
 
         //Look at player
         Vector3 targetPostition = new Vector3(playerTransform.position.x,
-                                       0,
+                                       textureRenderer.position.y,
                                        playerTransform.position.z);
         textureRenderer.LookAt(targetPostition);
+
+        textureRenderer.rotation = Quaternion.Euler(90, textureRenderer.rotation.eulerAngles.y, textureRenderer.eulerAngles.z);
 
         //Check wheter or not it spotted the player. 
         if (visibilityCone.isPlayerVisible)
