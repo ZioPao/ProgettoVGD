@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxStamina = 100f;
     [SerializeField] private float maxHealth = 100f;
 
+    [SerializeField] private float rigidBodyDefaultMass = 2.45f;
+
 
 
 
@@ -110,7 +112,13 @@ public class PlayerController : MonoBehaviour
 
         /*In water*/
         if (isInWater)
+        {
             movementSpeedMod *= 0.5f; //Decrease
+            //rb.mass = rigidBodyDefaultMass + 15f;
+        }
+
+
+        
 
         /*Get movement*/
         forwardMovement = Input.GetAxis("Vertical") * movementSpeedMod;
@@ -178,8 +186,6 @@ public class PlayerController : MonoBehaviour
         }
         else
             isShooting = false;
-
-
 
     }
 

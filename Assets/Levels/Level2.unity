@@ -4623,7 +4623,7 @@ GameObject:
   m_Component:
   - component: {fileID: 560790222}
   - component: {fileID: 560790223}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6961,7 +6961,7 @@ GameObject:
   - component: {fileID: 879982861}
   - component: {fileID: 879982860}
   - component: {fileID: 879982859}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlanePond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15464,7 +15464,7 @@ GameObject:
   - component: {fileID: 2014482724}
   - component: {fileID: 2014482727}
   - component: {fileID: 2014482725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WaterBlock
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -27079,6 +27079,7 @@ MonoBehaviour:
   maxOxygen: 100
   maxStamina: 100
   maxHealth: 100
+  rigidBodyDefaultMass: 2.45
 --- !u!4 &2952775603138215370
 Transform:
   m_ObjectHideFlags: 0

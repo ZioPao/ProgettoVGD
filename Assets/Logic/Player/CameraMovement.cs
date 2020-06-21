@@ -100,11 +100,11 @@ public class CameraMovement : MonoBehaviour
             Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
             foreach (GameObject enemy in enemyList)
             {
-                Debug.DrawLine(transform.position, enemy.transform.position);
+                //Debug.DrawLine(transform.position, enemy.transform.position);
 
                 if (Physics.Linecast(transform.position, enemy.transform.position, out rayEnemySprite, LayerMask.GetMask("Enemy")))
                 {
-                    print(rayEnemySprite.collider.name);
+                    //print(rayEnemySprite.collider.name);
                     Renderer enemyRenderer = enemy.GetComponentInChildren<MeshRenderer>();
                     switch (rayEnemySprite.collider.name)
                     {
