@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     private bool isShooting = false;
 
     protected bool isInWater = false;
-    
+    protected bool isTouchingWallWithHead = false;
 
 
     //Raycasting
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
         float slopeSpeedMultiplier = 1 - (GetSlopeAngle() / 90);
 
         /*Boost*/
-        if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall)
+        if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall && (rb.velocity.magnitude > 0))
             movementSpeedMod = SetBoost();
         else
             isRunning = false;
@@ -212,8 +212,10 @@ public class PlayerController : MonoBehaviour
     private void ManageStamina() {
 
         //todo adda che se è fermo la stamina torna molto più rapidamente
+        
 
-        if (isRunning)
+        //La stamina diminuisce solo quando effettivamente sta facenod l'animazione.
+        if (anim.GetBool("isRunning"))
             stamina -= Time.deltaTime * 2;
         else if (stamina < maxStamina)
             stamina += Time.deltaTime * 5;
@@ -222,7 +224,6 @@ public class PlayerController : MonoBehaviour
 
     private void SetAnimations()
     {
-        //todo something is broken about the running anim 
         if (isRunning)
         {
             if (movementVec.x != 0 || movementVec.z != 0)
@@ -269,7 +270,15 @@ public class PlayerController : MonoBehaviour
             (Physics.Raycast(cameraMain.transform.position + new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out rayWall1, 2)
             || Physics.Raycast(cameraMain.transform.position - new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out rayWall2, 2)
             || Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out rayWall3, 2));
-         
+
+
+        RaycastHit rayHead = new RaycastHit();
+
+
+        Debug.DrawRay(cameraMain.transform.position, cameraMain.transform.up);
+        isTouchingWallWithHead = (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.up, out rayHead, 1));
+        print(isTouchingWallWithHead);
+
 
     }
 

@@ -2930,7 +2930,6 @@ GameObject:
   - component: {fileID: 335709645}
   - component: {fileID: 335709644}
   - component: {fileID: 335709646}
-  - component: {fileID: 335709647}
   m_Layer: 10
   m_Name: CameraCollider
   m_TagString: Player
@@ -2993,19 +2992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a491bb2471657854dbf7192cc0cdc95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &335709647
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335709642}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 0, y: 1, z: 0.5}
 --- !u!1 &338573191
 GameObject:
   m_ObjectHideFlags: 0
@@ -16742,6 +16728,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2952775602486959101}
+  - component: {fileID: 2952775602486959091}
   m_Layer: 0
   m_Name: Handgun_01_Arms
   m_TagString: Player
@@ -16749,6 +16736,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!135 &2952775602486959091
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2952775602486959090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!4 &2952775602486959101
 Transform:
   m_ObjectHideFlags: 0
