@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float rigidBodyDefaultMass = 2.45f;
 	
+	[SerializeField] private float projectileDistance = 100f;
 	[SerializeField] private float interactionDistance = 5f;
 
 
@@ -206,7 +207,7 @@ public class PlayerController : MonoBehaviour
         {
             RaycastHit projectile;
             isShooting = true;
-            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out projectile, 100))
+            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out projectile, projectileDistance))
             {
                 if (projectile.transform.gameObject.CompareTag("EnemyModel"))
                     Destroy(projectile.transform.parent.gameObject);
