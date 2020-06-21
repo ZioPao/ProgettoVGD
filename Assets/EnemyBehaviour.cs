@@ -20,7 +20,7 @@ public class EnemyBehaviour : MonoBehaviour
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         visibilityCone = transform.Find("VisibilityCone").GetComponent<SpottingScript>();
         agent = GetComponent<NavMeshAgent>();
-        textureRenderer = transform.Find("Model").Find("Texture");
+        textureRenderer = transform.Find("Texture");
 
     }
 
