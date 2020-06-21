@@ -50,8 +50,9 @@ public class PlayerController : MonoBehaviour
 	private bool isInteracting = false;
 
     protected bool isInWater = false;
-    
+    protected bool isTouchingWallWithHead = false;
 
+    float lastGoodYPosition;
 
     //Raycasting
     float raycastLength = 5f;
@@ -82,7 +83,7 @@ public class PlayerController : MonoBehaviour
         CheckCollisions();
         GetMovement();
         Jump();
-        rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
+        MakeMovement();
 
 
         /*Manage stats*/
@@ -110,10 +111,16 @@ public class PlayerController : MonoBehaviour
         float slopeSpeedMultiplier = 1 - (GetSlopeAngle() / 90);
 
         /*Boost*/
-        if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall)
+        if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall && (rb.velocity.magnitude > 0))
+        {
             movementSpeedMod = SetBoost();
+
+        }
         else
+        {
             isRunning = false;
+
+        }
 
         /*In water*/
         if (isInWater)
@@ -144,6 +151,28 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    private void MakeMovement()
+    {
+
+
+        /*If touching wall with head*/
+        if (isTouchingWallWithHead)
+        {
+            if (rb.position.y < lastGoodYPosition)
+                rb.MovePosition(transform.position - movementVec * Time.fixedDeltaTime);
+            else
+                rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
+
+
+        }
+        else
+        {
+            rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
+
+        }
+
+
+    }
     private float SetBoost()
     {
         isRunning = true;
@@ -241,8 +270,10 @@ public class PlayerController : MonoBehaviour
     private void ManageStamina() {
 
         //todo adda che se è fermo la stamina torna molto più rapidamente
+        
 
-        if (isRunning)
+        //La stamina diminuisce solo quando effettivamente sta facenod l'animazione.
+        if (anim.GetBool("isRunning"))
             stamina -= Time.deltaTime * 2;
         else if (stamina < maxStamina)
             stamina += Time.deltaTime * 5;
@@ -251,7 +282,6 @@ public class PlayerController : MonoBehaviour
 
     private void SetAnimations()
     {
-        //todo something is broken about the running anim 
         if (isRunning)
         {
             if (movementVec.x != 0 || movementVec.z != 0)
@@ -298,7 +328,25 @@ public class PlayerController : MonoBehaviour
             (Physics.Raycast(cameraMain.transform.position + new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out rayWall1, 2)
             || Physics.Raycast(cameraMain.transform.position - new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out rayWall2, 2)
             || Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out rayWall3, 2));
-         
+
+
+        RaycastHit rayHead = new RaycastHit();
+
+
+        if (isTouchingWallWithHead)
+        {
+            isTouchingWallWithHead = Physics.Raycast(cameraMain.transform.position, cameraMain.transform.up, out rayHead, 3);
+
+        }
+        else
+        {
+            isTouchingWallWithHead = Physics.Raycast(cameraMain.transform.position, cameraMain.transform.up, out rayHead, 2.5f);
+            if (isTouchingWallWithHead)
+                lastGoodYPosition = rb.position.y;
+        }
+   
+
+
 
     }
 
@@ -356,4 +404,20 @@ public class PlayerController : MonoBehaviour
     {
         return maxOxygen;
     }
+
+
+
+    ///TEST STUFF
+     Component CopyComponent(Component original, GameObject destination)
+ {
+     System.Type type = original.GetType();
+    Component copy = destination.AddComponent(type);
+    // Copied fields can be restricted with BindingFlags
+    System.Reflection.FieldInfo[] fields = type.GetFields(); 
+     foreach (System.Reflection.FieldInfo field in fields)
+     {
+        field.SetValue(copy, field.GetValue(original));
+     }
+     return copy;
+ }
 }
