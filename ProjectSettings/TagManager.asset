@@ -8,6 +8,8 @@ TagManager:
   - EnemyModel
   - Static
   - Water
+  - Sign
+  - Interactable
   layers:
   - Default
   - TransparentFX
