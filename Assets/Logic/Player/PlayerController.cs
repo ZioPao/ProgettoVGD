@@ -112,8 +112,23 @@ public class PlayerController : MonoBehaviour
         float movementSpeedMod = movementSpeed;
         float slopeSpeedMultiplier = 1 - (GetSlopeAngle() / 90);
 
+        /*In water*/
+        if (isInWater)
+        {
+            movementSpeedMod *= 0.5f; //Decrease
+            //rb.mass = rigidBodyDefaultMass + 15f;
+        }
+
+
+
+
+        /*Get movement*/
+        float axisMovementVertical = Input.GetAxis("Vertical");
+        float axisMovementHorizontal = Input.GetAxis("Horizontal");
+
+
         /*Boost*/
-        if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall && (rb.velocity.magnitude > 0))
+        if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall && (rb.velocity.magnitude > 0) && (axisMovementVertical > 0))
         {
             movementSpeedMod = SetBoost();
 
@@ -123,20 +138,9 @@ public class PlayerController : MonoBehaviour
             isRunning = false;
 
         }
+        forwardMovement = axisMovementVertical * movementSpeedMod;
+        rightMovement = axisMovementHorizontal  * movementSpeedMod;
 
-        /*In water*/
-        if (isInWater)
-        {
-            movementSpeedMod *= 0.5f; //Decrease
-            //rb.mass = rigidBodyDefaultMass + 15f;
-        }
-
-
-        
-
-        /*Get movement*/
-        forwardMovement = Input.GetAxis("Vertical") * movementSpeedMod;
-        rightMovement = Input.GetAxis("Horizontal") * movementSpeedMod;
 
         /*Fix diagonal speed*/
         if (forwardMovement != 0 && rightMovement != 0)
