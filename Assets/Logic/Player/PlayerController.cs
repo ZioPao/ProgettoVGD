@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private bool isShooting = false;
 	private bool isInteracting = false;
     protected bool isNearInteractable = false;
+    protected bool isReadingSign = false;
 
     protected bool isInWater = false;
     protected bool isTouchingWallWithHead = false;
@@ -244,10 +245,12 @@ public class PlayerController : MonoBehaviour
                     switch (interactor.transform.parent.name)
                     {
                         case "Sign":
-                            print("Cartello");
+                            InteractWithSign();
                             break;
                         case "Chest":
-                            print("Chest");
+                            //InteractWithObject("Chest");
+                            break;
+                        default:
                             break;
                     }
                 }
@@ -266,7 +269,19 @@ public class PlayerController : MonoBehaviour
             isInteracting = false;
         }
     }
+    /*shows a new layer in the hud*/
+    private void InteractWithSign()
+    {
 
+        isReadingSign = true;
+        
+
+        //todo se è troppo distante dal sign, si toglie il canvas?
+
+        //todo blocca il player?
+
+
+    }
     private void ManageHealth() {
 
         if (oxygen < 1)
@@ -428,5 +443,10 @@ public class PlayerController : MonoBehaviour
     public bool IsPlayerNearInteractable()
     {
         return isNearInteractable;
+    }
+
+    public bool IsPlayerReadingSign()
+    {
+        return isReadingSign;
     }
 }

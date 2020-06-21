@@ -8,7 +8,7 @@ public class UIScript : MonoBehaviour
 
     private PlayerController playerStatus;
 
-    private GameObject oxygenCanvas, interactionCanvas;
+    private GameObject oxygenCanvas, interactionCanvas, signCanvas;
     private Text healthText, staminaText, oxygenText;
 
     // Start is called before the first frame update
@@ -19,6 +19,7 @@ public class UIScript : MonoBehaviour
 
         oxygenCanvas = GameObject.Find("Oxygen_Canvas");
         interactionCanvas = GameObject.Find("Interaction_Canvas");
+        signCanvas = GameObject.Find("Sign_Canvas");
 
         healthText = GameObject.Find("health_edit").GetComponent<Text>();
         staminaText = GameObject.Find("stamina_edit").GetComponent<Text>();
@@ -44,16 +45,11 @@ public class UIScript : MonoBehaviour
             oxygenCanvas.SetActive(false);
         }
 
+        interactionCanvas.SetActive(playerStatus.IsPlayerNearInteractable());
+        signCanvas.SetActive(playerStatus.IsPlayerReadingSign());
 
-        if (playerStatus.IsPlayerNearInteractable()){
+     
 
-            interactionCanvas.SetActive(true);
-
-        }
-        else
-        {
-            interactionCanvas.SetActive(false);
-        }
     }
 
 
