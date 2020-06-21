@@ -255,8 +255,6 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-
-                isNearInteractable = false;
                 isInteracting = false;
             }
 
