@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private bool isRunning = false;
     private bool isShooting = false;
 	private bool isInteracting = false;
+    protected bool isNearInteractable = false;
 
     protected bool isInWater = false;
     protected bool isTouchingWallWithHead = false;
@@ -227,24 +228,45 @@ public class PlayerController : MonoBehaviour
 	
 	private void Interact()
 	{
-		if (Input.GetKey("e") && !isInteracting)
-		{
-			RaycastHit interactor;
-			isInteracting = true;
-			if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out interactor, interactionDistance))
+        RaycastHit interactor;
+		if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out interactor, interactionDistance))
 			{
-				
-				//if (interactor.transform.gameObject.CompareTag("Sign"))
-					
-				//if (interactor.transform.gameObject.CompareTag("Chest"))
-					
-				//Altre interazioni possibili
-                    
-			}
-			isInteracting = false;
-		}
 
-	}
+            if (interactor.collider.CompareTag("Interactable"))
+            {
+                //printa che puoi interagire
+                isNearInteractable = true;
+                if (Input.GetKey("e") && !isInteracting)
+                {
+                    isInteracting = true;
+                    //todo potenzialmente rotto con chest se fatte con un singolo modello. Da capire un po
+                    switch (interactor.transform.parent.name)
+                    {
+                        case "Sign":
+                            print("Cartello");
+                            break;
+                        case "Chest":
+                            print("Chest");
+                            break;
+                    }
+                }
+
+            }
+            else
+            {
+
+                isNearInteractable = false;
+                isInteracting = false;
+            }
+
+		}
+        else
+        {
+
+            isNearInteractable = false;
+            isInteracting = false;
+        }
+    }
 
     private void ManageHealth() {
 
@@ -404,19 +426,8 @@ public class PlayerController : MonoBehaviour
         return maxOxygen;
     }
 
-
-
-    ///TEST STUFF
-     Component CopyComponent(Component original, GameObject destination)
- {
-     System.Type type = original.GetType();
-    Component copy = destination.AddComponent(type);
-    // Copied fields can be restricted with BindingFlags
-    System.Reflection.FieldInfo[] fields = type.GetFields(); 
-     foreach (System.Reflection.FieldInfo field in fields)
-     {
-        field.SetValue(copy, field.GetValue(original));
-     }
-     return copy;
- }
+    public bool IsPlayerNearInteractable()
+    {
+        return isNearInteractable;
+    }
 }
