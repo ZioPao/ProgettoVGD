@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
     private void MakeMovement()
     {
 
-
+        print(GetSlopeAngle());
         /*If touching wall with head*/
         if (isTouchingWallWithHead)
         {
@@ -167,9 +167,11 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        else
-        {
-            rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
+  
+        else if (GetSlopeAngle() > -50 && GetSlopeAngle() <= 0)
+
+            {
+                rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
 
         }
 
@@ -394,6 +396,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(rb.transform.position - new Vector3(raycastSpread, 0, 0), Vector3.down, out RaycastHit raySlope2, raycastLength))
                 slopeAngle = Mathf.Atan2(raySlope1.point.y - raySlope2.point.y, raySlope1.point.x - raySlope2.point.x) * 180 / Mathf.PI;
         }
+
         return slopeAngle;
 
     }
