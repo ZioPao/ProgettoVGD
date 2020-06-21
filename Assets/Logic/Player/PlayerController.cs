@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
 
     [SerializeField] private float rigidBodyDefaultMass = 2.45f;
+	
+	[SerializeField] private float interactionDistance = 5f;
 
 
 
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
     private bool isTouchingWall;
     private bool isRunning = false;
     private bool isShooting = false;
+	private bool isInteracting = false;
 
     protected bool isInWater = false;
     
@@ -88,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
         /* Manage actions*/
         Shoot();
+		Interact();
 
         /*Additional stuff*/
         SetAnimations();
@@ -188,6 +192,30 @@ public class PlayerController : MonoBehaviour
             isShooting = false;
 
     }
+	
+	/** Check e attivazione dell'interazione
+	*/
+	
+	private void Interact()
+	{
+		if (Input.GetKey("e") && !isInteracting)
+		{
+			RaycastHit interactor;
+			isInteracting = true;
+			if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out interactor, interactionDistance))
+			{
+				
+				//if (interactor.transform.gameObject.CompareTag("Sign"))
+					
+				//if (interactor.transform.gameObject.CompareTag("Chest"))
+					
+				//Altre interazioni possibili
+                    
+			}
+			isInteracting = false;
+		}
+
+	}
 
     private void ManageHealth() {
 
