@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public LineRenderer laserLineRenderer;
-    public SpottingScript spotting;
+    private EnemyBehaviour enemyBehaviour;
     private Transform playerCamera; 
     public float laserWidth = 0.1f;
     public float laserMaxLength = 5f;
@@ -20,13 +20,14 @@ public class EnemyShooting : MonoBehaviour
         laserLineRenderer.startWidth = laserWidth;
         laserLineRenderer.useWorldSpace = false;        //local to the transform
 
+        enemyBehaviour = transform.GetComponentInParent<EnemyBehaviour>();
         playerCamera = GameObject.Find("Camera_Main").GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (spotting.isPlayerVisible)
+        if (enemyBehaviour.GetIsPlayerInView())
         {
             print(timerShootingLeft);
             timerShootingLeft -= Time.deltaTime;        //Decrease timer. Shoot only once every sec

@@ -8,17 +8,21 @@ public class EnemyBehaviour : MonoBehaviour
 {
     Transform playerTransform;
     NavMeshAgent agent;
-    SpottingScript visibilityCone;
     Transform textureRenderer;
 
     [SerializeField] private float memoryTime = 5f;        //How long does the enemy remember the player?
+    [SerializeField] private float playerDistance = 5f;        //How far does he have to stay?
+    [SerializeField] private float maxViewDistance = 150f;        //How far can he see?
+
     private float memoryTimeLeft = 0f;
+
+
+    protected bool isPlayerInView = false;
 
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-        visibilityCone = transform.Find("VisibilityCone").GetComponent<SpottingScript>();
         agent = GetComponent<NavMeshAgent>();
         textureRenderer = transform.Find("Texture");
 
@@ -28,7 +32,6 @@ public class EnemyBehaviour : MonoBehaviour
     void FixedUpdate()
     {
 
-
         //Look at player
         Vector3 targetPostition = new Vector3(playerTransform.position.x,
                                        textureRenderer.position.y,
@@ -37,10 +40,13 @@ public class EnemyBehaviour : MonoBehaviour
 
         textureRenderer.rotation = Quaternion.Euler(90, textureRenderer.rotation.eulerAngles.y, textureRenderer.eulerAngles.z);
 
-        //Check wheter or not it spotted the player. 
-        if (visibilityCone.isPlayerVisible)
+        /*Check wheter or not it spotted the player.*/
+        isPlayerInView = CheckIfPlayerIsInView();
+
+        if (isPlayerInView)
         {
             followPlayer();
+            MoveTowardsPlayer();
             memoryTimeLeft = memoryTime;
         }
 
@@ -62,6 +68,13 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
 
+    /*The enemy will try to follow the player and flank him. Will not get too close*/
+    private void MoveTowardsPlayer()
+    {
+        if (Vector3.Distance(agent.nextPosition, playerTransform.position) <= playerDistance)
+            print("Enemy is close");
+    }
+
     private void followPlayer()
     {
         agent.isStopped = false;
@@ -71,11 +84,40 @@ public class EnemyBehaviour : MonoBehaviour
 
     private void stopFollowingPlayer()
         {
+
         agent.isStopped = true;
 
         }
-        /** SETUP
-         */
 
+
+
+    private bool CheckIfPlayerIsInView()
+    {
+        RaycastHit rayEnemySprite;
+        //todo probabilmente meglio un layer apposito
+
+        LayerMask tmp =~ LayerMask.GetMask("Enemy");        //ignore viewchecks for sprite management
+        if (Vector3.Distance(playerTransform.position, transform.position) < maxViewDistance)
+
+            if (Physics.Linecast(transform.position, playerTransform.position, out rayEnemySprite, tmp))
+            {
+                if (rayEnemySprite.collider.name.Equals("Player"));
+                    return true;
+
+            }
+
+        return false;
 
     }
+
+
+    //Getter
+
+    public bool GetIsPlayerInView()
+    {
+        return isPlayerInView;
+    }
+
+}
+
+

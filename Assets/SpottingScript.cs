@@ -34,16 +34,19 @@ public class SpottingScript : MonoBehaviour
     }
 
 
-    void OnTriggerEnter(Collider a)
+    void OnCollisionEnter(Collision collision)
     {
-        isPlayerVisible = a.gameObject.name.Equals("Player");
+
+        if (collision.gameObject.CompareTag("Player"))
+            isPlayerVisible = true;
+        
             
     }
 
 
-    private void OnTriggerExit(Collider a)
+    private void OnCollisionExit(Collision collision)
     {
-        if (isPlayerVisible && a.gameObject.name.Equals("Player"))
+        if (isPlayerVisible && collision.gameObject.CompareTag("Player"))
         {
             isPlayerVisible = false;
 
@@ -54,8 +57,10 @@ public class SpottingScript : MonoBehaviour
     {
         visibilityConeMesh = GetComponent<MeshFilter>().mesh;
 
-        coneVertices = new Vector3[] { new Vector3(0, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0) };
-        triangles = new int[] { 0, 1, 2 };
+        coneVertices = new Vector3[] { new Vector3(0, 0, 0), new Vector3(0, 0, 1), new Vector3(1, 0, 0),
+                                        new Vector3(0,12,0), new Vector3(0,12,1),new Vector3(1,12,0) };
+       
+        triangles = new int[] { 0,1,2,0,1,2 };
 
         visibilityConeMesh.Clear();
         visibilityConeMesh.vertices = coneVertices;

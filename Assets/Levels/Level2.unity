@@ -2931,9 +2931,9 @@ GameObject:
   - component: {fileID: 335709644}
   - component: {fileID: 335709646}
   - component: {fileID: 335709647}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: CameraCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5666,74 +5666,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 745606485}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &747757646
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 747757647}
-  - component: {fileID: 747757651}
-  - component: {fileID: 747757649}
-  - component: {fileID: 747757648}
-  m_Layer: 0
-  m_Name: VisibilityCone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &747757647
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747757646}
-  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 15, y: 1, z: 15}
-  m_Children: []
-  m_Father: {fileID: 1716385847}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
---- !u!64 &747757648
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747757646}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
---- !u!114 &747757649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747757646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c757c26c38f593409130a4a7d0351a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPlayerVisible: 0
---- !u!33 &747757651
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 747757646}
-  m_Mesh: {fileID: 0}
 --- !u!1 &752366213
 GameObject:
   m_ObjectHideFlags: 0
@@ -12229,7 +12161,7 @@ Transform:
   - {fileID: 1158119553}
   - {fileID: 1375554565}
   m_Father: {fileID: 1716385847}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1632579190
 PrefabInstance:
@@ -12630,7 +12562,6 @@ Transform:
   - {fileID: 1353959788}
   - {fileID: 573321156}
   - {fileID: 1761647741}
-  - {fileID: 747757647}
   - {fileID: 1605694935}
   m_Father: {fileID: 1819276206}
   m_RootOrder: 0
@@ -12645,7 +12576,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5000001
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -12670,6 +12601,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   memoryTime: 5
+  playerDistance: 5
+  maxViewDistance: 150
 --- !u!1 &1719254299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6015801904299255468, guid: 3749b76f43b6f214f8b7c9f88c6ba504,
@@ -12973,7 +12906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserLineRenderer: {fileID: 1761647743}
-  spotting: {fileID: 747757649}
+  spotting: {fileID: 0}
   laserWidth: 0.1
   laserMaxLength: 5
 --- !u!120 &1761647743
@@ -13607,7 +13540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1819276204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.359985, y: 0, z: 201.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1716385847}
@@ -27004,7 +26937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2952775603097346509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 875.36, y: 129.9, z: 217.41}
+  m_LocalPosition: {x: 866, y: 129.9, z: 419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2952775603233039550}
@@ -27038,9 +26971,9 @@ GameObject:
   - component: {fileID: 2952775603097346510}
   - component: {fileID: 2952775603097346511}
   - component: {fileID: 2952775603097346508}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
