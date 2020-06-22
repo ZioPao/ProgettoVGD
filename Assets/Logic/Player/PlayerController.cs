@@ -118,14 +118,10 @@ namespace Logic.Player
                 //rb.mass = rigidBodyDefaultMass + 15f;
             }
 
-
-
-
             /*Get movement*/
             float axisMovementVertical = Input.GetAxis("Vertical");
             float axisMovementHorizontal = Input.GetAxis("Horizontal");
-
-
+            
             /*Boost*/
             if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall && !isTouchingWallWithHead && (rb.velocity.magnitude > 0) && (axisMovementVertical > 0))
             {
@@ -175,6 +171,7 @@ namespace Logic.Player
             else
             {
                 float slopeAngleTmp = GetSlopeAngle();
+                
                 if (slopeAngleTmp > -50 && slopeAngleTmp <= 15)
                     rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
                 else
@@ -182,9 +179,6 @@ namespace Logic.Player
                     print(slopeAngleTmp);
                 }
             }
-
-            
-
 
         }
         private float SetBoost()
@@ -220,11 +214,10 @@ namespace Logic.Player
             {
                 RaycastHit projectile;
                 isShooting = true;
-                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out projectile, projectileDistance))
+                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out projectile, projectileDistance, LayerMask.GetMask("EnemyHitbox")))
                 {
-                    if (projectile.transform.gameObject.CompareTag("EnemyModel"))
-                        Destroy(projectile.transform.parent.gameObject);
-
+                    Destroy(projectile.transform.parent.gameObject);
+                    
                     //ParticleSystem exp = GetComponent<ParticleSystem>();
                     //exp.Play();
                     //when it hits something, it destroys it

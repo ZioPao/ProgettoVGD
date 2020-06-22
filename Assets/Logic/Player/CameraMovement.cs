@@ -99,21 +99,19 @@ public class CameraMovement : MonoBehaviour
     /* Raycasting for enemy sprites*/
     private void ManageSpriteViewing()
     {
-        //todo dovrebbe sapere da prima che nemici sono
         RaycastHit rayEnemySprite = new RaycastHit();
 
-        //Prende una lista di tutti i nemici. Seleziona solo quelli che sono distanti meno di tot metri
         if (enemyList.Length != 0)
         {
-            //determina che nemici sono a seconda del livello
             //todo deve gestire anche animazioni
             int counter = 0;
             //Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
             foreach (GameObject enemy in enemyList)
             {
-                //Debug.DrawLine(transform.position, enemy.transform.position);
-
-                if (Physics.Linecast(transform.position, enemy.transform.position, out rayEnemySprite,
+                //Check esistenza nemico.
+                if (enemy)
+                {
+                     if (Physics.Linecast(transform.position, enemy.transform.position, out rayEnemySprite,
                     LayerMask.GetMask("Enemy")))
                 {
                     //print(rayEnemySprite.collider.name);
@@ -141,25 +139,25 @@ public class CameraMovement : MonoBehaviour
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_right");
                             break;
                         case "DiagFrontRight":
-                            enemyTextureTransform.localScale = new Vector3(0.3f, 1, 1);
+                            enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_right");
                             break;
                         case "DiagFrontLeft":
-                            enemyTextureTransform.localScale = new Vector3(0.3f, 1, 1);
+                            enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_left");
                             break;
                         case "DiagBackRight":
-                            enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
+                            enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_right");
                             break;
                         case "DiagBackLeft":
-                            enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
+                            enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_left");
@@ -172,6 +170,8 @@ public class CameraMovement : MonoBehaviour
                             break;
                     }
                 }
+                }
+               
 
                 counter++;
             }
