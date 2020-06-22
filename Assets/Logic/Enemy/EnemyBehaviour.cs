@@ -1,123 +1,109 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.UNetWeaver;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBehaviour : MonoBehaviour
+namespace Logic.Enemy
 {
-    Transform playerTransform;
-    NavMeshAgent agent;
-    Transform textureRenderer;
-
-    [SerializeField] private float memoryTime = 5f;        //How long does the enemy remember the player?
-    [SerializeField] private float playerDistance = 5f;        //How far does he have to stay?
-    [SerializeField] private float maxViewDistance = 150f;        //How far can he see?
-
-    private float memoryTimeLeft = 0f;
-
-
-    protected bool isPlayerInView = false;
-
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyBehaviour : MonoBehaviour
     {
-        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-        agent = GetComponent<NavMeshAgent>();
-        textureRenderer = transform.Find("Texture");
+        private Transform playerTransform;
+        private Transform frontEnemy;
+        NavMeshAgent agent;
+        Transform textureRenderer;
 
-    }
+        [SerializeField] private float memoryTime = 5f; //How long does the enemy remember the player?
+        [SerializeField] private float playerDistance = 5f; //How far does he have to stay?
+        [SerializeField] private float maxViewDistance = 150f; //How far can he see?
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
+        private float memoryTimeLeft = 0f;
 
-        //Look at player
-        Vector3 targetPostition = new Vector3(playerTransform.position.x,
-                                       textureRenderer.position.y,
-                                       playerTransform.position.z);
-        textureRenderer.LookAt(targetPostition);
 
-        textureRenderer.rotation = Quaternion.Euler(90, textureRenderer.rotation.eulerAngles.y, textureRenderer.eulerAngles.z);
+        protected bool isPlayerInView = false;
 
-        /*Check wheter or not it spotted the player.*/
-        isPlayerInView = CheckIfPlayerIsInView();
-
-        if (isPlayerInView)
+        // Start is called before the first frame update
+        void Start()
         {
-            followPlayer();
-            MoveTowardsPlayer();
-            memoryTimeLeft = memoryTime;
+            playerTransform = GameObject.Find("Player").GetComponent<Transform>();
+            agent = GetComponent<NavMeshAgent>();
+            textureRenderer = transform.Find("Texture");
+            frontEnemy = transform.Find("ViewCheck").Find("Front");
         }
 
-        else
+        // Update is called once per frame
+        void FixedUpdate()
         {
-            //No memory time left, so the enemy will have to stop
-            if (memoryTimeLeft <= 0)
-            {
-                stopFollowingPlayer();
+            //Look at player
+            Vector3 targetPostition = new Vector3(playerTransform.position.x,
+                textureRenderer.position.y,
+                playerTransform.position.z);
+            textureRenderer.LookAt(targetPostition);
 
+            textureRenderer.rotation =
+                Quaternion.Euler(90, textureRenderer.rotation.eulerAngles.y, textureRenderer.eulerAngles.z);
+
+            /*Check wheter or not it spotted the player.*/
+            isPlayerInView = CheckIfPlayerIsInView();
+
+            if (isPlayerInView)
+            {
+                FollowPlayer();
+                MoveTowardsPlayer();
+                memoryTimeLeft = memoryTime;
             }
+
             else
             {
-                followPlayer();
-                memoryTimeLeft -= Time.deltaTime;
+                //No memory time left, so the enemy will have to stop
+                if (memoryTimeLeft <= 0)
+                {
+                    StopFollowingPlayer();
+                }
+                else
+                {
+                    FollowPlayer();
+                    memoryTimeLeft -= Time.deltaTime;
+                }
             }
-
         }
-    }
 
 
-    /*The enemy will try to follow the player and flank him. Will not get too close*/
-    private void MoveTowardsPlayer()
-    {
-        if (Vector3.Distance(agent.nextPosition, playerTransform.position) <= playerDistance)
-            print("Enemy is close");
-    }
-
-    private void followPlayer()
-    {
-        agent.isStopped = false;
-        agent.destination = playerTransform.position;
-
-    }
-
-    private void stopFollowingPlayer()
+        /*The enemy will try to follow the player and flank him. Will not get too close*/
+        private void MoveTowardsPlayer()
         {
+            if (Vector3.Distance(agent.nextPosition, playerTransform.position) <= playerDistance)
+                print("");
+        }
 
-        agent.isStopped = true;
+        private void FollowPlayer()
+        {
+            agent.isStopped = false;
+            agent.destination = playerTransform.position;
+        }
 
+        private void StopFollowingPlayer()
+        {
+            agent.isStopped = true;
         }
 
 
+        private bool CheckIfPlayerIsInView()
+        {
+            RaycastHit rayEnemySprite;
+            //todo probabilmente meglio un layer apposito
 
-    private bool CheckIfPlayerIsInView()
-    {
-        RaycastHit rayEnemySprite;
-        //todo probabilmente meglio un layer apposito
+            LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
+            Debug.DrawLine(frontEnemy.position, playerTransform.position);
 
-        LayerMask tmp =~ LayerMask.GetMask("Enemy");        //ignore viewchecks for sprite management
-        if (Vector3.Distance(playerTransform.position, transform.position) < maxViewDistance)
+            if (!(Vector3.Distance(frontEnemy.position, transform.position) < maxViewDistance)) return false;
+        
+            return Physics.Linecast(frontEnemy.position, playerTransform.position, out rayEnemySprite, tmp) && rayEnemySprite.collider.CompareTag("Player");
+        }
 
-            if (Physics.Linecast(transform.position, playerTransform.position, out rayEnemySprite, tmp))
-            {
-                if (rayEnemySprite.collider.name.Equals("Player"));
-                    return true;
 
-            }
+        //Getter
 
-        return false;
-
+        public bool GetIsPlayerInView()
+        {
+            return isPlayerInView;
+        }
     }
-
-
-    //Getter
-
-    public bool GetIsPlayerInView()
-    {
-        return isPlayerInView;
-    }
-
 }
-
-

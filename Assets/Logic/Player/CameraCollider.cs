@@ -1,30 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class CameraCollider : MonoBehaviour
+namespace Logic.Player
 {
-
-    CameraMovement cm;
-
-    void Start()
+    public class CameraCollider : MonoBehaviour
     {
-        cm = GetComponentInParent<CameraMovement>();
-    }
+
+        CameraMovement cm;
+
+        void Start()
+        {
+            cm = GetComponentInParent<CameraMovement>();
+        }
 
  
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.CompareTag("Water"))
-            cm.SetCameraStatus(true);
+        private void OnTriggerEnter(Collider collider)
+        {
+            if (collider.gameObject.CompareTag("Water"))
+                cm.SetCameraStatus(true);
+        }
+
+        private void OnTriggerExit(Collider collider)
+        {
+            if (collider.gameObject.CompareTag("Water"))
+                cm.SetCameraStatus(false);
+        }
+
+
     }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        if (collider.gameObject.CompareTag("Water"))
-            cm.SetCameraStatus(false);
-    }
-
-
 }

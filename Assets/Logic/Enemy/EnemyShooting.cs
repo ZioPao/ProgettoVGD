@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Logic.Enemy;
 using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
@@ -29,7 +30,7 @@ public class EnemyShooting : MonoBehaviour
     {
         if (enemyBehaviour.GetIsPlayerInView())
         {
-            print(timerShootingLeft);
+            //print(timerShootingLeft);
             timerShootingLeft -= Time.deltaTime;        //Decrease timer. Shoot only once every sec
 
             
