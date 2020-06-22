@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\aless\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\aless\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_ProgettoVGD.148403870.00" t="ExcludeRecursive" />
+    <e p="C:\Users\aless\Documents\Unity Projects\ProgettoVGD" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="BrokenVector" t="Include">
+          <e p="UltimateDungeonPack" t="Include">
+            <e p="Scenes" t="Include">
+              <e p="Demo" t="Include">
+                <e p="FPControls" t="Include">
+                  <e p="Scripts" t="Include">
+                    <e p="CharacterController.cs" t="Include" />
+                    <e p="MouseCamLook.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="LightImprove.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Levels" t="Include">
+          <e p="Level2" t="Include">
+            <e p="Water-WorldSpace.shader" t="Include" />
+          </e>
+        </e>
+        <e p="Logic" t="Include">
+          <e p="Enemy" t="Include">
+            <e p="Button.cs" t="Include" />
+            <e p="EnemyBase.cs" t="Include" />
+            <e p="EnemyBehaviour.cs" t="Include" />
+            <e p="EnemyShooting.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="CameraCollider.cs" t="Include" />
+            <e p="CameraMovement.cs" t="Include" />
+            <e p="NewBehaviourScript.cs" t="Include" />
+            <e p="PlayerController.cs" t="Include" />
+            <e p="Shooting.cs" t="Include" />
+          </e>
+          <e p="Various" t="Include">
+            <e p="MovingWater.cs" t="Include" />
+            <e p="UIScript.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Materials" t="Include">
+          <e p="Water-WorldSpace.shader" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="Low Poly FPS Pack - Free (Sample)" t="Include">
+            <e p="Components" t="Include">
+              <e p="Demo_Scene_Components" t="Include">
+                <e p="Scripts" t="Include">
+                  <e p="DebrisScript.cs" t="Include" />
+                  <e p="ExplosiveBarrelScript.cs" t="Include" />
+                  <e p="TargetScript.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="Bullet" t="Include">
+                  <e p="BulletScript.cs" t="Include" />
+                </e>
+                <e p="Casings_&amp;_Projectiles" t="Include">
+                  <e p="CasingScript.cs" t="Include" />
+                  <e p="GrenadeScript.cs" t="Include" />
+                </e>
+                <e p="Explosions_&amp;_Impacts" t="Include">
+                  <e p="ExplosionScript.cs" t="Include" />
+                  <e p="ImpactScript.cs" t="Include" />
+                </e>
+                <e p="FPSController" t="Include">
+                  <e p="FpsControllerLPFP.cs" t="Include" />
+                </e>
+                <e p="Misc" t="Include">
+                  <e p="LookAtCamera.cs" t="Include" />
+                </e>
+                <e p="Weapon_Scripts" t="Include">
+                  <e p="AutomaticGunScriptLPFP.cs" t="Include" />
+                  <e p="HandgunScriptLPFP.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="GitHub" t="Include">
+            <e p="Editor" t="Include">
+              <e p="credits.txt" t="Include" />
+              <e p="eula.txt" t="Include" />
+              <e p="ExtensionLoader.cs" t="Include" />
+              <e p="UnityAPIWrapper.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="ProgettoVGD.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
