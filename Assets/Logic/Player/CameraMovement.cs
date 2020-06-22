@@ -16,7 +16,9 @@ public class CameraMovement : MonoBehaviour
     private GameObject[] enemyList;
 
     private List<MeshRenderer> enemyRendererList;
-
+    private List<Transform> enemyTextureTransformList;
+    
+    
     /*Graphical stuff*/
     private bool isCameraInWater;
     private PostProcessVolume post;
@@ -29,8 +31,11 @@ public class CameraMovement : MonoBehaviour
         enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
 
         enemyRendererList = new List<MeshRenderer>();
+        enemyTextureTransformList = new List<Transform>();
+        
         foreach (GameObject enemy in enemyList)
         {
+            enemyTextureTransformList.Add(enemy.transform.Find("Texture"));
             enemyRendererList.Add(enemy.GetComponentInChildren<MeshRenderer>());
         }
 
@@ -112,40 +117,56 @@ public class CameraMovement : MonoBehaviour
                     LayerMask.GetMask("Enemy")))
                 {
                     //print(rayEnemySprite.collider.name);
-                    //Renderer enemyRenderer = enemy.GetComponentInChildren<MeshRenderer>();
-                    Renderer enemyRenderer = enemyRendererList[counter];
 
+                    Renderer enemyRenderer = enemyRendererList[counter];
+                    Transform enemyTextureTransform = enemyTextureTransformList[counter];
+                    
+                    
                     switch (rayEnemySprite.collider.name)
                     {
                         case "Front":
+                            enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
+
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture2D>("Enemies/Level1/enemy_idle_front");
                             break;
                         case "Left":
+                            enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_left");
                             break;
                         case "Right":
+                            enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_right");
                             break;
                         case "DiagFrontRight":
+                            enemyTextureTransform.localScale = new Vector3(0.3f, 1, 1);
+
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_right");
                             break;
                         case "DiagFrontLeft":
+                            enemyTextureTransform.localScale = new Vector3(0.3f, 1, 1);
+
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_left");
                             break;
                         case "DiagBackRight":
+                            enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
+
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_right");
                             break;
                         case "DiagBackLeft":
+                            enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
+
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_left");
                             break;
                         case "Back":
+                            enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
+
                             enemyRenderer.material.mainTexture =
                                 Resources.Load<Texture>("Enemies/Level1/enemy_idle_back");
                             break;
