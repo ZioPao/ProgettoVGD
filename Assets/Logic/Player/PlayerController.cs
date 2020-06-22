@@ -171,13 +171,19 @@ namespace Logic.Player
 
 
             }
-  
-            else if (GetSlopeAngle() > -50 && GetSlopeAngle() <= 0)
 
+            else
             {
-                rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
-
+                float slopeAngleTmp = GetSlopeAngle();
+                if (slopeAngleTmp > -50 && slopeAngleTmp <= 15)
+                    rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
+                else
+                {
+                    print(slopeAngleTmp);
+                }
             }
+
+            
 
 
         }

@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    
     [SerializeField] private float mouseSensitivity = 100;
-    [SerializeField] private Transform player = null;      //Sarebbe il player controller
+    [SerializeField] private Transform player = null; //Sarebbe il player controller
 
 
     private float maxY;
@@ -15,6 +14,9 @@ public class CameraMovement : MonoBehaviour
     /*Enemy viewing stuff*/
     private EnemyBase enemyBase;
     private GameObject[] enemyList;
+
+    private List<MeshRenderer> enemyRendererList;
+
     /*Graphical stuff*/
     private bool isCameraInWater;
     private PostProcessVolume post;
@@ -24,7 +26,13 @@ public class CameraMovement : MonoBehaviour
     void Start()
     {
         enemyBase = GameObject.Find("Enemies").GetComponent<EnemyBase>();
-        enemyList = enemyBase.GetAllEnemies();      //todo gestire nel caso volessimo aggiungere nemici
+        enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
+
+        enemyRendererList = new List<MeshRenderer>();
+        foreach (GameObject enemy in enemyList)
+        {
+            enemyRendererList.Add(enemy.GetComponentInChildren<MeshRenderer>());
+        }
 
 
         post = GetComponent<PostProcessVolume>();
@@ -42,7 +50,6 @@ public class CameraMovement : MonoBehaviour
 
         colorGrading.enabled.value = isCameraInWater;
         lensDistortion.enabled.value = isCameraInWater;
-   
     }
 
     private void CameraRotation()
@@ -74,21 +81,19 @@ public class CameraMovement : MonoBehaviour
         //Rotazione X
 
         player.Rotate(Vector3.up * mouseX);
-
     }
 
     private void SetLockCamera(float value)
     {
         Vector3 eulerRotation = transform.eulerAngles;
-        eulerRotation.x = value;        //La blocca
-        transform.eulerAngles = eulerRotation;  //Setta la rotazione del player
+        eulerRotation.x = value; //La blocca
+        transform.eulerAngles = eulerRotation; //Setta la rotazione del player
     }
-    
-    
+
+
     /* Raycasting for enemy sprites*/
     private void ManageSpriteViewing()
     {
-
         //todo dovrebbe sapere da prima che nemici sono
         RaycastHit rayEnemySprite = new RaycastHit();
 
@@ -97,39 +102,62 @@ public class CameraMovement : MonoBehaviour
         {
             //determina che nemici sono a seconda del livello
             //todo deve gestire anche animazioni
+            int counter = 0;
             Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
             foreach (GameObject enemy in enemyList)
             {
                 //Debug.DrawLine(transform.position, enemy.transform.position);
 
-                if (Physics.Linecast(transform.position, enemy.transform.position, out rayEnemySprite, LayerMask.GetMask("Enemy")))
+                if (Physics.Linecast(transform.position, enemy.transform.position, out rayEnemySprite,
+                    LayerMask.GetMask("Enemy")))
                 {
                     //print(rayEnemySprite.collider.name);
-                    Renderer enemyRenderer = enemy.GetComponentInChildren<MeshRenderer>();
+                    //Renderer enemyRenderer = enemy.GetComponentInChildren<MeshRenderer>();
+                    Renderer enemyRenderer = enemyRendererList[counter];
+
                     switch (rayEnemySprite.collider.name)
                     {
                         case "Front":
-                            enemyRenderer.material.mainTexture = Resources.Load<Texture2D>("Enemies/Level1/enemy_idle_front");
+                            enemyRenderer.material.mainTexture =
+                                Resources.Load<Texture2D>("Enemies/Level1/enemy_idle_front");
                             break;
                         case "Left":
-                            enemyRenderer.material.mainTexture = Resources.Load<Texture>("Enemies/Level1/enemy_idle_left");
+                            enemyRenderer.material.mainTexture =
+                                Resources.Load<Texture>("Enemies/Level1/enemy_idle_left");
                             break;
                         case "Right":
-                            enemyRenderer.material.mainTexture = Resources.Load<Texture>("Enemies/Level1/enemy_idle_right");
-                            
+                            enemyRenderer.material.mainTexture =
+                                Resources.Load<Texture>("Enemies/Level1/enemy_idle_right");
                             break;
-
+                        case "DiagFrontRight":
+                            enemyRenderer.material.mainTexture =
+                                Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_right");
+                            break;
+                        case "DiagFrontLeft":
+                            enemyRenderer.material.mainTexture =
+                                Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_left");
+                            break;
+                        case "DiagBackRight":
+                            enemyRenderer.material.mainTexture =
+                                Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_right");
+                            break;
+                        case "DiagBackLeft":
+                            enemyRenderer.material.mainTexture =
+                                Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_left");
+                            break;
+                        case "Back":
+                            enemyRenderer.material.mainTexture =
+                                Resources.Load<Texture>("Enemies/Level1/enemy_idle_back");
+                            break;
                     }
-
                 }
 
-
+                counter++;
             }
-
         }
     }
-    
-   
+
+
     //Getters
 
     public bool IsCameraUnderWater()
@@ -142,7 +170,4 @@ public class CameraMovement : MonoBehaviour
     {
         isCameraInWater = isUnderWater;
     }
-
-
 }
-
