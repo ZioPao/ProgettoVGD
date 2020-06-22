@@ -103,7 +103,7 @@ public class CameraMovement : MonoBehaviour
             //determina che nemici sono a seconda del livello
             //todo deve gestire anche animazioni
             int counter = 0;
-            Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
+            //Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
             foreach (GameObject enemy in enemyList)
             {
                 //Debug.DrawLine(transform.position, enemy.transform.position);
