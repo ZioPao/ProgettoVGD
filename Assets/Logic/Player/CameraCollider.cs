@@ -4,25 +4,26 @@ namespace Logic.Player
 {
     public class CameraCollider : MonoBehaviour
     {
+        private CameraMovement cm;
 
-        CameraMovement cm;
+        private const string WaterTag = "Water";
 
-        void Start()
+        private void Start()
         {
             cm = GetComponentInParent<CameraMovement>();
         }
 
  
 
-        private void OnTriggerEnter(Collider collider)
+        private void OnTriggerEnter(Collider c)
         {
-            if (collider.gameObject.CompareTag("Water"))
+            if (c.gameObject.CompareTag(WaterTag))
                 cm.SetCameraStatus(true);
         }
 
-        private void OnTriggerExit(Collider collider)
+        private void OnTriggerExit(Collider c)
         {
-            if (collider.gameObject.CompareTag("Water"))
+            if (c.gameObject.CompareTag(WaterTag))
                 cm.SetCameraStatus(false);
         }
 

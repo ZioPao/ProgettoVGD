@@ -26,7 +26,7 @@ namespace Logic.Player
         private ColorGrading colorGrading;
         private LensDistortion lensDistortion;
 
-        void Start()
+        private void Start()
         {
             enemyBase = GameObject.Find("Enemies").GetComponent<EnemyBase>();
             enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
@@ -50,6 +50,7 @@ namespace Logic.Player
         {
             CameraRotation();
             ManageSpriteViewing();
+            
             /*Adds effects based on some bools*/
             post.profile.TryGetSettings(out colorGrading);
             post.profile.TryGetSettings(out lensDistortion);
@@ -65,7 +66,6 @@ namespace Logic.Player
 
             //Check clamping
             maxY += mouseY;
-            //print(maxY);
 
             if (maxY > 90.0f)
             {
@@ -91,91 +91,91 @@ namespace Logic.Player
 
         private void SetLockCamera(float value)
         {
-            Vector3 eulerRotation = transform.eulerAngles;
+            var transformCopy = transform;
+            
+            Vector3 eulerRotation = transformCopy.eulerAngles;
             eulerRotation.x = value; //La blocca
-            transform.eulerAngles = eulerRotation; //Setta la rotazione del player
+            transformCopy.eulerAngles = eulerRotation; //Setta la rotazione del player
         }
 
 
         /* Raycasting for enemy sprites*/
         private void ManageSpriteViewing()
         {
-            RaycastHit rayEnemySprite;
+            if (enemyList.Length == 0) return;
 
-            if (enemyList.Length != 0)
+            /*todo è estremamente WIP. Da inserire gestione animazioni, un sistema più decente per il caricamento delle texture, e potenzialmente una marea di altra roba che ora non mi viene in mente*/
+            
+            //Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
+
+            int counter = 0;
+            foreach (GameObject enemy in enemyList)
             {
-                //todo deve gestire anche animazioni
-                int counter = 0;
-                //Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
-                foreach (GameObject enemy in enemyList)
+                //Check esistenza nemico
+                if (enemy)
                 {
-                    //Check esistenza nemico.
-                    if (enemy)
+                    if (Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit rayEnemySprite,
+                        LayerMask.GetMask("Enemy")))
                     {
-                        if (Physics.Linecast(transform.position, enemy.transform.position, out rayEnemySprite,
-                            LayerMask.GetMask("Enemy")))
+
+                        Renderer enemyRenderer = enemyRendererList[counter];
+                        Transform enemyTextureTransform = enemyTextureTransformList[counter];
+                    
+                    
+                        switch (rayEnemySprite.collider.name)
                         {
-                            //print(rayEnemySprite.collider.name);
+                            case "Front":
+                                enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
 
-                            Renderer enemyRenderer = enemyRendererList[counter];
-                            Transform enemyTextureTransform = enemyTextureTransformList[counter];
-                    
-                    
-                            switch (rayEnemySprite.collider.name)
-                            {
-                                case "Front":
-                                    enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
+                                enemyRenderer.material.mainTexture =
+                                    Resources.Load<Texture2D>("Enemies/Level1/enemy_idle_front");
+                                break;
+                            case "Left":
+                                enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
+                                enemyRenderer.material.mainTexture =
+                                    Resources.Load<Texture>("Enemies/Level1/enemy_idle_left");
+                                break;
+                            case "Right":
+                                enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
+                                enemyRenderer.material.mainTexture =
+                                    Resources.Load<Texture>("Enemies/Level1/enemy_idle_right");
+                                break;
+                            case "DiagFrontRight":
+                                enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture2D>("Enemies/Level1/enemy_idle_front");
-                                    break;
-                                case "Left":
-                                    enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_left");
-                                    break;
-                                case "Right":
-                                    enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_right");
-                                    break;
-                                case "DiagFrontRight":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
+                                enemyRenderer.material.mainTexture =
+                                    Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_right");
+                                break;
+                            case "DiagFrontLeft":
+                                enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_right");
-                                    break;
-                                case "DiagFrontLeft":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
+                                enemyRenderer.material.mainTexture =
+                                    Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_left");
+                                break;
+                            case "DiagBackRight":
+                                enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_left");
-                                    break;
-                                case "DiagBackRight":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
+                                enemyRenderer.material.mainTexture =
+                                    Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_right");
+                                break;
+                            case "DiagBackLeft":
+                                enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_right");
-                                    break;
-                                case "DiagBackLeft":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
+                                enemyRenderer.material.mainTexture =
+                                    Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_left");
+                                break;
+                            case "Back":
+                                enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_left");
-                                    break;
-                                case "Back":
-                                    enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
-
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_back");
-                                    break;
-                            }
+                                enemyRenderer.material.mainTexture =
+                                    Resources.Load<Texture>("Enemies/Level1/enemy_idle_back");
+                                break;
                         }
                     }
+                }
                
 
-                    counter++;
-                }
+                counter++;
             }
         }
 

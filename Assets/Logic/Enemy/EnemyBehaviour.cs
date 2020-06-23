@@ -5,47 +5,47 @@ namespace Logic.Enemy
 {
     public class EnemyBehaviour : MonoBehaviour
     {
-        private Transform playerTransform;
-        private Transform frontEnemy;
-        NavMeshAgent agent;
-        Transform textureRenderer;
+        
+
 
         [SerializeField] private float memoryTime = 100f; //How long does the enemy remember the player?
         [SerializeField] private float playerDistance = 5f; //How far does he have to stay?
         [SerializeField] private float maxViewDistance = 150f; //How far can he see?
         [SerializeField] private float maxTimerAlternativeMovement = 2f;
-        
+
+        //Various components
+        private Transform playerTransform;
+        private Transform frontEnemy;
+        private Transform textureRenderer;
+        private NavMeshAgent agent;
+
+        //Enemy memory stuff
         private float memoryTimeLeft = 0f;
         private float timerAlternativeMovement = 0f;
-
         private Vector3 savedDestination;
+        private bool isPlayerInView = false;
 
-
-        protected bool isPlayerInView = false;
-
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             playerTransform = GameObject.Find("Player").GetComponent<Transform>();
             agent = GetComponent<NavMeshAgent>();
             textureRenderer = transform.Find("Texture");
             frontEnemy = transform.Find("ViewCheck").Find("Front");
         }
-
-        // Update is called once per frame
-        void FixedUpdate()
+        private void FixedUpdate()
         {
+            //Manage the looking at player stuff
+            var playerPosition = playerTransform.position;
 
-            //Look at player
-            Vector3 targetPostition = new Vector3(playerTransform.position.x,
+            Vector3 targetPostition = new Vector3(playerPosition.x,
                 textureRenderer.position.y,
-                playerTransform.position.z);
+                playerPosition.z);
             textureRenderer.LookAt(targetPostition);
 
             textureRenderer.rotation =
                 Quaternion.Euler(90, textureRenderer.rotation.eulerAngles.y, textureRenderer.eulerAngles.z);
 
-            /*Check wheter or not it spotted the player.*/
+            /*Check whether or not it spotted the player.*/
             isPlayerInView = CheckIfPlayerIsInView();
 
             if (isPlayerInView)
@@ -54,56 +54,50 @@ namespace Logic.Enemy
                 MoveTowardsPlayer();
                 memoryTimeLeft = memoryTime;
             }
+            
+            //No memory time left, so the enemy will have to stop
 
+            else if (memoryTimeLeft <= 0)
+            {
+                agent.isStopped = true;
+            }
+            //Move towards the player and decrease the memory time of the enemy
             else
             {
-                //No memory time left, so the enemy will have to stop
-                if (memoryTimeLeft <= 0)
-                {
-                    agent.isStopped = true;
-                }
-                else
-                {
-                    MoveTowardsPlayer();
-                    memoryTimeLeft -= Time.deltaTime;
-                }
+                MoveTowardsPlayer();
+                memoryTimeLeft -= Time.deltaTime;
             }
         }
 
+        
 
         /*The enemy will try to follow the player and flank him. Will not get too close*/
         private void MoveTowardsPlayer()
         {
-
-            Debug.DrawLine(agent.transform.position, agent.destination);
-
+            //Se sta effettuando un movimento alternativo, continuerà per un certo tot
             if (timerAlternativeMovement > 0f)
             {
                 timerAlternativeMovement -= Time.deltaTime;
                 return;
-
             }
-            
-            
+
+
+            //in caso contrario, operazione normale
             if (Vector3.Distance(agent.nextPosition, playerTransform.position) <= playerDistance)
             {
                 timerAlternativeMovement = maxTimerAlternativeMovement;
-                
-                
-                print("nemico vicino a player");
-
                 float randomChoice = Random.Range(0f, 1f);
 
                 if (randomChoice < 0.5f)
                 {
-                    agent.destination = playerTransform.position + agent.transform.right * 100f;;
-
+                    agent.destination = playerTransform.position + agent.transform.right * 100f;
+                    ;
                 }
                 else
                 {
-                    agent.destination = playerTransform.position - agent.transform.right * 100f;;
+                    agent.destination = playerTransform.position - agent.transform.right * 100f;
+                    ;
                 }
-                
             }
             else
             {
@@ -111,20 +105,16 @@ namespace Logic.Enemy
             }
         }
 
-
         private bool CheckIfPlayerIsInView()
         {
-            RaycastHit rayEnemySprite;
-            //todo probabilmente meglio un layer apposito
-
             LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
 
             if (!(Vector3.Distance(frontEnemy.position, transform.position) < maxViewDistance)) return false;
 
-            return Physics.Linecast(frontEnemy.position, playerTransform.position, out rayEnemySprite, tmp) &&
+            return Physics.Linecast(frontEnemy.position, playerTransform.position, out RaycastHit rayEnemySprite,
+                       tmp) &&
                    rayEnemySprite.collider.CompareTag("Player");
         }
-
 
         //Getter
 

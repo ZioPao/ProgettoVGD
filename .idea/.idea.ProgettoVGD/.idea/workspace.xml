@@ -22,6 +22,9 @@
     <list default="true" id="3c0a94b4-3a72-4aaa-b23e-ef01512582b0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyShooting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyShooting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/CameraCollider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logic/Player/CameraCollider.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Logic/Player/CameraMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +47,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyShooting.cs" />
-        <option value="$PROJECT_DIR$/Assets/Logic/Player/CameraMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Logic/Player/CameraCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/Logic/Various/UIScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Logic/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Logic/Various/UiScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Logic/Player/CameraMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Logic/Player/CameraCollider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyShooting.cs" />
       </list>
     </option>
   </component>
@@ -89,7 +93,7 @@
       <updated>1592837574766</updated>
       <workItem from="1592837579296" duration="6098000" />
       <workItem from="1592858220063" duration="3270000" />
-      <workItem from="1592877028287" duration="4801000" />
+      <workItem from="1592877028287" duration="5447000" />
     </task>
     <servers />
   </component>
@@ -204,9 +208,10 @@
       <screen x="3840" y="454" width="1920" height="1041" />
     </state>
     <state x="4303" y="627" key="SettingsEditor/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839544776" />
-    <state x="3934" y="548" width="1732" height="866" key="VCS.FileHistoryDialog" timestamp="1592839443338">
-      <screen x="3840" y="454" width="1920" height="1041" />
+    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog" timestamp="1592882437507">
+      <screen x="0" y="0" width="2560" height="1414" />
     </state>
+    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1592882437507" />
     <state x="3934" y="548" width="1732" height="866" key="VCS.FileHistoryDialog/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839443338" />
   </component>
 </project>

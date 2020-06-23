@@ -28,7 +28,7 @@ namespace Logic.Various
         }
 
         // Update is called once per frame
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             healthText.text = Mathf.RoundToInt(playerStatus.GetHealth()).ToString();
             staminaText.text = Mathf.RoundToInt(playerStatus.GetStamina()).ToString();
@@ -48,11 +48,6 @@ namespace Logic.Various
 
             interactionCanvas.SetActive(playerStatus.IsPlayerNearInteractable());
             signCanvas.SetActive(playerStatus.IsPlayerReadingSign());
-
-     
-
         }
-
-
     }
 }
