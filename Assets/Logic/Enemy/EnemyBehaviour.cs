@@ -13,8 +13,12 @@ namespace Logic.Enemy
         [SerializeField] private float memoryTime = 100f; //How long does the enemy remember the player?
         [SerializeField] private float playerDistance = 5f; //How far does he have to stay?
         [SerializeField] private float maxViewDistance = 150f; //How far can he see?
-
+        [SerializeField] private float maxTimerAlternativeMovement = 2f;
+        
         private float memoryTimeLeft = 0f;
+        private float timerAlternativeMovement = 0f;
+
+        private Vector3 savedDestination;
 
 
         protected bool isPlayerInView = false;
@@ -72,11 +76,34 @@ namespace Logic.Enemy
         {
 
             Debug.DrawLine(agent.transform.position, agent.destination);
+
+            if (timerAlternativeMovement > 0f)
+            {
+                timerAlternativeMovement -= Time.deltaTime;
+                return;
+
+            }
+            
+            
             if (Vector3.Distance(agent.nextPosition, playerTransform.position) <= playerDistance)
             {
+                timerAlternativeMovement = maxTimerAlternativeMovement;
+                
+                
                 print("nemico vicino a player");
-                agent.destination = playerTransform.position + new Vector3(playerTransform.right.x *15f, playerTransform.right.y*15f, playerTransform.right.z*15f);
 
+                float randomChoice = Random.Range(0f, 1f);
+
+                if (randomChoice < 0.5f)
+                {
+                    agent.destination = playerTransform.position + agent.transform.right * 100f;;
+
+                }
+                else
+                {
+                    agent.destination = playerTransform.position - agent.transform.right * 100f;;
+                }
+                
             }
             else
             {
