@@ -161,7 +161,6 @@ namespace Logic.Player
         private void MakeMovement()
         {
 
-            /*If touching wall with head*/
             if (isTouchingWallWithHead)
             {
                 if (rb.position.y < lastGoodYPosition)
@@ -177,8 +176,12 @@ namespace Logic.Player
                 float slopeAngleTmp = GetSlopeAngle();
                 
                 //ignore check if player is in water
-                if (slopeAngleTmp > -50 && slopeAngleTmp <= 15 && !isInWater)
+                if (slopeAngleTmp > -50 && slopeAngleTmp <= 20 || isInWater)
                     rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
+                else
+                {
+                    print("player stuck");
+                }
             }
 
         }
@@ -387,16 +390,16 @@ namespace Logic.Player
         }
 
 
-        private void OnTriggerEnter(Collider collider)
+        private void OnTriggerEnter(Collider c)
         {
 
-            if (collider.gameObject.CompareTag("Water"))
+            if (c.gameObject.CompareTag("Water"))
                 isInWater = true;
         }
 
-        private void OnTriggerExit(Collider collider)
+        private void OnTriggerExit(Collider c)
         {
-            if (collider.gameObject.CompareTag("Water"))
+            if (c.gameObject.CompareTag("Water"))
                 isInWater = false;
         }
 
