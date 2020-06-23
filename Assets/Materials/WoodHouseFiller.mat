@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wood
+  m_Name: WoodHouseFiller
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF _NORMALMAP _SPECULARHIGHLIGHTS_OFF _WINDQUALITY_NONE
   m_LightmapFlags: 4
@@ -37,7 +37,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 2, y: 3}
+        m_Scale: {x: 10, y: 20}
         m_Offset: {x: 0, y: 0}
     - _ExtraTex:
         m_Texture: {fileID: 0}
@@ -45,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 714d193a186a2b348b92cc7127645bb6, type: 3}
-        m_Scale: {x: 2, y: 3}
+        m_Scale: {x: 10, y: 20}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
