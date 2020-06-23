@@ -3072,9 +3072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4f852ae1536a4468f766f92fc5ddac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserLineRenderer: {fileID: 318119064}
-  laserWidth: 0.1
-  laserMaxLength: 5
+  projectilePrefab: {fileID: 7862359989826453290, guid: fb54485d05d357e46970125e9ccf6ad4,
+    type: 3}
 --- !u!120 &318119064
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5528,9 +5527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4f852ae1536a4468f766f92fc5ddac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserLineRenderer: {fileID: 600463477}
-  laserWidth: 0.1
-  laserMaxLength: 5
+  projectilePrefab: {fileID: 7862359989826453290, guid: fb54485d05d357e46970125e9ccf6ad4,
+    type: 3}
 --- !u!120 &600463477
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -15086,8 +15084,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoryTime: 150
   playerDistance: 10
-  maxViewDistance: 1
+  maxViewDistance: 50
   maxTimerAlternativeMovement: 2
+  waitingTime: 1
 --- !u!1 &1719254299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6015801904299255468, guid: 3749b76f43b6f214f8b7c9f88c6ba504,
@@ -15402,9 +15401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4f852ae1536a4468f766f92fc5ddac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserLineRenderer: {fileID: 1761647743}
-  laserWidth: 0.1
-  laserMaxLength: 5
+  projectilePrefab: {fileID: 7862359989826453290, guid: fb54485d05d357e46970125e9ccf6ad4,
+    type: 3}
 --- !u!120 &1761647743
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -15574,8 +15572,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoryTime: 150
   playerDistance: 10
-  maxViewDistance: 1
+  maxViewDistance: 50
   maxTimerAlternativeMovement: 2
+  waitingTime: 1
 --- !u!1001 &1776816711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16695,8 +16694,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoryTime: 150
   playerDistance: 10
-  maxViewDistance: 1
+  maxViewDistance: 50
   maxTimerAlternativeMovement: 2
+  waitingTime: 1
 --- !u!1001 &1862205215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29905,7 +29905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2952775603097346509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 880.1, y: 112.89, z: 283.8}
+  m_LocalPosition: {x: 809.6, y: 128.1, z: 360.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2952775603233039550}

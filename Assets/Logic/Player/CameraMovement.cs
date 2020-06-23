@@ -111,7 +111,6 @@ namespace Logic.Player
             int counter = 0;
             foreach (GameObject enemy in enemyList)
             {
-                Debug.DrawLine(transform.position, enemy.transform.position);
                 //Check esistenza nemico
                 if (enemy)
                 {

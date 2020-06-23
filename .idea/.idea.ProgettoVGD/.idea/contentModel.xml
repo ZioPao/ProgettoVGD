@@ -35,6 +35,7 @@
             <e p="EnemyBase.cs" t="Include" />
             <e p="EnemyBehaviour.cs" t="Include" />
             <e p="EnemyShooting.cs" t="Include" />
+            <e p="ProjectileScript.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="CameraCollider.cs" t="Include" />
