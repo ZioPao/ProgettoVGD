@@ -10,7 +10,7 @@ namespace Logic.Enemy
         NavMeshAgent agent;
         Transform textureRenderer;
 
-        [SerializeField] private float memoryTime = 5f; //How long does the enemy remember the player?
+        [SerializeField] private float memoryTime = 100f; //How long does the enemy remember the player?
         [SerializeField] private float playerDistance = 5f; //How far does he have to stay?
         [SerializeField] private float maxViewDistance = 150f; //How far can he see?
 
@@ -31,6 +31,7 @@ namespace Logic.Enemy
         // Update is called once per frame
         void FixedUpdate()
         {
+
             //Look at player
             Vector3 targetPostition = new Vector3(playerTransform.position.x,
                 textureRenderer.position.y,
@@ -45,7 +46,7 @@ namespace Logic.Enemy
 
             if (isPlayerInView)
             {
-                FollowPlayer();
+                agent.isStopped = false;
                 MoveTowardsPlayer();
                 memoryTimeLeft = memoryTime;
             }
@@ -55,11 +56,11 @@ namespace Logic.Enemy
                 //No memory time left, so the enemy will have to stop
                 if (memoryTimeLeft <= 0)
                 {
-                    StopFollowingPlayer();
+                    agent.isStopped = true;
                 }
                 else
                 {
-                    FollowPlayer();
+                    MoveTowardsPlayer();
                     memoryTimeLeft -= Time.deltaTime;
                 }
             }
@@ -69,19 +70,18 @@ namespace Logic.Enemy
         /*The enemy will try to follow the player and flank him. Will not get too close*/
         private void MoveTowardsPlayer()
         {
+
+            Debug.DrawLine(agent.transform.position, agent.destination);
             if (Vector3.Distance(agent.nextPosition, playerTransform.position) <= playerDistance)
-                print("");
-        }
+            {
+                print("nemico vicino a player");
+                agent.destination = playerTransform.position + new Vector3(playerTransform.right.x *15f, playerTransform.right.y*15f, playerTransform.right.z*15f);
 
-        private void FollowPlayer()
-        {
-            agent.isStopped = false;
-            agent.destination = playerTransform.position;
-        }
-
-        private void StopFollowingPlayer()
-        {
-            agent.isStopped = true;
+            }
+            else
+            {
+                agent.destination = playerTransform.position;
+            }
         }
 
 
@@ -91,11 +91,11 @@ namespace Logic.Enemy
             //todo probabilmente meglio un layer apposito
 
             LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
-            Debug.DrawLine(frontEnemy.position, playerTransform.position);
 
             if (!(Vector3.Distance(frontEnemy.position, transform.position) < maxViewDistance)) return false;
-        
-            return Physics.Linecast(frontEnemy.position, playerTransform.position, out rayEnemySprite, tmp) && rayEnemySprite.collider.CompareTag("Player");
+
+            return Physics.Linecast(frontEnemy.position, playerTransform.position, out rayEnemySprite, tmp) &&
+                   rayEnemySprite.collider.CompareTag("Player");
         }
 
 

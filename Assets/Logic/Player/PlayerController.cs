@@ -60,7 +60,10 @@ namespace Logic.Player
         float raycastSpread = 0.08f;
 
 
-
+        //Animations
+        private static readonly int IsRunningAnim = Animator.StringToHash("isRunning");
+        private static readonly int IsShootingAnim = Animator.StringToHash("isShooting");
+        
         // Start is called before the first frame update
         void Start()
         {
@@ -114,6 +117,7 @@ namespace Logic.Player
             /*In water*/
             if (isInWater)
             {
+                //todo i broke something 
                 movementSpeedMod *= 0.5f; //Decrease
                 //rb.mass = rigidBodyDefaultMass + 15f;
             }
@@ -172,12 +176,9 @@ namespace Logic.Player
             {
                 float slopeAngleTmp = GetSlopeAngle();
                 
-                if (slopeAngleTmp > -50 && slopeAngleTmp <= 15)
+                //ignore check if player is in water
+                if (slopeAngleTmp > -50 && slopeAngleTmp <= 15 && !isInWater)
                     rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
-                else
-                {
-                    print(slopeAngleTmp);
-                }
             }
 
         }
@@ -313,7 +314,7 @@ namespace Logic.Player
         
 
             //La stamina diminuisce solo quando effettivamente sta facenod l'animazione.
-            if (anim.GetBool("isRunning"))
+            if (anim.GetBool(IsRunningAnim))
                 stamina -= Time.deltaTime * 2;
             else if (stamina < maxStamina)
                 stamina += Time.deltaTime * 5;
@@ -324,17 +325,14 @@ namespace Logic.Player
         {
             if (isRunning)
             {
-                if (movementVec.x != 0 || movementVec.z != 0)
-                    anim.SetBool("isRunning", true);
-                else
-                    anim.SetBool("isRunning", false);
-            
+                anim.SetBool(IsRunningAnim, (movementVec.x != 0 || movementVec.z != 0));
+
             }
             else
-                anim.SetBool("isRunning", false);
+                anim.SetBool(IsRunningAnim, false);
 
         
-            anim.SetBool("isShooting", isShooting);
+            anim.SetBool(IsShootingAnim, isShooting);
         }
 
         /// <summary>
@@ -350,29 +348,23 @@ namespace Logic.Player
             isGrounded = Physics.Raycast
                 (rb.transform.position, Vector3.down, out RaycastHit rayGround, 2);     //todo determina l'altezza corretta
 
-            RaycastHit rayWall1 = new RaycastHit();
-            RaycastHit rayWall2 = new RaycastHit();
-            RaycastHit rayWall3 = new RaycastHit();
-
+            LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
             isTouchingWall =
-                (Physics.Raycast(cameraMain.transform.position + new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out rayWall1, 2)
-                 || Physics.Raycast(cameraMain.transform.position - new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out rayWall2, 2)
-                 || Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out rayWall3, 2));
-
-
-            RaycastHit rayHead = new RaycastHit();
+                (Physics.Raycast(cameraMain.transform.position + new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out _, 2, tmp)
+                 || Physics.Raycast(cameraMain.transform.position - new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out _, 2, tmp)
+                 || Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out _, 2, tmp));
 
 
             if (isTouchingWallWithHead)
             {
-                isTouchingWallWithHead = Physics.Raycast(cameraMain.transform.position, cameraMain.transform.up, out rayHead, 2.5f);
+                isTouchingWallWithHead = Physics.Raycast(cameraMain.transform.position, cameraMain.transform.up, out _, 2.5f);
 
             }
             else
             {
-                isTouchingWallWithHead = Physics.Raycast(cameraMain.transform.position, cameraMain.transform.up, out rayHead, 2.5f);
+                isTouchingWallWithHead = Physics.Raycast(cameraMain.transform.position, cameraMain.transform.up, out _, 2.5f);
                 if (isTouchingWallWithHead)
-                    lastGoodYPosition = rb.position.y;        //todo what should this do?
+                    lastGoodYPosition = rb.position.y;    
             }
    
 
