@@ -28,11 +28,8 @@ namespace Logic.Player
 
 
         private Rigidbody rb;
-        private Animator anim;
         private CameraMovement cameraScript;
         private GameObject cameraMain;
-        private GameObject armsPistol, armsKnife;
-        
         private Vector3 movementVec;
 
 
@@ -64,11 +61,18 @@ namespace Logic.Player
         private static readonly int IsRunningAnim = Animator.StringToHash("isRunning");
         private static readonly int IsShootingAnim = Animator.StringToHash("isShooting");
         
+        //Weapons
+
+        private GameObject weaponPistol, weaponKnife, weaponSmg;
+        
+        
         // Start is called before the first frame update
         void Start()
         {
             rb = GetComponent<Rigidbody>();
-            anim = GetComponentInChildren<Animator>();
+            // animPistol = GameObject.Find("PlayerArmsPistol").GetComponent<Animator>();        
+            // animKnife = GameObject.Find("PlayerArmsKnife").GetComponent<Animator>();        
+
             cameraScript = GetComponentInChildren<CameraMovement>();
             cameraMain = GameObject.Find("Camera_Main");
 
@@ -80,10 +84,10 @@ namespace Logic.Player
             
             //TEST
 
-            armsPistol = GameObject.Find("PlayerArmsPistol");
-            armsPistol.SetActive(false);
-            armsKnife = GameObject.Find("PlayerArmsKnife");
-            armsKnife.SetActive(true);
+            weaponPistol = GameObject.Find("PlayerPistol");
+            weaponPistol.SetActive(true);
+            weaponKnife = GameObject.Find("PlayerKnife");
+            weaponKnife.SetActive(false);
 
         }
 
@@ -190,11 +194,14 @@ namespace Logic.Player
                 float slopeAngleTmp = GetSlopeAngle();
                 
                 //ignore check if player is in water
-                if (slopeAngleTmp > -50 && slopeAngleTmp <= 20 || isInWater)
+                if (slopeAngleTmp > -50 && slopeAngleTmp <= 30 || isInWater)
+                {
                     rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
+                }
                 else
                 {
-                    print("player stuck");
+                    //Fa scendere forzatamente il giocatore
+                    rb.MovePosition(transform.position + new Vector3(0, -9.81f, 0) * Time.deltaTime);
                 }
             }
 
@@ -230,17 +237,18 @@ namespace Logic.Player
             if (Input.GetAxis("Mouse ScrollWheel") > 0f )
             {
 
-                if (armsPistol.activeSelf)
+                //todo cambia prefab attivo
+                if (weaponPistol.activeSelf)
                 {
-                    armsPistol.SetActive(false);
-                    armsKnife.SetActive(true);
+                    weaponPistol.SetActive(false);
+                    weaponKnife.SetActive(true);
 
                 }
                 else
                 {
-                    armsPistol.SetActive(true);
+                    weaponPistol.SetActive(true);
 
-                    armsKnife.SetActive(false);
+                    weaponKnife.SetActive(false);
                 }
            
 
@@ -270,7 +278,7 @@ namespace Logic.Player
 
             }
             else
-                isShooting = false;
+                isShooting = false;        //todo forse da togliere
 
         }
 	
@@ -357,7 +365,7 @@ namespace Logic.Player
         
 
             //La stamina diminuisce solo quando effettivamente sta facenod l'animazione.
-            if (anim.GetBool(IsRunningAnim))
+            if (false)        //todo riaggiungi anim
                 stamina -= Time.deltaTime * 2;
             else if (stamina < maxStamina)
                 stamina += Time.deltaTime * 5;
@@ -366,19 +374,23 @@ namespace Logic.Player
 
         private void SetAnimations()
         {
-            if (isRunning)
-            {
-                anim.SetBool(IsRunningAnim, (movementVec.x != 0 || movementVec.z != 0));
-
-            }
-            else
-            {
-                anim.SetBool(IsRunningAnim, false);
-
-            }
-
-        
-            anim.SetBool(IsShootingAnim, isShooting);
+            // if (isRunning)
+            // {
+            //     bool value = (movementVec.x != 0 || movementVec.z != 0);
+            //     animKnife.SetBool(IsRunningAnim, value );
+            //     animPistol.SetBool(IsRunningAnim, value);
+            //
+            // }
+            // else
+            // {
+            //     animKnife.SetBool(IsRunningAnim, false);
+            //     animPistol.SetBool(IsRunningAnim, false);
+            //
+            //
+            // }
+            //
+            //
+            // animPistol.SetBool(IsShootingAnim, isShooting);
         }
 
         /// <summary>
@@ -447,6 +459,14 @@ namespace Logic.Player
         }
 
 
+        /*SETTER*/
+
+        public void SetIsPlayerShooting(bool value)
+        {
+            isShooting = value;
+        }
+        
+        
         /*GETTERS*/
 
         public bool IsInWater()
@@ -482,6 +502,11 @@ namespace Logic.Player
         public bool IsPlayerReadingSign()
         {
             return isReadingSign;
+        }
+
+        public bool IsPlayerShooting()
+        {
+            return isShooting;
         }
     }
 }

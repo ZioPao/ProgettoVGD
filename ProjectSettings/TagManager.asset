@@ -11,6 +11,7 @@ TagManager:
   - Sign
   - Interactable
   - EnemyHitbox
+  - PlayerWeapon
   layers:
   - Default
   - TransparentFX
