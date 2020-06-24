@@ -24,15 +24,15 @@ namespace Logic.Player
 	
         [SerializeField] private float projectileDistance = 100f;
         [SerializeField] private float interactionDistance = 5f;
-
-
+        
 
 
         private Rigidbody rb;
         private Animator anim;
         private CameraMovement cameraScript;
         private GameObject cameraMain;
-
+        private GameObject armsPistol, armsKnife;
+        
         private Vector3 movementVec;
 
 
@@ -76,7 +76,14 @@ namespace Logic.Player
             oxygen = maxOxygen;
             health = maxHealth;
             stamina = maxStamina;
+            
+            
+            //TEST
 
+            armsPistol = GameObject.Find("PlayerArmsPistol");
+            armsPistol.SetActive(false);
+            armsKnife = GameObject.Find("PlayerArmsKnife");
+            armsKnife.SetActive(true);
 
         }
 
@@ -97,6 +104,7 @@ namespace Logic.Player
 
             /* Manage actions*/
             Interact();
+            ChangeWeapon();
 
 
 
@@ -214,6 +222,29 @@ namespace Logic.Player
             }
 
           
+        }
+
+
+        private void ChangeWeapon()
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f )
+            {
+
+                if (armsPistol.activeSelf)
+                {
+                    armsPistol.SetActive(false);
+                    armsKnife.SetActive(true);
+
+                }
+                else
+                {
+                    armsPistol.SetActive(true);
+
+                    armsKnife.SetActive(false);
+                }
+           
+
+            }
         }
         /** Check e attivazione dello shooting
      */
