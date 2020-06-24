@@ -96,15 +96,21 @@ namespace Logic.Player
             ManageStamina();
 
             /* Manage actions*/
-            Shoot();
             Interact();
 
-            /*Additional stuff*/
-            SetAnimations();
 
 
         }
 
+        private void Update()
+        {
+            //viene esguito dopo il fixedupdate
+            Shoot();
+            
+            
+            /*Additional stuff*/
+            SetAnimations();
+        }
 
         /** MOVEMENT 
      */
@@ -214,11 +220,14 @@ namespace Logic.Player
    
         private void Shoot()
         {
-            if (Input.GetMouseButtonDown(0))
+            
+            //Necessario inserirlo in Update, non FixedUpdate per via di come viene gestito il GetMouseButtonDown.
+            //Usando il Fixed spesso perde input
+            
+            if (Input.GetMouseButtonDown(0) && !isRunning)
             {
-                RaycastHit projectile;
                 isShooting = true;
-                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out projectile, projectileDistance, LayerMask.GetMask("EnemyHitbox")))
+                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit projectile, projectileDistance, LayerMask.GetMask("EnemyHitbox")))
                 {
                     Destroy(projectile.transform.parent.gameObject);
                     
@@ -332,7 +341,10 @@ namespace Logic.Player
 
             }
             else
+            {
                 anim.SetBool(IsRunningAnim, false);
+
+            }
 
         
             anim.SetBool(IsShootingAnim, isShooting);
