@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: 27d11120aff73514691be9603635c171
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: -2962351489463984648
+    second: Armature|Armature|Armature|_idle@handgun_01|Armature|_idle@handgun_01
+  - first:
+      74: 900691214560130680
+    second: Armature|Armature|Armature|aim_fire@handgun_01|Armature|aim_fire@handgun
+  - first:
+      74: -2397244193721752585
+    second: Armature|Armature|Armature|aim_fire_pose@handgun_01|Armature|aim_fire_po
+  - first:
+      74: 5892365736739984704
+    second: Armature|Armature|Armature|aim_in@handgun_01|Armature|aim_in@handgun_01
+  - first:
+      74: -2603271265977928537
+    second: Armature|Armature|Armature|aim_out@handgun_01|Armature|aim_out@handgun_0
+  - first:
+      74: -6535567527273248962
+    second: Armature|Armature|Armature|fire@handgun_01|Armature|fire@handgun_01
+  - first:
+      74: -3217805651739686004
+    second: Armature|Armature|Armature|grenade_throw@handgun_01|Armature|grenade_thr
+  - first:
+      74: 2002239443651931054
+    second: Armature|Armature|Armature|holster_weapon@handgun_01|Armature|holster_we
+  - first:
+      74: -8865075976008221088
+    second: Armature|Armature|Armature|inspect_weapon@handgun_01|Armature|inspect_we
+  - first:
+      74: -5036676216610585230
+    second: Armature|Armature|Armature|knife_attack_1@handgun_01|Armature|knife_atta
+  - first:
+      74: -2775530053451411744
+    second: Armature|Armature|Armature|knife_attack_2@handgun_01|Armature|knife_atta
+  - first:
+      74: -1112120413697538118
+    second: Armature|Armature|Armature|out_of_ammo_slider@handgun_01|Armature|out_of
+  - first:
+      74: 8877015007019213384
+    second: Armature|Armature|Armature|pose_ref|Armature|pose_ref
+  - first:
+      74: 2985622515378220389
+    second: Armature|Armature|Armature|reload_ammo_left@handgun_01|Armature|reload_a
+  - first:
+      74: 1632411508241289721
+    second: Armature|Armature|Armature|reload_out_of_ammo@handgun_01|Armature|reload
+  - first:
+      74: -1294775627907700773
+    second: Armature|Armature|Armature|run@handgun_01|Armature|run@handgun_01
+  - first:
+      74: -351675307974173333
+    second: Armature|Armature|Armature|take_out_weapon@handgun_01|Armature|take_out_
+  - first:
+      74: 2423413344946742065
+    second: Armature|Armature|Armature|walk@handgun_01|Armature|walk@handgun_01
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
