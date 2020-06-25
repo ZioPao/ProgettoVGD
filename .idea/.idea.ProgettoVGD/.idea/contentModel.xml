@@ -21,6 +21,7 @@
               <e p="CameraCollider.cs" t="Include" />
               <e p="CameraMovement.cs" t="Include" />
               <e p="NewBehaviourScript.cs" t="Include" />
+              <e p="PlayerAnimations.cs" t="Include" />
               <e p="PlayerController.cs" t="Include" />
               <e p="Shooting.cs" t="Include" />
               <e p="UIScript.cs" t="Include" />

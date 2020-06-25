@@ -1,4 +1,5 @@
-﻿using Logic.Player;
+﻿using Entities.Player.Logic;
+using Logic.Player;
 using UnityEngine;
 using UnityEngine.UI;
 

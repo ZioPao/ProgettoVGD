@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Entities.Player.Logic;
+using UnityEngine;
 
 namespace Logic.Player
 {

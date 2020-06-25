@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Entities.Enemy.Logic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 

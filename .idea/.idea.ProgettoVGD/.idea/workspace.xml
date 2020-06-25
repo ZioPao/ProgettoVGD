@@ -22,822 +22,15 @@
     <list default="true" id="3c0a94b4-3a72-4aaa-b23e-ef01512582b0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Candles.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Candles.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Diffuse_Default.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Diffuse_Default.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/FakeSky.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/FakeSky.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Floor.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Floor.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Floor_Muddy.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Floor_Muddy.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Glass.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Glass.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/HeatGlow.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/HeatGlow.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Liquids.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Liquids.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Metal_Polished.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Metal_Polished.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Metal_Rusty.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Metal_Rusty.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Paper.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Paper.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Plants.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Plants.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Stone.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Stone.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Wall_Muddy.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Wall_Muddy.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Water_Muddy.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Water_Muddy.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Wood.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Wood.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Wood_Polished.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Materials/Wood_Polished.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Amphora.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Amphora.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Amphora_Stand.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Amphora_Stand.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Bag.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Bag.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Barrel_Big.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Barrel_Big.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Barrel_Closed.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Barrel_Closed.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Barrel_Open.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Barrel_Open.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Bench.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Bench.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Bucket.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Bucket.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Carpet_Green.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Carpet_Green.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Carpet_Red.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Carpet_Red.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Cauldron_Empty.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Cauldron_Empty.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Cauldron_Full.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Cauldron_Full.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Chair.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Chair.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/ChestSmall_Closed.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/ChestSmall_Closed.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/ChestSmall_Open.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/ChestSmall_Open.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Chest_Closed.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Chest_Closed.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Chest_Open.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Chest_Open.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/CoatHook.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/CoatHook.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/CoatHook_Full.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/CoatHook_Full.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Desk.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Desk.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Fireplace.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Fireplace.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Shelf.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Shelf.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Shelf_Wall.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Shelf_Wall.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Steps_Small.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Steps_Small.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Stool_round.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Stool_round.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Stool_square.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Stool_square.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Table_Big.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Table_Big.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Table_Small.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/Table_Small.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/WeaponRack_Big.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/WeaponRack_Big.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/WeaponRack_Small.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Furniture/WeaponRack_Small.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Candle_Wall.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Candle_Wall.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Chandelier_Ceiling.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Chandelier_Ceiling.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Chandelier_Single.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Chandelier_Single.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Chandelier_Triple.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Chandelier_Triple.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Torch.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Torch.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Torch_Wall.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Lights/Torch_Wall.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Beaker_Empty.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Beaker_Empty.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Beaker_Full_Var1.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Beaker_Full_Var1.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Beaker_Full_Var2.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Beaker_Full_Var2.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Beaker_Small.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Beaker_Small.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Bone.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Bone.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Big_Brown.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Big_Brown.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Big_DeepRed.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Big_DeepRed.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Big_Green.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Big_Green.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Big_Red.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Big_Red.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Brown.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Brown.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_DeepRed.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_DeepRed.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Green.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Green.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Open.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Open.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Red.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Red.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Small_Brown.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Small_Brown.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Small_DeepRed.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Small_DeepRed.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Small_Green.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Small_Green.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Small_Red.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Book_Small_Red.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Cauldron_Small.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Cauldron_Small.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Cauldron_Small_Stand.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Cauldron_Small_Stand.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Chandelier_Small.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Chandelier_Small.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/CrystalBall.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/CrystalBall.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/CrystalBall_Stand.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/CrystalBall_Stand.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/FirewoodFixedUV.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/FirewoodFixedUV.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/FirewoodStack.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/FirewoodStack.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Flask.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Flask.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Fork.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Fork.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Inkwell.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Inkwell.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Ivy_Branch.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Ivy_Branch.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Ivy_Leaf.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Ivy_Leaf.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Jar_Big.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Jar_Big.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Jar_Empty.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Jar_Empty.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Jar_Full.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Jar_Full.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Key_Golden.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Key_Golden.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Key_Rusty.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Key_Rusty.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Key_Silver.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Key_Silver.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Knife.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Knife.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Plant_Root.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Plant_Root.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Plate.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Plate.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Plate_Small.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Plate_Small.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Potion_Blue.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Potion_Blue.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Potion_Green.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Potion_Green.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Potion_Red.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Potion_Red.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Quill.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Quill.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Big.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Big.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Elder.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Elder.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Open.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Open.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Small.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Small.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Stack.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Scroll_Stack.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Shield.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Shield.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Skull.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Skull.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Spear.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Spear.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Sword.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Sword.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Tree_Branch.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Objects/Tree_Branch.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Balcony.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Balcony.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Balcony_Railing.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Balcony_Railing.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Balcony_Railing_Post.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Balcony_Railing_Post.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Door_Left.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Door_Left.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Door_Right.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Door_Right.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Passage.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Passage.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Passage_Mix.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Passage_Mix.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Passage_Prison.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Passage_Prison.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Var1.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Var1.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Var2.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Var2.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Var3.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Var3.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Var4.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Var4.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Prison.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Prison.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Prison_Broken.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Prison_Broken.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Var1.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Var1.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Var2.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Var2.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Var3.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Basement_Wall_Var3.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/DoorGate_Wooden_Left.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/DoorGate_Wooden_Left.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/DoorGate_Wooden_Right.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/DoorGate_Wooden_Right.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Iron_Left.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Iron_Left.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Iron_Right.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Iron_Right.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Wooden_Left.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Wooden_Left.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Wooden_Right.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Wooden_Right.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Wooden_Round_Left.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Wooden_Round_Left.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Wooden_Round_Right.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Door_Wooden_Round_Right.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big_Passage.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big_Passage.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big_Wall.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big_Wall.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big_Window.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big_Window.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big_to_Custom.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Big_to_Custom.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_CornerCrossing.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_CornerCrossing.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Border_Arched.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Border_Arched.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Border_Flat.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Border_Flat.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Center.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Center.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Corner_Arched.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Corner_Arched.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Corner_Flat.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Corner_Flat.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Corner_Inverted.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Custom_Corner_Inverted.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Center.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Center.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Center_Stairs.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Center_Stairs.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Corner.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Corner.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Corner_ Inverted.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Corner_ Inverted.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Wall.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Wall.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Wall_Stairs_Left.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Wall_Stairs_Left.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Wall_Stairs_Right.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Hall_Wall_Stairs_Right.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Passage.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Passage.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Passage_Wood.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Passage_Wood.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Straight.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Straight.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Straight_14°.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Straight_14°.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Straight_Short.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Straight_Short.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Wall_Var1.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Wall_Var1.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Wall_Var2.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Wall_Var2.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Wall_Var3.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Wall_Var3.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Wall_Window.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Dungeon_Wall_Window.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Crossing.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Crossing.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Curve_Long.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Curve_Long.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Curve_Short.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Curve_Short.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Double.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Double.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Full.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Full.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Half.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Half.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Quarter.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_Quarter.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_TCrossing.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Hallway_TCrossing.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/HoleFix.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/HoleFix.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Holefix_Big.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Holefix_Big.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Pillar.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Pillar.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Staircase.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Staircase.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Stairs_High.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Stairs_High.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Stairs_Low.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Stairs_Low.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Stairs_Platform.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Models/Tiles/Stairs_Platform.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Palettes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Palettes/Mage_Room.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Palettes/Mage_Room.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Amphora.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Amphora.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Amphora_Stand.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Amphora_Stand.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Bag.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Bag.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Barrel_Big.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Barrel_Big.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Barrel_Closed.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Barrel_Closed.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Barrel_Open.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Barrel_Open.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Bench.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Bench.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Bucket.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Bucket.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Carpet_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Carpet_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Carpet_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Carpet_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Cauldron_Empty.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Cauldron_Empty.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Cauldron_Full.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Cauldron_Full.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Chair.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Chair.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/ChestSmall_Closed.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/ChestSmall_Closed.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/ChestSmall_Open.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/ChestSmall_Open.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Chest_Closed.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Chest_Closed.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Chest_Open.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Chest_Open.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/CoatHook.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/CoatHook.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/CoatHook_Full.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/CoatHook_Full.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Desk.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Desk.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Fireplace.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Fireplace.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Shelf.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Shelf.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Shelf_Wall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Shelf_Wall.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Steps_Small.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Steps_Small.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Stool_round.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Stool_round.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Stool_square.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Stool_square.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Table_Big.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Table_Big.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Table_Small.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/Table_Small.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/WeaponRack_Big.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/WeaponRack_Big.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/WeaponRack_Small.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Furniture/WeaponRack_Small.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Candle_Wall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Candle_Wall.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Chandelier_Ceiling.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Chandelier_Ceiling.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Chandelier_Single.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Chandelier_Single.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Chandelier_Triple.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Chandelier_Triple.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Torch.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Torch.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Torch_Wall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Lights/Torch_Wall.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Beaker_Empty.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Beaker_Empty.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Beaker_Full_Var1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Beaker_Full_Var1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Beaker_Full_Var2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Beaker_Full_Var2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Beaker_Small.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Beaker_Small.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Bone.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Bone.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Big_Brown.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Big_Brown.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Big_DeepRed.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Big_DeepRed.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Big_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Big_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Big_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Big_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Brown.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Brown.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_DeepRed.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_DeepRed.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Open.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Open.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Small_Brown.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Small_Brown.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Small_DeepRed.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Small_DeepRed.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Small_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Small_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Small_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Book_Small_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Cauldron_Small.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Cauldron_Small.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Cauldron_Small_Stand.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Cauldron_Small_Stand.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Chandelier_Small.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Chandelier_Small.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/CrystalBall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/CrystalBall.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/CrystalBall_Stand.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/CrystalBall_Stand.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Firewood.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Firewood.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/FirewoodStack.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/FirewoodStack.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Flask.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Flask.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Fork.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Fork.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Inkwell.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Inkwell.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Ivy_Branch.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Ivy_Branch.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Ivy_Leaf.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Ivy_Leaf.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Jar_Big.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Jar_Big.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Jar_Empty.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Jar_Empty.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Jar_Full.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Jar_Full.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Key_Golden.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Key_Golden.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Key_Rusty.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Key_Rusty.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Key_Silver.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Key_Silver.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Knife.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Knife.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Plant_Root.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Plant_Root.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Plate.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Plate.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Plate_Small.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Plate_Small.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Potion_Blue.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Potion_Blue.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Potion_Green.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Potion_Green.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Potion_Red.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Potion_Red.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Quill.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Quill.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Big.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Big.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Elder.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Elder.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Open.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Open.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Small.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Small.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Stack.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Scroll_Stack.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Shield.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Shield.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Skull.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Skull.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Spear.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Spear.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Sword.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Sword.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Tree_Branch.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Objects/Tree_Branch.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Balcony.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Balcony.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Balcony_Railing.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Balcony_Railing.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Balcony_Railing_Post.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Balcony_Railing_Post.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Door_Left.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Door_Left.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Door_Right.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Door_Right.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Passage.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Passage.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Passage_Mix.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Passage_Mix.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Passage_Prison.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Passage_Prison.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Var1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Var1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Var2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Var2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Var3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Var3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Var4.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Var4.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Prison.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Prison.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Prison_Broken.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Prison_Broken.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Var1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Var1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Var2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Var2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Var3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Basement_Wall_Var3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/DoorGate_Wooden_Left.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/DoorGate_Wooden_Left.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/DoorGate_Wooden_Right.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/DoorGate_Wooden_Right.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Iron_Left.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Iron_Left.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Iron_Right.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Iron_Right.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Wooden_Left.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Wooden_Left.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Wooden_Right.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Wooden_Right.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Wooden_Round_Left.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Wooden_Round_Left.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Wooden_Round_Right.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Door_Wooden_Round_Right.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big_Passage.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big_Passage.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big_Wall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big_Wall.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big_Window.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big_Window.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big_to_Custom.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Big_to_Custom.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_CornerCrossing.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_CornerCrossing.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Border_Arched.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Border_Arched.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Border_Flat.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Border_Flat.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Center.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Center.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Corner_Arched.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Corner_Arched.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Corner_Flat.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Corner_Flat.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Corner_Inverted.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Custom_Corner_Inverted.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Center.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Center.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Center_Stairs.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Center_Stairs.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Corner.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Corner.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Corner_ Inverted.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Corner_ Inverted.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Wall.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Wall.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Wall_Stairs_Left.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Wall_Stairs_Left.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Wall_Stairs_Right.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Hall_Wall_Stairs_Right.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Passage.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Passage.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Passage_Wood.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Passage_Wood.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Straight.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Straight.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Straight_14°.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Straight_14°.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Straight_Half.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Straight_Half.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Wall_Var1.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Wall_Var1.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Wall_Var2.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Wall_Var2.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Wall_Var3.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Wall_Var3.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Wall_Window.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Dungeon_Wall_Window.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Crossing.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Crossing.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Curve_Long.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Curve_Long.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Curve_Short.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Curve_Short.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Double.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Double.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Full.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Full.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Half.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Half.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Quarter.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_Quarter.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_TCrossing.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Hallway_TCrossing.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/HoleFix.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/HoleFix.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Holefix_Big.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Holefix_Big.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Pillar.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Pillar.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Staircase with Walls.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Staircase with Walls.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Staircase.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Staircase.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Stairs_High.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Stairs_High.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Stairs_Low.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Stairs_Low.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Stairs_Platform.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Prefabs/Tiles/Stairs_Platform.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Content_Catalogue.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Content_Catalogue.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Prefab/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Prefab/Player.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scenes/FPControls.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scenes/FPControls.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scripts/CharacterController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scripts/CharacterController.cs.bak" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scripts/CharacterController.cs.bak.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scripts/CharacterController.cs.fail" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scripts/CharacterController.cs.fail.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scripts/CharacterController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scripts/MouseCamLook.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Demo/FPControls/Scripts/MouseCamLook.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/MageRoom Demo_Profiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/MageRoom Demo_Profiles/postProfile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/MageRoom Demo_Profiles/postProfile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Mage_Room_Demo.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scenes/Mage_Room_Demo.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scripts/LightImprove.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Scripts/LightImprove.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Textures/Floor_Base.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Textures/Floor_Base.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Textures/Floor_Normals.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/BrokenVector/UltimateDungeonPack/Textures/Floor_Normals.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/DisposableDroidBB.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/DisposableDroidBB.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/DisposableDroidBB_bld.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/DisposableDroidBB_bld.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/DisposableDroidBB_bldital.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/DisposableDroidBB_bldital.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/DisposableDroidBB_ital.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/DisposableDroidBB_ital.ttf.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KnifeAnimations.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/KnifeAnimations.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level1_Profiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level1_Profiles/Gun Camera Profile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level1_Profiles/Gun Camera Profile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level1_Profiles/Main Camera Profile 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level1_Profiles/Main Camera Profile 1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Levels/Level2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2/Water-WorldSpace.shader" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2/Water-WorldSpace.shader.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2/WoodLayer.terrainlayer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2/WoodLayer.terrainlayer.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2/dcatyft-3d286c66-03cc-448e-b8d8-a4f0a3a2fc26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2/dcatyft-3d286c66-03cc-448e-b8d8-a4f0a3a2fc26.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2/roof_nm.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2/roof_nm.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/Button.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/Button.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyBase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyBase.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyBehaviour.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyBehaviour.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyShooting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/EnemyShooting.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/ProjectileScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Enemy/ProjectileScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/CameraCollider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/CameraCollider.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/CameraMovement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/CameraMovement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/NewBehaviourScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/NewBehaviourScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/PlayerController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/PlayerController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/Shooting.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/Shooting.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/WeaponScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Player/WeaponScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Various.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Various/MovingWater.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Various/MovingWater.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Various/UIScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Logic/Various/UIScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerAnimations.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/09c52d89d8086495ab609332e6d55e85.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/09c52d89d8086495ab609332e6d55e85.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/80361a6e3d1eb792dc7f2cd188c37dfa.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/80361a6e3d1eb792dc7f2cd188c37dfa.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/NewLayer.terrainlayer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/NewLayer.terrainlayer.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/PlayerWeapons/pistol.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/PlayerWeapons/pistol.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/SO4M8W0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/SO4M8W0.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/WaterLayer.terrainlayer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/WaterLayer.terrainlayer.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/black_layer.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/black_layer.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/borderSign.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/borderSign.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/enemy1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/enemy1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mudGrassNormal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mudGrassNormal.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mudGrassNormalMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mudGrassNormalMap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mudGrassTexture.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mudGrassTexture.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mudTexture.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/mudTexture.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/rockNormalMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/rockNormalMap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/rockTexture.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/rockTexture.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/wood.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/wood.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodHouse.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodHouse.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodHouse.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodHouse.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodHouseNormalMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodHouseNormalMap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodNormalMap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodNormalMap.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodSign.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/woodSign.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Enemy/Logic/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Enemy/Logic/EnemyBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Animation/PlayerWeapons.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Animation/PlayerWeapons.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Logic/CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Logic/CameraMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Logic/UiScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Logic/UiScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Logic/WeaponScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Logic/WeaponScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Sprites/pistol.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Sprites/pistol.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -848,9 +41,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3DC54541-A257-4AC7-826A-004A212A4332/4a/1d14c66b/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E93AB2F8-5FF8-4881-B6AB-5BA98D373CFC/0d/ae84590c/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3DC54541-A257-4AC7-826A-004A212A4332/dc/8f762cf7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Entities/Enemy/Logic/EnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Entities/Player/Logic/CameraMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.0f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Layout/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Random/NewSurfaceShader.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3DC54541-A257-4AC7-826A-004A212A4332/dc/8f762cf7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Entities/Player/Logic/WeaponScript.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -867,6 +71,11 @@
         <option value="$PROJECT_DIR$/Assets/Logic/Various/UiScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Logic/Player/WeaponScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Logic/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Random/NewSurfaceShader.shader" />
+        <option value="$PROJECT_DIR$/Assets/PlayerAnimations.cs" />
+        <option value="$PROJECT_DIR$/Assets/Entities/Enemy/Logic/EnemyBase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerAnimations.cs" />
       </list>
     </option>
   </component>
@@ -890,10 +99,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5364">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="5364" />
       <method v="2" />
     </configuration>
   </component>
@@ -913,6 +122,7 @@
       <workItem from="1593017591837" duration="910000" />
       <workItem from="1593034844022" duration="6609000" />
       <workItem from="1593043562075" duration="210000" />
+      <workItem from="1593079395827" duration="5863000" />
     </task>
     <servers />
   </component>
@@ -934,90 +144,90 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1845" y="335" key="#xdebugger.evaluate" timestamp="1593039976094">
+    <state x="1845" y="335" key="#xdebugger.evaluate" timestamp="1593086310693">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state x="1845" y="335" key="#xdebugger.evaluate/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593039976094" />
+    <state x="1845" y="335" key="#xdebugger.evaluate/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086310693" />
     <state x="4909" y="817" key="#xdebugger.evaluate/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839899029" />
-    <state width="2517" height="376" key="GridCell.Tab.0.bottom" timestamp="1593042493694">
+    <state width="2517" height="376" key="GridCell.Tab.0.bottom" timestamp="1593086261040">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.0.bottom/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493694" />
+    <state width="2517" height="376" key="GridCell.Tab.0.bottom/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086261040" />
     <state width="1877" height="377" key="GridCell.Tab.0.bottom/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844245" />
-    <state width="2517" height="376" key="GridCell.Tab.0.center" timestamp="1593042493694">
+    <state width="2517" height="376" key="GridCell.Tab.0.center" timestamp="1593086261040">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.0.center/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493694" />
+    <state width="2517" height="376" key="GridCell.Tab.0.center/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086261040" />
     <state width="1877" height="377" key="GridCell.Tab.0.center/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844245" />
-    <state width="2517" height="376" key="GridCell.Tab.0.left" timestamp="1593042493694">
+    <state width="2517" height="376" key="GridCell.Tab.0.left" timestamp="1593086261040">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.0.left/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493694" />
+    <state width="2517" height="376" key="GridCell.Tab.0.left/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086261040" />
     <state width="1877" height="377" key="GridCell.Tab.0.left/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844245" />
-    <state width="2517" height="376" key="GridCell.Tab.0.right" timestamp="1593042493694">
+    <state width="2517" height="376" key="GridCell.Tab.0.right" timestamp="1593086261040">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.0.right/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493694" />
+    <state width="2517" height="376" key="GridCell.Tab.0.right/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086261040" />
     <state width="1877" height="377" key="GridCell.Tab.0.right/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844245" />
-    <state width="2517" height="376" key="GridCell.Tab.1.bottom" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.1.bottom" timestamp="1593086263369">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.1.bottom/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.1.bottom/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086263369" />
     <state width="1877" height="377" key="GridCell.Tab.1.bottom/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839854899" />
-    <state width="2517" height="376" key="GridCell.Tab.1.center" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.1.center" timestamp="1593086263369">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.1.center/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.1.center/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086263369" />
     <state width="1877" height="377" key="GridCell.Tab.1.center/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839854899" />
-    <state width="2517" height="376" key="GridCell.Tab.1.left" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.1.left" timestamp="1593086263369">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.1.left/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.1.left/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086263369" />
     <state width="1877" height="377" key="GridCell.Tab.1.left/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839854899" />
-    <state width="2517" height="376" key="GridCell.Tab.1.right" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.1.right" timestamp="1593086263369">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.1.right/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.1.right/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086263369" />
     <state width="1877" height="377" key="GridCell.Tab.1.right/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839854899" />
-    <state width="2517" height="376" key="GridCell.Tab.2.bottom" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.2.bottom" timestamp="1593086260963">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.2.bottom/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.2.bottom/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086260963" />
     <state width="1877" height="377" key="GridCell.Tab.2.bottom/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844184" />
-    <state width="2517" height="376" key="GridCell.Tab.2.center" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.2.center" timestamp="1593086260962">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.2.center/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.2.center/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086260962" />
     <state width="1877" height="377" key="GridCell.Tab.2.center/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844184" />
-    <state width="2517" height="376" key="GridCell.Tab.2.left" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.2.left" timestamp="1593086260962">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.2.left/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.2.left/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086260962" />
     <state width="1877" height="377" key="GridCell.Tab.2.left/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844184" />
-    <state width="2517" height="376" key="GridCell.Tab.2.right" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.2.right" timestamp="1593086260962">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.2.right/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.2.right/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086260962" />
     <state width="1877" height="377" key="GridCell.Tab.2.right/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844184" />
-    <state width="2517" height="376" key="GridCell.Tab.3.bottom" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.3.bottom" timestamp="1593086260963">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.3.bottom/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.3.bottom/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086260963" />
     <state width="1877" height="377" key="GridCell.Tab.3.bottom/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844184" />
-    <state width="2517" height="376" key="GridCell.Tab.3.center" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.3.center" timestamp="1593086260963">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.3.center/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.3.center/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086260963" />
     <state width="1877" height="377" key="GridCell.Tab.3.center/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844184" />
-    <state width="2517" height="376" key="GridCell.Tab.3.left" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.3.left" timestamp="1593086260963">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.3.left/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.3.left/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086260963" />
     <state width="1877" height="377" key="GridCell.Tab.3.left/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844184" />
-    <state width="2517" height="376" key="GridCell.Tab.3.right" timestamp="1593042493695">
+    <state width="2517" height="376" key="GridCell.Tab.3.right" timestamp="1593086260963">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state width="2517" height="376" key="GridCell.Tab.3.right/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593042493695" />
+    <state width="2517" height="376" key="GridCell.Tab.3.right/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593086260963" />
     <state width="1877" height="377" key="GridCell.Tab.3.right/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839844184" />
     <state x="1051" y="433" key="RiderGenerateDialog" timestamp="1593035462296">
       <screen x="0" y="0" width="2560" height="1414" />
@@ -1032,10 +242,10 @@
     </state>
     <state x="617" y="235" key="SettingsEditor/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1592923440704" />
     <state x="4303" y="627" key="SettingsEditor/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839544776" />
-    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog" timestamp="1593035767222">
+    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog" timestamp="1593085447076">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593035767222" />
+    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593085447076" />
     <state x="3934" y="548" width="1732" height="866" key="VCS.FileHistoryDialog/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839443338" />
   </component>
   <component name="XDebuggerManager">
@@ -1044,14 +254,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Logic/Various/UiScript.cs</url>
           <line>22</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Logic/Various/UiScript.cs" initialLine="22">
-            <startOffsets>
-              <option value="603" />
-            </startOffsets>
-            <endOffsets>
-              <option value="652" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="$PROJECT_DIR$/Assets/Logic/Various/UiScript.cs" initialLine="22" />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

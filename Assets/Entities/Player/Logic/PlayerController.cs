@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using Logic.Player;
+using UnityEngine;
 
-namespace Logic.Player
+namespace Entities.Player.Logic
 {
     public class PlayerController : MonoBehaviour
     {
@@ -30,7 +32,6 @@ namespace Logic.Player
         private Rigidbody rb;
         private CameraMovement cameraScript;
         private GameObject cameraMain;
-        private Animator anim;
         private Vector3 movementVec;
 
 
@@ -38,6 +39,8 @@ namespace Logic.Player
         private float health;
         private float stamina;
         private float oxygen;
+        private bool isHoldingKnife, isHoldingPistol, isHoldingSmg;
+        
 
         //Various booleans
         private bool isGrounded;
@@ -45,11 +48,11 @@ namespace Logic.Player
         private bool isRunning = false;
         private bool isShooting = false;
         private bool isInteracting = false;
-        protected bool isNearInteractable = false;
-        protected bool isReadingSign = false;
+        private bool isNearInteractable = false;
+        private bool isReadingSign = false;
 
-        protected bool isInWater = false;
-        protected bool isTouchingWallWithHead = false;
+        private bool isInWater = false;
+        private bool isTouchingWallWithHead = false;
 
         float lastGoodYPosition;
 
@@ -58,9 +61,7 @@ namespace Logic.Player
         float raycastSpread = 0.08f;
 
 
-        //Animations
-        private static readonly int IsRunningAnim = Animator.StringToHash("isRunning");
-        private static readonly int IsShootingAnim = Animator.StringToHash("isShooting");
+
         
         //Weapons
 
@@ -71,8 +72,6 @@ namespace Logic.Player
         void Start()
         {
             rb = GetComponent<Rigidbody>();
-            // animPistol = GameObject.Find("PlayerArmsPistol").GetComponent<Animator>();        
-            // animKnife = GameObject.Find("PlayerArmsKnife").GetComponent<Animator>();        
 
             cameraScript = GetComponentInChildren<CameraMovement>();
             cameraMain = GameObject.Find("Camera_Main");
@@ -84,12 +83,15 @@ namespace Logic.Player
             
             
             //TEST
+            isHoldingKnife = false;
+            isHoldingPistol = false;
+            isHoldingSmg = false;
 
-            anim = GameObject.Find("PlayerWeapons").GetComponent<Animator>();
-            weaponPistol = GameObject.Find("PlayerPistol");
-            weaponPistol.SetActive(true);
-            weaponKnife = GameObject.Find("PlayerKnife");
+            AddWeapon("PlayerPistol");
+            AddWeapon("PlayerKnife");
+            
             weaponKnife.SetActive(false);
+
 
         }
 
@@ -98,7 +100,7 @@ namespace Logic.Player
 
             /*Manage movements*/
             CheckCollisions();
-            GetMovement();
+            SetupMovement();
             Jump();
             MakeMovement();
 
@@ -120,15 +122,12 @@ namespace Logic.Player
         {
             //viene esguito dopo il fixedupdate
             Shoot();
-            
-            
-            /*Additional stuff*/
-            SetAnimations();
+
         }
 
         /** MOVEMENT 
      */
-        private void GetMovement()
+        private void SetupMovement()
         {
             float forwardMovement, rightMovement;
             float movementSpeedMod = movementSpeed;
@@ -145,27 +144,36 @@ namespace Logic.Player
             /*Get movement*/
             float axisMovementVertical = Input.GetAxis("Vertical");
             float axisMovementHorizontal = Input.GetAxis("Horizontal");
-            
+
             /*Boost*/
+            bool shouldBeBoosting;
             if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall && !isTouchingWallWithHead && (rb.velocity.magnitude > 0) && (axisMovementVertical > 0))
             {
-                movementSpeedMod = SetBoost();
+                movementSpeedMod = movementSpeed* boostSpeed;
+                shouldBeBoosting = true;
 
             }
             else
             {
-                isRunning = false;
-
+                shouldBeBoosting = false;
             }
+            
+      
             forwardMovement = axisMovementVertical * movementSpeedMod;
             rightMovement = axisMovementHorizontal  * movementSpeedMod;
 
 
-            /*Fix diagonal speed*/
+            /*Fix diagonal speed and check if player's boosting*/
             if (forwardMovement != 0 && rightMovement != 0)
             {
                 forwardMovement /= 1.42f;       //todo determinare se è sempre questo valore
                 rightMovement /= 1.42f;
+
+                isRunning = shouldBeBoosting;
+            }
+            else
+            {
+                isRunning = false;
             }
 
             /*Setup vectors*/
@@ -175,7 +183,6 @@ namespace Logic.Player
             Vector3 rightVec = transform.right * (rightMovement * slopeSpeedMultiplier);
             movementVec = (forwardVec + rightVec);
 
-        
         }
 
         private void MakeMovement()
@@ -208,11 +215,6 @@ namespace Logic.Player
             }
 
         }
-        private float SetBoost()
-        {
-            isRunning = true;
-            return movementSpeed* boostSpeed;
-        }
 
         private void Jump()
      
@@ -236,29 +238,85 @@ namespace Logic.Player
 
         private void ChangeWeapon()
         {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0f )
+            
+            //si deve determinare che armi possiede.
+            
+            //1 Knife
+            if (Input.GetKeyDown("1"))
             {
-
-                //todo cambia prefab attivo
-                if (weaponPistol.activeSelf)
-                {
-                    weaponPistol.SetActive(false);
-                    weaponKnife.SetActive(true);
-
-                }
-                else
-                {
-                    weaponPistol.SetActive(true);
-
-                    weaponKnife.SetActive(false);
-                }
-           
+                weaponKnife.SetActive(isHoldingKnife);
+                
+                weaponPistol.SetActive(false);
+                weaponSmg.SetActive(false);
 
             }
+
+            
+            //2 Pistola
+            if (Input.GetKeyDown("2"))
+            {
+                weaponPistol.SetActive(isHoldingPistol);
+                
+                weaponKnife.SetActive(false);
+                weaponSmg.SetActive(false);
+
+            }
+            
+            //3 SMG
+            if (Input.GetKeyDown("3"))
+            {
+                weaponSmg.SetActive(isHoldingSmg);
+                
+                weaponPistol.SetActive(false);
+                weaponKnife.SetActive(false);
+
+            }
+
         }
-        /** Check e attivazione dello shooting
-     */
-   
+
+        private void AddWeapon(String weapon)
+        {
+            
+            //should use an enum or something
+            switch (weapon)
+            {
+                case "PlayerPistol":
+
+                    if (!isHoldingPistol)
+                    {
+                        //add it
+                        weaponPistol = GameObject.Find("PlayerPistol");
+                        isHoldingPistol = true;
+
+                    }
+                    
+
+                    break;
+                case "PlayerKnife":
+
+                    if (!isHoldingKnife)
+                    {
+                        //add it
+                        weaponKnife = GameObject.Find("PlayerKnife");
+
+                        isHoldingKnife = true;
+
+                    }
+                    break;
+                case "PlayerSmg":
+
+                    if (!isHoldingSmg)
+                    {
+                        //add it
+                        isHoldingSmg = true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        /** Check e attivazione dello shooting*/
         private void Shoot()
         {
             
@@ -361,7 +419,8 @@ namespace Logic.Player
 
         }
 
-        private void ManageStamina() {
+        private void ManageStamina()
+        {
 
             //todo adda che se è fermo la stamina torna molto più rapidamente
         
@@ -369,42 +428,12 @@ namespace Logic.Player
             //La stamina diminuisce solo quando effettivamente sta facenod l'animazione.
             if (false)        //todo riaggiungi anim
                 stamina -= Time.deltaTime * 2;
-            else if (stamina < maxStamina)
+            
+            if (stamina < maxStamina)
                 stamina += Time.deltaTime * 5;
-   
+
         }
-
-        private void SetAnimations()
-        {
-
-            if (isRunning)
-            {
-                bool value = (movementVec.x != 0 || movementVec.z != 0);
-                anim.SetBool(IsRunningAnim, value);
-            }
-            else
-            {
-                anim.SetBool(IsRunningAnim, false);
-            }
-            // if (isRunning)
-            // {
-            //     bool value = (movementVec.x != 0 || movementVec.z != 0);
-            //     animKnife.SetBool(IsRunningAnim, value );
-            //     animPistol.SetBool(IsRunningAnim, value);
-            //
-            // }
-            // else
-            // {
-            //     animKnife.SetBool(IsRunningAnim, false);
-            //     animPistol.SetBool(IsRunningAnim, false);
-            //
-            //
-            // }
-            //
-            //
-            // animPistol.SetBool(IsShootingAnim, isShooting);
-        }
-
+        
         /// <summary>
         /// Collisions
         /// </summary>
@@ -519,6 +548,26 @@ namespace Logic.Player
         public bool IsPlayerShooting()
         {
             return isShooting;
+        }
+
+        public bool IsPlayerRunning()
+        {
+            return isRunning;
+        }
+
+        public bool IsPistolInHand()
+        {
+            return isHoldingPistol;
+        }
+
+        public bool IsKnifeInHand()
+        {
+            return isHoldingKnife;
+        }
+
+        public GameObject GetPistol()
+        {
+            return weaponPistol;
         }
     }
 }

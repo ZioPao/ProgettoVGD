@@ -1,23 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyBase : MonoBehaviour
+namespace Entities.Enemy.Logic
 {
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyBase : MonoBehaviour
     {
+        // Start is called before the first frame update
+        void Start()
+        {
         
-    }
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        // Update is called once per frame
+        void Update()
+        {
         
-    }
+        }
 
-    public GameObject[] GetAllEnemies()
-    {
-        return GameObject.FindGameObjectsWithTag("enemy");
+        public GameObject[] GetAllEnemies()
+        {
+            return GameObject.FindGameObjectsWithTag("enemy");
+        }
     }
 }
