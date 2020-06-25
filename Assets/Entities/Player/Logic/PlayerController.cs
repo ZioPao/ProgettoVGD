@@ -92,8 +92,8 @@ namespace Entities.Player.Logic
             
             
             //TEST
-			weapons[Weapon.Knife] = GameObject.Find("PlayerKnife");
-			weapons[Weapon.Pistol] = GameObject.Find("PlayerPistol");
+			weapons[(int)Weapon.Knife] = GameObject.Find("PlayerKnife");
+			weapons[(int)Weapon.Pistol] = GameObject.Find("PlayerPistol");
 			//weapons[Weapon.SMG] = GameObject.Find("PlayerSMG");
             
             AddWeapon(Weapon.Knife);
@@ -220,7 +220,7 @@ namespace Entities.Player.Logic
                 else
                 {
                     //Fa scendere forzatamente il giocatore
-                    rb.MovePosition(transform.position + new Vector3(0, -9.81f, 0) * Time.deltaTime);
+                    //rb.MovePosition(transform.position + new Vector3(0, -9.81f, 0) * Time.deltaTime);
                 }
             }
 
