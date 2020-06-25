@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Logic.Player;
 using UnityEngine;
 
@@ -39,7 +41,6 @@ namespace Entities.Player.Logic
         private float health;
         private float stamina;
         private float oxygen;
-		private bool[] isHolding = {false, false, false};
         
 
         //Various booleans
@@ -58,7 +59,7 @@ namespace Entities.Player.Logic
 		
 		//Weapon types
 		
-		private enum Weapon{
+		private enum WeaponEnum{
 			
 			Knife,
 			Pistol,
@@ -74,8 +75,11 @@ namespace Entities.Player.Logic
 
         
         //Weapons
+        
+        private Dictionary<WeaponEnum, GameObject> playerWeaponsObjects;
+        private Dictionary<WeaponEnum, WeaponScript> playerWeaponsScripts;
 
-        private GameObject[] weapons = {null, null, null};						        
+        private Dictionary<WeaponEnum, bool> holdingWeapons;
         
         // Start is called before the first frame update
         void Start()
@@ -90,18 +94,20 @@ namespace Entities.Player.Logic
             health = maxHealth;
             stamina = maxStamina;
             
+            /*Setup armi*/
+            playerWeaponsObjects = new Dictionary<WeaponEnum, GameObject>();
+            playerWeaponsScripts = new Dictionary<WeaponEnum, WeaponScript>();
+            holdingWeapons = new Dictionary<WeaponEnum, bool>();
             
-            //TEST
-			weapons[(int)Weapon.Knife] = GameObject.Find("PlayerKnife");
-			weapons[(int)Weapon.Pistol] = GameObject.Find("PlayerPistol");
-			//weapons[Weapon.SMG] = GameObject.Find("PlayerSMG");
-            
-            AddWeapon(Weapon.Knife);
-            AddWeapon(Weapon.Pistol);
-            
-            weapons[(int)Weapon.Knife].SetActive(false);
+            playerWeaponsObjects.Add(WeaponEnum.Pistol, GameObject.Find("PlayerPistol"));
+            playerWeaponsObjects.Add(WeaponEnum.Knife, GameObject.Find("PlayerKnife"));
 
+            playerWeaponsScripts.Add(WeaponEnum.Pistol, GameObject.Find("PlayerPistol").GetComponent<WeaponScript>());
+            playerWeaponsScripts.Add(WeaponEnum.Knife, GameObject.Find("PlayerKnife").GetComponent<WeaponScript>());
 
+            holdingWeapons.Add(WeaponEnum.Pistol, true);
+            holdingWeapons.Add(WeaponEnum.Knife, true);
+            holdingWeapons.Add(WeaponEnum.SMG, false);
         }
 
         private void FixedUpdate()
@@ -252,67 +258,46 @@ namespace Entities.Player.Logic
             //si deve determinare che armi possiede.
             
             //1 Knife
-            if (Input.GetKeyDown("1") && isHolding[(int)Weapon.Knife])
+            if (Input.GetKeyDown("1") && holdingWeapons[WeaponEnum.Knife])
             {
-                weapons[(int)Weapon.Knife].SetActive(true);                
-                weapons[(int)Weapon.Pistol].SetActive(false);
-                weapons[(int)Weapon.SMG].SetActive(false);
+                playerWeaponsObjects[WeaponEnum.Knife].SetActive(true);
+                playerWeaponsObjects[WeaponEnum.Pistol].SetActive(false);
+                playerWeaponsObjects[WeaponEnum.SMG].SetActive(false);
             }
 
             
             //2 Pistola
-            if (Input.GetKeyDown("2") && isHolding[(int)Weapon.Pistol])
+            if (Input.GetKeyDown("2") && holdingWeapons[WeaponEnum.Pistol])
             {
-                weapons[(int)Weapon.Knife].SetActive(false);                
-                weapons[(int)Weapon.Pistol].SetActive(true);
-                weapons[(int)Weapon.SMG].SetActive(false);
-
+                playerWeaponsObjects[WeaponEnum.Knife].SetActive(false);
+                playerWeaponsObjects[WeaponEnum.Pistol].SetActive(true);
+                playerWeaponsObjects[WeaponEnum.SMG].SetActive(false);
             }
             
             //3 SMG
-            if (Input.GetKeyDown("3") && isHolding[(int)Weapon.SMG])
+            if (Input.GetKeyDown("3") &&  holdingWeapons[WeaponEnum.SMG])
             {
-				weapons[(int)Weapon.Knife].SetActive(false);                
-                weapons[(int)Weapon.Pistol].SetActive(false);
-                weapons[(int)Weapon.SMG].SetActive(true);
+                playerWeaponsObjects[WeaponEnum.Knife].SetActive(false);
+                playerWeaponsObjects[WeaponEnum.Pistol].SetActive(false);
+                playerWeaponsObjects[WeaponEnum.SMG].SetActive(true);
             }
 
         }
 
-        private void AddWeapon(Weapon toAdd)
-        {           
-            switch (toAdd)
+        private void AddWeapon(WeaponEnum weaponToAdd)
+        {
+            
+            if (holdingWeapons.TryGetValue(weaponToAdd, out bool value))
             {
-                case Weapon.Knife:
-
-                    if (!isHolding[(int)Weapon.Knife])
-                    {
-                        //add it                        
-                        isHolding[(int)Weapon.Knife] = true;
-                    }                 
-                    break;
-					
-                case Weapon.Pistol:
-
-					if (!isHolding[(int)Weapon.Pistol])
-                    {
-                        //add it                        
-                        isHolding[(int)Weapon.Pistol] = true;
-
-                    }
-                    break;
-					
-                case Weapon.SMG:
-
-                    if (!isHolding[(int)Weapon.SMG])
-                    {
-                        //add it
-                        isHolding[(int)Weapon.SMG] = true;
-                    }
-                    break;
-					
-                default:
-                    break;
+                if (!value)
+                {
+                    //Setta che l'arma è effettivamente in mano al player
+                    holdingWeapons[weaponToAdd] = true;
+                }
+                else
+                {
+                    print("Arma gia presente e attiva");
+                }
             }
         }
         
@@ -557,17 +542,17 @@ namespace Entities.Player.Logic
 
         public bool IsPistolInHand()
         {
-            return isHolding[(int)Weapon.Pistol];
+            return holdingWeapons[WeaponEnum.Pistol];
         }
 
         public bool IsKnifeInHand()
         {
-            return isHolding[(int)Weapon.Knife];
+            return holdingWeapons[WeaponEnum.Knife];
         }
 
         public GameObject GetPistol()
         {
-            return weapons[(int)Weapon.Pistol];
+            return playerWeaponsObjects[WeaponEnum.Pistol];
         }
     }
 }
