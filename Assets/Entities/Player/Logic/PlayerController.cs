@@ -75,8 +75,7 @@ namespace Entities.Player.Logic
         
         //Weapons
 
-        private GameObject[] weapons = {null, null, null};
-        
+        private GameObject[] weapons = {null, null, null};						        
         
         // Start is called before the first frame update
         void Start()
@@ -93,6 +92,9 @@ namespace Entities.Player.Logic
             
             
             //TEST
+			weapons[Weapon.Knife] = GameObject.Find("PlayerKnife");
+			weapons[Weapon.Pistol] = GameObject.Find("PlayerPistol");
+			//weapons[Weapon.SMG] = GameObject.Find("PlayerSMG");
             
             AddWeapon(Weapon.Knife);
             AddWeapon(Weapon.Pistol);
@@ -278,17 +280,14 @@ namespace Entities.Player.Logic
         }
 
         private void AddWeapon(Weapon toAdd)
-        {
-            
-            //should use an enum or something
+        {           
             switch (toAdd)
             {
                 case Weapon.Knife:
 
                     if (!isHolding[(int)Weapon.Knife])
                     {
-                        //add it
-                        weapons[(int)Weapon.Knife] = GameObject.Find("PlayerKnife");
+                        //add it                        
                         isHolding[(int)Weapon.Knife] = true;
                     }                 
                     break;
@@ -297,8 +296,7 @@ namespace Entities.Player.Logic
 
 					if (!isHolding[(int)Weapon.Pistol])
                     {
-                        //add it
-                        weapons[(int)Weapon.Pistol] = GameObject.Find("PlayerPistol");
+                        //add it                        
                         isHolding[(int)Weapon.Pistol] = true;
 
                     }
@@ -309,7 +307,6 @@ namespace Entities.Player.Logic
                     if (!isHolding[(int)Weapon.SMG])
                     {
                         //add it
-						//weapons[(int)Weapon.SMG] = GameObject.Find("PlayerSMG");
                         isHolding[(int)Weapon.SMG] = true;
                     }
                     break;
