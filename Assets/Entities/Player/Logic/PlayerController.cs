@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Logic.Player;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Entities.Player.Logic
 {
@@ -35,6 +36,7 @@ namespace Entities.Player.Logic
         private CameraMovement cameraScript;
         private GameObject cameraMain;
         private Vector3 movementVec;
+        private CapsuleCollider collider;
 
 
         //Stats
@@ -88,7 +90,8 @@ namespace Entities.Player.Logic
 
             cameraScript = GetComponentInChildren<CameraMovement>();
             cameraMain = GameObject.Find("Camera_Main");
-
+            collider = GetComponent<CapsuleCollider>();
+            
             /*Setup basic stats*/
             oxygen = maxOxygen;
             health = maxHealth;
@@ -108,6 +111,8 @@ namespace Entities.Player.Logic
             holdingWeapons.Add(WeaponEnum.Pistol, true);
             holdingWeapons.Add(WeaponEnum.Knife, true);
             holdingWeapons.Add(WeaponEnum.SMG, false);
+            
+            playerWeaponsObjects[WeaponEnum.Knife].SetActive(false);
         }
 
         private void FixedUpdate()
@@ -219,14 +224,15 @@ namespace Entities.Player.Logic
                 float slopeAngleTmp = GetSlopeAngle();
                 
                 //ignore check if player is in water
-                if (slopeAngleTmp > -50 && slopeAngleTmp <= 30 || isInWater)
+                if (slopeAngleTmp > -50 && slopeAngleTmp <= 35 || isInWater)
                 {
                     rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
                 }
                 else
                 {
                     //Fa scendere forzatamente il giocatore
-                    //rb.MovePosition(transform.position + new Vector3(0, -9.81f, 0) * Time.deltaTime);
+                    print("stuck boy");
+                    rb.MovePosition(transform.position + new Vector3(0, -9.81f, 0) * Time.deltaTime);
                 }
             }
 
@@ -439,16 +445,20 @@ namespace Entities.Player.Logic
                  || Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out _, 2, tmp));
 
 
+            LayerMask layerTmp = ~ LayerMask.GetMask("Player");
+
             if (isTouchingWallWithHead)
             {
-                isTouchingWallWithHead = Physics.Raycast(cameraMain.transform.position, cameraMain.transform.up, out _, 2.5f);
-
+                isTouchingWallWithHead = Physics.Raycast(collider.transform.position, collider.transform.up, out var ray, 2.5f, layerTmp);
             }
             else
             {
-                isTouchingWallWithHead = Physics.Raycast(cameraMain.transform.position, cameraMain.transform.up, out _, 2.5f);
+                isTouchingWallWithHead = Physics.Raycast(collider.transform.position, collider.transform.up, out var ray, 2.5f,layerTmp); //ignore viewchecks for sprite management
                 if (isTouchingWallWithHead)
+                {
                     lastGoodYPosition = rb.position.y;    
+                    
+                }
             }
    
 
