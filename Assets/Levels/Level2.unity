@@ -6832,7 +6832,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2952775602486959101}
   - component: {fileID: 2952775602486959091}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerArmsCollider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6847,7 +6847,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2952775602486959090}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.7
