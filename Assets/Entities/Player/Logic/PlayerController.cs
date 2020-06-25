@@ -440,9 +440,9 @@ namespace Entities.Player.Logic
 
             LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
             isTouchingWall =
-                (Physics.Raycast(cameraMain.transform.position + new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out _, 2, tmp)
-                 || Physics.Raycast(cameraMain.transform.position - new Vector3(0, 0, raycastSpread), cameraMain.transform.forward, out _, 2, tmp)
-                 || Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out _, 2, tmp));
+                (Physics.Raycast(collider.transform.position + new Vector3(0, 0, raycastSpread), collider.transform.forward, out _, 2, tmp)
+                 || Physics.Raycast(collider.transform.position - new Vector3(0, 0, raycastSpread), collider.transform.forward, out _, 2, tmp)
+                 || Physics.Raycast(collider.transform.position, collider.transform.forward, out _, 2, tmp));
 
 
             LayerMask layerTmp = ~ LayerMask.GetMask("Player");
