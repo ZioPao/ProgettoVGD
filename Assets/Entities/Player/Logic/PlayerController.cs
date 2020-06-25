@@ -75,13 +75,11 @@ namespace Entities.Player.Logic
 
         
         //Weapons
-
-        //private GameObject[] weapons = {null, null, null};
+        
         private Dictionary<WeaponEnum, GameObject> playerWeaponsObjects;
         private Dictionary<WeaponEnum, WeaponScript> playerWeaponsScripts;
 
         private Dictionary<WeaponEnum, bool> holdingWeapons;
-
         
         // Start is called before the first frame update
         void Start()
@@ -110,9 +108,6 @@ namespace Entities.Player.Logic
             holdingWeapons.Add(WeaponEnum.Pistol, true);
             holdingWeapons.Add(WeaponEnum.Knife, true);
             holdingWeapons.Add(WeaponEnum.SMG, false);
-
-
-
         }
 
         private void FixedUpdate()
@@ -292,13 +287,6 @@ namespace Entities.Player.Logic
         private void AddWeapon(WeaponEnum weaponToAdd)
         {
             
-            //should use an enum or something
-            
-            
-            //il player di base ha tutte le armi. Necessario controllare direttamente nell'arma se è effettivamente 
-            //posseduta dal player o no
-
-
             if (holdingWeapons.TryGetValue(weaponToAdd, out bool value))
             {
                 if (!value)
@@ -311,8 +299,6 @@ namespace Entities.Player.Logic
                     print("Arma gia presente e attiva");
                 }
             }
-            
-          
         }
         
         /** Check e attivazione dello shooting*/
