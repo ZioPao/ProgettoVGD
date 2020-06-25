@@ -45,21 +45,10 @@ namespace Logic.Player
 
         }
 
-        private void FixedUpdate()
-        {
-            if (!playerController.IsPlayerShooting()) return;
-            Shoot();
-
-            //todo finiisci
-            // if (playerController.IsPlayerReloading())
-            // {
-            //     Reload();
-            // }
-
-        }
+        
 
 
-        private void Shoot()
+        public void ShootProjectile()
         {
 
             if (bulletsInMag > 0)
@@ -71,8 +60,6 @@ namespace Logic.Player
                 PlayClackSound();
             
             
-            playerController.SetIsPlayerShooting(false);
-
         }
 
         private void PlayClackSound()

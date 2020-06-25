@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Logic.Enemy
@@ -53,7 +54,7 @@ namespace Logic.Enemy
             {
                 //Spawna projectile
                 //il nemico si ferma un secondo e poi continua a muoversi dopo aver sparato
-                projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+                projectile = PrefabUtility.InstantiatePrefab(projectilePrefab) as GameObject;
                 projectile.transform.position = enemyTextureTransform.position + new Vector3(0, 2.5f, 0);        //poco poco più in alto
                 projectile.transform.rotation = enemyTextureTransform.rotation;
 

@@ -61,7 +61,7 @@ namespace Entities.Player.Logic
 		
 		//Weapon types
 		
-		private enum WeaponEnum{
+		public enum WeaponEnum{
 			
 			Knife,
 			Pistol,
@@ -80,8 +80,8 @@ namespace Entities.Player.Logic
         
         private Dictionary<WeaponEnum, GameObject> playerWeaponsObjects;
         private Dictionary<WeaponEnum, WeaponScript> playerWeaponsScripts;
-
         private Dictionary<WeaponEnum, bool> holdingWeapons;
+        private WeaponEnum currentWeapon;
         
         // Start is called before the first frame update
         void Start()
@@ -113,6 +113,8 @@ namespace Entities.Player.Logic
             holdingWeapons.Add(WeaponEnum.SMG, false);
             
             playerWeaponsObjects[WeaponEnum.Knife].SetActive(false);
+
+            currentWeapon = WeaponEnum.Pistol;
         }
 
         private void FixedUpdate()
@@ -132,7 +134,8 @@ namespace Entities.Player.Logic
 
             /* Manage actions*/
             Interact();
-            
+            ChangeWeapon();
+
 
 
 
@@ -141,8 +144,7 @@ namespace Entities.Player.Logic
         private void Update()
         {
             //viene esguito dopo il fixedupdate
-            Shoot();
-			ChangeWeapon();
+            ShootControl();
 
         }
 
@@ -269,6 +271,8 @@ namespace Entities.Player.Logic
                 playerWeaponsObjects[WeaponEnum.Knife].SetActive(true);
                 playerWeaponsObjects[WeaponEnum.Pistol].SetActive(false);
                 playerWeaponsObjects[WeaponEnum.SMG].SetActive(false);
+
+                currentWeapon = WeaponEnum.Knife;
             }
 
             
@@ -278,6 +282,9 @@ namespace Entities.Player.Logic
                 playerWeaponsObjects[WeaponEnum.Knife].SetActive(false);
                 playerWeaponsObjects[WeaponEnum.Pistol].SetActive(true);
                 playerWeaponsObjects[WeaponEnum.SMG].SetActive(false);
+                
+                currentWeapon = WeaponEnum.Pistol;
+
             }
             
             //3 SMG
@@ -286,8 +293,10 @@ namespace Entities.Player.Logic
                 playerWeaponsObjects[WeaponEnum.Knife].SetActive(false);
                 playerWeaponsObjects[WeaponEnum.Pistol].SetActive(false);
                 playerWeaponsObjects[WeaponEnum.SMG].SetActive(true);
-            }
+                
+                currentWeapon = WeaponEnum.SMG;
 
+            }
         }
 
         private void AddWeapon(WeaponEnum weaponToAdd)
@@ -308,23 +317,22 @@ namespace Entities.Player.Logic
         }
         
         /** Check e attivazione dello shooting*/
-        private void Shoot()
+        private void ShootControl()
         {
             
             //Necessario inserirlo in Update, non FixedUpdate per via di come viene gestito il GetMouseButtonDown.
             //Usando il Fixed spesso perde input
             
-            if (Input.GetMouseButtonDown(0) && !isRunning)
+            if (Input.GetMouseButtonDown(0) && !isRunning && !isShooting)
             {
                 isShooting = true;
+
+                var weaponTmp = playerWeaponsScripts[currentWeapon];
+                weaponTmp.ShootProjectile();
                 if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit projectile, projectileDistance, LayerMask.GetMask("EnemyHitbox")))
                 {
                     Destroy(projectile.transform.parent.gameObject);
-                    
-                    //ParticleSystem exp = GetComponent<ParticleSystem>();
-                    //exp.Play();
-                    //when it hits something, it destroys it
-                    //print(projectile.transform);
+             
                 }
 
             }
@@ -563,6 +571,11 @@ namespace Entities.Player.Logic
         public GameObject GetPistol()
         {
             return playerWeaponsObjects[WeaponEnum.Pistol];
+        }
+        
+        public WeaponScript GetPistolScript()
+        {
+            return playerWeaponsScripts[WeaponEnum.Pistol];
         }
     }
 }

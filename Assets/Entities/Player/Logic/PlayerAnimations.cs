@@ -28,7 +28,7 @@ namespace Entities.Player.Logic
         
         //timers
         private float timerAnimationMax = 0.25f;
-        private float timerAnimation;
+        private float timerAnimation;        //TODO da legare con lo shooting effettivo. Al momento è totalmente sganciato e causa solo problemi
         
         void Start()
         {
@@ -72,10 +72,15 @@ namespace Entities.Player.Logic
             //PlayerPistol
             
             //should be run only one time
+            
+            
             if (pistolRenderer == null)
                 pistolRenderer = playerController.GetPistol().GetComponent<SpriteRenderer>();
-            
-            if (playerController.IsPlayerShooting() || timerAnimation > 0f)
+
+
+            int currentBullets = playerController.GetPistolScript().GetCurrentBulletsInMag();
+            print(currentBullets);
+            if ((playerController.IsPlayerShooting() || timerAnimation > 0f)  && currentBullets > 1)
             {
                 pistolRenderer.sprite = pistolShootingSprite;        //Change texture
                 timerAnimation -= Time.deltaTime;
