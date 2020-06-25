@@ -7,47 +7,25 @@
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="BrokenVector" t="Include">
-          <e p="UltimateDungeonPack" t="Include">
-            <e p="Scenes" t="Include">
-              <e p="Demo" t="Include">
-                <e p="FPControls" t="Include">
-                  <e p="Scripts" t="Include">
-                    <e p="CharacterController.cs" t="Include" />
-                    <e p="MouseCamLook.cs" t="Include" />
-                  </e>
-                </e>
-              </e>
-            </e>
-            <e p="Scripts" t="Include">
-              <e p="LightImprove.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Levels" t="Include">
-          <e p="Level2" t="Include">
-            <e p="Water-WorldSpace.shader" t="Include" />
-          </e>
-        </e>
-        <e p="Logic" t="Include">
+        <e p="Entities" t="Include">
           <e p="Enemy" t="Include">
-            <e p="Button.cs" t="Include" />
-            <e p="EnemyBase.cs" t="Include" />
-            <e p="EnemyBehaviour.cs" t="Include" />
-            <e p="EnemyShooting.cs" t="Include" />
-            <e p="ProjectileScript.cs" t="Include" />
+            <e p="Logic" t="Include">
+              <e p="EnemyBase.cs" t="Include" />
+              <e p="EnemyBehaviour.cs" t="Include" />
+              <e p="EnemyShooting.cs" t="Include" />
+              <e p="ProjectileScript.cs" t="Include" />
+            </e>
           </e>
           <e p="Player" t="Include">
-            <e p="CameraCollider.cs" t="Include" />
-            <e p="CameraMovement.cs" t="Include" />
-            <e p="NewBehaviourScript.cs" t="Include" />
-            <e p="PlayerController.cs" t="Include" />
-            <e p="Shooting.cs" t="Include" />
-            <e p="WeaponScript.cs" t="Include" />
-          </e>
-          <e p="Various" t="Include">
-            <e p="MovingWater.cs" t="Include" />
-            <e p="UIScript.cs" t="Include" />
+            <e p="Logic" t="Include">
+              <e p="CameraCollider.cs" t="Include" />
+              <e p="CameraMovement.cs" t="Include" />
+              <e p="NewBehaviourScript.cs" t="Include" />
+              <e p="PlayerController.cs" t="Include" />
+              <e p="Shooting.cs" t="Include" />
+              <e p="UIScript.cs" t="Include" />
+              <e p="WeaponScript.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Materials" t="Include">
@@ -97,6 +75,31 @@
               <e p="ExtensionLoader.cs" t="Include" />
               <e p="UnityAPIWrapper.cs" t="Include" />
             </e>
+          </e>
+        </e>
+        <e p="Random" t="Include">
+          <e p="BrokenVector" t="Include">
+            <e p="UltimateDungeonPack" t="Include">
+              <e p="Scenes" t="Include">
+                <e p="Demo" t="Include">
+                  <e p="FPControls" t="Include">
+                    <e p="Scripts" t="Include">
+                      <e p="CharacterController.cs" t="Include" />
+                      <e p="MouseCamLook.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="LightImprove.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="VariousLogic" t="Include">
+          <e p="Button.cs" t="Include" />
+          <e p="Various" t="Include">
+            <e p="MovingWater.cs" t="Include" />
           </e>
         </e>
       </e>
