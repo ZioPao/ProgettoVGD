@@ -20,17 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c0a94b4-3a72-4aaa-b23e-ef01512582b0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Entities/Enemy/Logic/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Enemy/Logic/EnemyBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Animation/PlayerWeapons.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Animation/PlayerWeapons.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Logic/CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Logic/CameraMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Logic/UiScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Logic/UiScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Logic/WeaponScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Entities/Player/Logic/WeaponScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Sprites/pistol.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Entities/Player/Sprites/pistol.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,20 +33,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3DC54541-A257-4AC7-826A-004A212A4332/4a/1d14c66b/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.0f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Layout/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Random/NewSurfaceShader.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E93AB2F8-5FF8-4881-B6AB-5BA98D373CFC/0d/ae84590c/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Entities/Enemy/Logic/EnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3DC54541-A257-4AC7-826A-004A212A4332/dc/8f762cf7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Entities/Player/Logic/CameraMovement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Unity/Hub/Editor/2019.4.0f1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Layout/CanvasScaler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Random/NewSurfaceShader.shader" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3DC54541-A257-4AC7-826A-004A212A4332/dc/8f762cf7/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Entities/Player/Logic/WeaponScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Entities/Player/Logic/CameraMovement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -74,8 +62,9 @@
         <option value="$PROJECT_DIR$/Assets/Random/NewSurfaceShader.shader" />
         <option value="$PROJECT_DIR$/Assets/PlayerAnimations.cs" />
         <option value="$PROJECT_DIR$/Assets/Entities/Enemy/Logic/EnemyBase.cs" />
-        <option value="$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerAnimations.cs" />
+        <option value="$PROJECT_DIR$/Assets/Entities/Player/Logic/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Entities/Player/Logic/WeaponScript.cs" />
       </list>
     </option>
   </component>
@@ -99,10 +88,10 @@
       <option name="pid" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="5364">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="5364" />
+      <option name="pid" />
       <method v="2" />
     </configuration>
   </component>
@@ -123,6 +112,7 @@
       <workItem from="1593034844022" duration="6609000" />
       <workItem from="1593043562075" duration="210000" />
       <workItem from="1593079395827" duration="5863000" />
+      <workItem from="1593107198948" duration="3056000" />
     </task>
     <servers />
   </component>
@@ -242,10 +232,10 @@
     </state>
     <state x="617" y="235" key="SettingsEditor/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1592923440704" />
     <state x="4303" y="627" key="SettingsEditor/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839544776" />
-    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog" timestamp="1593085447076">
+    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog" timestamp="1593110278888">
       <screen x="0" y="0" width="2560" height="1414" />
     </state>
-    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593085447076" />
+    <state x="125" y="128" width="2310" height="1177" key="VCS.FileHistoryDialog/3840.454.1920.1041/0.0.2560.1414@0.0.2560.1414" timestamp="1593110278888" />
     <state x="3934" y="548" width="1732" height="866" key="VCS.FileHistoryDialog/3840.454.1920.1041/0.0.2560.1414@3840.454.1920.1041" timestamp="1592839443338" />
   </component>
   <component name="XDebuggerManager">

@@ -5,44 +5,38 @@ namespace Logic.Player
 {
     public class WeaponScript : MonoBehaviour
     {
-
-
         [SerializeField] private bool isMelee = false;
-        [SerializeField] private int ammoStart;        //100 proiettili all'inizio del game
-        [SerializeField] private int maxBulletsInMag;    // Quanti proiettili nel caricatore
-    
-    
+        [SerializeField] private int ammoStart; //100 proiettili all'inizio del game
+        [SerializeField] private int maxBulletsInMag; // Quanti proiettili nel caricatore
+
+
         //Variabili per info aggiuntive
         private PlayerController playerController;
-    
-    
-    
+
+
         //Variabili di stato, da usare per ami da fuoco
         private int ammo;
         private int bulletsInMag;
-        private float shootAngle;        //Ampiezza dello sparo. Per shotgun e simili
+        private float shootAngle; //Ampiezza dello sparo. Per shotgun e simili
 
-        
+
         //Variabili generali, anche per coltello
-     
         private int damagePerShot;
-    
+
+
         void Start()
         {
             playerController = GetComponentInParent<PlayerController>();
+
             if (isMelee)
             {
-                
             }
             else
             {
-                       //Nel caso fossero armi da fuoco
-                       ammo = ammoStart;
-                       bulletsInMag = maxBulletsInMag;
+                //Nel caso fossero armi da fuoco
+                ammo = ammoStart;
+                bulletsInMag = maxBulletsInMag;
             }
-            
-
-
         }
 
         private void FixedUpdate()
@@ -55,24 +49,20 @@ namespace Logic.Player
             // {
             //     Reload();
             // }
-
         }
 
 
         private void Shoot()
         {
-
             if (bulletsInMag > 0)
             {
                 bulletsInMag--;
-                
             }
             else
                 PlayClackSound();
-            
-            
-            playerController.SetIsPlayerShooting(false);
 
+
+            playerController.SetIsPlayerShooting(false);
         }
 
         private void PlayClackSound()
@@ -84,9 +74,8 @@ namespace Logic.Player
         {
             print("chick chick clack ricaricata");
         }
-        
-        
-        
+
+
         ///////SETTERS & GETTERS
 
         public int GetCurrentAmmo()
