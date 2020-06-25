@@ -39,7 +39,7 @@ namespace Entities.Player.Logic
         private float health;
         private float stamina;
         private float oxygen;
-        private bool isHoldingKnife, isHoldingPistol, isHoldingSmg;
+		private bool[] isHolding = {false, false, false};
         
 
         //Various booleans
@@ -55,6 +55,16 @@ namespace Entities.Player.Logic
         private bool isTouchingWallWithHead = false;
 
         float lastGoodYPosition;
+		
+		//Weapon types
+		
+		private enum Weapon{
+			
+			Knife,
+			Pistol,
+			SMG,
+			
+		}
 
         //Raycasting
         float raycastLength = 5f;
@@ -65,7 +75,7 @@ namespace Entities.Player.Logic
         
         //Weapons
 
-        private GameObject weaponPistol, weaponKnife, weaponSmg;
+        private GameObject[] weapons = {null, null, null};
         
         
         // Start is called before the first frame update
@@ -83,14 +93,11 @@ namespace Entities.Player.Logic
             
             
             //TEST
-            isHoldingKnife = false;
-            isHoldingPistol = false;
-            isHoldingSmg = false;
-
-            AddWeapon("PlayerPistol");
-            AddWeapon("PlayerKnife");
             
-            weaponKnife.SetActive(false);
+            AddWeapon(Weapon.Knife);
+            AddWeapon(Weapon.Pistol);
+            
+            weapons[(int)Weapon.Knife].SetActive(false);
 
 
         }
@@ -112,7 +119,7 @@ namespace Entities.Player.Logic
 
             /* Manage actions*/
             Interact();
-            ChangeWeapon();
+            
 
 
 
@@ -122,6 +129,7 @@ namespace Entities.Player.Logic
         {
             //viene esguito dopo il fixedupdate
             Shoot();
+			ChangeWeapon();
 
         }
 
@@ -242,75 +250,70 @@ namespace Entities.Player.Logic
             //si deve determinare che armi possiede.
             
             //1 Knife
-            if (Input.GetKeyDown("1"))
+            if (Input.GetKeyDown("1") && isHolding[(int)Weapon.Knife])
             {
-                weaponKnife.SetActive(isHoldingKnife);
-                
-                weaponPistol.SetActive(false);
-                weaponSmg.SetActive(false);
-
+                weapons[(int)Weapon.Knife].SetActive(true);                
+                weapons[(int)Weapon.Pistol].SetActive(false);
+                weapons[(int)Weapon.SMG].SetActive(false);
             }
 
             
             //2 Pistola
-            if (Input.GetKeyDown("2"))
+            if (Input.GetKeyDown("2") && isHolding[(int)Weapon.Pistol])
             {
-                weaponPistol.SetActive(isHoldingPistol);
-                
-                weaponKnife.SetActive(false);
-                weaponSmg.SetActive(false);
+                weapons[(int)Weapon.Knife].SetActive(false);                
+                weapons[(int)Weapon.Pistol].SetActive(true);
+                weapons[(int)Weapon.SMG].SetActive(false);
 
             }
             
             //3 SMG
-            if (Input.GetKeyDown("3"))
+            if (Input.GetKeyDown("3") && isHolding[(int)Weapon.SMG])
             {
-                weaponSmg.SetActive(isHoldingSmg);
-                
-                weaponPistol.SetActive(false);
-                weaponKnife.SetActive(false);
-
+				weapons[(int)Weapon.Knife].SetActive(false);                
+                weapons[(int)Weapon.Pistol].SetActive(false);
+                weapons[(int)Weapon.SMG].SetActive(true);
             }
 
         }
 
-        private void AddWeapon(String weapon)
+        private void AddWeapon(Weapon toAdd)
         {
             
             //should use an enum or something
-            switch (weapon)
+            switch (toAdd)
             {
-                case "PlayerPistol":
+                case Weapon.Knife:
 
-                    if (!isHoldingPistol)
+                    if (!isHolding[(int)Weapon.Knife])
                     {
                         //add it
-                        weaponPistol = GameObject.Find("PlayerPistol");
-                        isHoldingPistol = true;
-
-                    }
-                    
-
+                        weapons[(int)Weapon.Knife] = GameObject.Find("PlayerKnife");
+                        isHolding[(int)Weapon.Knife] = true;
+                    }                 
                     break;
-                case "PlayerKnife":
+					
+                case Weapon.Pistol:
 
-                    if (!isHoldingKnife)
+					if (!isHolding[(int)Weapon.Pistol])
                     {
                         //add it
-                        weaponKnife = GameObject.Find("PlayerKnife");
-
-                        isHoldingKnife = true;
+                        weapons[(int)Weapon.Pistol] = GameObject.Find("PlayerPistol");
+                        isHolding[(int)Weapon.Pistol] = true;
 
                     }
                     break;
-                case "PlayerSmg":
+					
+                case Weapon.SMG:
 
-                    if (!isHoldingSmg)
+                    if (!isHolding[(int)Weapon.SMG])
                     {
                         //add it
-                        isHoldingSmg = true;
+						//weapons[(int)Weapon.SMG] = GameObject.Find("PlayerSMG");
+                        isHolding[(int)Weapon.SMG] = true;
                     }
                     break;
+					
                 default:
                     break;
             }
@@ -391,7 +394,7 @@ namespace Entities.Player.Logic
         {
 
             isReadingSign = true;
-        
+     
 
             //todo se è troppo distante dal sign, si toglie il canvas?
 
@@ -557,17 +560,17 @@ namespace Entities.Player.Logic
 
         public bool IsPistolInHand()
         {
-            return isHoldingPistol;
+            return isHolding[(int)Weapon.Pistol];
         }
 
         public bool IsKnifeInHand()
         {
-            return isHoldingKnife;
+            return isHolding[(int)Weapon.Knife];
         }
 
         public GameObject GetPistol()
         {
-            return weaponPistol;
+            return weapons[(int)Weapon.Pistol];
         }
     }
 }
