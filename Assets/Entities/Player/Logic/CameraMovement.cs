@@ -7,7 +7,7 @@ namespace Logic.Player
 {
     public class CameraMovement : MonoBehaviour
     {
-        [SerializeField] private float mouseSensitivity = 100;
+        [SerializeField] private float mouseSensitivity = 500;
         [SerializeField] private Transform player = null; //Sarebbe il player controller
 
 

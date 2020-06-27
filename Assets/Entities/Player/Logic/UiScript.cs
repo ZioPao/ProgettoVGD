@@ -13,7 +13,7 @@ namespace Logic.Various
 
         private GameObject weaponsObject;
         
-        private GameObject oxygenCanvas, interactionCanvas, signCanvas, ammoCanvas;
+        private GameObject oxygenCanvas, interactionCanvas, pickupCanvas, signCanvas, ammoCanvas;
         private Text healthText, staminaText, oxygenText, ammoText;
 
         // Start is called before the first frame update
@@ -25,6 +25,7 @@ namespace Logic.Various
             
             oxygenCanvas = GameObject.Find("Oxygen_Canvas");
             interactionCanvas = GameObject.Find("Interaction_Canvas");
+			pickupCanvas = GameObject.Find("Pickup_Canvas");
             signCanvas = GameObject.Find("Sign_Canvas");
             ammoCanvas = GameObject.Find("Ammo_Canvas");        //todo credo sia inutile
 
@@ -68,10 +69,9 @@ namespace Logic.Various
             {
                 oxygenCanvas.SetActive(false);
             }
-            
-            
-
+                       
             interactionCanvas.SetActive(playerStatus.IsPlayerNearInteractable());
+			pickupCanvas.SetActive(playerStatus.IsPlayerNearPickup());
             signCanvas.SetActive(playerStatus.IsPlayerReadingSign());
         }
     }

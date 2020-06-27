@@ -52,6 +52,7 @@ namespace Entities.Player.Logic
         private bool isShooting = false;
         private bool isInteracting = false;
         private bool isNearInteractable = false;
+		private bool isNearPickup = false;
         private bool isReadingSign = false;
 
         private bool isInWater = false;
@@ -134,17 +135,15 @@ namespace Entities.Player.Logic
 
             /* Manage actions*/
             Interact();
-            ChangeWeapon();
-
-
-
-
+			Pickup();
+            
         }
 
         private void Update()
         {
             //viene esguito dopo il fixedupdate
             ShootControl();
+			ChangeWeapon();
 
         }
 
@@ -375,16 +374,44 @@ namespace Entities.Player.Logic
                 else
                 {
                     isInteracting = false;
-                }
+                }				
 
             }
             else
             {
-
                 isNearInteractable = false;
                 isInteracting = false;
             }
         }
+		
+		private void Pickup()
+		{
+			RaycastHit picker;
+            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out picker, interactionDistance))
+			{
+				if(picker.collider.CompareTag("Pickup"))
+				{
+					isNearPickup = true;
+					if (Input.GetKey("e"))
+					{
+						switch(picker.transform.parent.name)
+						{
+							case "AmmoBox":
+								CollectAmmo();
+								break;
+							default:
+								break;
+							
+						}
+					}
+				}
+				else
+				{
+					isNearPickup = false;
+				}
+			}
+		}
+		
         /*shows a new layer in the hud*/
         private void InteractWithSign()
         {
@@ -398,6 +425,13 @@ namespace Entities.Player.Logic
 
 
         }
+		
+		private void CollectAmmo(){
+			
+			//todo
+			
+		}
+		
         private void ManageHealth() {
 
             if (oxygen < 1)
@@ -541,6 +575,11 @@ namespace Entities.Player.Logic
         public bool IsPlayerNearInteractable()
         {
             return isNearInteractable;
+        }
+		
+		public bool IsPlayerNearPickup()
+        {
+            return isNearPickup;
         }
 
         public bool IsPlayerReadingSign()

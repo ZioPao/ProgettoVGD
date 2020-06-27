@@ -12,6 +12,7 @@ TagManager:
   - Interactable
   - EnemyHitbox
   - PlayerWeapon
+  - Pickup
   layers:
   - Default
   - TransparentFX
