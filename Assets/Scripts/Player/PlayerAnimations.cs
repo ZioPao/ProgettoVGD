@@ -52,10 +52,10 @@ namespace Player
 
         private void SetAnimations()
         { 
-            anim.SetBool(IsRunningAnim, playerController.IsPlayerRunning());
-            anim.SetBool(IsShootingAnim, playerController.IsPlayerShooting());
+            anim.SetBool(IsRunningAnim, Values.GetIsRunning());
+            anim.SetBool(IsShootingAnim, Values.GetIsShooting());
 
-            if (playerController.IsPlayerShooting())
+            if (Values.GetIsShooting())
                 timerAnimation = timerAnimationMax;        //start timer
         
             if (playerController.IsPistolInHand())
@@ -79,7 +79,7 @@ namespace Player
 
             int currentBullets = playerController.GetPistolScript().GetCurrentBulletsInMag();
             print(currentBullets);
-            if ((playerController.IsPlayerShooting() || timerAnimation > 0f)  && currentBullets > 1)
+            if ((Values.GetIsShooting() || timerAnimation > 0f)  && currentBullets > 1)
             {
                 pistolRenderer.sprite = pistolShootingSprite;        //Change texture
                 timerAnimation -= Time.deltaTime;

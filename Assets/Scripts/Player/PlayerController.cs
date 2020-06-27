@@ -1,65 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Player;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Player
 {
     public class PlayerController : MonoBehaviour
     {
-
-
+        
         //Reimplementation of the original controller made by unity
 
         //if we're not touching anything, then jumping - no wasd
         //if we're touching something but on a slope - nerfed wasd
-
-
-        [SerializeField] private float boostSpeed = 2f;
-        [SerializeField] private float jumpForce = 50000f;
-        [SerializeField] private float movementSpeed = 5f;
-
-        [SerializeField] private float maxOxygen = 100f;
-        [SerializeField] private float maxStamina = 100f;
-        [SerializeField] private float maxHealth = 100f;
-
-        [SerializeField] private float rigidBodyDefaultMass = 2.45f;
-	
-        [SerializeField] private float projectileDistance = 100f;
-        [SerializeField] private float interactionDistance = 5f;
         
-
-
         private Rigidbody rb;
         private CameraMovement cameraScript;
         private GameObject cameraMain;
         private Vector3 movementVec;
         private CapsuleCollider collider;
-
-
-        //Stats
-        private float health;
-        private float stamina;
-        private float oxygen;
         
-
-        //Various booleans
-        private bool isGrounded;
-        private bool isTouchingWall;
-        private bool isRunning = false;
-        private bool isShooting = false;
-        private bool isInteracting = false;
-        private bool isNearInteractable = false;
-		private bool isNearPickup = false;
-        private bool isReadingSign = false;
-
-        private bool isInWater = false;
-        private bool isTouchingWallWithHead = false;
-
-        float lastGoodYPosition;
-		
 		//Weapon types
 		
 		public enum WeaponEnum{
@@ -70,13 +27,6 @@ namespace Player
 			
 		}
 
-        //Raycasting
-        float raycastLength = 5f;
-        float raycastSpread = 0.08f;
-
-
-
-        
         //Weapons
         
         private Dictionary<WeaponEnum, GameObject> playerWeaponsObjects;
@@ -94,9 +44,10 @@ namespace Player
             collider = GetComponent<CapsuleCollider>();
             
             /*Setup basic stats*/
-            oxygen = maxOxygen;
-            health = maxHealth;
-            stamina = maxStamina;
+
+            Values.SetHealth(Values.GetMaxHealth());
+            Values.SetStamina(Values.GetMaxStamina());
+            Values.SetOxygen(Values.GetMaxOxygen());
             
             /*Setup armi*/
             playerWeaponsObjects = new Dictionary<WeaponEnum, GameObject>();
@@ -152,11 +103,11 @@ namespace Player
         private void SetupMovement()
         {
             float forwardMovement, rightMovement;
-            float movementSpeedMod = movementSpeed;
+            float movementSpeedMod = Values.GetMovementSpeed();
             float slopeSpeedMultiplier = 1 - (GetSlopeAngle() / 90);
 
             /*In water*/
-            if (isInWater)
+            if (Values.GetIsInWater())
             {
                 //todo i broke something 
                 movementSpeedMod *= 0.5f; //Decrease
@@ -169,9 +120,9 @@ namespace Player
 
             /*Boost*/
             bool shouldBeBoosting;
-            if (Input.GetKey(KeyCode.LeftShift) && !isTouchingWall && !isTouchingWallWithHead && (rb.velocity.magnitude > 0) && (axisMovementVertical > 0))
+            if (Input.GetKey(KeyCode.LeftShift) && !Values.GetIsTouchingWall() && !Values.GetIsTouchingWallWithHead() && (rb.velocity.magnitude > 0) && (axisMovementVertical > 0))
             {
-                movementSpeedMod = movementSpeed* boostSpeed;
+                movementSpeedMod = Values.GetMovementSpeed() * Values.GetBoostSpeed();
                 shouldBeBoosting = true;
 
             }
@@ -191,11 +142,11 @@ namespace Player
                 forwardMovement /= 1.42f;       //todo determinare se è sempre questo valore
                 rightMovement /= 1.42f;
 
-                isRunning = shouldBeBoosting;
+                Values.SetIsRunning(shouldBeBoosting);
             }
             else
             {
-                isRunning = false;
+                Values.SetIsRunning(false);
             }
 
             /*Setup vectors*/
@@ -210,9 +161,9 @@ namespace Player
         private void MakeMovement()
         {
 
-            if (isTouchingWallWithHead)
+            if (Values.GetIsTouchingWallWithHead())
             {
-                if (rb.position.y < lastGoodYPosition)
+                if (rb.position.y < Values.GetLastGoodYPosition())
                     rb.MovePosition(transform.position + (movementVec/4) * Time.fixedDeltaTime);    //lo rende talmente lento da farlo diventare un non problema
                 else
                     rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
@@ -225,7 +176,7 @@ namespace Player
                 float slopeAngleTmp = GetSlopeAngle();
                 
                 //ignore check if player is in water
-                if (slopeAngleTmp > -50 && slopeAngleTmp <= 35 || isInWater)
+                if (slopeAngleTmp > -50 && slopeAngleTmp <= 35 || Values.GetIsInWater())
                 {
                     rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
                 }
@@ -242,13 +193,15 @@ namespace Player
         private void Jump()
      
         {
-            if (Input.GetKey("space") && stamina >= 5 && (isGrounded || isInWater) && !isTouchingWallWithHead)
+            if (Input.GetKey("space") && Values.GetStamina() >= 5 && (Values.GetIsGrounded() || Values.GetIsInWater()) && !Values.GetIsTouchingWallWithHead())
             {
-                float jumpForceMod = jumpForce;
+                float jumpForceMod = Values.GetJumpForce();
                 //Continue going towards that way
-                stamina -= 1;       //decrease stamina
+                
+                //Decrease Stamina
+                Values.SetStamina(Values.GetStamina()-1);
 
-                if (isInWater)
+                if (Values.GetIsInWater())
                     jumpForceMod /= 5;
 
                 Vector3 tmp = (transform.up * jumpForceMod);
@@ -322,13 +275,13 @@ namespace Player
             //Necessario inserirlo in Update, non FixedUpdate per via di come viene gestito il GetMouseButtonDown.
             //Usando il Fixed spesso perde input
             
-            if (Input.GetMouseButtonDown(0) && !isRunning && !isShooting)
+            if (Input.GetMouseButtonDown(0) && !Values.GetIsRunning() && !Values.GetIsShooting())
             {
-                isShooting = true;
+                Values.SetIsShooting(true);
 
                 var weaponTmp = playerWeaponsScripts[currentWeapon];
                 weaponTmp.ShootProjectile();
-                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit projectile, projectileDistance, LayerMask.GetMask("EnemyHitbox")))
+                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit projectile, Values.GetProjectileDistance(), LayerMask.GetMask("EnemyHitbox")))
                 {
                     Destroy(projectile.transform.parent.gameObject);
              
@@ -336,7 +289,7 @@ namespace Player
 
             }
             else
-                isShooting = false;        //todo forse da togliere
+                Values.SetIsShooting(false);        //todo forse da togliere
 
         }
 	
@@ -346,16 +299,16 @@ namespace Player
         private void Interact()
         {
             RaycastHit interactor;
-            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out interactor, interactionDistance))
+            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out interactor, Values.GetInteractionDistance()))
             {
 
                 if (interactor.collider.CompareTag("Interactable"))
                 {
                     //printa che puoi interagire
-                    isNearInteractable = true;
-                    if (Input.GetKey("e") && !isInteracting)
+                    Values.SetIsNearInteractable(true);
+                    if (Input.GetKey("e") && !Values.GetIsInteracting())
                     {
-                        isInteracting = true;
+                        Values.SetIsInteracting(true);
                         //todo potenzialmente rotto con chest se fatte con un singolo modello. Da capire un po
                         switch (interactor.transform.parent.name)
                         {
@@ -373,25 +326,25 @@ namespace Player
                 }
                 else
                 {
-                    isInteracting = false;
+                    Values.SetIsInteracting(false);
                 }				
 
             }
             else
             {
-                isNearInteractable = false;
-                isInteracting = false;
+                Values.SetIsNearInteractable(false);
+                Values.SetIsInteracting(false);
             }
         }
 		
 		private void Pickup()
 		{
 			RaycastHit picker;
-            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out picker, interactionDistance))
+            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out picker, Values.GetInteractionDistance()))
 			{
 				if(picker.collider.CompareTag("Pickup"))
 				{
-					isNearPickup = true;
+					Values.SetIsNearPickup(true);
 					if (Input.GetKey("e"))
 					{
 						switch(picker.transform.parent.name)
@@ -407,7 +360,7 @@ namespace Player
 				}
 				else
 				{
-					isNearPickup = false;
+                    Values.SetIsNearPickup(false);
 				}
 			}
 		}
@@ -416,7 +369,7 @@ namespace Player
         private void InteractWithSign()
         {
 
-            isReadingSign = true;
+            Values.SetIsReadingSign(true);
      
 
             //todo se è troppo distante dal sign, si toglie il canvas?
@@ -434,21 +387,22 @@ namespace Player
 		
         private void ManageHealth() {
 
-            if (oxygen < 1)
-                health -= Time.deltaTime * 10;
+            if (Values.GetOxygen() < 1)
+                Values.SetHealth(Values.GetHealth() - Time.deltaTime * 10);
+                
         }
 
         private void ManageOxygen() {
 
             if (cameraScript.IsCameraUnderWater())
             {
-                if (Mathf.RoundToInt(oxygen) > 0)
-                    oxygen -= Time.deltaTime * 2;
+                if (Mathf.RoundToInt(Values.GetOxygen()) > 0)
+                    Values.SetOxygen(Values.GetOxygen() - Time.deltaTime * 2);
             }
 
-            else if (oxygen < maxOxygen)
-                oxygen += Time.deltaTime*5;
-        
+            else if (Values.GetOxygen() < Values.GetMaxOxygen())
+                Values.SetOxygen(Values.GetOxygen() + Time.deltaTime*5);
+
 
         }
 
@@ -459,11 +413,11 @@ namespace Player
         
 
             //La stamina diminuisce solo quando effettivamente sta facenod l'animazione.
-            if (false)        //todo riaggiungi anim
-                stamina -= Time.deltaTime * 2;
+            //if (false)        //todo riaggiungi anim
+                //stamina -= Time.deltaTime * 2;
             
-            if (stamina < maxStamina)
-                stamina += Time.deltaTime * 5;
+            if (Values.GetStamina() < Values.GetMaxStamina())
+                Values.SetStamina(Values.GetStamina() + Time.deltaTime * 5);
 
         }
         
@@ -477,29 +431,40 @@ namespace Player
         private void CheckCollisions()
         {
             //check ground
-            isGrounded = Physics.Raycast
-                (rb.transform.position, Vector3.down, out RaycastHit rayGround, 2);     //todo determina l'altezza corretta
+
+            Values.SetIsGrounded
+            (
+                Physics.Raycast(rb.transform.position, Vector3.down, out RaycastHit rayGround, 2)
+            );     //todo determina l'altezza corretta
 
             LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
-            isTouchingWall =
-                (Physics.Raycast(collider.transform.position + new Vector3(0, 0, raycastSpread), collider.transform.forward, out _, 2, tmp)
-                 || Physics.Raycast(collider.transform.position - new Vector3(0, 0, raycastSpread), collider.transform.forward, out _, 2, tmp)
-                 || Physics.Raycast(collider.transform.position, collider.transform.forward, out _, 2, tmp));
-
+            
+            Values.SetIsTouchingWall
+            (
+                (Physics.Raycast(collider.transform.position + new Vector3(0, 0, Values.GetRaycastSpread()), collider.transform.forward, out _, 2, tmp)
+                 || Physics.Raycast(collider.transform.position - new Vector3(0, 0, Values.GetRaycastSpread()), collider.transform.forward, out _, 2, tmp)
+                 || Physics.Raycast(collider.transform.position, collider.transform.forward, out _, 2, tmp))
+            );
 
             LayerMask layerTmp = ~ LayerMask.GetMask("Player");
 
-            if (isTouchingWallWithHead)
+            if (Values.GetIsTouchingWallWithHead())
             {
-                isTouchingWallWithHead = Physics.Raycast(collider.transform.position, collider.transform.up, out var ray, 2.5f, layerTmp);
+                Values.SetIsTouchingWallWithHead
+                (
+                    Physics.Raycast(collider.transform.position, collider.transform.up, out var ray, 2.5f, layerTmp)
+                );
             }
             else
             {
-                isTouchingWallWithHead = Physics.Raycast(collider.transform.position, collider.transform.up, out var ray, 2.5f,layerTmp); //ignore viewchecks for sprite management
-                if (isTouchingWallWithHead)
+                Values.SetIsTouchingWallWithHead
+                (
+                    Physics.Raycast(collider.transform.position, collider.transform.up, out var ray, 2.5f,layerTmp) //ignore viewchecks for sprite management
+                );
+                
+                if (Values.GetIsTouchingWallWithHead())
                 {
-                    lastGoodYPosition = rb.position.y;    
-                    
+                    Values.SetLastGoodYPosition(rb.position.y);
                 }
             }
    
@@ -512,9 +477,9 @@ namespace Player
         {
             float slopeAngle = 0;       //base value
 
-            if (Physics.Raycast(rb.transform.position + new Vector3(raycastSpread, 0, 0), Vector3.down, out RaycastHit raySlope1, raycastLength))
+            if (Physics.Raycast(rb.transform.position + new Vector3(Values.GetRaycastSpread(), 0, 0), Vector3.down, out RaycastHit raySlope1, Values.GetRaycastLength()))
             {
-                if (Physics.Raycast(rb.transform.position - new Vector3(raycastSpread, 0, 0), Vector3.down, out RaycastHit raySlope2, raycastLength))
+                if (Physics.Raycast(rb.transform.position - new Vector3(Values.GetRaycastSpread(), 0, 0), Vector3.down, out RaycastHit raySlope2, Values.GetRaycastLength()))
                     slopeAngle = Mathf.Atan2(raySlope1.point.y - raySlope2.point.y, raySlope1.point.x - raySlope2.point.x) * 180 / Mathf.PI;
             }
 
@@ -527,75 +492,21 @@ namespace Player
         {
 
             if (c.gameObject.CompareTag("Water"))
-                isInWater = true;
+                Values.SetIsInWater(true);
+
         }
 
         private void OnTriggerExit(Collider c)
         {
             if (c.gameObject.CompareTag("Water"))
-                isInWater = false;
+                Values.SetIsInWater(false);
         }
 
 
-        /*SETTER*/
 
-        public void SetIsPlayerShooting(bool value)
-        {
-            isShooting = value;
-        }
         
         
-        /*GETTERS*/
-
-        public bool IsInWater()
-        {
-            return isInWater;
-        }
-
-        public float GetHealth()
-        {
-            return health;
-        }
-
-        public float GetStamina()
-        {
-            return stamina;
-        }
-
-        public float GetOxygen()
-        {
-            return oxygen;
-        }
-
-        public float GetMaxOxygen()
-        {
-            return maxOxygen;
-        }
-
-        public bool IsPlayerNearInteractable()
-        {
-            return isNearInteractable;
-        }
-		
-		public bool IsPlayerNearPickup()
-        {
-            return isNearPickup;
-        }
-
-        public bool IsPlayerReadingSign()
-        {
-            return isReadingSign;
-        }
-
-        public bool IsPlayerShooting()
-        {
-            return isShooting;
-        }
-
-        public bool IsPlayerRunning()
-        {
-            return isRunning;
-        }
+        
 
         public bool IsPistolInHand()
         {

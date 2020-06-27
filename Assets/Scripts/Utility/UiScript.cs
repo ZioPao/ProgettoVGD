@@ -6,8 +6,7 @@ namespace Utility
 {
     public class UiScript : MonoBehaviour
     {
-
-        private PlayerController playerStatus;
+        
         private WeaponScript currentWeapon;
 
         private GameObject weaponsObject;
@@ -18,8 +17,7 @@ namespace Utility
         // Start is called before the first frame update
         void Start()
         {
-
-            playerStatus = GetComponentInParent<PlayerController>();
+            
             weaponsObject = GameObject.Find("PlayerWeapons");
             
             oxygenCanvas = GameObject.Find("Oxygen_Canvas");
@@ -38,8 +36,8 @@ namespace Utility
         // Update is called once per frame
         private void FixedUpdate()
         {
-            healthText.text = Mathf.RoundToInt(playerStatus.GetHealth()).ToString();
-            staminaText.text = Mathf.RoundToInt(playerStatus.GetStamina()).ToString();
+            healthText.text = Mathf.RoundToInt(Player.Values.GetHealth()).ToString();
+            staminaText.text = Mathf.RoundToInt(Player.Values.GetStamina()).ToString();
             
             //Prende l'arma attiva al momento
             //todo still pesante
@@ -57,9 +55,9 @@ namespace Utility
                 ammoCanvas.SetActive(false);
             }
              
-            float oxygen = playerStatus.GetOxygen();
+            float oxygen = Player.Values.GetOxygen();
 
-            if (oxygen < playerStatus.GetMaxOxygen())
+            if (oxygen < Player.Values.GetMaxOxygen())
             {
                 oxygenCanvas.SetActive(true);
                 oxygenText.text = Mathf.RoundToInt(oxygen).ToString();
@@ -69,9 +67,9 @@ namespace Utility
                 oxygenCanvas.SetActive(false);
             }
                        
-            interactionCanvas.SetActive(playerStatus.IsPlayerNearInteractable());
-			pickupCanvas.SetActive(playerStatus.IsPlayerNearPickup());
-            signCanvas.SetActive(playerStatus.IsPlayerReadingSign());
+            interactionCanvas.SetActive(Player.Values.GetIsNearInteractable());
+			pickupCanvas.SetActive(Player.Values.GetIsNearPickup());
+            signCanvas.SetActive(Player.Values.GetIsReadingSign());
         }
     }
 }
