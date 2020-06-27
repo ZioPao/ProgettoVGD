@@ -388,22 +388,23 @@ namespace Player
         private void ManageHealth() {
 
             if (Values.GetOxygen() < 1)
-                Values.SetHealth(Values.GetHealth() - Time.deltaTime * 10);
-                
+            {
+                Values.DecreaseHealth(Time.deltaTime * 10);
+            }
+
         }
 
         private void ManageOxygen() {
 
             if (cameraScript.IsCameraUnderWater())
             {
-                if (Mathf.RoundToInt(Values.GetOxygen()) > 0)
-                    Values.SetOxygen(Values.GetOxygen() - Time.deltaTime * 2);
+                Values.DecreaseOxygen(Time.deltaTime * 2);
             }
-
-            else if (Values.GetOxygen() < Values.GetMaxOxygen())
-                Values.SetOxygen(Values.GetOxygen() + Time.deltaTime*5);
-
-
+            else
+            {
+                Values.IncreaseOxygen(Time.deltaTime*5);
+            }
+            
         }
 
         private void ManageStamina()
@@ -416,8 +417,7 @@ namespace Player
             //if (false)        //todo riaggiungi anim
                 //stamina -= Time.deltaTime * 2;
             
-            if (Values.GetStamina() < Values.GetMaxStamina())
-                Values.SetStamina(Values.GetStamina() + Time.deltaTime * 5);
+            Values.IncreaseStamina(Time.deltaTime * 5);
 
         }
         

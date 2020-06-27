@@ -36,6 +36,7 @@ namespace Player
         private static float lastGoodYPosition;
         private static bool isInWater = false;
         //Actions
+        //private static bool isMoving = false; //Da implementare
         private static bool isRunning = false;
         private static bool isShooting = false;
         private static bool isReadingSign = false;
@@ -227,15 +228,24 @@ namespace Player
 
         public static void SetHealth(float value)
         {
-            health = value;
+            if ((value <= maxHealth) && (value >= 0))
+            {
+                health = value;
+            }
         }
         public static void SetStamina(float value)
         {
-            stamina = value;
+            if ((value <= maxStamina) && (value >= 0))
+            {
+                stamina = value;
+            }
         }
         public static void SetOxygen(float value)
         {
-            oxygen = value;
+            if ((value <= maxOxygen) && (value >= 0))
+            {
+                oxygen = value;
+            }
         }
         public static void SetCurrentAmmo(float value)
         {
@@ -294,5 +304,76 @@ namespace Player
             isNearPickup = value;
         }
         
+        
+        
+        /*Utility Methods*/
+
+        public static void IncreaseHealth(float increment)
+        {
+            if ((health + increment) > maxHealth)
+            {
+                health = maxHealth;
+            }
+            else
+            {
+                health += increment;
+            }
+        }
+        public static void DecreaseHealth(float decrement)
+        {
+            if ((health - decrement) < 0)
+            {
+                health = 0;
+            }
+            else
+            {
+                health -= decrement;
+            }
+        }
+        public static void IncreaseStamina(float increment)
+        {
+            if ((stamina + increment) > maxStamina)
+            {
+                stamina = maxStamina;
+            }
+            else
+            {
+                stamina += increment;
+            }
+        }
+        public static void DecreaseStamina(float decrement)
+        {
+            if ((stamina - decrement) < 0)
+            {
+                stamina = 0;
+            }
+            else
+            {
+                stamina -= decrement;
+            }
+        }
+        public static void IncreaseOxygen(float increment)
+        {
+            if ((oxygen + increment) > maxOxygen)
+            {
+                oxygen = maxOxygen;
+            }
+            else
+            {
+                oxygen += increment;
+            }
+        }
+        public static void DecreaseOxygen(float decrement)
+        {
+            if ((oxygen - decrement) < 0)
+            {
+                oxygen = 0;
+            }
+            else
+            {
+                oxygen -= decrement;
+            }
+        }
+
     }
 }
