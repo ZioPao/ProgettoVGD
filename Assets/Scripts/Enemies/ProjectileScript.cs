@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Entities.Enemy.Logic
+namespace Enemies
 {
     public class ProjectileScript : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-﻿using Entities.Player.Logic;
+﻿using Player;
 using UnityEngine;
 
-namespace Logic.Player
+namespace Player
 {
     public class WeaponScript : MonoBehaviour
     {

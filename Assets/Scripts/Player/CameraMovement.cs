@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Entities.Enemy.Logic;
+using Enemies;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-namespace Logic.Player
+namespace Player
 {
     public class CameraMovement : MonoBehaviour
     {

@@ -1,8 +1,7 @@
-﻿using Logic.Player;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Entities.Player.Logic
+namespace Player
 {
     public class PlayerAnimations : MonoBehaviour
     {

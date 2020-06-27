@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Logic.Enemy
+namespace Enemies
 {
     public class EnemyShooting : MonoBehaviour
     {

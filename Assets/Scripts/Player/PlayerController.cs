@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Logic.Player;
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Entities.Player.Logic
+namespace Player
 {
     public class PlayerController : MonoBehaviour
     {

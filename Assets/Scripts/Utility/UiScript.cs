@@ -1,9 +1,8 @@
-﻿using Entities.Player.Logic;
-using Logic.Player;
+﻿using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Logic.Various
+namespace Utility
 {
     public class UiScript : MonoBehaviour
     {

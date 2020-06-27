@@ -1,7 +1,6 @@
-﻿using Logic.Player;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Entities.Player.Logic
+namespace Player
 {
     public class CameraCollider : MonoBehaviour
     {
