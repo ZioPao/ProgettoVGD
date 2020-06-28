@@ -52,6 +52,9 @@ namespace Player
         //Rigidbody
         private static Rigidbody rb;
         
+        //Collider
+        private static CapsuleCollider collider;
+        
         
         
         /*GETTERS*/
@@ -193,6 +196,12 @@ namespace Player
             return rb;
         }
 
+        //Collider
+        public static CapsuleCollider GetCollider()
+        {
+            return collider;
+        }
+        
         
         
         /*SETTER*/
@@ -327,6 +336,13 @@ namespace Player
         {
             rb = value;
         }
+        
+        //Collider
+        public static void SetCollider(CapsuleCollider value)
+        {
+            collider = value;
+        }
+        
         
         
         /*Utility Methods*/

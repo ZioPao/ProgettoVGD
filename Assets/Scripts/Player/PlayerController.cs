@@ -13,8 +13,9 @@ namespace Player
         
         private CameraMovement cameraScript;
         private GameObject cameraMain;
-        private CapsuleCollider collider;
+        
         private MovementController movementScript;
+        private CollisionController collisionScript;
         
         
 		//Weapon types
@@ -38,12 +39,14 @@ namespace Player
         void Start()
         {
             Values.SetRigidbody(GetComponent<Rigidbody>());
+            Values.SetCollider(GetComponent<CapsuleCollider>());
 
             cameraScript = GetComponentInChildren<CameraMovement>();
-            movementScript = GetComponent<MovementController>();
             cameraMain = GameObject.Find("Camera_Main");
-            collider = GetComponent<CapsuleCollider>();
             
+            movementScript = GetComponent<MovementController>();
+            collisionScript = GetComponent<CollisionController>();
+
 
             /*Setup basic stats*/
 
@@ -75,7 +78,7 @@ namespace Player
         {
 
             /*Manage movements*/
-            CheckCollisions();
+            collisionScript.CheckCollisions();
             movementScript.SetupMovement();
             movementScript.Jump();
             movementScript.MakeMovement();
@@ -96,7 +99,6 @@ namespace Player
             //viene esguito dopo il fixedupdate
             ShootControl();
 			ChangeWeapon();
-            print(Values.GetIsMoving());
         }
 
         /** MOVEMENT 
@@ -317,81 +319,6 @@ namespace Player
 
         }
         
-        /// <summary>
-        /// Collisions
-        /// </summary>
-    
-        /**
-     * setup some variables to determine if the player is grounded or not. In which case, checks
-     * or not the slope angle */
-        private void CheckCollisions()
-        {
-            //check ground
-
-            Values.SetIsGrounded
-            (
-                Physics.Raycast(Values.GetRigidbody().transform.position, Vector3.down, out RaycastHit rayGround, 2)
-            );     //todo determina l'altezza corretta
-
-            LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
-            
-            Values.SetIsTouchingWall
-            (
-                (Physics.Raycast(collider.transform.position + new Vector3(0, 0, Values.GetRaycastSpread()), collider.transform.forward, out _, 2, tmp)
-                 || Physics.Raycast(collider.transform.position - new Vector3(0, 0, Values.GetRaycastSpread()), collider.transform.forward, out _, 2, tmp)
-                 || Physics.Raycast(collider.transform.position, collider.transform.forward, out _, 2, tmp))
-            );
-
-            LayerMask layerTmp = ~ LayerMask.GetMask("Player");
-
-            if (Values.GetIsTouchingWallWithHead())
-            {
-                Values.SetIsTouchingWallWithHead
-                (
-                    Physics.Raycast(collider.transform.position, collider.transform.up, out var ray, 2.5f, layerTmp)
-                );
-            }
-            else
-            {
-                Values.SetIsTouchingWallWithHead
-                (
-                    Physics.Raycast(collider.transform.position, collider.transform.up, out var ray, 2.5f,layerTmp) //ignore viewchecks for sprite management
-                );
-                
-                if (Values.GetIsTouchingWallWithHead())
-                {
-                    Values.SetLastGoodYPosition(Values.GetRigidbody().position.y);
-                }
-            }
-   
-
-
-
-        }
-
-
-
-
-        private void OnTriggerEnter(Collider c)
-        {
-
-            if (c.gameObject.CompareTag("Water"))
-                Values.SetIsInWater(true);
-
-        }
-
-        private void OnTriggerExit(Collider c)
-        {
-            if (c.gameObject.CompareTag("Water"))
-                Values.SetIsInWater(false);
-        }
-
-
-
-        
-        
-        
-
         public bool IsPistolInHand()
         {
             return holdingWeapons[WeaponEnum.Pistol];
