@@ -25,13 +25,16 @@ namespace Player
             
             Values.AddWeaponObject(Values.WeaponEnum.Knife, GameObject.Find("PlayerKnife"));
             Values.AddWeaponObject(Values.WeaponEnum.Pistol, GameObject.Find("PlayerPistol"));
+            Values.AddWeaponObject(Values.WeaponEnum.SMG, GameObject.Find("PlayerSMG"));
             
             Values.AddWeaponBehaviour(Values.WeaponEnum.Knife, GameObject.Find("PlayerKnife").GetComponent<WeaponBehaviour>());
             Values.AddWeaponBehaviour(Values.WeaponEnum.Pistol, GameObject.Find("PlayerPistol").GetComponent<WeaponBehaviour>());
-
+            Values.AddWeaponBehaviour(Values.WeaponEnum.SMG, GameObject.Find("PlayerSMG").GetComponent<WeaponBehaviour>());
+            
+            //Only temporary values, in the final game the player won't have all weapons from the start
             Values.AddHeldWeapon(Values.WeaponEnum.Knife, true);
-            Values.AddHeldWeapon(Values.WeaponEnum.Pistol, true);
-            Values.AddHeldWeapon(Values.WeaponEnum.SMG, false);
+            Values.AddHeldWeapon(Values.WeaponEnum.Pistol, true);    
+            Values.AddHeldWeapon(Values.WeaponEnum.SMG, true);
 
             Values.AddCurrentAmmo(Values.WeaponEnum.Knife, 0);
             Values.AddCurrentAmmo(Values.WeaponEnum.Pistol, 10);
@@ -42,6 +45,8 @@ namespace Player
             Values.AddAmmoReserve(Values.WeaponEnum.SMG, 250);
 
             Values.GetWeaponObjects()[Values.WeaponEnum.Knife].SetActive(false);
+            Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].SetActive(true);
+            Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(false);
 
             Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
         }
@@ -53,7 +58,7 @@ namespace Player
             {
                 Values.GetWeaponObjects()[Values.WeaponEnum.Knife].SetActive(true);
                 Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].SetActive(false);
-                //Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(false);
+                Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(false);
 
                 Values.SetCurrentWeapon(Values.WeaponEnum.Knife);
             }
@@ -62,7 +67,7 @@ namespace Player
             {
                 Values.GetWeaponObjects()[Values.WeaponEnum.Knife].SetActive(false);
                 Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].SetActive(true);
-                //Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(false);
+                Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(false);
                 
                 Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
             }
@@ -71,7 +76,7 @@ namespace Player
             {
                 Values.GetWeaponObjects()[Values.WeaponEnum.Knife].SetActive(false);
                 Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].SetActive(false);
-                //Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(true);
+                Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(true);
                 
                 Values.SetCurrentWeapon(Values.WeaponEnum.SMG);
             }

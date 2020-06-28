@@ -57,6 +57,7 @@ namespace Player
             /* Manage actions*/
             Interact();
 			Pickup();
+            print(Values.GetAmmoReserve()[Values.GetCurrentWeapon()]);
 
         }
 
