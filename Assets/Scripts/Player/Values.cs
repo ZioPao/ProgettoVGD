@@ -7,19 +7,19 @@ namespace Player
         
         //Hard Values (May be modified by upgrades)
         
-        [SerializeField] private static float boostSpeed = 2f;
-        [SerializeField] private static float jumpForce = 500f;
-        [SerializeField] private static float movementSpeed = 5f;
+        private static float boostSpeed = 2f;
+        private static float jumpForce = 500f;
+        private static float movementSpeed = 10f;
         
-        [SerializeField] private static float maxHealth = 100f;
-        [SerializeField] private static float maxStamina = 100f;
-        [SerializeField] private static float maxOxygen = 100f;
+        private static float maxHealth = 100f;
+        private static float maxStamina = 100f;
+        private static float maxOxygen = 100f;
         
-        [SerializeField] private static float rigidBodyDefaultMass = 2.45f;
+        private static float rigidBodyDefaultMass = 2.45f;
         
-        [SerializeField] private static float projectileDistance = 100f;    //Maybe change into weapon attribute
-        [SerializeField] private static float interactionDistance = 5f;
-        [SerializeField] private static float pickupDistance = 5f;
+        private static float projectileDistance = 100f;    //Maybe change into weapon attribute
+        private static float interactionDistance = 5f;
+        private static float pickupDistance = 5f;
         
         //Player Stats
         private static float health;
@@ -37,6 +37,7 @@ namespace Player
         private static bool isInWater = false;
         //Actions
         //private static bool isMoving = false; //Da implementare
+        private static bool isMoving = false;
         private static bool isRunning = false;
         private static bool isShooting = false;
         private static bool isReadingSign = false;
@@ -147,6 +148,10 @@ namespace Player
             return isInWater;
         }
         //Actions
+        public static bool GetIsMoving()
+        {
+            return isMoving;
+        }
         public static bool GetIsRunning()
         {
             return isRunning;
@@ -288,6 +293,10 @@ namespace Player
             isInWater = value;
         }
         //Actions
+        public static void SetIsMoving(bool value)
+        {
+            isMoving = value;
+        }
         public static void SetIsRunning(bool value)
         {
             isRunning = value;

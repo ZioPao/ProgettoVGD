@@ -96,6 +96,7 @@ namespace Player
             //viene esguito dopo il fixedupdate
             ShootControl();
 			ChangeWeapon();
+            print(Values.GetIsMoving());
         }
 
         /** MOVEMENT 
@@ -293,7 +294,7 @@ namespace Player
             }
             else
             {
-                Values.IncreaseOxygen(Time.deltaTime*5);
+                Values.IncreaseOxygen(Time.deltaTime * 5);
             }
             
         }
@@ -301,14 +302,18 @@ namespace Player
         private void ManageStamina()
         {
 
-            //todo adda che se è fermo la stamina torna molto più rapidamente
-        
-
-            //La stamina diminuisce solo quando effettivamente sta facenod l'animazione.
-            //if (false)        //todo riaggiungi anim
-                //stamina -= Time.deltaTime * 2;
-            
-            Values.IncreaseStamina(Time.deltaTime * 5);
+            if (Values.GetIsRunning())
+            {
+                Values.DecreaseStamina(Time.deltaTime * 5);
+            }
+            else if (Values.GetIsMoving())
+            {
+                Values.IncreaseStamina(Time.deltaTime * 3);
+            }
+            else
+            {
+                Values.IncreaseStamina(Time.deltaTime * 8);
+            }
 
         }
         

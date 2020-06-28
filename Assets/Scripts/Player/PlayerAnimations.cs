@@ -79,7 +79,7 @@ namespace Player
 
             int currentBullets = playerController.GetPistolScript().GetCurrentBulletsInMag();
             print(currentBullets);
-            if ((Values.GetIsShooting() || timerAnimation > 0f)  && currentBullets > 1)
+            if ((Values.GetIsShooting() || timerAnimation > 0f)  && currentBullets > 0)
             {
                 pistolRenderer.sprite = pistolShootingSprite;        //Change texture
                 timerAnimation -= Time.deltaTime;
