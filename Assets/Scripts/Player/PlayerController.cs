@@ -11,11 +11,11 @@ namespace Player
         //if we're not touching anything, then jumping - no wasd
         //if we're touching something but on a slope - nerfed wasd
         
-        private Rigidbody rb;
         private CameraMovement cameraScript;
         private GameObject cameraMain;
-        private Vector3 movementVec;
         private CapsuleCollider collider;
+        private MovementController movementScript;
+        
         
 		//Weapon types
 		
@@ -37,12 +37,14 @@ namespace Player
         // Start is called before the first frame update
         void Start()
         {
-            rb = GetComponent<Rigidbody>();
+            Values.SetRigidbody(GetComponent<Rigidbody>());
 
             cameraScript = GetComponentInChildren<CameraMovement>();
+            movementScript = GetComponent<MovementController>();
             cameraMain = GameObject.Find("Camera_Main");
             collider = GetComponent<CapsuleCollider>();
             
+
             /*Setup basic stats*/
 
             Values.SetHealth(Values.GetMaxHealth());
@@ -74,10 +76,9 @@ namespace Player
 
             /*Manage movements*/
             CheckCollisions();
-            SetupMovement();
-            Jump();
-            MakeMovement();
-
+            movementScript.SetupMovement();
+            movementScript.Jump();
+            movementScript.MakeMovement();
 
             /*Manage stats*/
             ManageHealth();
@@ -95,121 +96,11 @@ namespace Player
             //viene esguito dopo il fixedupdate
             ShootControl();
 			ChangeWeapon();
-
         }
 
         /** MOVEMENT 
      */
-        private void SetupMovement()
-        {
-            float forwardMovement, rightMovement;
-            float movementSpeedMod = Values.GetMovementSpeed();
-            float slopeSpeedMultiplier = 1 - (GetSlopeAngle() / 90);
-
-            /*In water*/
-            if (Values.GetIsInWater())
-            {
-                //todo i broke something 
-                movementSpeedMod *= 0.5f; //Decrease
-                //rb.mass = rigidBodyDefaultMass + 15f;
-            }
-
-            /*Get movement*/
-            float axisMovementVertical = Input.GetAxis("Vertical");
-            float axisMovementHorizontal = Input.GetAxis("Horizontal");
-
-            /*Boost*/
-            bool shouldBeBoosting;
-            if (Input.GetKey(KeyCode.LeftShift) && !Values.GetIsTouchingWall() && !Values.GetIsTouchingWallWithHead() && (rb.velocity.magnitude > 0) && (axisMovementVertical > 0))
-            {
-                movementSpeedMod = Values.GetMovementSpeed() * Values.GetBoostSpeed();
-                shouldBeBoosting = true;
-
-            }
-            else
-            {
-                shouldBeBoosting = false;
-            }
-            
-      
-            forwardMovement = axisMovementVertical * movementSpeedMod;
-            rightMovement = axisMovementHorizontal  * movementSpeedMod;
-
-
-            /*Fix diagonal speed and check if player's boosting*/
-            if (forwardMovement != 0 && rightMovement != 0)
-            {
-                forwardMovement /= 1.42f;       //todo determinare se è sempre questo valore
-                rightMovement /= 1.42f;
-
-                Values.SetIsRunning(shouldBeBoosting);
-            }
-            else
-            {
-                Values.SetIsRunning(false);
-            }
-
-            /*Setup vectors*/
-            
-            
-            Vector3 forwardVec = transform.forward * (forwardMovement * slopeSpeedMultiplier);
-            Vector3 rightVec = transform.right * (rightMovement * slopeSpeedMultiplier);
-            movementVec = (forwardVec + rightVec);
-
-        }
-
-        private void MakeMovement()
-        {
-
-            if (Values.GetIsTouchingWallWithHead())
-            {
-                if (rb.position.y < Values.GetLastGoodYPosition())
-                    rb.MovePosition(transform.position + (movementVec/4) * Time.fixedDeltaTime);    //lo rende talmente lento da farlo diventare un non problema
-                else
-                    rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
-
-
-            }
-
-            else
-            {
-                float slopeAngleTmp = GetSlopeAngle();
-                
-                //ignore check if player is in water
-                if (slopeAngleTmp > -50 && slopeAngleTmp <= 35 || Values.GetIsInWater())
-                {
-                    rb.MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
-                }
-                else
-                {
-                    //Fa scendere forzatamente il giocatore
-                    print("stuck boy");
-                    rb.MovePosition(transform.position + new Vector3(0, -9.81f, 0) * Time.deltaTime);
-                }
-            }
-
-        }
-
-        private void Jump()
-     
-        {
-            if (Input.GetKey("space") && Values.GetStamina() >= 5 && (Values.GetIsGrounded() || Values.GetIsInWater()) && !Values.GetIsTouchingWallWithHead())
-            {
-                float jumpForceMod = Values.GetJumpForce();
-                //Continue going towards that way
-                
-                //Decrease Stamina
-                Values.SetStamina(Values.GetStamina()-1);
-
-                if (Values.GetIsInWater())
-                    jumpForceMod /= 5;
-
-                Vector3 tmp = (transform.up * jumpForceMod);
-                rb.AddForce(tmp, ForceMode.Force);
-            }
-
-          
-        }
+        
 
 
         private void ChangeWeapon()
@@ -434,7 +325,7 @@ namespace Player
 
             Values.SetIsGrounded
             (
-                Physics.Raycast(rb.transform.position, Vector3.down, out RaycastHit rayGround, 2)
+                Physics.Raycast(Values.GetRigidbody().transform.position, Vector3.down, out RaycastHit rayGround, 2)
             );     //todo determina l'altezza corretta
 
             LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
@@ -464,7 +355,7 @@ namespace Player
                 
                 if (Values.GetIsTouchingWallWithHead())
                 {
-                    Values.SetLastGoodYPosition(rb.position.y);
+                    Values.SetLastGoodYPosition(Values.GetRigidbody().position.y);
                 }
             }
    
@@ -473,19 +364,7 @@ namespace Player
 
         }
 
-        private float GetSlopeAngle()
-        {
-            float slopeAngle = 0;       //base value
 
-            if (Physics.Raycast(rb.transform.position + new Vector3(Values.GetRaycastSpread(), 0, 0), Vector3.down, out RaycastHit raySlope1, Values.GetRaycastLength()))
-            {
-                if (Physics.Raycast(rb.transform.position - new Vector3(Values.GetRaycastSpread(), 0, 0), Vector3.down, out RaycastHit raySlope2, Values.GetRaycastLength()))
-                    slopeAngle = Mathf.Atan2(raySlope1.point.y - raySlope2.point.y, raySlope1.point.x - raySlope2.point.x) * 180 / Mathf.PI;
-            }
-
-            return slopeAngle;
-
-        }
 
 
         private void OnTriggerEnter(Collider c)

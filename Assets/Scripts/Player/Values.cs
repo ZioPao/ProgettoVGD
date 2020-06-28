@@ -48,6 +48,9 @@ namespace Player
         private static float raycastLength = 5f;
         private static float raycastSpread = 0.08f;
         
+        //Rigidbody
+        private static Rigidbody rb;
+        
         
         
         /*GETTERS*/
@@ -178,6 +181,12 @@ namespace Player
         {
             return raycastSpread;
         }
+        
+        //Rigidbody
+        public static Rigidbody GetRigidbody()
+        {
+            return rb;
+        }
 
         
         
@@ -304,6 +313,11 @@ namespace Player
             isNearPickup = value;
         }
         
+        //Rigidbody
+        public static void SetRigidbody(Rigidbody value)
+        {
+            rb = value;
+        }
         
         
         /*Utility Methods*/
