@@ -16,24 +16,7 @@ namespace Player
         
         private MovementController movementScript;
         private CollisionController collisionScript;
-        
-        
-		//Weapon types
-		
-		public enum WeaponEnum{
-			
-			Knife,
-			Pistol,
-			SMG,
-			
-		}
-
-        //Weapons
-        
-        private Dictionary<WeaponEnum, GameObject> playerWeaponsObjects;
-        private Dictionary<WeaponEnum, WeaponScript> playerWeaponsScripts;
-        private Dictionary<WeaponEnum, bool> holdingWeapons;
-        private WeaponEnum currentWeapon;
+        private WeaponController weaponScript;
         
         // Start is called before the first frame update
         void Start()
@@ -46,6 +29,7 @@ namespace Player
             
             movementScript = GetComponent<MovementController>();
             collisionScript = GetComponent<CollisionController>();
+            weaponScript = GetComponent<WeaponController>();
 
 
             /*Setup basic stats*/
@@ -54,24 +38,6 @@ namespace Player
             Values.SetStamina(Values.GetMaxStamina());
             Values.SetOxygen(Values.GetMaxOxygen());
             
-            /*Setup armi*/
-            playerWeaponsObjects = new Dictionary<WeaponEnum, GameObject>();
-            playerWeaponsScripts = new Dictionary<WeaponEnum, WeaponScript>();
-            holdingWeapons = new Dictionary<WeaponEnum, bool>();
-            
-            playerWeaponsObjects.Add(WeaponEnum.Pistol, GameObject.Find("PlayerPistol"));
-            playerWeaponsObjects.Add(WeaponEnum.Knife, GameObject.Find("PlayerKnife"));
-
-            playerWeaponsScripts.Add(WeaponEnum.Pistol, GameObject.Find("PlayerPistol").GetComponent<WeaponScript>());
-            playerWeaponsScripts.Add(WeaponEnum.Knife, GameObject.Find("PlayerKnife").GetComponent<WeaponScript>());
-
-            holdingWeapons.Add(WeaponEnum.Pistol, true);
-            holdingWeapons.Add(WeaponEnum.Knife, true);
-            holdingWeapons.Add(WeaponEnum.SMG, false);
-            
-            playerWeaponsObjects[WeaponEnum.Knife].SetActive(false);
-
-            currentWeapon = WeaponEnum.Pistol;
         }
 
         private void FixedUpdate()
@@ -97,96 +63,10 @@ namespace Player
         private void Update()
         {
             //viene esguito dopo il fixedupdate
-            ShootControl();
-			ChangeWeapon();
-        }
-
-        /** MOVEMENT 
-     */
-        
-
-
-        private void ChangeWeapon()
-        {
-            
-            //si deve determinare che armi possiede.
-            
-            //1 Knife
-            if (Input.GetKeyDown("1") && holdingWeapons[WeaponEnum.Knife])
-            {
-                playerWeaponsObjects[WeaponEnum.Knife].SetActive(true);
-                playerWeaponsObjects[WeaponEnum.Pistol].SetActive(false);
-                playerWeaponsObjects[WeaponEnum.SMG].SetActive(false);
-
-                currentWeapon = WeaponEnum.Knife;
-            }
-
-            
-            //2 Pistola
-            if (Input.GetKeyDown("2") && holdingWeapons[WeaponEnum.Pistol])
-            {
-                playerWeaponsObjects[WeaponEnum.Knife].SetActive(false);
-                playerWeaponsObjects[WeaponEnum.Pistol].SetActive(true);
-                playerWeaponsObjects[WeaponEnum.SMG].SetActive(false);
-                
-                currentWeapon = WeaponEnum.Pistol;
-
-            }
-            
-            //3 SMG
-            if (Input.GetKeyDown("3") &&  holdingWeapons[WeaponEnum.SMG])
-            {
-                playerWeaponsObjects[WeaponEnum.Knife].SetActive(false);
-                playerWeaponsObjects[WeaponEnum.Pistol].SetActive(false);
-                playerWeaponsObjects[WeaponEnum.SMG].SetActive(true);
-                
-                currentWeapon = WeaponEnum.SMG;
-
-            }
-        }
-
-        private void AddWeapon(WeaponEnum weaponToAdd)
-        {
-            
-            if (holdingWeapons.TryGetValue(weaponToAdd, out bool value))
-            {
-                if (!value)
-                {
-                    //Setta che l'arma è effettivamente in mano al player
-                    holdingWeapons[weaponToAdd] = true;
-                }
-                else
-                {
-                    print("Arma gia presente e attiva");
-                }
-            }
+            weaponScript.ShootControl();
+			weaponScript.ChangeWeapon();
         }
         
-        /** Check e attivazione dello shooting*/
-        private void ShootControl()
-        {
-            
-            //Necessario inserirlo in Update, non FixedUpdate per via di come viene gestito il GetMouseButtonDown.
-            //Usando il Fixed spesso perde input
-            
-            if (Input.GetMouseButtonDown(0) && !Values.GetIsRunning() && !Values.GetIsShooting())
-            {
-                Values.SetIsShooting(true);
-
-                var weaponTmp = playerWeaponsScripts[currentWeapon];
-                weaponTmp.ShootProjectile();
-                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit projectile, Values.GetProjectileDistance(), LayerMask.GetMask("EnemyHitbox")))
-                {
-                    Destroy(projectile.transform.parent.gameObject);
-             
-                }
-
-            }
-            else
-                Values.SetIsShooting(false);        //todo forse da togliere
-
-        }
-	
         /** Check e attivazione dell'interazione
 	*/
 	
@@ -318,25 +198,6 @@ namespace Player
             }
 
         }
-        
-        public bool IsPistolInHand()
-        {
-            return holdingWeapons[WeaponEnum.Pistol];
-        }
 
-        public bool IsKnifeInHand()
-        {
-            return holdingWeapons[WeaponEnum.Knife];
-        }
-
-        public GameObject GetPistol()
-        {
-            return playerWeaponsObjects[WeaponEnum.Pistol];
-        }
-        
-        public WeaponScript GetPistolScript()
-        {
-            return playerWeaponsScripts[WeaponEnum.Pistol];
-        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Player
 {
@@ -54,6 +55,21 @@ namespace Player
         
         //Collider
         private static CapsuleCollider collider;
+        
+        //Weapon Types
+        public enum WeaponEnum{
+			
+            Knife,
+            Pistol,
+            SMG,
+			
+        }
+        
+        //Weapon Properties
+        private static Dictionary<WeaponEnum, GameObject> weaponObjects;
+        private static Dictionary<WeaponEnum, WeaponScript> weaponScripts;
+        private static Dictionary<WeaponEnum, bool> heldWeapons;
+        private static WeaponEnum currentWeapon;
         
         
         
@@ -202,6 +218,24 @@ namespace Player
             return collider;
         }
         
+        //Weapon Properties
+        public static Dictionary<WeaponEnum, GameObject> GetWeaponObjects()
+        {
+            return weaponObjects;
+        }
+        public static Dictionary<WeaponEnum, WeaponScript> GetWeaponScripts()
+        {
+            return weaponScripts;
+        }
+        public static Dictionary<WeaponEnum, bool> GetHeldWeapons()
+        {
+            return heldWeapons;
+        }
+        public static WeaponEnum GetCurrentWeapon()
+        {
+            return currentWeapon;
+        }
+        
         
         
         /*SETTER*/
@@ -343,10 +377,17 @@ namespace Player
             collider = value;
         }
         
+        //Weapon Properties
+        public static void SetCurrentWeapon(WeaponEnum value)
+        {
+            currentWeapon = value;
+        }
+        
         
         
         /*Utility Methods*/
 
+        //Stat Modifiers
         public static void IncreaseHealth(float increment)
         {
             if ((health + increment) > maxHealth)
@@ -412,6 +453,32 @@ namespace Player
             {
                 oxygen -= decrement;
             }
+        }
+        
+        //Weapon Managers
+        public static void InitializeWeaponObjects()
+        {
+            weaponObjects = new Dictionary<WeaponEnum, GameObject>();
+        }
+        public static void InitializeWeaponScripts()
+        {
+            weaponScripts = new Dictionary<WeaponEnum, WeaponScript>();
+        }
+        public static void InitializeHeldWeapons()
+        {
+            heldWeapons = new Dictionary<WeaponEnum, bool>();
+        }
+        public static void AddWeaponObject(WeaponEnum key, GameObject value)
+        {
+            weaponObjects.Add(key,value);
+        }
+        public static void AddWeaponScript(WeaponEnum key, WeaponScript value)
+        {
+            weaponScripts.Add(key, value);
+        }
+        public static void AddHeldWeapon(WeaponEnum key, bool value)
+        {
+            heldWeapons.Add(key, value);
         }
 
     }

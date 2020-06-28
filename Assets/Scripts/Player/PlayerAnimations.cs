@@ -5,7 +5,7 @@ namespace Player
 {
     public class PlayerAnimations : MonoBehaviour
     {
-        private PlayerController playerController;
+
         private Animator anim;
         
         
@@ -32,8 +32,7 @@ namespace Player
         void Start()
         {
             anim = GetComponent<Animator>();
-            playerController = GetComponentInParent<PlayerController>();
-        
+
             //Pistol
 
             pistolBaseSprite = Resources.Load<Sprite>("PlayerWeapons/pistol");
@@ -58,7 +57,7 @@ namespace Player
             if (Values.GetIsShooting())
                 timerAnimation = timerAnimationMax;        //start timer
         
-            if (playerController.IsPistolInHand())
+            if (Values.GetCurrentWeapon().Equals(Values.WeaponEnum.Pistol))
                 SetupPistolAnimations();
             
 
@@ -71,19 +70,22 @@ namespace Player
             //PlayerPistol
             
             //should be run only one time
-            
-            
+
+
             if (pistolRenderer == null)
-                pistolRenderer = playerController.GetPistol().GetComponent<SpriteRenderer>();
+            {
+                pistolRenderer = Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].GetComponent<SpriteRenderer>();
+            }
 
 
-            int currentBullets = playerController.GetPistolScript().GetCurrentBulletsInMag();
+            int currentBullets = Values.GetWeaponScripts()[Values.WeaponEnum.Pistol].GetCurrentBulletsInMag();
             print(currentBullets);
             if ((Values.GetIsShooting() || timerAnimation > 0f)  && currentBullets > 0)
             {
                 pistolRenderer.sprite = pistolShootingSprite;        //Change texture
                 timerAnimation -= Time.deltaTime;
-            }else 
+            }
+            else 
             {
                  pistolRenderer.sprite = pistolBaseSprite;
             }
