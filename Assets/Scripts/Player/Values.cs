@@ -26,9 +26,7 @@ namespace Player
         private static float health;
         private static float stamina;
         private static float oxygen;
-        private static float currentAmmo;
-        private static float ammoReserve;
-        
+
         //State Definers
         //Collisions
         private static bool isGrounded;
@@ -67,8 +65,10 @@ namespace Player
         
         //Weapon Properties
         private static Dictionary<WeaponEnum, GameObject> weaponObjects;
-        private static Dictionary<WeaponEnum, WeaponScript> weaponScripts;
+        private static Dictionary<WeaponEnum, WeaponBehaviour> weaponBehaviours;
         private static Dictionary<WeaponEnum, bool> heldWeapons;
+        private static Dictionary<WeaponEnum, int> currentAmmo;
+        private static Dictionary<WeaponEnum, int> ammoReserve;
         private static WeaponEnum currentWeapon;
         
         
@@ -135,15 +135,7 @@ namespace Player
         {
             return oxygen;
         }
-        public static float GetCurrentAmmo()
-        {
-            return currentAmmo;
-        }
-        public static float GetAmmoReserve()
-        {
-            return ammoReserve;
-        }
-        
+
         //State Definers
         //Collisions
         public static bool GetIsGrounded()
@@ -223,13 +215,21 @@ namespace Player
         {
             return weaponObjects;
         }
-        public static Dictionary<WeaponEnum, WeaponScript> GetWeaponScripts()
+        public static Dictionary<WeaponEnum, WeaponBehaviour> GetWeaponBehaviours()
         {
-            return weaponScripts;
+            return weaponBehaviours;
         }
         public static Dictionary<WeaponEnum, bool> GetHeldWeapons()
         {
             return heldWeapons;
+        }
+        public static Dictionary<WeaponEnum, int> GetCurrentAmmo()
+        {
+            return currentAmmo;
+        }
+        public static Dictionary<WeaponEnum, int> GetAmmoReserve()
+        {
+            return ammoReserve;
         }
         public static WeaponEnum GetCurrentWeapon()
         {
@@ -304,15 +304,7 @@ namespace Player
                 oxygen = value;
             }
         }
-        public static void SetCurrentAmmo(float value)
-        {
-            currentAmmo = value;
-        }
-        public static void SetAmmoReserve(float value)
-        {
-            ammoReserve = value;
-        }
-        
+
         //State Definers
         //Collisions
         public static void SetIsGrounded(bool value)
@@ -460,25 +452,59 @@ namespace Player
         {
             weaponObjects = new Dictionary<WeaponEnum, GameObject>();
         }
-        public static void InitializeWeaponScripts()
+        public static void InitializeWeaponBehaviours()
         {
-            weaponScripts = new Dictionary<WeaponEnum, WeaponScript>();
+            weaponBehaviours = new Dictionary<WeaponEnum, WeaponBehaviour>();
         }
         public static void InitializeHeldWeapons()
         {
             heldWeapons = new Dictionary<WeaponEnum, bool>();
         }
+        public static void InitializeCurrentAmmo()
+        {
+            currentAmmo = new Dictionary<WeaponEnum, int>();
+        }
+        public static void InitializeAmmoReserve()
+        {
+            ammoReserve = new Dictionary<WeaponEnum, int>();
+        }
+        
         public static void AddWeaponObject(WeaponEnum key, GameObject value)
         {
             weaponObjects.Add(key,value);
         }
-        public static void AddWeaponScript(WeaponEnum key, WeaponScript value)
+        public static void AddWeaponBehaviour(WeaponEnum key, WeaponBehaviour value)
         {
-            weaponScripts.Add(key, value);
+            weaponBehaviours.Add(key, value);
         }
         public static void AddHeldWeapon(WeaponEnum key, bool value)
         {
             heldWeapons.Add(key, value);
+        }
+        public static void AddCurrentAmmo(WeaponEnum key, int value)
+        {
+            currentAmmo.Add(key, value);
+        }
+        public static void AddAmmoReserve(WeaponEnum key, int value)
+        {
+            ammoReserve.Add(key, value);
+        }
+
+        public static void IncrementCurrentAmmo(WeaponEnum key, int value)
+        {
+            currentAmmo[key] += value;
+        }
+        public static void DecrementCurrentAmmo(WeaponEnum key, int value)
+        {
+            currentAmmo[key] -= value;
+        }
+        public static void IncrementAmmoReserve(WeaponEnum key, int value)
+        {
+            ammoReserve[key] += value;
+        }
+        public static void DecrementAmmoReserve(WeaponEnum key, int value)
+        {
+            ammoReserve[key] -= value;
         }
 
     }

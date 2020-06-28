@@ -6,20 +6,14 @@ namespace Utility
 {
     public class UiScript : MonoBehaviour
     {
-        
-        private WeaponScript currentWeapon;
 
-        private GameObject weaponsObject;
-        
         private GameObject oxygenCanvas, interactionCanvas, pickupCanvas, signCanvas, ammoCanvas;
         private Text healthText, staminaText, oxygenText, ammoText;
 
         // Start is called before the first frame update
         void Start()
         {
-            
-            weaponsObject = GameObject.Find("PlayerWeapons");
-            
+
             oxygenCanvas = GameObject.Find("Oxygen_Canvas");
             interactionCanvas = GameObject.Find("Interaction_Canvas");
 			pickupCanvas = GameObject.Find("Pickup_Canvas");
@@ -41,13 +35,13 @@ namespace Utility
             
             //Prende l'arma attiva al momento
             //todo still pesante
-            currentWeapon = weaponsObject.GetComponentInChildren<WeaponScript>();
 
-            if (!currentWeapon.GetIsMelee())
+
+            if (!Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()].GetIsMelee())
             {
                 ammoCanvas.SetActive(true);
-                ammoText.text = currentWeapon.GetCurrentBulletsInMag() + "/" +
-                                currentWeapon.GetCurrentAmmo();
+                ammoText.text = Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] + "/" +
+                                Values.GetAmmoReserve()[Values.GetCurrentWeapon()];
 
             }
             else

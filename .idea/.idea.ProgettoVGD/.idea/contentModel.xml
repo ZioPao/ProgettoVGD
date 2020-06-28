@@ -93,8 +93,8 @@
             <e p="PlayerAnimations.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
             <e p="Values.cs" t="Include" />
+            <e p="WeaponBehaviour.cs" t="Include" />
             <e p="WeaponController.cs" t="Include" />
-            <e p="WeaponScript.cs" t="Include" />
           </e>
           <e p="Utility" t="Include">
             <e p="Button.cs" t="Include" />

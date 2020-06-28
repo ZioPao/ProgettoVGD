@@ -57,7 +57,7 @@ namespace Player
             /* Manage actions*/
             Interact();
 			Pickup();
-            
+
         }
 
         private void Update()

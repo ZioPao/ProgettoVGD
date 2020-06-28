@@ -78,7 +78,7 @@ namespace Player
             }
 
 
-            int currentBullets = Values.GetWeaponScripts()[Values.WeaponEnum.Pistol].GetCurrentBulletsInMag();
+            int currentBullets = Values.GetCurrentAmmo()[Values.WeaponEnum.Pistol];
             print(currentBullets);
             if ((Values.GetIsShooting() || timerAnimation > 0f)  && currentBullets > 0)
             {
