@@ -24,11 +24,7 @@ namespace Player
         //renderer
         private SpriteRenderer pistolRenderer = null;
         private SpriteRenderer knifeRenderer = null;
-        
-        //timers
-        private float timerAnimationMax = 0.25f;
-        private float timerAnimation;        //TODO da legare con lo shooting effettivo. Al momento è totalmente sganciato e causa solo problemi
-        
+
         void Start()
         {
             anim = GetComponent<Animator>();
@@ -37,10 +33,7 @@ namespace Player
 
             pistolBaseSprite = Resources.Load<Sprite>("PlayerWeapons/pistol");
             pistolShootingSprite = Resources.Load<Sprite>("PlayerWeapons/pistolShooting");
-
             
-            //Timers
-            timerAnimation = 0f;
         }
 
         // Update is called once per frame
@@ -54,9 +47,6 @@ namespace Player
             anim.SetBool(IsRunningAnim, Values.GetIsRunning());
             anim.SetBool(IsShootingAnim, Values.GetIsShooting());
 
-            if (Values.GetIsShooting())
-                timerAnimation = timerAnimationMax;        //start timer
-        
             if (Values.GetCurrentWeapon().Equals(Values.WeaponEnum.Pistol))
                 SetupPistolAnimations();
             
@@ -80,10 +70,9 @@ namespace Player
 
             int currentBullets = Values.GetCurrentAmmo()[Values.WeaponEnum.Pistol];
             print(currentBullets);
-            if ((Values.GetIsShooting() || timerAnimation > 0f)  && currentBullets > 0)
+            if ((Values.GetIsShooting() || Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.PistolAttack] > 0f)  && currentBullets > 0)
             {
                 pistolRenderer.sprite = pistolShootingSprite;        //Change texture
-                timerAnimation -= Time.deltaTime;
             }
             else 
             {

@@ -27,13 +27,13 @@ namespace Utility
             InitializeCurrentTime();
 
             AddTimer(TimerEnum.KnifeAttack, 3f);
-            AddCurrentTime(TimerEnum.KnifeAttack, 0);
+            AddCurrentTime(TimerEnum.KnifeAttack, 0f);
             
-            AddTimer(TimerEnum.PistolAttack, 2f);
-            AddCurrentTime(TimerEnum.PistolAttack, 0);
+            AddTimer(TimerEnum.PistolAttack, 0.35f);
+            AddCurrentTime(TimerEnum.PistolAttack, 0f);
             
             AddTimer(TimerEnum.SMGAttack, 0.75f);
-            AddCurrentTime(TimerEnum.SMGAttack, 0);
+            AddCurrentTime(TimerEnum.SMGAttack, 0f);
         }
         
         /*Getters*/
