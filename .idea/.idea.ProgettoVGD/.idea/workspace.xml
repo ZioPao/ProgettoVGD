@@ -20,6 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c0a94b4-3a72-4aaa-b23e-ef01512582b0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,11 +93,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" />
       </list>
     </option>
   </component>
@@ -153,7 +158,8 @@
       <workItem from="1593357059865" duration="12174000" />
       <workItem from="1593373112747" duration="10121000" />
       <workItem from="1593430984969" duration="16000" />
-      <workItem from="1593451491605" duration="8849000" />
+      <workItem from="1593451491605" duration="10462000" />
+      <workItem from="1593466835121" duration="1965000" />
     </task>
     <servers />
   </component>

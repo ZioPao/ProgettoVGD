@@ -19,6 +19,7 @@ namespace Player
             Values.InitializeHeldWeapons();
             Values.InitializeCurrentAmmo();
             Values.InitializeAmmoReserve();
+            Values.InitializeReloadAmount();
             
             Values.AddWeaponObject(Values.WeaponEnum.Knife, GameObject.Find("PlayerKnife"));
             Values.AddWeaponObject(Values.WeaponEnum.Pistol, GameObject.Find("PlayerPistol"));
@@ -40,6 +41,10 @@ namespace Player
             Values.AddAmmoReserve(Values.WeaponEnum.Knife, 0);
             Values.AddAmmoReserve(Values.WeaponEnum.Pistol, 100);
             Values.AddAmmoReserve(Values.WeaponEnum.SMG, 250);
+            
+            Values.AddReloadAmount(Values.WeaponEnum.Knife, 0);
+            Values.AddReloadAmount(Values.WeaponEnum.Pistol, 10);
+            Values.AddReloadAmount(Values.WeaponEnum.SMG, 25);
 
             Values.GetWeaponObjects()[Values.WeaponEnum.Knife].SetActive(false);
             Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].SetActive(true);
@@ -79,10 +84,10 @@ namespace Player
             }
         }
         
-        public void AttackControl()
+        public void UseWeapon()
         {
             var weaponTmp = Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()];
-                weaponTmp.WeaponAttack();
+                weaponTmp.Action();
         }
 
     }

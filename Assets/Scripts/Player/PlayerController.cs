@@ -66,7 +66,7 @@ namespace Player
         private void Update()
         {
             //viene esguito dopo il fixedupdate
-            weaponScript.AttackControl();
+            weaponScript.UseWeapon();
 			weaponScript.ChangeWeapon();
         }
         
@@ -83,7 +83,7 @@ namespace Player
                 {
                     //printa che puoi interagire
                     Values.SetIsNearInteractable(true);
-                    if (Input.GetKey("e") && !Values.GetIsInteracting())
+                    if (Input.GetKeyDown("e") && !Values.GetIsInteracting())
                     {
                         Values.SetIsInteracting(true);
                         //todo potenzialmente rotto con chest se fatte con un singolo modello. Da capire un po

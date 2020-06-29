@@ -18,7 +18,8 @@ namespace Player
         
         private static float rigidBodyDefaultMass = 2.45f;
         
-        private static float projectileDistance = 100f;    //Maybe change into weapon attribute
+        private static float projectileDistance = 100f;
+        private static float meleeDistance = 40f;
         private static float interactionDistance = 5f;
         private static float pickupDistance = 5f;
         
@@ -39,6 +40,7 @@ namespace Player
         private static bool isMoving = false;
         private static bool isRunning = false;
         private static bool isShooting = false;
+        private static bool isReloading = false;
         private static bool isReadingSign = false;
         private static bool isInteracting = false;
         private static bool isNearInteractable = false;
@@ -68,6 +70,7 @@ namespace Player
         private static Dictionary<WeaponEnum, bool> heldWeapons;
         private static Dictionary<WeaponEnum, int> currentAmmo;
         private static Dictionary<WeaponEnum, int> ammoReserve;
+        private static Dictionary<WeaponEnum, int> reloadAmount;
         private static WeaponEnum currentWeapon;
         
         
@@ -110,6 +113,10 @@ namespace Player
         public static float GetProjectileDistance()
         {
             return projectileDistance;
+        }
+        public static float GetMeleeDistance()
+        {
+            return meleeDistance;
         }
         public static float GetInteractionDistance()
         {
@@ -169,6 +176,10 @@ namespace Player
         public static bool GetIsShooting()
         {
             return isShooting;
+        }
+        public static bool GetIsReloading()
+        {
+            return isReloading;
         }
         public static bool GetIsReadingSign()
         {
@@ -230,6 +241,10 @@ namespace Player
         {
             return ammoReserve;
         }
+        public static Dictionary<WeaponEnum, int> GetReloadAmount()
+        {
+            return reloadAmount;
+        }
         public static WeaponEnum GetCurrentWeapon()
         {
             return currentWeapon;
@@ -270,6 +285,10 @@ namespace Player
         public static void SetProjectileDistance(float value)
         {
            projectileDistance = value;
+        }
+        public static void SetMeleeDistance(float value)
+        {
+            meleeDistance = value;
         }
         public static void SetInteractionDistance(float value)
         {
@@ -338,6 +357,10 @@ namespace Player
         public static void SetIsShooting(bool value)
         {
             isShooting = value;
+        }
+        public static void SetIsReloading(bool value)
+        {
+            isReloading = value;
         }
         public static void SetIsReadingSign(bool value)
         {
@@ -467,6 +490,10 @@ namespace Player
         {
             ammoReserve = new Dictionary<WeaponEnum, int>();
         }
+        public static void InitializeReloadAmount()
+        {
+            reloadAmount = new Dictionary<WeaponEnum, int>();
+        }
         
         public static void AddWeaponObject(WeaponEnum key, GameObject value)
         {
@@ -487,6 +514,10 @@ namespace Player
         public static void AddAmmoReserve(WeaponEnum key, int value)
         {
             ammoReserve.Add(key, value);
+        }
+        public static void AddReloadAmount(WeaponEnum key, int value)
+        {
+            reloadAmount.Add(key, value);
         }
 
         public static void IncrementCurrentAmmo(WeaponEnum key, int value)

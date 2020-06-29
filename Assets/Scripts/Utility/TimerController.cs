@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Timers;
-using Player;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Utility
@@ -15,6 +12,7 @@ namespace Utility
             KnifeAttack,
             PistolAttack,
             SMGAttack,
+            ReloadTime,
         }
 
         //Timer Durations
@@ -26,14 +24,17 @@ namespace Utility
             InitializeTimerLength();
             InitializeCurrentTime();
 
-            AddTimer(TimerEnum.KnifeAttack, 3f);
+            AddTimer(TimerEnum.KnifeAttack, 0.75f);
             AddCurrentTime(TimerEnum.KnifeAttack, 0f);
             
             AddTimer(TimerEnum.PistolAttack, 0.35f);
             AddCurrentTime(TimerEnum.PistolAttack, 0f);
             
-            AddTimer(TimerEnum.SMGAttack, 0.75f);
+            AddTimer(TimerEnum.SMGAttack, 0.15f);
             AddCurrentTime(TimerEnum.SMGAttack, 0f);
+            
+            AddTimer(TimerEnum.ReloadTime, 1.5f);
+            AddCurrentTime(TimerEnum.ReloadTime, 0f);
         }
         
         /*Getters*/
