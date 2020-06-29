@@ -99,6 +99,7 @@
           <e p="Utility" t="Include">
             <e p="Button.cs" t="Include" />
             <e p="MovingWater.cs" t="Include" />
+            <e p="TimerController.cs" t="Include" />
             <e p="UIScript.cs" t="Include" />
           </e>
         </e>

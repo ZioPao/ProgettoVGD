@@ -55,12 +55,11 @@ namespace Player
         private static CapsuleCollider collider;
         
         //Weapon Types
-        public enum WeaponEnum{
-			
+        public enum WeaponEnum
+        {
             Knife,
             Pistol,
             SMG,
-			
         }
         
         //Weapon Properties
@@ -241,7 +240,7 @@ namespace Player
         /*SETTER*/
         
         //Hard Values
-
+        
         public static void SetBoostSpeed(float value)
         {
             boostSpeed = value;
@@ -282,7 +281,7 @@ namespace Player
         }
         
         //Player Stats
-
+        
         public static void SetHealth(float value)
         {
             if ((value <= maxHealth) && (value >= 0))

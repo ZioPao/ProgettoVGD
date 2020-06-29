@@ -13,7 +13,7 @@ namespace Player
         
         private CameraMovement cameraScript;
         private GameObject cameraMain;
-        
+
         private MovementController movementScript;
         private CollisionController collisionScript;
         private WeaponController weaponScript;
@@ -38,6 +38,9 @@ namespace Player
             Values.SetStamina(Values.GetMaxStamina());
             Values.SetOxygen(Values.GetMaxOxygen());
             
+            /*Setup Timer*/
+            Utility.TimerController.Setup();
+
         }
 
         private void FixedUpdate()
@@ -57,14 +60,13 @@ namespace Player
             /* Manage actions*/
             Interact();
 			Pickup();
-            print(Values.GetAmmoReserve()[Values.GetCurrentWeapon()]);
 
         }
 
         private void Update()
         {
             //viene esguito dopo il fixedupdate
-            weaponScript.ShootControl();
+            weaponScript.AttackControl();
 			weaponScript.ChangeWeapon();
         }
         
