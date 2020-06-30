@@ -13,7 +13,9 @@ namespace Player
         // Start is called before the first frame update
         void Start()
         {
+            
             /*Setup Weapons*/
+            
             Values.InitializeWeaponObjects();
             Values.InitializeWeaponBehaviours();
             Values.InitializeHeldWeapons();
@@ -34,6 +36,8 @@ namespace Player
             Values.AddHeldWeapon(Values.WeaponEnum.Pistol, true);    
             Values.AddHeldWeapon(Values.WeaponEnum.SMG, true);
 
+            /*Setup Ammo Values*/
+            
             Values.AddCurrentAmmo(Values.WeaponEnum.Knife, 0);
             Values.AddCurrentAmmo(Values.WeaponEnum.Pistol, 10);
             Values.AddCurrentAmmo(Values.WeaponEnum.SMG, 25);
@@ -46,6 +50,8 @@ namespace Player
             Values.AddReloadAmount(Values.WeaponEnum.Pistol, 10);
             Values.AddReloadAmount(Values.WeaponEnum.SMG, 25);
 
+            /*Sets Pistol as Default Weapon*/
+            
             Values.GetWeaponObjects()[Values.WeaponEnum.Knife].SetActive(false);
             Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].SetActive(true);
             Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(false);
@@ -86,6 +92,8 @@ namespace Player
         
         public void UseWeapon()
         {
+            /*Calls Appropriate Weapon Behaviour*/
+            
             var weaponTmp = Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()];
                 weaponTmp.Action();
         }

@@ -20,12 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3c0a94b4-3a72-4aaa-b23e-ef01512582b0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Levels/Level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2/Textures/borderSign.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Levels/Level2/Textures/borderSign.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/MovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/MovementController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +56,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/CollisionController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/SignController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/CameraCollider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/InteractionController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -83,21 +91,24 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyShooting.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/ProjectileScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/UiScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/CameraCollider.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/NewBehaviourScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/MovementController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/CollisionController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon Controller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/MovementController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interaction Controller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/InteractionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/SignController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" />
       </list>
     </option>
   </component>
@@ -160,6 +171,8 @@
       <workItem from="1593430984969" duration="16000" />
       <workItem from="1593451491605" duration="10462000" />
       <workItem from="1593466835121" duration="1965000" />
+      <workItem from="1593544412689" duration="2329000" />
+      <workItem from="1593550096988" duration="8321000" />
     </task>
     <servers />
   </component>

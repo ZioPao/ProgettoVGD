@@ -49,7 +49,12 @@ namespace Player
 
         private void FixedUpdate()
         {
-            CameraRotation();
+            
+            if (!Values.GetIsFrozen())
+            {
+                CameraRotation();
+            }
+
             ManageSpriteViewing();
 
             /*Adds effects based on some bools*/

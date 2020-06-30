@@ -18,6 +18,7 @@ namespace Player
             float slopeSpeedMultiplier = 1 - (GetSlopeAngle() / 90);
 
             /*In water*/
+            
             if (Values.GetIsInWater())
             {
                 //todo i broke something 
@@ -26,10 +27,12 @@ namespace Player
             }
 
             /*Get movement*/
+            
             float axisMovementVertical = Input.GetAxis("Vertical");
             float axisMovementHorizontal = Input.GetAxis("Horizontal");
 
             /*Boost*/
+            
             bool shouldBeBoosting;
             if (Input.GetKey(KeyCode.LeftShift) && !Values.GetIsTouchingWall() && !Values.GetIsTouchingWallWithHead() &&
                 (Values.GetRigidbody().velocity.magnitude > 0) && (axisMovementVertical > 0) && Values.GetStamina() >= 10)
@@ -46,6 +49,7 @@ namespace Player
             rightMovement = axisMovementHorizontal * movementSpeedMod;
             
             /*Fix diagonal speed and check if player's boosting*/
+            
             if (forwardMovement != 0 && rightMovement != 0)
             {
                 forwardMovement /= 1.42f; //todo determinare se è sempre questo valore
@@ -53,6 +57,7 @@ namespace Player
             }
 
             /*Set Movement Variables*/
+            
             if (forwardMovement != 0 || rightMovement != 0)
             {
                 Values.SetIsMoving(true);
@@ -65,6 +70,7 @@ namespace Player
             }
 
             /*Setup vectors*/
+            
             Vector3 forwardVec = transform.forward * (forwardMovement * slopeSpeedMultiplier);
             Vector3 rightVec = transform.right * (rightMovement * slopeSpeedMultiplier);
             movementVec = (forwardVec + rightVec);

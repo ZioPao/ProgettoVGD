@@ -8,12 +8,12 @@ namespace Utility
     {
 
         private GameObject oxygenCanvas, interactionCanvas, pickupCanvas, signCanvas, ammoCanvas;
-        private Text healthText, staminaText, oxygenText, ammoText;
+        private Text healthText, staminaText, oxygenText, ammoText, signText;
+        private SignController signScript;
 
         // Start is called before the first frame update
         void Start()
         {
-
             oxygenCanvas = GameObject.Find("Oxygen_Canvas");
             interactionCanvas = GameObject.Find("Interaction_Canvas");
 			pickupCanvas = GameObject.Find("Pickup_Canvas");
@@ -24,7 +24,9 @@ namespace Utility
             staminaText = GameObject.Find("stamina_edit").GetComponent<Text>();
             oxygenText = GameObject.Find("oxygen_edit").GetComponent<Text>();
             ammoText = GameObject.Find("ammo_edit").GetComponent<Text>();
+            signText = GameObject.Find("sign_text").GetComponent<Text>();
 
+            signScript = GetComponent<SignController>();
         }
 
         // Update is called once per frame
@@ -61,9 +63,13 @@ namespace Utility
                 oxygenCanvas.SetActive(false);
             }
                        
-            interactionCanvas.SetActive(Player.Values.GetIsNearInteractable());
+            interactionCanvas.SetActive(Player.Values.GetIsNearInteractable() && !Values.GetIsInteracting());
 			pickupCanvas.SetActive(Player.Values.GetIsNearPickup());
             signCanvas.SetActive(Player.Values.GetIsReadingSign());
+            
+            signText.text = signScript.GetSignText();
+            signText.alignment = TextAnchor.MiddleCenter;
+
         }
     }
 }

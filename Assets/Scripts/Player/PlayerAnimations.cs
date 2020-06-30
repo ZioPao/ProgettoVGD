@@ -45,7 +45,7 @@ namespace Player
         private void SetAnimations()
         { 
             anim.SetBool(IsRunningAnim, Values.GetIsRunning());
-            anim.SetBool(IsShootingAnim, Values.GetIsShooting());
+            anim.SetBool(IsShootingAnim, Values.GetIsAttacking());
 
             if (Values.GetCurrentWeapon().Equals(Values.WeaponEnum.Pistol))
                 SetupPistolAnimations();
@@ -70,7 +70,7 @@ namespace Player
 
             int currentBullets = Values.GetCurrentAmmo()[Values.WeaponEnum.Pistol];
             print(currentBullets);
-            if ((Values.GetIsShooting() || Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.PistolAttack] > 0f)  && currentBullets > 0)
+            if ((Values.GetIsAttacking() || Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.PistolAttack] > 0f)  && currentBullets > 0)
             {
                 pistolRenderer.sprite = pistolShootingSprite;        //Change texture
             }

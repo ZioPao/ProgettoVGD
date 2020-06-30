@@ -37,9 +37,10 @@ namespace Player
         private static bool isInWater = false;
         //Actions
         //private static bool isMoving = false; //Da implementare
+        private static bool isFrozen = false;
         private static bool isMoving = false;
         private static bool isRunning = false;
-        private static bool isShooting = false;
+        private static bool isAttacking = false;
         private static bool isReloading = false;
         private static bool isReadingSign = false;
         private static bool isInteracting = false;
@@ -165,6 +166,10 @@ namespace Player
             return isInWater;
         }
         //Actions
+        public static bool GetIsFrozen()
+        {
+            return isFrozen;
+        }
         public static bool GetIsMoving()
         {
             return isMoving;
@@ -173,9 +178,9 @@ namespace Player
         {
             return isRunning;
         }
-        public static bool GetIsShooting()
+        public static bool GetIsAttacking()
         {
-            return isShooting;
+            return isAttacking;
         }
         public static bool GetIsReloading()
         {
@@ -346,6 +351,10 @@ namespace Player
             isInWater = value;
         }
         //Actions
+        public static void SetIsFrozen(bool value)
+        {
+            isFrozen = value;
+        }
         public static void SetIsMoving(bool value)
         {
             isMoving = value;
@@ -354,9 +363,9 @@ namespace Player
         {
             isRunning = value;
         }
-        public static void SetIsShooting(bool value)
+        public static void SetIsAttacking(bool value)
         {
-            isShooting = value;
+            isAttacking = value;
         }
         public static void SetIsReloading(bool value)
         {
