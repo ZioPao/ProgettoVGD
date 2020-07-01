@@ -19,8 +19,7 @@ namespace Player
 		    /*Setup Camera*/
             
 		    cameraMain = GameObject.Find("Camera_Main");
-		    signControl = GetComponent<SignController>();
-
+		    signControl = gameObject.AddComponent<SignController>();
 	    }
 
 
