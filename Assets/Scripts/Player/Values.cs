@@ -46,6 +46,7 @@ namespace Player
         private static bool isInteracting = false;
         private static bool isNearInteractable = false;
         private static bool isNearPickup = false;
+        private static bool hasKey = false;
 
         //Raycasting
         private static float raycastLength = 5f;
@@ -201,6 +202,10 @@ namespace Player
         public static bool GetIsNearPickup()
         {
             return isNearPickup;
+        }
+        public static bool GetHasKey()
+        {
+            return hasKey;
         }
 
         //Raycasting
@@ -386,6 +391,10 @@ namespace Player
         public static void SetIsNearPickup(bool value)
         {
             isNearPickup = value;
+        }
+        public static void SetHasKey(bool value)
+        {
+            hasKey = value;
         }
         
         //Rigidbody

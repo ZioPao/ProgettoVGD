@@ -3437,22 +3437,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Su questo cartello saranno presenti le regole del gioco.
-
-    Probabilmente
-    ti verra'' detto di premere dei tasti, oppure di raccogliere oggetti di vario
-    tipo, ma qualsiasi cosa accada, questo e'' e restera'' per sempre un cartello.
-
-    Non
-    lasciare che esso guidi la tua vita.
-
-
-    Corri contro le pareti della mappa
-    e trova tutte le collisioni rotte che puoi.
-
-
-
-    Premi Q per tornare al gioco.'
+  m_Text: "Qualcosa \xE8 andato molto storto"
 --- !u!222 &767967322
 CanvasRenderer:
   m_ObjectHideFlags: 0

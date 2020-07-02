@@ -26,7 +26,7 @@ namespace Utility
             ammoText = GameObject.Find("ammo_edit").GetComponent<Text>();
             signText = GameObject.Find("sign_text").GetComponent<Text>();
 
-            signScript = GetComponent<SignController>();
+            signScript = signText.GetComponentInParent<SignController>();
         }
 
         // Update is called once per frame
