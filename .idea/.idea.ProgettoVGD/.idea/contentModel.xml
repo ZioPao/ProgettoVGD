@@ -79,6 +79,10 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Boss" t="Include">
+            <e p="BossBase.cs" t="Include" />
+            <e p="BossOne.cs" t="Include" />
+          </e>
           <e p="Enemies" t="Include">
             <e p="EnemyBase.cs" t="Include" />
             <e p="EnemyBehaviour.cs" t="Include" />
