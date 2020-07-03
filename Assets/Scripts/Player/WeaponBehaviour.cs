@@ -46,6 +46,13 @@ namespace Player
                 default:
                     break;
             }
+
+            if ((Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.KnifeAttack] == 0) &&
+                (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.PistolAttack] == 0) &&
+                (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.SMGAttack] == 0))
+            {
+                Values.SetIsAttacking(false);
+            }
             
         }
 
@@ -65,11 +72,7 @@ namespace Player
                 
                 MeleeHit();
             }
-            else
-            {
-                Values.SetIsAttacking(false);
-            }
-            
+
             //The cooldown depletes over time
             Utility.TimerController.RunTimer(Utility.TimerController.TimerEnum.KnifeAttack);
             
@@ -90,10 +93,6 @@ namespace Player
                 //Make the actual attack
 
                 ShootProjectile();
-            }
-            else
-            {
-                Values.SetIsAttacking(false);
             }
             
             //The cooldown depletes over time
@@ -117,11 +116,7 @@ namespace Player
                 
                 ShootProjectile();
             }
-            else
-            {
-                Values.SetIsAttacking(false);
-            }
-            
+
             //The cooldown depletes over time
             Utility.TimerController.RunTimer(Utility.TimerController.TimerEnum.SMGAttack);
             
@@ -168,7 +163,8 @@ namespace Player
                     Values.IncrementCurrentAmmo(Values.GetCurrentWeapon(), (Values.GetReloadAmount()[Values.GetCurrentWeapon()] - Values.GetCurrentAmmo()[Values.GetCurrentWeapon()]));
                 }
             }
-            else
+            
+            if (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.ReloadTime] == 0)
             {
                 Values.SetIsReloading(false);
             }

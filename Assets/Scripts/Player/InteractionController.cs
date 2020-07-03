@@ -77,14 +77,17 @@ namespace Player
 						{
 							case "AmmoBox":
 								CollectAmmo();
+								Destroy(picker.transform.parent.gameObject);
 								break;
 							
 							case "MedKit":
 								CollectMedKit();
+								Destroy(picker.transform.parent.gameObject);
 								break;
 							
 							case "Key":
 								CollectKey();
+								Destroy(picker.transform.parent.gameObject);
 								break;
 							
 							default:
@@ -119,19 +122,17 @@ namespace Player
         /*Pickup Methods*/
 		
 		private void CollectAmmo(){
-			
-			//todo
-			
+			Values.IncrementAmmoReserve(Values.GetCurrentWeapon(),25);
 		}
 
 		private void CollectMedKit()
 		{
-			
+			Values.IncreaseHealth(25);
 		}
 
 		private void CollectKey()
 		{
-			
+			Values.SetHasKey(true);
 		}
 		
 

@@ -9,13 +9,11 @@ namespace Utility
 
         [SerializeField] private int signID = 0;
 
+        private string signText = "I Am Error";
         private int currentSignID;
 
         public string GetSignText()
         {
-
-            string signText = "I Am Error";
-
             switch (currentSignID)
             {
                 case 0:
@@ -33,6 +31,7 @@ namespace Utility
                     break;
 
                 default:
+                    signText = "no";
                     break;
             }
 
