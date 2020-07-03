@@ -7,7 +7,7 @@ namespace Utility
     public class UiScript : MonoBehaviour
     {
 
-        private GameObject oxygenCanvas, interactionCanvas, pickupCanvas, signCanvas, ammoCanvas;
+        private GameObject oxygenCanvas, interactionCanvas, pickupCanvas, signCanvas, ammoCanvas, signParent;
         private Text healthText, staminaText, oxygenText, ammoText, signText;
         private SignController signScript;
 
@@ -26,7 +26,9 @@ namespace Utility
             ammoText = GameObject.Find("ammo_edit").GetComponent<Text>();
             signText = GameObject.Find("sign_text").GetComponent<Text>();
             
-            signScript = signText.GetComponentInParent<SignController>();
+            signParent = GameObject.Find("SignParent");
+            
+            signScript = signParent.GetComponent<SignController>();
         }
 
         // Update is called once per frame
