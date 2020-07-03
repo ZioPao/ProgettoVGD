@@ -22,6 +22,17 @@
     <list default="true" id="3c0a94b4-3a72-4aaa-b23e-ef01512582b0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProgettoVGD/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/Assets/Levels/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Levels/Level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Random/Models/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PlayerWeapons/Sprites.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/InteractionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/InteractionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/SignController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/SignController.cs" afterDir="false" />
+>>>>>>> 35662ea70377c30b6f02a9705faf4cd58ee5de0a
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,16 +44,32 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/MovingWater.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/InteractionController.cs" root0="FORCE_HIGHLIGHTING" />
+=======
+>>>>>>> 35662ea70377c30b6f02a9705faf4cd58ee5de0a
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/ProjectileScript.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MovementController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyShooting.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/MovingWater.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/CollisionController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/SignController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/CameraCollider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/InteractionController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" root0="FORCE_HIGHLIGHTING" />
+<<<<<<< HEAD
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Boss/BossOne.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,6 +81,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/ProjectileScript.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/MovementController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
+=======
+>>>>>>> 35662ea70377c30b6f02a9705faf4cd58ee5de0a
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -91,19 +120,25 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Weapon Controller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/TimerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/MovementController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/Interaction Controller.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/CameraMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/InteractionController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/SignController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boss/BossBase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Boss/BossOne.cs" />
+=======
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/SignController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utility/UiScript.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/Values.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/InteractionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/WeaponBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimations.cs" />
+>>>>>>> 35662ea70377c30b6f02a9705faf4cd58ee5de0a
       </list>
     </option>
   </component>
@@ -168,8 +203,13 @@
       <workItem from="1593466835121" duration="1965000" />
       <workItem from="1593544412689" duration="2329000" />
       <workItem from="1593550096988" duration="8321000" />
+<<<<<<< HEAD
       <workItem from="1593623312462" duration="1296000" />
       <workItem from="1593773549467" duration="3145000" />
+=======
+      <workItem from="1593623312462" duration="308000" />
+      <workItem from="1593714255487" duration="5134000" />
+>>>>>>> 35662ea70377c30b6f02a9705faf4cd58ee5de0a
     </task>
     <servers />
   </component>

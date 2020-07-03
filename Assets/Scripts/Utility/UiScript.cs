@@ -25,8 +25,8 @@ namespace Utility
             oxygenText = GameObject.Find("oxygen_edit").GetComponent<Text>();
             ammoText = GameObject.Find("ammo_edit").GetComponent<Text>();
             signText = GameObject.Find("sign_text").GetComponent<Text>();
-
-            signScript = GetComponent<SignController>();        //todo non ha senso qui. funge per miracolo e non va bene 
+            
+            signScript = signText.GetComponentInParent<SignController>();
         }
 
         // Update is called once per frame
