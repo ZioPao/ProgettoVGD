@@ -75,19 +75,19 @@ namespace Player
 					Values.SetIsNearPickup(true);
 					if (Input.GetKey("e"))
 					{
-						switch(picker.transform.parent.name)
+						switch(picker.transform.parent.parent.name)
 						{
-							case "AmmoBox":
+							case "AmmoBoxParent":
 								CollectAmmo();
 								Destroy(picker.transform.parent.gameObject);
 								break;
 							
-							case "MedKit":
+							case "MedKitParent":
 								CollectMedKit();
 								Destroy(picker.transform.parent.gameObject);
 								break;
 							
-							case "Key":
+							case "KeyParent":
 								CollectKey();
 								Destroy(picker.transform.parent.gameObject);
 								break;
