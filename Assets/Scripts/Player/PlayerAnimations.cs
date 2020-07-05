@@ -70,7 +70,6 @@ namespace Player
             }
             
             int currentBullets = Values.GetCurrentAmmo()[Values.WeaponEnum.Pistol];
-            print(currentBullets);
             if ((Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.PistolAttack] > 0)  && currentBullets > 0)
             {
                 pistolRenderer.sprite = pistolShootingSprite;        //Change texture

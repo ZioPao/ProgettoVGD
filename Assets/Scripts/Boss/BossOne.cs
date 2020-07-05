@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Enemies;
+using UnityEngine;
 
 
 namespace Boss
@@ -12,6 +13,7 @@ namespace Boss
         [SerializeField] private int projectileSpeedMax = 50;
         
         private BossBase boss;
+        private EnemySpawner enemySpawner;
         //private SpriteRenderer renderer; 
         
         private bool isInPhaseTwo;
@@ -24,6 +26,7 @@ namespace Boss
         {
 
             boss = new BossBase(maxHealth);
+            enemySpawner = gameObject.AddComponent<EnemySpawner>();        //per spawnare i nemici nella fase 2    
             isInPhaseTwo = false;
             //Spawn
 

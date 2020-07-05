@@ -5,7 +5,7 @@ namespace Enemies
 {
     public class EnemyBehaviour : MonoBehaviour
     {
-        
+        //todo da separare in più moduli
 
         //Timers
 
@@ -136,6 +136,7 @@ namespace Enemies
         {
             LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
 
+            //todo is it broken?
             if (!(Vector3.Distance(frontEnemy.position, transform.position) < maxViewDistance)) return false;
 
             return Physics.Linecast(frontEnemy.position, playerTransform.position, out RaycastHit rayEnemySprite,

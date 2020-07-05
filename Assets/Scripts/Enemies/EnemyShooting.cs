@@ -6,8 +6,6 @@ namespace Enemies
 {
     public class EnemyShooting : MonoBehaviour
     {
-        private const string CameraMainName = "Camera_Main";
-
         private Transform enemyTextureTransform;
 
         private List<Texture> projectilesSprites;
@@ -17,15 +15,14 @@ namespace Enemies
         private EnemyBehaviour enemyBehaviour;
 
         [SerializeField] public GameObject projectilePrefab;
+        [SerializeField] private float timerWaitingMax = 5f;        //How much does the enemy have to wait between 2 projectiles
 
 
         private float timerWaitingLeft = 5f;
-        private float timerWaitingMax = 5f;
 
 
         //Projectile values
         private GameObject projectile;
-        private Rigidbody projectileRigidbody;
         private MeshRenderer projectileMeshRenderer;
         private Vector3 direction;
         
@@ -40,21 +37,26 @@ namespace Enemies
             //laserLineRenderer.startWidth = laserWidth;
             //laserLineRenderer.useWorldSpace = false;        //local to the transform
 
-            enemyBehaviour = transform.GetComponentInParent<EnemyBehaviour>();
-            enemyTextureTransform = transform.parent;
+            timerWaitingLeft = timerWaitingMax;
+            enemyTextureTransform = transform;
         }
 
-        // Update is called once per frame
+
         private void FixedUpdate()
         {
-            if (!enemyBehaviour.GetIsPlayerInView()) return;
-            
-            //Può sparare
+
+            if (timerWaitingLeft > 0 && isEnemyShooting)
+            {
+                timerWaitingLeft -= Time.deltaTime; //decrease costantly 
+            }
+        }
+
+        public void Shoot()
+        {
+
             if (timerWaitingLeft <= 0)
             {
-                //Spawna projectile
-                //il nemico si ferma un secondo e poi continua a muoversi dopo aver sparato
-                projectile = PrefabUtility.InstantiatePrefab(projectilePrefab) as GameObject;
+                var projectile = PrefabUtility.InstantiatePrefab(projectilePrefab) as GameObject;
                 projectile.transform.position = enemyTextureTransform.position + new Vector3(0, 2.5f, 0);        //poco poco più in alto
                 projectile.transform.rotation = enemyTextureTransform.rotation;
 
@@ -68,8 +70,6 @@ namespace Enemies
             }
 
         }
-        
-            
         public bool IsEnemyShooting(){
             return isEnemyShooting;
         }

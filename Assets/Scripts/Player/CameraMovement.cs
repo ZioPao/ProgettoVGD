@@ -14,7 +14,7 @@ namespace Player
         private float maxY;
 
         /*Enemy viewing stuff*/
-        private EnemyBase enemyBase;
+        private EnemiesManager enemyBase;
         private GameObject[] enemyList;
 
         private List<MeshRenderer> enemyRendererList;
@@ -29,7 +29,7 @@ namespace Player
 
         private void Start()
         {
-            enemyBase = GameObject.Find("Enemies").GetComponent<EnemyBase>();
+            enemyBase = GameObject.Find("Enemies").GetComponent<EnemiesManager>();
             enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
 
             enemyRendererList = new List<MeshRenderer>();
