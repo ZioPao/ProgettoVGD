@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMelee: 1
-  damagePerShot: 0
+  damagePerShot: 20
   shotSpread: 0
 --- !u!4 &286199836 stripped
 Transform:
@@ -1336,7 +1336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMelee: 0
-  damagePerShot: 0
+  damagePerShot: 30
   shotSpread: 0
 --- !u!1001 &392585365
 PrefabInstance:

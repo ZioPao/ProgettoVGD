@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Enemies;
+using UnityEngine;
 
 namespace Player
 {
@@ -108,7 +109,20 @@ namespace Player
                 
                 if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit projectile, Values.GetProjectileDistance(), LayerMask.GetMask("EnemyHitbox")))
                 {
-                    Destroy(projectile.transform.parent.gameObject);
+                    GameObject enemy =  projectile.transform.parent.gameObject;
+                    EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
+
+                    if (enemyScript.DecreaseHealth(damagePerShot) < 0)
+                    {
+                        Destroy(projectile.transform.parent.gameObject);
+
+                    }
+                    else
+                    {
+                        print("hit");
+                    }
+                    
+
                 }
             }
         }

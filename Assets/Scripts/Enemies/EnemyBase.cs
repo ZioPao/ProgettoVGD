@@ -47,5 +47,12 @@ namespace Enemies
         {
             health = h;
         }
+
+
+        public int DecreaseHealth(int hit)
+        {
+            health -= hit;
+            return health;
+        }
     }
 }
