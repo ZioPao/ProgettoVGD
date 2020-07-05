@@ -10,6 +10,10 @@ namespace Player
         [SerializeField] private bool isMelee = false;
         [SerializeField] private int damagePerShot;
         [SerializeField] private float shotSpread;
+
+        private bool input;
+        private Utility.TimerController.TimerEnum cooldownTimer;
+        private Utility.TimerController.TimerEnum attackTimer;
         
         /*Camera Module*/
         
@@ -29,100 +33,68 @@ namespace Player
         {
             
             /*Define Weapon Actions*/
-            
+            SetupAttack();
+            ExecuteAttack();
+            Reload();
+
+
+
+        }
+
+        private void SetupAttack()
+        {
             switch (gameObject.name)
             {
                 case "PlayerKnife":
-                    KnifeAttack();
+                    input = Input.GetMouseButtonDown(0);
+                    cooldownTimer = Utility.TimerController.TimerEnum.KnifeCooldown;
+                    attackTimer = Utility.TimerController.TimerEnum.KnifeAttack;
                     break;
                 case "PlayerPistol":
-                    PistolAttack();
-                    Reload();
+                    input = Input.GetMouseButtonDown(0);
+                    cooldownTimer = Utility.TimerController.TimerEnum.PistolCooldown;
+                    attackTimer = Utility.TimerController.TimerEnum.PistolAttack;
                     break;
                 case "PlayerSMG":
-                    SMGAttack();
-                    Reload();
+                    input = Input.GetMouseButton(0);
+                    cooldownTimer = Utility.TimerController.TimerEnum.SMGCooldown;
+                    attackTimer = Utility.TimerController.TimerEnum.SMGAttack;
                     break;
                 default:
                     break;
             }
-
-            if ((Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.KnifeAttack] == 0) &&
-                (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.PistolAttack] == 0) &&
-                (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.SMGAttack] == 0))
-            {
-                Values.SetIsAttacking(false);
-            }
-            
         }
 
-        private void KnifeAttack()
+        private void ExecuteAttack()
         {
-            
-            //Knife attacks once on the first frame the left mouse key is pressed
-
-            if (Input.GetMouseButtonDown(0) && !Values.GetIsRunning() && (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.KnifeAttack] == 0))
+            if (input && !Values.GetIsRunning() && (Utility.TimerController.GetCurrentTime()[cooldownTimer] == 0))
             {
                 //When an attack goes through the attack cooldown is reset
+                Utility.TimerController.ResetTimer(cooldownTimer);
                 
-                Values.SetIsAttacking(true);
-                Utility.TimerController.ResetTimer(Utility.TimerController.TimerEnum.KnifeAttack);
+                Values.SetIsAttacking(Values.GetCurrentWeapon(), true);
+                Utility.TimerController.ResetTimer(attackTimer);
 
-                //Make the actual attack
-                
-                MeleeHit();
+                if (isMelee)
+                {
+                    MeleeHit();
+                }
+                else
+                {
+                    ShootProjectile();
+                }
             }
+            
+            //Timers for Attack Duration and Cooldown deplete over time
+            Utility.TimerController.RunTimer(cooldownTimer);
+            Utility.TimerController.RunTimer(attackTimer);
 
-            //The cooldown depletes over time
-            Utility.TimerController.RunTimer(Utility.TimerController.TimerEnum.KnifeAttack);
-            
-        }
-
-        private void PistolAttack()
-        {
-            
-            //Pistol attacks once on the first frame the left mouse key is pressed
-            
-            if (Input.GetMouseButtonDown(0) && !Values.GetIsRunning() && !Values.GetIsReloading() && (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.PistolAttack] == 0))
+            if ((Utility.TimerController.GetCurrentTime()[attackTimer] == 0) && Values.GetIsAttacking()[Values.GetCurrentWeapon()])
             {
-                //When an attack goes through the attack cooldown is reset
-                
-                Values.SetIsAttacking(true);
-                Utility.TimerController.ResetTimer(Utility.TimerController.TimerEnum.PistolAttack);
-                
-                //Make the actual attack
-
-                ShootProjectile();
+                Values.SetIsAttacking(Values.GetCurrentWeapon(), false);
             }
-            
-            //The cooldown depletes over time
-            Utility.TimerController.RunTimer(Utility.TimerController.TimerEnum.PistolAttack);
-            
         }
 
-        private void SMGAttack()
-        {
-            
-            //SMG keeps shooting on cooldown as long as the left mouse key is pressed
-            
-            if (Input.GetMouseButton(0) && !Values.GetIsRunning() && !Values.GetIsReloading() && (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.SMGAttack] == 0))
-            {
-                //When an attack goes through the attack cooldown is reset
-                
-                Values.SetIsAttacking(true);
-                Utility.TimerController.ResetTimer(Utility.TimerController.TimerEnum.SMGAttack);
-
-                //Make the actual attack
-                
-                ShootProjectile();
-            }
-
-            //The cooldown depletes over time
-            Utility.TimerController.RunTimer(Utility.TimerController.TimerEnum.SMGAttack);
-            
-        }
-
-        
         public void MeleeHit()
         {
             if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit hit, Values.GetMeleeDistance(), LayerMask.GetMask("EnemyHitbox")))
@@ -147,7 +119,7 @@ namespace Player
         
         private void Reload()
         {
-            if (Input.GetKeyDown("r") && !Values.GetIsRunning() &&!Values.GetIsAttacking() && (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.ReloadTime] == 0))
+            if (Input.GetKeyDown("r") && !Values.GetIsRunning() &&!Values.GetIsAttacking()[Values.GetCurrentWeapon()] && (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.ReloadTime] == 0))
             {
                 //On successful reload the cooldown is reset
                 

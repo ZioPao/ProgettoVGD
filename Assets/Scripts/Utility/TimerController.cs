@@ -10,8 +10,11 @@ namespace Utility
         public enum TimerEnum
         {
             KnifeAttack,
+            KnifeCooldown,
             PistolAttack,
+            PistolCooldown,
             SMGAttack,
+            SMGCooldown,
             ReloadTime,
         }
 
@@ -24,14 +27,23 @@ namespace Utility
             InitializeTimerLength();
             InitializeCurrentTime();
 
-            AddTimer(TimerEnum.KnifeAttack, 0.75f);
+            AddTimer(TimerEnum.KnifeAttack, 0.70f);
             AddCurrentTime(TimerEnum.KnifeAttack, 0f);
             
-            AddTimer(TimerEnum.PistolAttack, 0.35f);
+            AddTimer(TimerEnum.KnifeCooldown, 0.75f);
+            AddCurrentTime(TimerEnum.KnifeCooldown, 0f);
+            
+            AddTimer(TimerEnum.PistolAttack, 0.30f);
             AddCurrentTime(TimerEnum.PistolAttack, 0f);
             
-            AddTimer(TimerEnum.SMGAttack, 0.15f);
+            AddTimer(TimerEnum.PistolCooldown, 0.35f);
+            AddCurrentTime(TimerEnum.PistolCooldown, 0f);
+            
+            AddTimer(TimerEnum.SMGAttack, 0.10f);
             AddCurrentTime(TimerEnum.SMGAttack, 0f);
+            
+            AddTimer(TimerEnum.SMGCooldown, 0.15f);
+            AddCurrentTime(TimerEnum.SMGCooldown, 0f);
             
             AddTimer(TimerEnum.ReloadTime, 1.5f);
             AddCurrentTime(TimerEnum.ReloadTime, 0f);
