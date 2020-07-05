@@ -11,15 +11,17 @@ namespace Player
 	    
 	    /*Camera Module*/
         
-	    private GameObject cameraMain;
-	    private SignController signControl, signTemp;
+	    private GameObject cameraMain, signParent;
+	    private SignController signScript, signTemp;
 	    
 	    private void Start()
 	    {
 		    /*Setup Camera*/
             
 		    cameraMain = GameObject.Find("Camera_Main");
-		    signControl = gameObject.AddComponent<SignController>();
+		    signParent = GameObject.Find("SignParent");
+		    signScript = signParent.GetComponent<SignController>();
+		    
 	    }
 
 
@@ -35,11 +37,11 @@ namespace Player
                     {
                         Values.SetIsInteracting(true);
                         //todo potenzialmente rotto con chest se fatte con un singolo modello. Da capire un po
-                        switch (interactor.transform.parent.name)
+                        switch (interactor.transform.parent.parent.name)
                         {
-                            case "Sign":
+                            case "SignParent":
 	                            signTemp = interactor.collider.GetComponentInParent<SignController>();
-	                            signControl.SetCurrentSignID(signTemp.GetSignID());
+	                            signScript.SetCurrentSignID(signTemp.GetSignID());
                                 InteractWithSign();
                                 break;
                             case "Chest":
@@ -73,19 +75,19 @@ namespace Player
 					Values.SetIsNearPickup(true);
 					if (Input.GetKey("e"))
 					{
-						switch(picker.transform.parent.name)
+						switch(picker.transform.parent.parent.name)
 						{
-							case "AmmoBox":
+							case "AmmoBoxParent":
 								CollectAmmo();
 								Destroy(picker.transform.parent.gameObject);
 								break;
 							
-							case "MedKit":
+							case "MedKitParent":
 								CollectMedKit();
 								Destroy(picker.transform.parent.gameObject);
 								break;
 							
-							case "Key":
+							case "KeyParent":
 								CollectKey();
 								Destroy(picker.transform.parent.gameObject);
 								break;

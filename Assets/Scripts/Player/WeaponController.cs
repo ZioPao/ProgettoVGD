@@ -22,6 +22,7 @@ namespace Player
             Values.InitializeCurrentAmmo();
             Values.InitializeAmmoReserve();
             Values.InitializeReloadAmount();
+            Values.InitializeIsAttacking();
             
             Values.AddWeaponObject(Values.WeaponEnum.Knife, GameObject.Find("PlayerKnife"));
             Values.AddWeaponObject(Values.WeaponEnum.Pistol, GameObject.Find("PlayerPistol"));
@@ -50,6 +51,12 @@ namespace Player
             Values.AddReloadAmount(Values.WeaponEnum.Pistol, 10);
             Values.AddReloadAmount(Values.WeaponEnum.SMG, 25);
 
+            /*Setup Attack State*/
+            
+            Values.AddIsAttacking(Values.WeaponEnum.Knife, false);
+            Values.AddIsAttacking(Values.WeaponEnum.Pistol, false);
+            Values.AddIsAttacking(Values.WeaponEnum.SMG, false);
+            
             /*Sets Pistol as Default Weapon*/
             
             Values.GetWeaponObjects()[Values.WeaponEnum.Knife].SetActive(false);

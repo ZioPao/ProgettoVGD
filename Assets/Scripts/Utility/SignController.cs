@@ -16,6 +16,14 @@ namespace Utility
         {
             switch (currentSignID)
             {
+                case -1:
+                    signText = "Qualcosa nel codice ha deciso di utilizzare l'id del sign parent." +
+                               Environment.NewLine +
+                               "Cio', in base ai test eseguiti, non dovrebbe essere possibile, di conseguenza visualizzare questo messaggio comporta un problema."
+                               + Environment.NewLine +
+                               "Premi Q e dimentica cio' che hai visto";
+                    break;
+                    
                 case 0:
                     signText = "Su questo cartello saranno presenti le regole del gioco." + Environment.NewLine +
                                "Probabilmente ti verra' detto di premere dei tasti, oppure di raccogliere oggetti di vario tipo, ma qualsiasi cosa accada, questo e' e restera' per sempre un cartello." +
@@ -27,11 +35,11 @@ namespace Utility
                     break;
                 
                 case 1:
-                    signText = "Questo cartello è una prova";
+                    signText = "Questo cartello e' una prova";
                     break;
 
                 default:
-                    signText = "no";
+                    signText = "418 Sono una teiera";
                     break;
             }
 

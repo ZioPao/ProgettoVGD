@@ -45,7 +45,7 @@ namespace Player
         private void SetAnimations()
         { 
             anim.SetBool(IsRunningAnim, Values.GetIsRunning());
-            anim.SetBool(IsShootingAnim, Values.GetIsAttacking());
+            anim.SetBool(IsShootingAnim, Values.GetIsAttacking()[Values.GetCurrentWeapon()]);
 
             if (Values.GetCurrentWeapon().Equals(Values.WeaponEnum.Pistol))
             {

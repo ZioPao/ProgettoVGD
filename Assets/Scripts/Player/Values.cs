@@ -40,7 +40,6 @@ namespace Player
         private static bool isFrozen = false;
         private static bool isMoving = false;
         private static bool isRunning = false;
-        private static bool isAttacking = false;
         private static bool isReloading = false;
         private static bool isReadingSign = false;
         private static bool isInteracting = false;
@@ -73,6 +72,7 @@ namespace Player
         private static Dictionary<WeaponEnum, int> currentAmmo;
         private static Dictionary<WeaponEnum, int> ammoReserve;
         private static Dictionary<WeaponEnum, int> reloadAmount;
+        private static Dictionary<WeaponEnum, bool> isAttacking;
         private static WeaponEnum currentWeapon;
         
         
@@ -179,10 +179,6 @@ namespace Player
         {
             return isRunning;
         }
-        public static bool GetIsAttacking()
-        {
-            return isAttacking;
-        }
         public static bool GetIsReloading()
         {
             return isReloading;
@@ -254,6 +250,11 @@ namespace Player
         public static Dictionary<WeaponEnum, int> GetReloadAmount()
         {
             return reloadAmount;
+        }
+
+        public static Dictionary<WeaponEnum, bool> GetIsAttacking()
+        {
+            return isAttacking;
         }
         public static WeaponEnum GetCurrentWeapon()
         {
@@ -367,10 +368,6 @@ namespace Player
         public static void SetIsRunning(bool value)
         {
             isRunning = value;
-        }
-        public static void SetIsAttacking(bool value)
-        {
-            isAttacking = value;
         }
         public static void SetIsReloading(bool value)
         {
@@ -512,6 +509,10 @@ namespace Player
         {
             reloadAmount = new Dictionary<WeaponEnum, int>();
         }
+        public static void InitializeIsAttacking()
+        {
+            isAttacking = new Dictionary<WeaponEnum, bool>();
+        }
         
         public static void AddWeaponObject(WeaponEnum key, GameObject value)
         {
@@ -537,6 +538,10 @@ namespace Player
         {
             reloadAmount.Add(key, value);
         }
+        public static void AddIsAttacking(WeaponEnum key, bool value)
+        {
+            isAttacking.Add(key, value);
+        }
 
         public static void IncrementCurrentAmmo(WeaponEnum key, int value)
         {
@@ -553,6 +558,10 @@ namespace Player
         public static void DecrementAmmoReserve(WeaponEnum key, int value)
         {
             ammoReserve[key] -= value;
+        }
+        public static void SetIsAttacking(WeaponEnum key, bool value)
+        {
+            isAttacking[key] = value;
         }
 
     }
