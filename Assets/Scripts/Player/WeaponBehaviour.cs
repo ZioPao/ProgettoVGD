@@ -27,17 +27,14 @@ namespace Player
             cameraMain = GameObject.Find("Camera_Main");
             
         }
-
-
+        
         public void Action()
         {
             
             /*Define Weapon Actions*/
             SetupAttack();
             ExecuteAttack();
-            Reload();
-
-
+            Reload();    
 
         }
 
