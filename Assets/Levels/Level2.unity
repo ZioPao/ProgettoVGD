@@ -935,6 +935,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7862359989826453290, guid: fb54485d05d357e46970125e9ccf6ad4,
     type: 3}
   timerWaitingMax: 5
+  projectileRateMax: 100
+  projectileSpeedMax: 50
 --- !u!120 &318119064
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1877,6 +1879,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7862359989826453290, guid: fb54485d05d357e46970125e9ccf6ad4,
     type: 3}
   timerWaitingMax: 5
+  projectileRateMax: 100
+  projectileSpeedMax: 50
 --- !u!120 &600463477
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5896,7 +5900,7 @@ PrefabInstance:
     - target: {fileID: 5673882480759911212, guid: 5731affe82b88564db4cbcefd9fd7f99,
         type: 3}
       propertyPath: timerWaitingMax
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8652647940364635946, guid: 5731affe82b88564db4cbcefd9fd7f99,
         type: 3}
