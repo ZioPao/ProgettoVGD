@@ -279,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8652647940364635946}
   - component: {fileID: 5218843584217794771}
+  - component: {fileID: 6359410818039911924}
   - component: {fileID: 2221299235373204377}
   - component: {fileID: 4474138994668629055}
   - component: {fileID: 5673882480759911212}
@@ -320,9 +321,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ff1a693d21bac468136161618c5410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewDistance: 10
-  viewingTimer: 15
-  minPlayerDistance: 0
+--- !u!114 &6359410818039911924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8652647940364635947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d7e4a361e3a9a46bf6d2d1f924bc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  projectileRateMax: 100
+  projectileSpeedMax: 50
 --- !u!114 &2221299235373204377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTimerAlternativeMovement: 2
-  playerDistance: 5
+  minPlayerDistance: 5
 --- !u!114 &4474138994668629055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +364,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewDistance: 0
   maxMemoryTime: 10
-  playerTransform: {fileID: 0}
 --- !u!114 &5673882480759911212
 MonoBehaviour:
   m_ObjectHideFlags: 0

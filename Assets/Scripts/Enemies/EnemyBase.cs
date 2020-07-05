@@ -3,9 +3,15 @@ using UnityEngine.AI;
 
 namespace Enemies
 {
-    public class EnemyBase : MonoBehaviour{
+    public class EnemyBase : MonoBehaviour
+    {
 
-    private EnemyIntelligence enemyIntelligence;
+        [SerializeField] private int maxHealth = 100;
+
+
+        private int health;
+        
+        private EnemyIntelligence enemyIntelligence;
         private EnemyMovement enemyMovement;
         private EnemyShooting enemyShooting;
 
@@ -30,6 +36,16 @@ namespace Enemies
             {
                 enemyShooting.Shoot();
             }
+        }
+
+
+        public int GetHealth()
+        {
+            return health;
+        }
+        public void SetHealth(int h)
+        {
+            health = h;
         }
     }
 }

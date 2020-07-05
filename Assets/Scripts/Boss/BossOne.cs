@@ -8,15 +8,20 @@ namespace Boss
     public class BossOne : MonoBehaviour
     {
 
-        [SerializeField] private int maxHealth = 100;
-        [SerializeField] private int projectileRateMax = 100;
-        [SerializeField] private int projectileSpeedMax = 50;
+
+        [SerializeField] private int bossHealth = 150;
+        [SerializeField] private int bossProjectileSpeed = 100;
+        [SerializeField] private int bossProjectileRate = 150;
+
         
-        private BossBase boss;
+        private EnemyBase boss;
+        private EnemyShooting bossShooting;
         private EnemySpawner enemySpawner;
         //private SpriteRenderer renderer; 
         
         private bool isInPhaseTwo;
+        
+        
         
         
     /*  Inizialmente identico a Nemico 1, quando subisce una certa quantità di danni cambia fase diventando molto più
@@ -25,7 +30,8 @@ namespace Boss
         private void Start()
         {
 
-            boss = new BossBase(maxHealth);
+            boss = GetComponent<EnemyBase>();
+            bossShooting = GetComponent<EnemyShooting>();
             enemySpawner = gameObject.AddComponent<EnemySpawner>();        //per spawnare i nemici nella fase 2    
             isInPhaseTwo = false;
             //Spawn
@@ -46,11 +52,11 @@ namespace Boss
                 //renderer.material.mainTexture = "...";
                 
                 //Reset health
-                boss.SetHealth(maxHealth);
+                boss.SetHealth(bossHealth);
 
                 //Increase projectile rate and speed
-                boss.SetProjectileSpawnRate(projectileRateMax);
-                boss.SetProjectileSpeed(projectileSpeedMax);
+                bossShooting.SetProjectileSpawnRate(bossProjectileRate);
+                bossShooting.SetProjectileSpeed(bossProjectileSpeed);
 
 
                 isInPhaseTwo = true;

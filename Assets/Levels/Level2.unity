@@ -5886,6 +5886,11 @@ PrefabInstance:
     - target: {fileID: 4474138994668629055, guid: 5731affe82b88564db4cbcefd9fd7f99,
         type: 3}
       propertyPath: viewDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474138994668629055, guid: 5731affe82b88564db4cbcefd9fd7f99,
+        type: 3}
+      propertyPath: maxMemoryTime
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5673882480759911212, guid: 5731affe82b88564db4cbcefd9fd7f99,

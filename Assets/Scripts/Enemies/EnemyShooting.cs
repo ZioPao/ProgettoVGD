@@ -16,6 +16,8 @@ namespace Enemies
 
         [SerializeField] public GameObject projectilePrefab;
         [SerializeField] private float timerWaitingMax = 5f;        //How much does the enemy have to wait between 2 projectiles
+        [SerializeField] private int projectileRateMax = 100;
+        [SerializeField] private int projectileSpeedMax = 50;
 
 
         private float timerWaitingLeft = 5f;
@@ -69,6 +71,18 @@ namespace Enemies
                 timerWaitingLeft -= Time.deltaTime; //decrease
             }
 
+            
+        }
+
+        public void SetProjectileSpeed(int speed)
+        {
+            
+            //Do something
+        }
+
+        public void SetProjectileSpawnRate(int rate)
+        {
+            //do something
         }
         public bool IsEnemyShooting(){
             return isEnemyShooting;
