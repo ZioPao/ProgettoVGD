@@ -67,12 +67,6 @@ namespace Player
         {
             if (input && !Values.GetIsRunning() && (Utility.TimerController.GetCurrentTime()[cooldownTimer] == 0))
             {
-                //When an attack goes through the attack cooldown is reset
-                Utility.TimerController.ResetTimer(cooldownTimer);
-                
-                Values.SetIsAttacking(Values.GetCurrentWeapon(), true);
-                Utility.TimerController.ResetTimer(attackTimer);
-
                 if (isMelee)
                 {
                     MeleeHit();
@@ -95,6 +89,12 @@ namespace Player
 
         public void MeleeHit()
         {
+            //When an attack goes through the attack cooldown is reset
+            Utility.TimerController.ResetTimer(cooldownTimer);
+                
+            Values.SetIsAttacking(Values.GetCurrentWeapon(), true);
+            Utility.TimerController.ResetTimer(attackTimer);
+            
             if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit hit, Values.GetMeleeDistance(), LayerMask.GetMask("EnemyHitbox")))
             {
                 GameObject enemy =  hit.transform.parent.gameObject;
@@ -107,6 +107,12 @@ namespace Player
         {
             if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0)
             {
+                //When an attack goes through the attack cooldown is reset
+                Utility.TimerController.ResetTimer(cooldownTimer);
+                
+                Values.SetIsAttacking(Values.GetCurrentWeapon(), true);
+                Utility.TimerController.ResetTimer(attackTimer);
+                
                 Values.DecrementCurrentAmmo(Values.GetCurrentWeapon(), 1);
                 
                 if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit projectile, Values.GetProjectileDistance(), LayerMask.GetMask("EnemyHitbox")))
