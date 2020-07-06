@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿    using System.Collections.Generic;
+    using System.Linq;
+    using UnityEngine;
 
 namespace Enemies
 {
@@ -16,9 +18,9 @@ namespace Enemies
         
         }
 
-        public GameObject[] GetAllEnemies()
+        public List<GameObject> GetAllEnemies()
         {
-            return GameObject.FindGameObjectsWithTag("enemy");
+            return GameObject.FindGameObjectsWithTag("enemy").ToList();
         }
     }
 }

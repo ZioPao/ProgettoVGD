@@ -279,12 +279,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8652647940364635946}
   - component: {fileID: 5218843584217794771}
+  - component: {fileID: 4487482530059036054}
   - component: {fileID: 2221299235373204377}
   - component: {fileID: 4474138994668629055}
   - component: {fileID: 5673882480759911212}
   - component: {fileID: 8652647940364635941}
   m_Layer: 0
-  m_Name: EnemyOne
+  m_Name: BossOne
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -321,6 +322,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &4487482530059036054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8652647940364635947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23d7e4a361e3a9a46bf6d2d1f924bc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealth: 150
+  bossProjectileSpeed: 20
+  bossProjectileRate: 0
 --- !u!114 &2221299235373204377
 MonoBehaviour:
   m_ObjectHideFlags: 0

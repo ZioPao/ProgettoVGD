@@ -7,8 +7,7 @@ namespace Player
     {
         
         //Other Module Declarations
-        private CameraMovement cameraScript;
-        private GameObject cameraMain;
+        private CameraScript cameraScript;
 
         private MovementController movementScript;
         private CollisionController collisionScript;
@@ -26,8 +25,7 @@ namespace Player
 
             /*Setup Camera*/
             
-            cameraScript = GetComponentInChildren<CameraMovement>();
-            cameraMain = GameObject.Find("Camera_Main");
+            cameraScript = GetComponentInChildren<CameraScript>();
             
             /*Setup Modules*/
             

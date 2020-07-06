@@ -5,7 +5,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 namespace Player
 {
-    public class CameraMovement : MonoBehaviour
+    public class CameraScript : MonoBehaviour
     {
         [SerializeField] private float mouseSensitivity = 500;
         [SerializeField] private Transform player = null; //Sarebbe il player controller
@@ -13,13 +13,15 @@ namespace Player
 
         private float maxY;
 
+        //todo sta cosa è una cagata assurda. Da usare Dictionary
+        
+        
         /*Enemy viewing stuff*/
         private EnemiesManager enemyBase;
-        private GameObject[] enemyList;
 
-        private List<MeshRenderer> enemyRendererList;
-        private List<Transform> enemyTextureTransformList;
-
+        private List<GameObject> enemyList;
+        private Dictionary<GameObject, MeshRenderer> enemyRenderers;
+        private Dictionary<GameObject, Transform> enemyTextureTransforms;
 
         /*Graphical stuff*/
         private bool isCameraInWater;
@@ -30,18 +32,17 @@ namespace Player
         private void Start()
         {
             enemyBase = GameObject.Find("Enemies").GetComponent<EnemiesManager>();
+            
+            //la lista è completa SOLO all'inizio. Poi diventa outdated e il sistema si rompe
             enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
-
-            enemyRendererList = new List<MeshRenderer>();
-            enemyTextureTransformList = new List<Transform>();
-
+            enemyRenderers = new Dictionary<GameObject, MeshRenderer>();
+            enemyTextureTransforms = new Dictionary<GameObject, Transform>();
             foreach (GameObject enemy in enemyList)
             {
-                enemyTextureTransformList.Add(enemy.transform.Find("Texture"));
-                enemyRendererList.Add(enemy.GetComponentInChildren<MeshRenderer>());
+                enemyRenderers.Add(enemy, enemy.GetComponentInChildren<MeshRenderer>());
+                enemyTextureTransforms.Add(enemy, enemy.transform.Find("Texture"));
             }
-
-
+        
             post = GetComponent<PostProcessVolume>();
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -108,12 +109,13 @@ namespace Player
         /* Raycasting for enemy sprites*/
         private void ManageSpriteViewing()
         {
-            if (enemyList.Length == 0) return;
+            if (enemyList.Count == 0) return;
 
             /*todo è estremamente WIP. Da inserire gestione animazioni, un sistema più decente per il caricamento delle texture, e potenzialmente una marea di altra roba che ora non mi viene in mente*/
 
             //Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
 
+            
             int counter = 0;
             foreach (GameObject enemy in enemyList)
             {
@@ -126,10 +128,8 @@ namespace Player
                         //Ci si assicura che sia il nemico che stiamo osservando quello che ci interessa
                         if (enemy.name.Equals(rayEnemySprite.transform.parent.parent.name))
                         {
-                            Renderer enemyRenderer = enemyRendererList[counter];
-                            Transform enemyTextureTransform = enemyTextureTransformList[counter];
-
-
+                            Renderer enemyRenderer = enemyRenderers[enemy];
+                            Transform enemyTextureTransform = enemyTextureTransforms[enemy];
                             switch (rayEnemySprite.collider.name)
                             {
                                 case "Front":
@@ -199,6 +199,13 @@ namespace Player
         public void SetCameraStatus(bool isUnderWater)
         {
             isCameraInWater = isUnderWater;
+        }
+
+        public void AddEnemyToEnemyList(GameObject enemy)
+        {
+            enemyList.Add(enemy);
+            enemyRenderers.Add(enemy, enemy.GetComponentInChildren<MeshRenderer>());
+            enemyTextureTransforms.Add(enemy, enemy.transform.Find("Texture"));
         }
     }
 }

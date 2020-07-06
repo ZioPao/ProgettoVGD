@@ -4,13 +4,13 @@ namespace Player
 {
     public class CameraCollider : MonoBehaviour
     {
-        private CameraMovement cm;
+        private CameraScript cs;
 
         private const string WaterTag = "Water";
 
         private void Start()
         {
-            cm = GetComponentInParent<CameraMovement>();
+            cs = GetComponentInParent<CameraScript>();
         }
 
  
@@ -18,13 +18,13 @@ namespace Player
         private void OnTriggerEnter(Collider c)
         {
             if (c.gameObject.CompareTag(WaterTag))
-                cm.SetCameraStatus(true);
+                cs.SetCameraStatus(true);
         }
 
         private void OnTriggerExit(Collider c)
         {
             if (c.gameObject.CompareTag(WaterTag))
-                cm.SetCameraStatus(false);
+                cs.SetCameraStatus(false);
         }
 
 
