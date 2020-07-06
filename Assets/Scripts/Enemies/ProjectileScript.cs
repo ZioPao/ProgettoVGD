@@ -36,5 +36,11 @@ namespace Enemies
             }
 
         }
+
+        public void SetSpeed(int speed)
+        {
+            projectileSpeed = speed;
+        }
+        
     }
 }

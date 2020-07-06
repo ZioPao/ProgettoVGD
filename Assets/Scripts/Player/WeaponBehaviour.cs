@@ -97,7 +97,9 @@ namespace Player
         {
             if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit hit, Values.GetMeleeDistance(), LayerMask.GetMask("EnemyHitbox")))
             {
-                Destroy(hit.transform.parent.gameObject);
+                GameObject enemy =  hit.transform.parent.gameObject;
+                EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
+                enemyScript.DecreaseHealth(damagePerShot);
             }
         }
         
@@ -111,17 +113,8 @@ namespace Player
                 {
                     GameObject enemy =  projectile.transform.parent.gameObject;
                     EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
+                    enemyScript.DecreaseHealth(damagePerShot);
 
-                    if (enemyScript.DecreaseHealth(damagePerShot) < 0)
-                    {
-                        Destroy(projectile.transform.parent.gameObject);
-
-                    }
-                    else
-                    {
-                        print("hit");
-                    }
-                    
 
                 }
             }

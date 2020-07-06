@@ -10,8 +10,8 @@ namespace Boss
 
 
         [SerializeField] private int bossHealth = 150;
-        [SerializeField] private int bossProjectileSpeed = 100;
-        [SerializeField] private int bossProjectileRate = 150;
+        [SerializeField] private int bossProjectileSpeed = 20;
+        [SerializeField] private float bossProjectileRate;
 
         
         private EnemyBase boss;
@@ -32,7 +32,7 @@ namespace Boss
 
             boss = GetComponent<EnemyBase>();
             bossShooting = GetComponent<EnemyShooting>();
-            enemySpawner = gameObject.AddComponent<EnemySpawner>();        //per spawnare i nemici nella fase 2    
+            //enemySpawner = gameObject.AddComponent<EnemySpawner>();        //per spawnare i nemici nella fase 2    
             isInPhaseTwo = false;
             //Spawn
 
@@ -44,22 +44,25 @@ namespace Boss
 
             if (!isInPhaseTwo)
             {
-                if (boss.GetHealth() > 50) return;
+                if (boss.GetHealth() < 50)
+                {
+                    //Change appearance
                 
+                    //renderer.material.mainTexture = "...";
                 
-                //Change appearance
-                
-                //renderer.material.mainTexture = "...";
-                
-                //Reset health
-                boss.SetHealth(bossHealth);
+                    //Reset health
+                    boss.SetHealth(bossHealth);
 
-                //Increase projectile rate and speed
-                bossShooting.SetProjectileSpawnRate(bossProjectileRate);
-                bossShooting.SetProjectileSpeed(bossProjectileSpeed);
+                    //Increase projectile rate and speed
+                    bossShooting.SetProjectileSpawnRate(bossProjectileRate);
+                    bossShooting.SetProjectileSpeed(bossProjectileSpeed);
 
 
-                isInPhaseTwo = true;
+                    isInPhaseTwo = true;
+                };
+                
+                
+             
 
             }
             

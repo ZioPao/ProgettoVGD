@@ -22,6 +22,10 @@ namespace Enemies
             enemyMovement = GetComponent<EnemyMovement>();
             enemyShooting = GetComponent<EnemyShooting>();
 
+            
+            //Startup
+            health = maxHealth;
+            
             //Rendering stuff todo rivedi
         }
 
@@ -36,6 +40,10 @@ namespace Enemies
             {
                 enemyShooting.Shoot();
             }
+            
+            /*Check health*/
+            CheckHealth();
+
         }
 
 
@@ -49,10 +57,18 @@ namespace Enemies
         }
 
 
-        public int DecreaseHealth(int hit)
+        public void DecreaseHealth(int hit)
         {
             health -= hit;
-            return health;
+            print(health);
+        }
+
+        private void CheckHealth()
+        {
+            
+            if (health <= 0)
+                Destroy(gameObject);
+          
         }
     }
 }

@@ -15,12 +15,11 @@ namespace Enemies
         private EnemyBehaviour enemyBehaviour;
 
         [SerializeField] public GameObject projectilePrefab;
-        [SerializeField] private float timerWaitingMax = 5f;        //How much does the enemy have to wait between 2 projectiles
-        [SerializeField] private int projectileRateMax = 100;
-        [SerializeField] private int projectileSpeedMax = 50;
+        [SerializeField] private float timerProjectileRate = 5f;        //How much does the enemy have to wait between 2 projectiles
+        [SerializeField] private int projectileSpeed = 10;
 
 
-        private float timerWaitingLeft = 5f;
+        private float timerWaitingLeft;
 
 
         //Projectile values
@@ -39,7 +38,7 @@ namespace Enemies
             //laserLineRenderer.startWidth = laserWidth;
             //laserLineRenderer.useWorldSpace = false;        //local to the transform
 
-            timerWaitingLeft = timerWaitingMax;
+            timerWaitingLeft = timerProjectileRate;
             enemyTextureTransform = transform;
         }
 
@@ -59,11 +58,15 @@ namespace Enemies
             if (timerWaitingLeft <= 0)
             {
                 var projectile = PrefabUtility.InstantiatePrefab(projectilePrefab) as GameObject;
+
+                ProjectileScript projScript = projectile.GetComponent<ProjectileScript>();
+                projScript.SetSpeed(projectileSpeed);
+                
                 projectile.transform.position = enemyTextureTransform.position + new Vector3(0, 2.5f, 0);        //poco poco più in alto
                 projectile.transform.rotation = enemyTextureTransform.rotation;
-
+                    
                 isEnemyShooting = true;
-                timerWaitingLeft = timerWaitingMax;        //reset timer
+                timerWaitingLeft = timerProjectileRate;        //reset timer
             }
             else if (timerWaitingLeft > 0)
             {
@@ -76,13 +79,13 @@ namespace Enemies
 
         public void SetProjectileSpeed(int speed)
         {
-            
-            //Do something
+            projectileSpeed = speed;
+
         }
 
-        public void SetProjectileSpawnRate(int rate)
+        public void SetProjectileSpawnRate(float rate)
         {
-            //do something
+            timerProjectileRate = rate;
         }
         public bool IsEnemyShooting(){
             return isEnemyShooting;

@@ -934,9 +934,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7862359989826453290, guid: fb54485d05d357e46970125e9ccf6ad4,
     type: 3}
-  timerWaitingMax: 5
-  projectileRateMax: 100
-  projectileSpeedMax: 50
+  timerProjectileRate: 5
+  projectileSpeed: 50
 --- !u!120 &318119064
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1878,9 +1877,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7862359989826453290, guid: fb54485d05d357e46970125e9ccf6ad4,
     type: 3}
-  timerWaitingMax: 5
-  projectileRateMax: 100
-  projectileSpeedMax: 50
+  timerProjectileRate: 5
+  projectileSpeed: 50
 --- !u!120 &600463477
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5901,6 +5899,36 @@ PrefabInstance:
         type: 3}
       propertyPath: timerWaitingMax
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673882480759911212, guid: 5731affe82b88564db4cbcefd9fd7f99,
+        type: 3}
+      propertyPath: projectileRateMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673882480759911212, guid: 5731affe82b88564db4cbcefd9fd7f99,
+        type: 3}
+      propertyPath: projectileSpeedMax
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673882480759911212, guid: 5731affe82b88564db4cbcefd9fd7f99,
+        type: 3}
+      propertyPath: timerProjectileRateMax
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673882480759911212, guid: 5731affe82b88564db4cbcefd9fd7f99,
+        type: 3}
+      propertyPath: timerProjectileRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359410818039911924, guid: 5731affe82b88564db4cbcefd9fd7f99,
+        type: 3}
+      propertyPath: bossProjectileRate
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359410818039911924, guid: 5731affe82b88564db4cbcefd9fd7f99,
+        type: 3}
+      propertyPath: bossProjectileSpeed
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8652647940364635946, guid: 5731affe82b88564db4cbcefd9fd7f99,
         type: 3}
