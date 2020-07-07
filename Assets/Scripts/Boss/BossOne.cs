@@ -12,12 +12,13 @@ namespace Boss
         [SerializeField] private int bossHealth = 150;
         [SerializeField] private int bossProjectileSpeed = 20;
         [SerializeField] private float bossProjectileRate;
+        [SerializeField] private Material materialPhaseTwo;
 
         
         private EnemyBase boss;
         private EnemyShooting bossShooting;
         private EnemySpawner enemySpawner;
-        private MeshRenderer renderer;         //todo forse da cambiare in SpriteRenderer
+        private SpriteRenderer spriteRenderer;         //todo forse da cambiare in SpriteRenderer
         
         private bool isInPhaseTwo;
         
@@ -32,6 +33,7 @@ namespace Boss
 
             boss = GetComponent<EnemyBase>();
             bossShooting = GetComponent<EnemyShooting>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             //enemySpawner = gameObject.AddComponent<EnemySpawner>();        //per spawnare i nemici nella fase 2    
             isInPhaseTwo = false;
             //Spawn
@@ -47,8 +49,7 @@ namespace Boss
                 if (boss.GetHealth() < 50)
                 {
                     //Change appearance
-                
-                    //renderer.material.mainTexture = "...";
+                    spriteRenderer.material = materialPhaseTwo;
                 
                     //Reset health
                     boss.SetHealth(bossHealth);
