@@ -5327,7 +5327,12 @@ PrefabInstance:
     - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
       propertyPath: rangeSpawn
-      value: 100
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: maxEnemiesConcurrently
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8210788485753281669, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
@@ -6179,7 +6184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2952775603097346509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1115, y: 110.51, z: 597}
+  m_LocalPosition: {x: 690.8, y: 110.51, z: 597}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2952775603233039550}
