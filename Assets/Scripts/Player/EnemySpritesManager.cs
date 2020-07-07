@@ -7,7 +7,6 @@ namespace Player
     public class EnemySpritesManager : MonoBehaviour
     {
         /*Enemy viewing stuff*/
-        private EnemiesManager enemyBase;
 
         private List<GameObject> enemyList;
         private Dictionary<GameObject, MeshRenderer> enemyRenderers;
@@ -15,10 +14,10 @@ namespace Player
 
         private void Start()
         {
-            enemyBase = GameObject.Find("Enemies").GetComponent<EnemiesManager>();
             
             //la lista è completa SOLO all'inizio. Poi diventa outdated e il sistema si rompe
-            enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
+            //enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
+            enemyList = new List<GameObject>();
             enemyRenderers = new Dictionary<GameObject, MeshRenderer>();
             enemyTextureTransforms = new Dictionary<GameObject, Transform>();
             foreach (GameObject enemy in enemyList)
@@ -47,7 +46,8 @@ namespace Player
                     if (Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit rayEnemySprite,
                         LayerMask.GetMask("Enemy")))
                     {
-                        //Ci si assicura che sia il nemico che stiamo osservando quello che ci interessa
+                        //Per evitare di fare controlli pesanti, facciamo un check al nome per determinare se stiamo controllando il nemico corretto
+                        //!!!!!!!!!!!!! TUTTI I NEMICI DEVONO AVERE NOMI DIVERSI !!!!!!!
                         if (enemy.name.Equals(rayEnemySprite.transform.parent.parent.name))
                         {
                             Renderer enemyRenderer = enemyRenderers[enemy];

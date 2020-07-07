@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Player;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using Utility;
+using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -12,25 +14,27 @@ namespace Enemies
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private int maxEnemiesConcurrently;
 
+        [SerializeField] private int maxEnemiesSpawned;
+        [SerializeField] private String customName = "e1";
+
 
         private EnemySpritesManager enemySpritesManager;
         private List<GameObject> enemiesSpawned;
+        private int counter;
 
         private void Start()
         {
             enemiesSpawned = new List<GameObject>();
             enemySpritesManager = GameObject.Find("Camera_Main").GetComponent<EnemySpritesManager>();
+            counter = 0;
         }
 
         private void FixedUpdate()
         {
             //Starts the timer
-
+            
             Utility.TimerController.RunTimer(TimerController.TimerEnum.EnemySpawn);
-
-
-            print(enemiesSpawned.Count);
-
+            
             if (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.EnemySpawn] <= 0)
             {
                 RemoveDestroyedEnemies();
@@ -40,14 +44,22 @@ namespace Enemies
                     Utility.TimerController.ResetTimer(TimerController.TimerEnum.EnemySpawn);
 
                     var enemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
+                    enemy.name = customName + "_" + counter;
                     enemiesSpawned.Add(enemy); //So we can check if they're destroyed or not
 
                     //todo sta roba è un macigno
                     enemy.GetComponent<NavMeshAgent>()
-                        .Warp(transform.position + new Vector3(Random.Range(-5, 5), 0, 0));
-                    enemy.transform.position = transform.position + new Vector3(Random.Range(-5, 5), 0, 0);
+                        .Warp(transform.position + new Vector3(Random.Range(-15, 15), 0, Random.Range(-15, 15)));
+                    enemy.transform.position = transform.position + new Vector3(Random.Range(-15, 15), 0, Random.Range(-15, 15));
 
                     enemySpritesManager.AddEnemyToEnemyList(enemy); //needed to make the sprite viewing works
+
+                    
+                    //After tot enemies spawned, the spawner destroys itself
+                    counter++;
+                    if (counter == maxEnemiesSpawned)
+                        Destroy(gameObject);
+
                 }
             }
         }
