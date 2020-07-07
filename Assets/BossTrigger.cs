@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using Boss;
 using Enemies;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
+using UnityEngine.UI;
 
 public class BossTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject rockBlocker;
     [SerializeField] private GameObject bossSpawner;
+    [SerializeField] private GameObject sun;
 
 
     
@@ -23,7 +26,10 @@ public class BossTrigger : MonoBehaviour
         bossSpawner.SetActive(true);
 
         //todo play sound
-        
+
+        //Diminuisce la luce
+
+        sun.GetComponent<Light>().intensity = 0;
         this.enabled = false;
     }
 }

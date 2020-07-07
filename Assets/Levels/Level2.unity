@@ -2691,6 +2691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rockBlocker: {fileID: 1411950881}
   bossSpawner: {fileID: 1227412385}
+  sun: {fileID: 170076733}
 --- !u!64 &831841450
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2893,7 +2894,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 879982857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 821.1, y: 101.6, z: 432.8}
+  m_LocalPosition: {x: 811, y: 101.6, z: 432.8}
   m_LocalScale: {x: 150, y: 0.1, z: 150}
   m_Children: []
   m_Father: {fileID: 560790222}
@@ -4443,6 +4444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rockBlocker: {fileID: 1411950881}
   bossSpawner: {fileID: 0}
+  sun: {fileID: 0}
 --- !u!1001 &1451408585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6759,7 +6761,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2952775603097346509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1224, y: 110.51, z: 510}
+  m_LocalPosition: {x: 746.1, y: 110.51, z: 773.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2952775603233039550}
