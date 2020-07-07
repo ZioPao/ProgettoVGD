@@ -60,7 +60,6 @@ namespace Enemies
         public void DecreaseHealth(int hit)
         {
             health -= hit;
-            print(health);
         }
 
         private void CheckHealth()
