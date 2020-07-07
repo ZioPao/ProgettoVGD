@@ -17,7 +17,7 @@ namespace Boss
         private EnemyBase boss;
         private EnemyShooting bossShooting;
         private EnemySpawner enemySpawner;
-        //private SpriteRenderer renderer; 
+        private MeshRenderer renderer;         //todo forse da cambiare in SpriteRenderer
         
         private bool isInPhaseTwo;
         

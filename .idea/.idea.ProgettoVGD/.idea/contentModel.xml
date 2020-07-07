@@ -68,6 +68,7 @@
             </e>
           </e>
         </e>
+        <e p="BossTrigger.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -85,7 +86,6 @@
           <e p="Enemies" t="Include">
             <e p="EnemiesManager.cs" t="Include" />
             <e p="EnemyBase.cs" t="Include" />
-            <e p="EnemyBehaviour.cs" t="Include" />
             <e p="EnemyIntelligence.cs" t="Include" />
             <e p="EnemyMovement.cs" t="Include" />
             <e p="EnemyShooting.cs" t="Include" />

@@ -9,10 +9,7 @@ namespace Enemies
         private Transform enemyTextureTransform;
 
         private List<Texture> projectilesSprites;
-
-
-        //Old stuff
-        private EnemyBehaviour enemyBehaviour;
+        
 
         [SerializeField] public GameObject projectilePrefab;
         [SerializeField] private float timerProjectileRate = 5f;        //How much does the enemy have to wait between 2 projectiles

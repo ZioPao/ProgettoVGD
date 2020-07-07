@@ -9,7 +9,7 @@ namespace Player
         /*Enemy viewing stuff*/
 
         private List<GameObject> enemyList;
-        private Dictionary<GameObject, MeshRenderer> enemyRenderers;
+        private Dictionary<GameObject, SpriteRenderer> enemyRenderers;
         private Dictionary<GameObject, Transform> enemyTextureTransforms;
 
         private void Start()
@@ -18,11 +18,11 @@ namespace Player
             //la lista è completa SOLO all'inizio. Poi diventa outdated e il sistema si rompe
             //enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
             enemyList = new List<GameObject>();
-            enemyRenderers = new Dictionary<GameObject, MeshRenderer>();
+            enemyRenderers = new Dictionary<GameObject, SpriteRenderer>();
             enemyTextureTransforms = new Dictionary<GameObject, Transform>();
             foreach (GameObject enemy in enemyList)
             {
-                enemyRenderers.Add(enemy, enemy.GetComponentInChildren<MeshRenderer>());
+                enemyRenderers.Add(enemy, enemy.GetComponentInChildren<SpriteRenderer>());
                 enemyTextureTransforms.Add(enemy, enemy.transform.Find("Texture"));
             }
 
@@ -50,56 +50,47 @@ namespace Player
                         //!!!!!!!!!!!!! TUTTI I NEMICI DEVONO AVERE NOMI DIVERSI !!!!!!!
                         if (enemy.name.Equals(rayEnemySprite.transform.parent.parent.name))
                         {
-                            Renderer enemyRenderer = enemyRenderers[enemy];
-                            Transform enemyTextureTransform = enemyTextureTransforms[enemy];
+                            SpriteRenderer enemyRenderer = enemyRenderers[enemy];
                             
                             switch (rayEnemySprite.collider.name)
                             {
                                 case "Front":
-                                    enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture2D>("Enemies/Level1/enemy_idle_front");
+                                    enemyRenderer.sprite =
+                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_front");
                                     break;
                                 case "Left":
-                                    enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_left");
+                                    enemyRenderer.sprite =
+                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_left");
                                     break;
                                 case "Right":
-                                    enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_right");
+                                    enemyRenderer.sprite =
+                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_right");
                                     break;
                                 case "DiagFrontRight":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_right");
+                                    enemyRenderer.sprite =
+                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_diag_front_right");
                                     break;
                                 case "DiagFrontLeft":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_left");
+                                    enemyRenderer.sprite =
+                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_diag_front_left");
                                     break;
                                 case "DiagBackRight":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_right");
+                                    enemyRenderer.sprite =
+                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_diag_back_right");
                                     break;
                                 case "DiagBackLeft":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_left");
+                                    enemyRenderer.sprite =
+                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_diag_back_left");
                                     break;
                                 case "Back":
-                                    enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
 
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_back");
+                                    enemyRenderer.sprite =
+                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_back");
                                     break;
                             }
                         }
@@ -112,7 +103,7 @@ namespace Player
         public void AddEnemyToEnemyList(GameObject enemy)
         {
             enemyList.Add(enemy);
-            enemyRenderers.Add(enemy, enemy.GetComponentInChildren<MeshRenderer>());
+            enemyRenderers.Add(enemy, enemy.GetComponentInChildren<SpriteRenderer>());
             enemyTextureTransforms.Add(enemy, enemy.transform.Find("Texture"));
         }
         
