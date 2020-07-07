@@ -26,21 +26,37 @@ namespace Enemies
         {
             //Starts the timer
 
-            if (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.EnemySpawn] <= 0
-                && enemiesSpawned.Count <= maxEnemiesConcurrently
-                )
+            Utility.TimerController.RunTimer(TimerController.TimerEnum.EnemySpawn);
+
+
+            print(enemiesSpawned.Count);
+
+            if (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.EnemySpawn] <= 0)
             {
-                Utility.TimerController.ResetTimer(TimerController.TimerEnum.EnemySpawn);
+                RemoveDestroyedEnemies();
 
-                var enemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
-                enemiesSpawned.Add(enemy); //So we can check if they're destroyed or not
+                if (enemiesSpawned.Count < maxEnemiesConcurrently)
+                {
+                    Utility.TimerController.ResetTimer(TimerController.TimerEnum.EnemySpawn);
 
-                //todo sta roba è un macigno
-                enemy.GetComponent<NavMeshAgent>().Warp(transform.position + new Vector3(Random.Range(-5, 5), 0, 0));
-                enemy.transform.position = transform.position + new Vector3(Random.Range(-5,5),0,0);
-               
-                enemySpritesManager.AddEnemyToEnemyList(enemy);        //needed to make the sprite viewing works
+                    var enemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
+                    enemiesSpawned.Add(enemy); //So we can check if they're destroyed or not
+
+                    //todo sta roba è un macigno
+                    enemy.GetComponent<NavMeshAgent>()
+                        .Warp(transform.position + new Vector3(Random.Range(-5, 5), 0, 0));
+                    enemy.transform.position = transform.position + new Vector3(Random.Range(-5, 5), 0, 0);
+
+                    enemySpritesManager.AddEnemyToEnemyList(enemy); //needed to make the sprite viewing works
+                }
             }
+        }
+
+
+        private void RemoveDestroyedEnemies()
+        {
+            //todo is it that expensive?
+            enemiesSpawned.RemoveAll(item => item == null);
         }
     }
 }

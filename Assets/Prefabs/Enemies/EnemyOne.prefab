@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 232b2b74f25ea514f803ac705bad0117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewDistance: 0
+  viewDistance: 50
   maxMemoryTime: 10
 --- !u!114 &5673882480759911212
 MonoBehaviour:
