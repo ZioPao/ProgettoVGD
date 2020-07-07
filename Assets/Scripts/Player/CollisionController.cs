@@ -23,7 +23,7 @@ namespace Player
                  || Physics.Raycast(Values.GetCollider().transform.position, Values.GetCollider().transform.forward, out _, 2, tmp))
             );
 
-            LayerMask layerTmp = ~ LayerMask.GetMask("Player");
+            LayerMask layerTmp =~ LayerMask.GetMask("Player", "Ignore Raycast");
 
             if (Values.GetIsTouchingWallWithHead())
             {

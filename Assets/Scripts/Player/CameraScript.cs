@@ -29,7 +29,6 @@ namespace Player
 
         private void FixedUpdate()
         {
-            
             if (!Values.GetIsFrozen())
             {
                 CameraRotation();

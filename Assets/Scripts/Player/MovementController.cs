@@ -98,7 +98,7 @@ namespace Player
                 float slopeAngleTmp = GetSlopeAngle();
 
                 //ignore check if player is in water
-                if (slopeAngleTmp > -50 && slopeAngleTmp <= 35 || Values.GetIsInWater())
+                if (slopeAngleTmp > -50 && slopeAngleTmp <= 35 || !Values.GetIsInWater())
                 {
                     Values.GetRigidbody().MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
                 }

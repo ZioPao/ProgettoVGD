@@ -50,7 +50,6 @@ namespace Player
         {
 
             /*Manage movements*/
-            
             collisionScript.CheckCollisions();
 
             if (!Values.GetIsFrozen())
