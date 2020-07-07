@@ -15,6 +15,7 @@ namespace Enemies
         [SerializeField] private int maxEnemiesConcurrently;
 
         [SerializeField] private int maxEnemiesSpawned;
+        [SerializeField] private int rangeSpawn;
         [SerializeField] private String customName = "e1";
 
 
@@ -49,9 +50,11 @@ namespace Enemies
 
                     //todo sta roba è un macigno
                     enemy.GetComponent<NavMeshAgent>()
-                        .Warp(transform.position + new Vector3(Random.Range(-15, 15), 0, Random.Range(-15, 15)));
-                    enemy.transform.position = transform.position + new Vector3(Random.Range(-15, 15), 0, Random.Range(-15, 15));
-
+                        .Warp(transform.position + new Vector3(Random.Range(-rangeSpawn, rangeSpawn), 0, Random.Range(-rangeSpawn, rangeSpawn)));
+                    
+                    enemy.transform.position = transform.position + new Vector3(Random.Range(-rangeSpawn, rangeSpawn), 0, Random.Range(-rangeSpawn, rangeSpawn));
+                    enemy.transform.rotation = Random.rotation;
+                    
                     enemySpritesManager.AddEnemyToEnemyList(enemy); //needed to make the sprite viewing works
 
                     

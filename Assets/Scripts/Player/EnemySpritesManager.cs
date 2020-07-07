@@ -52,6 +52,7 @@ namespace Player
                         {
                             Renderer enemyRenderer = enemyRenderers[enemy];
                             Transform enemyTextureTransform = enemyTextureTransforms[enemy];
+                            
                             switch (rayEnemySprite.collider.name)
                             {
                                 case "Front":

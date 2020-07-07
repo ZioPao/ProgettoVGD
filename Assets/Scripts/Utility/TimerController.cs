@@ -50,7 +50,7 @@ namespace Utility
             AddCurrentTime(TimerEnum.ReloadTime, 0f);
             
                         
-            AddTimer(TimerEnum.EnemySpawn, 5f);
+            AddTimer(TimerEnum.EnemySpawn, 10f);
             AddCurrentTime(TimerEnum.EnemySpawn, 0f);
 
         }
