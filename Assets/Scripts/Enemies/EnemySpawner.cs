@@ -2,6 +2,7 @@
 using Player;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using Utility;
 
 namespace Enemies
@@ -12,13 +13,13 @@ namespace Enemies
         [SerializeField] private int maxEnemiesConcurrently;
 
 
-        private CameraScript cameraPlayer;
+        private EnemySpritesManager enemySpritesManager;
         private List<GameObject> enemiesSpawned;
 
         private void Start()
         {
             enemiesSpawned = new List<GameObject>();
-            cameraPlayer = GameObject.Find("Camera_Main").GetComponent<CameraScript>();
+            enemySpritesManager = GameObject.Find("Camera_Main").GetComponent<EnemySpritesManager>();
         }
 
         private void FixedUpdate()
@@ -33,9 +34,12 @@ namespace Enemies
 
                 var enemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
                 enemiesSpawned.Add(enemy); //So we can check if they're destroyed or not
-                enemy.transform.position = transform.position;
 
-                cameraPlayer.AddEnemyToEnemyList(enemy);        //needed to make the sprite viewing works
+                //todo sta roba è un macigno
+                enemy.GetComponent<NavMeshAgent>().Warp(transform.position + new Vector3(Random.Range(-5, 5), 0, 0));
+                enemy.transform.position = transform.position + new Vector3(Random.Range(-5,5),0,0);
+               
+                enemySpritesManager.AddEnemyToEnemyList(enemy);        //needed to make the sprite viewing works
             }
         }
     }

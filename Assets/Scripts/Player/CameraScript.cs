@@ -13,16 +13,6 @@ namespace Player
 
         private float maxY;
 
-        //todo sta cosa è una cagata assurda. Da usare Dictionary
-        
-        
-        /*Enemy viewing stuff*/
-        private EnemiesManager enemyBase;
-
-        private List<GameObject> enemyList;
-        private Dictionary<GameObject, MeshRenderer> enemyRenderers;
-        private Dictionary<GameObject, Transform> enemyTextureTransforms;
-
         /*Graphical stuff*/
         private bool isCameraInWater;
         private PostProcessVolume post;
@@ -31,18 +21,7 @@ namespace Player
 
         private void Start()
         {
-            enemyBase = GameObject.Find("Enemies").GetComponent<EnemiesManager>();
-            
-            //la lista è completa SOLO all'inizio. Poi diventa outdated e il sistema si rompe
-            enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
-            enemyRenderers = new Dictionary<GameObject, MeshRenderer>();
-            enemyTextureTransforms = new Dictionary<GameObject, Transform>();
-            foreach (GameObject enemy in enemyList)
-            {
-                enemyRenderers.Add(enemy, enemy.GetComponentInChildren<MeshRenderer>());
-                enemyTextureTransforms.Add(enemy, enemy.transform.Find("Texture"));
-            }
-        
+
             post = GetComponent<PostProcessVolume>();
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -55,9 +34,7 @@ namespace Player
             {
                 CameraRotation();
             }
-
-            ManageSpriteViewing();
-
+            
             /*Adds effects based on some bools*/
             post.profile.TryGetSettings(out colorGrading);
             post.profile.TryGetSettings(out lensDistortion);
@@ -104,90 +81,7 @@ namespace Player
             eulerRotation.x = value; //La blocca
             transformCopy.eulerAngles = eulerRotation; //Setta la rotazione del player
         }
-
-
-        /* Raycasting for enemy sprites*/
-        private void ManageSpriteViewing()
-        {
-            if (enemyList.Count == 0) return;
-
-            /*todo è estremamente WIP. Da inserire gestione animazioni, un sistema più decente per il caricamento delle texture, e potenzialmente una marea di altra roba che ora non mi viene in mente*/
-
-            //Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
-
-            
-            int counter = 0;
-            foreach (GameObject enemy in enemyList)
-            {
-                //Check esistenza nemico
-                if (enemy)
-                {
-                    if (Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit rayEnemySprite,
-                        LayerMask.GetMask("Enemy")))
-                    {
-                        //Ci si assicura che sia il nemico che stiamo osservando quello che ci interessa
-                        if (enemy.name.Equals(rayEnemySprite.transform.parent.parent.name))
-                        {
-                            Renderer enemyRenderer = enemyRenderers[enemy];
-                            Transform enemyTextureTransform = enemyTextureTransforms[enemy];
-                            switch (rayEnemySprite.collider.name)
-                            {
-                                case "Front":
-                                    enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
-
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture2D>("Enemies/Level1/enemy_idle_front");
-                                    break;
-                                case "Left":
-                                    enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_left");
-                                    break;
-                                case "Right":
-                                    enemyTextureTransform.localScale = new Vector3(0.6f, 1, 1);
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_right");
-                                    break;
-                                case "DiagFrontRight":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
-
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_right");
-                                    break;
-                                case "DiagFrontLeft":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
-
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_front_left");
-                                    break;
-                                case "DiagBackRight":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
-
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_right");
-                                    break;
-                                case "DiagBackLeft":
-                                    enemyTextureTransform.localScale = new Vector3(0.5f, 1, 1);
-
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_diag_back_left");
-                                    break;
-                                case "Back":
-                                    enemyTextureTransform.localScale = new Vector3(0.4f, 1, 1);
-
-                                    enemyRenderer.material.mainTexture =
-                                        Resources.Load<Texture>("Enemies/Level1/enemy_idle_back");
-                                    break;
-                            }
-                        }
-                    }
-                }
-
-                counter++;
-            }
-        }
-
-
+        
         //Getters
 
         public bool IsCameraUnderWater()
@@ -201,11 +95,6 @@ namespace Player
             isCameraInWater = isUnderWater;
         }
 
-        public void AddEnemyToEnemyList(GameObject enemy)
-        {
-            enemyList.Add(enemy);
-            enemyRenderers.Add(enemy, enemy.GetComponentInChildren<MeshRenderer>());
-            enemyTextureTransforms.Add(enemy, enemy.transform.Find("Texture"));
-        }
+
     }
 }
