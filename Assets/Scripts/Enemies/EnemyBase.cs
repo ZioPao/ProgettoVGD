@@ -60,8 +60,12 @@ namespace Enemies
         public void DecreaseHealth(int hit)
         {
             health -= hit;
+            
+            //when hit, the enemy should know the player location for a second or so
+            enemyIntelligence.AlertEnemy();
         }
 
+     
         private void CheckHealth()
         {
             

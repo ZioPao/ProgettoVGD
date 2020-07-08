@@ -120,6 +120,7 @@ namespace Player
                     GameObject enemy =  projectile.transform.parent.gameObject;
                     EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
                     enemyScript.DecreaseHealth(damagePerShot);
+                    
 
 
                 }

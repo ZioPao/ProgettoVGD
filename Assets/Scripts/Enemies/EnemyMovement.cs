@@ -65,9 +65,6 @@ namespace Enemies
                 textureRenderer.position.y,
                 playerPosition.z));
 
-            // textureRenderer.rotation =
-            //     Quaternion.Euler(90, textureRenderer.rotation.eulerAngles.y, textureRenderer.eulerAngles.z);
-
         }
     }
 }

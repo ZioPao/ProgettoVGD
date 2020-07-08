@@ -30,6 +30,10 @@ namespace Player
             /*Setup EnemySpritesManager*/
             Values.SetEnemySpritesManager(GetComponentInChildren<EnemySpritesManager>());
             
+            /*Setup transform*/
+            Values.SetPlayerTransform(this.transform);
+            
+            
             /*Setup Modules*/
             
             movementScript = GetComponent<MovementController>();

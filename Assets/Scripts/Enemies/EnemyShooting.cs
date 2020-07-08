@@ -21,7 +21,6 @@ namespace Enemies
 
         //Projectile values
         private GameObject projectile;
-        private MeshRenderer projectileMeshRenderer;
         private Vector3 direction;
         
         //bools

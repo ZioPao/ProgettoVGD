@@ -51,6 +51,10 @@ namespace Player
         private static float raycastLength = 5f;
         private static float raycastSpread = 0.08f;
         
+        //Transform
+        private static Transform _playerTransform;
+        
+        
         //Enemy Sprite manager
         private static EnemySpritesManager _enemySpritesManager;
         
@@ -222,7 +226,11 @@ namespace Player
         {
             return rb;
         }
-        
+
+        public static Transform GetPlayerTransform()
+        {
+            return _playerTransform;
+        }
         //Enemy Sprites Manager
         public static EnemySpritesManager GetEnemySpritesManager()
         {
@@ -415,6 +423,10 @@ namespace Player
             collider = value;
         }
 
+        public static void SetPlayerTransform(Transform value)
+        {
+            _playerTransform = value;
+        }
         public static void SetEnemySpritesManager(EnemySpritesManager value)
         {
             _enemySpritesManager = value;

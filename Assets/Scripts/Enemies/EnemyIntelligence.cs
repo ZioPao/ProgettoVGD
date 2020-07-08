@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.PlayerLoop;
 
@@ -73,12 +74,19 @@ namespace Enemies
                    rayEnemySprite.collider.CompareTag("Player");
         }
 
+        public void AlertEnemy()
+        {
+            //In case we need to alert manually the ai of the player presence
+            agent.isStopped = false;
+            memoryTimeLeft = maxMemoryTime;
+        }
 
         public bool IsPlayerInView()
         {
             return isPlayerInView;
         }
 
+    
         public float GetMemoryTimeLeft()
         {
             return memoryTimeLeft;
