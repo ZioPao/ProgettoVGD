@@ -336,6 +336,12 @@ namespace Player
                 health = value;
             }
         }
+
+        public static void SetDamage(float value)
+        {
+            //todo necessari check?
+            health -= value;
+        }
         public static void SetStamina(float value)
         {
             if ((value <= maxStamina) && (value >= 0))

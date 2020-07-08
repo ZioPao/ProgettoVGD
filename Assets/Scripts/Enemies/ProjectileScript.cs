@@ -8,6 +8,7 @@ namespace Enemies
 
         [SerializeField] private float projectileTimeMax = 15f;
         [SerializeField] private int projectileSpeed = 15;
+        [SerializeField] private int damage = 20;
 
         private float projectileTimeLeft;
         private Transform enemyTransform;
@@ -35,19 +36,44 @@ namespace Enemies
             }
 
         }
-        public void LookPlayer()
+        
+        private void LookPlayer()
         {
-            //Manage the looking at player stuff
+            //It should face the player
             Vector3 playerPosition = Values.GetPlayerTransform().position;
             spriteTransform.LookAt(new Vector3(playerPosition.x,
                 spriteTransform.position.y,
                 playerPosition.z));
 
         }
+        
+        
+        //Setters
         public void SetSpeed(int speed)
         {
             projectileSpeed = speed;
         }
         
+        //Collisions with player
+        private void OnTriggerEnter(Collider c)
+        {
+
+            //Set Damage to player
+
+            if (c.gameObject.name.Equals("Player"))
+            {
+                Values.SetDamage(damage);
+
+                Destroy(gameObject);        //Destroys itself
+            }
+ 
+        }
+        
+        
+        
+        
+        
     }
+    
+    
 }
