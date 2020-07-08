@@ -68,7 +68,6 @@
             </e>
           </e>
         </e>
-        <e p="BossTrigger.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -82,6 +81,7 @@
         <e p="Scripts" t="Include">
           <e p="Boss" t="Include">
             <e p="BossOne.cs" t="Include" />
+            <e p="BossTrigger.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">
             <e p="EnemiesManager.cs" t="Include" />
@@ -89,7 +89,6 @@
             <e p="EnemyIntelligence.cs" t="Include" />
             <e p="EnemyMovement.cs" t="Include" />
             <e p="EnemyShooting.cs" t="Include" />
-            <e p="EnemySpawner.cs" t="Include" />
             <e p="ProjectileScript.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
@@ -106,7 +105,9 @@
             <e p="WeaponController.cs" t="Include" />
           </e>
           <e p="Utility" t="Include">
+            <e p="BossSpawner.cs" t="Include" />
             <e p="Button.cs" t="Include" />
+            <e p="EnemySpawner.cs" t="Include" />
             <e p="MovingWater.cs" t="Include" />
             <e p="SignController.cs" t="Include" />
             <e p="TimerController.cs" t="Include" />

@@ -51,6 +51,9 @@ namespace Player
         private static float raycastLength = 5f;
         private static float raycastSpread = 0.08f;
         
+        //Enemy Sprite manager
+        private static EnemySpritesManager _enemySpritesManager;
+        
         //Rigidbody
         private static Rigidbody rb;
         
@@ -218,6 +221,12 @@ namespace Player
         public static Rigidbody GetRigidbody()
         {
             return rb;
+        }
+        
+        //Enemy Sprites Manager
+        public static EnemySpritesManager GetEnemySpritesManager()
+        {
+            return _enemySpritesManager;
         }
 
         //Collider
@@ -404,6 +413,11 @@ namespace Player
         public static void SetCollider(CapsuleCollider value)
         {
             collider = value;
+        }
+
+        public static void SetEnemySpritesManager(EnemySpritesManager value)
+        {
+            _enemySpritesManager = value;
         }
         
         //Weapon Properties

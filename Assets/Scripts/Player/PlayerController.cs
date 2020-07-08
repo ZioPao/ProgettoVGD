@@ -27,6 +27,9 @@ namespace Player
             
             cameraScript = GetComponentInChildren<CameraScript>();
             
+            /*Setup EnemySpritesManager*/
+            Values.SetEnemySpritesManager(GetComponentInChildren<EnemySpritesManager>());
+            
             /*Setup Modules*/
             
             movementScript = GetComponent<MovementController>();
