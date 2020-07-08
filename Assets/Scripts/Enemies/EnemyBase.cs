@@ -26,7 +26,7 @@ namespace Enemies
             enemyMovement = GetComponent<EnemyMovement>();
             enemyShooting = GetComponent<EnemyShooting>();
 
-            hitMarker = transform.Find("Hitmarker").gameObject;
+            hitMarker = transform.Find("Texture").Find("Hitmarker").gameObject;
 
             
             //Startup
