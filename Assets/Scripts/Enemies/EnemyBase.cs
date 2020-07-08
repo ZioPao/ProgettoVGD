@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 using UnityEngine.AI;
+using Utility;
 
 namespace Enemies
 {
@@ -8,12 +10,14 @@ namespace Enemies
 
         [SerializeField] private int maxHealth = 100;
 
-
         private int health;
+        private GameObject hitMarker;
         
         private EnemyIntelligence enemyIntelligence;
         private EnemyMovement enemyMovement;
         private EnemyShooting enemyShooting;
+
+        private bool isHit;
 
         void Start()
         {
@@ -22,8 +26,11 @@ namespace Enemies
             enemyMovement = GetComponent<EnemyMovement>();
             enemyShooting = GetComponent<EnemyShooting>();
 
+            hitMarker = transform.Find("Hitmarker").gameObject;
+
             
             //Startup
+            isHit = false;
             health = maxHealth;
             
             //Rendering stuff todo rivedi
@@ -32,6 +39,20 @@ namespace Enemies
         // Update is called once per frame
         void FixedUpdate()
         {
+            TimerController.RunTimer(TimerController.TimerEnum.HitMarker);
+
+            //Hitmarkers
+            if (isHit)
+            {
+
+                if (TimerController.GetCurrentTime()[TimerController.TimerEnum.HitMarker] <= 0)
+                {
+                    hitMarker.SetActive(false);
+                    isHit = false;
+                }
+      
+            }
+            
             //Manage the looking at player stuff
             enemyMovement.LookPlayer();
 
@@ -57,10 +78,15 @@ namespace Enemies
         }
 
 
-        public void DecreaseHealth(int hit)
+        public void SetDamage(int hit)
         {
             health -= hit;
             
+            //Create a hit on the model and make it stay on the model for some time
+            hitMarker.SetActive(true);
+            isHit = true;
+            TimerController.ResetTimer(TimerController.TimerEnum.HitMarker);
+
             //when hit, the enemy should know the player location for a second or so
             enemyIntelligence.AlertEnemy();
         }

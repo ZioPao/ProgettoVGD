@@ -16,7 +16,8 @@ namespace Utility
             SMGAttack,
             SMGCooldown,
             ReloadTime,
-            EnemySpawn
+            EnemySpawn,
+            HitMarker
         }
 
         //Timer Durations
@@ -50,8 +51,12 @@ namespace Utility
             AddCurrentTime(TimerEnum.ReloadTime, 0f);
             
                         
+            //Enemies stuff
             AddTimer(TimerEnum.EnemySpawn, 10f);
             AddCurrentTime(TimerEnum.EnemySpawn, 0f);
+
+            AddTimer(TimerEnum.HitMarker, 0.3f);
+            AddCurrentTime(TimerEnum.HitMarker, 0f);
 
         }
         

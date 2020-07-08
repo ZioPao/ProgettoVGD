@@ -99,7 +99,7 @@ namespace Player
             {
                 GameObject enemy =  hit.transform.parent.gameObject;
                 EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
-                enemyScript.DecreaseHealth(damagePerShot);
+                enemyScript.SetDamage(damagePerShot);
             }
         }
         
@@ -119,7 +119,7 @@ namespace Player
                 {
                     GameObject enemy =  projectile.transform.parent.gameObject;
                     EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
-                    enemyScript.DecreaseHealth(damagePerShot);
+                    enemyScript.SetDamage(damagePerShot);
                     
 
 
