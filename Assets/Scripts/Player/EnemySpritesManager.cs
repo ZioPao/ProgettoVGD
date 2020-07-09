@@ -67,8 +67,7 @@ namespace Player
 
                             string path = "Enemies/" + levelName + "/";
 
-                            //todo forse da negare?
-                            enemyRenderer.flipX = (rayEnemySprite.collider.name.Equals("Right") ||
+                            enemyRenderer.flipX = !(rayEnemySprite.collider.name.Equals("Right") ||
                                                    rayEnemySprite.collider.name.Equals("DiagFrontRight") ||
                                                    rayEnemySprite.collider.name.Equals("DiagBackRight"));
 
