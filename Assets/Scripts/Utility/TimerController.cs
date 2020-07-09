@@ -1,72 +1,74 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Utility
 {
     public static class TimerController
     {
+        //Default timers keys
+
+        public static readonly string KNIFEATTACK_K = "KnifeAttack";
+        public static readonly string KNIFECOOLDOWN_K = "KnifeCooldown";
+        public static readonly string PISTOLATTACK_K = "PistolAttack";
+        public static readonly string PISTOLCOOLDOWN_K = "PistolCooldown";
+        public static readonly string SMGATTACK_K = "SMGAttack";
+        public static readonly string SMGCOOLDOWN_K = "SMGCooldown";
+        public static readonly string RELOADTIME_K = "ReloadTime";
+        public static readonly string ENEMYSPAWN_K = "EnemySpawn";
+        public static readonly string HITMARKER_K = "HitMarker";
         
         //Timer Types
-        public enum TimerEnum
-        {
-            KnifeAttack,
-            KnifeCooldown,
-            PistolAttack,
-            PistolCooldown,
-            SMGAttack,
-            SMGCooldown,
-            ReloadTime,
-            EnemySpawn,
-            HitMarker
-        }
+ 
 
+        
         //Timer Durations
-        private static Dictionary<TimerEnum, float> timerLength;
-        private static Dictionary<TimerEnum, float> currentTime;
+        private static Dictionary<string, float> timerLength;
+        private static Dictionary<string, float> currentTime;
         
         public static void Setup()
         {
             InitializeTimerLength();
             InitializeCurrentTime();
 
-            AddTimer(TimerEnum.KnifeAttack, 0.70f);
-            AddCurrentTime(TimerEnum.KnifeAttack, 0f);
+            AddTimer(KNIFEATTACK_K, 0.70f);
+            AddCurrentTime(KNIFEATTACK_K, 0f);
             
-            AddTimer(TimerEnum.KnifeCooldown, 0.75f);
-            AddCurrentTime(TimerEnum.KnifeCooldown, 0f);
+            AddTimer(KNIFECOOLDOWN_K, 0.75f);
+            AddCurrentTime(KNIFECOOLDOWN_K, 0f);
             
-            AddTimer(TimerEnum.PistolAttack, 0.30f);
-            AddCurrentTime(TimerEnum.PistolAttack, 0f);
+            AddTimer(PISTOLATTACK_K, 0.30f);
+            AddCurrentTime(PISTOLATTACK_K, 0f);
             
-            AddTimer(TimerEnum.PistolCooldown, 0.35f);
-            AddCurrentTime(TimerEnum.PistolCooldown, 0f);
+            AddTimer(PISTOLCOOLDOWN_K, 0.35f);
+            AddCurrentTime(PISTOLCOOLDOWN_K, 0f);
             
-            AddTimer(TimerEnum.SMGAttack, 0.10f);
-            AddCurrentTime(TimerEnum.SMGAttack, 0f);
+            AddTimer(SMGATTACK_K, 0.10f);
+            AddCurrentTime(SMGATTACK_K, 0f);
             
-            AddTimer(TimerEnum.SMGCooldown, 0.15f);
-            AddCurrentTime(TimerEnum.SMGCooldown, 0f);
+            AddTimer(SMGCOOLDOWN_K, 0.15f);
+            AddCurrentTime(SMGCOOLDOWN_K, 0f);
             
-            AddTimer(TimerEnum.ReloadTime, 1.5f);
-            AddCurrentTime(TimerEnum.ReloadTime, 0f);
+            AddTimer(RELOADTIME_K, 1.5f);
+            AddCurrentTime(RELOADTIME_K, 0f);
             
                         
             //Enemies stuff
-            AddTimer(TimerEnum.EnemySpawn, 10f);
-            AddCurrentTime(TimerEnum.EnemySpawn, 0f);
+            AddTimer(ENEMYSPAWN_K, 10f);
+            AddCurrentTime(ENEMYSPAWN_K, 0f);
 
-            AddTimer(TimerEnum.HitMarker, 0.3f);
-            AddCurrentTime(TimerEnum.HitMarker, 0f);
+            AddTimer(HITMARKER_K, 0.3f);
+            AddCurrentTime(HITMARKER_K, 0f);
 
         }
         
         /*Getters*/
         
-        public static Dictionary<TimerEnum, float> GetTimerLength()
+        public static Dictionary<string, float> GetTimerLength()
         {
             return timerLength;
         }
-        public static Dictionary<TimerEnum, float> GetCurrentTime()
+        public static Dictionary<string, float> GetCurrentTime()
         {
             return currentTime;
         }
@@ -74,27 +76,27 @@ namespace Utility
         /*Timer Management*/
         private static void InitializeTimerLength()
         {
-            timerLength = new Dictionary<TimerEnum, float>();
+            timerLength = new Dictionary<string, float>();
         }
         private static void InitializeCurrentTime()
         {
-            currentTime = new Dictionary<TimerEnum, float>();
+            currentTime = new Dictionary<string, float>();
         }
 
-        private static void AddTimer(TimerEnum key, float value)
+        public static void AddTimer(string key, float value)
         {
             timerLength.Add(key, value);
         }
-        private static void AddCurrentTime(TimerEnum key, float value)
+        public static void AddCurrentTime(string key, float value)
         {
             currentTime.Add(key, value);
         }
 
-        public static void ResetTimer(TimerEnum key)
+        public static void ResetTimer(string key)
         {
             currentTime[key] = timerLength[key];
         }
-        public static void RunTimer(TimerEnum key)
+        public static void RunTimer(string key)
         {
             if (currentTime[key] - Time.deltaTime >= 0)
             {
@@ -105,7 +107,11 @@ namespace Utility
                 currentTime[key] = 0;
             }
         }
-        
+
+        public static void DeleteTimer(string key)
+        {
+            currentTime.Remove(key);
+        }
     }
 
 }

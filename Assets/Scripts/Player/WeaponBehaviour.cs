@@ -1,5 +1,6 @@
 ﻿using Enemies;
 using UnityEngine;
+using Utility;
 
 namespace Player
 {
@@ -13,8 +14,8 @@ namespace Player
         [SerializeField] private float shotSpread;
 
         private bool input;
-        private Utility.TimerController.TimerEnum cooldownTimer;
-        private Utility.TimerController.TimerEnum attackTimer;
+        private string cooldownTimer;
+        private string attackTimer;
         
         /*Camera Module*/
         
@@ -45,18 +46,18 @@ namespace Player
             {
                 case "PlayerKnife":
                     input = Input.GetMouseButtonDown(0);
-                    cooldownTimer = Utility.TimerController.TimerEnum.KnifeCooldown;
-                    attackTimer = Utility.TimerController.TimerEnum.KnifeAttack;
+                    cooldownTimer = TimerController.KNIFECOOLDOWN_K;
+                    attackTimer = TimerController.KNIFEATTACK_K;
                     break;
                 case "PlayerPistol":
                     input = Input.GetMouseButtonDown(0);
-                    cooldownTimer = Utility.TimerController.TimerEnum.PistolCooldown;
-                    attackTimer = Utility.TimerController.TimerEnum.PistolAttack;
+                    cooldownTimer = TimerController.PISTOLCOOLDOWN_K;
+                    attackTimer = TimerController.PISTOLATTACK_K;
                     break;
                 case "PlayerSMG":
                     input = Input.GetMouseButton(0);
-                    cooldownTimer = Utility.TimerController.TimerEnum.SMGCooldown;
-                    attackTimer = Utility.TimerController.TimerEnum.SMGAttack;
+                    cooldownTimer = TimerController.SMGCOOLDOWN_K;
+                    attackTimer = TimerController.SMGATTACK_K;
                     break;
                 default:
                     break;
@@ -130,12 +131,12 @@ namespace Player
         
         private void Reload()
         {
-            if (Input.GetKeyDown("r") && !Values.GetIsRunning() &&!Values.GetIsAttacking()[Values.GetCurrentWeapon()] && (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.ReloadTime] == 0))
+            if (Input.GetKeyDown("r") && !Values.GetIsRunning() &&!Values.GetIsAttacking()[Values.GetCurrentWeapon()] && (Utility.TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] == 0))
             {
                 //On successful reload the cooldown is reset
                 
                 Values.SetIsReloading(true);
-                Utility.TimerController.ResetTimer(Utility.TimerController.TimerEnum.ReloadTime);
+                Utility.TimerController.ResetTimer(TimerController.RELOADTIME_K);
 
                 //Reloads only while having enough ammo
                 //Figures out how much ammunition to reload
@@ -147,13 +148,13 @@ namespace Player
                 }
             }
             
-            if (Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.ReloadTime] == 0)
+            if (Utility.TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] == 0)
             {
                 Values.SetIsReloading(false);
             }
             
             //The cooldown depletes over time
-            Utility.TimerController.RunTimer(Utility.TimerController.TimerEnum.ReloadTime);
+            Utility.TimerController.RunTimer(TimerController.RELOADTIME_K);
             
         }
 

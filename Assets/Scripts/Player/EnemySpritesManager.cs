@@ -10,34 +10,44 @@ namespace Player
 
         private List<GameObject> enemyList;
         private Dictionary<GameObject, SpriteRenderer> enemyRenderers;
+        private Dictionary<GameObject, Animator> enemyAnimators;
         private Dictionary<GameObject, Transform> enemyTextureTransforms;
+
+        private string levelName;
 
         private void Start()
         {
-            
             //la lista è completa SOLO all'inizio. Poi diventa outdated e il sistema si rompe
             //enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
             enemyList = new List<GameObject>();
             enemyRenderers = new Dictionary<GameObject, SpriteRenderer>();
+            enemyAnimators = new Dictionary<GameObject, Animator>();
+
             enemyTextureTransforms = new Dictionary<GameObject, Transform>();
+
+            //Determina il nome del livello per determinare la cartella
+            //todo da inserire
+            levelName = "Level1";
+
             foreach (GameObject enemy in enemyList)
             {
                 enemyRenderers.Add(enemy, enemy.GetComponentInChildren<SpriteRenderer>());
+                enemyAnimators.Add(enemy, enemy.transform.Find("Texture").GetComponent<Animator>());
+
                 enemyTextureTransforms.Add(enemy, enemy.transform.Find("Texture"));
             }
-
         }
 
         // Update is called once per frame
         private void FixedUpdate()
         {
-         if (enemyList.Count == 0) return;
+            if (enemyList.Count == 0) return;
 
             /*todo è estremamente WIP. Da inserire gestione animazioni, un sistema più decente per il caricamento delle texture, e potenzialmente una marea di altra roba che ora non mi viene in mente*/
 
             //Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
 
-            
+
             foreach (GameObject enemy in enemyList)
             {
                 //Check esistenza nemico
@@ -51,61 +61,56 @@ namespace Player
                         if (enemy.name.Equals(rayEnemySprite.transform.parent.parent.name))
                         {
                             SpriteRenderer enemyRenderer = enemyRenderers[enemy];
+                            Animator enemyAnimator = enemyAnimators[enemy];
+                            //float animationTimer = enemy.GetComponent<EnemyBase>().GetAnimationTimer();    //todo rendi piu carino
+
+
+                            string path = "Enemies/" + levelName + "/";
+
+                            //todo forse da negare?
+                            enemyRenderer.flipX = (rayEnemySprite.collider.name.Equals("Right") ||
+                                                   rayEnemySprite.collider.name.Equals("DiagFrontRight") ||
+                                                   rayEnemySprite.collider.name.Equals("DiagBackRight"));
+
+                            RuntimeAnimatorController tmp = null;
                             
                             switch (rayEnemySprite.collider.name)
                             {
                                 case "Front":
-
-                                    enemyRenderer.sprite =
-                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_front");
-                                    break;
                                 case "Left":
-                                    enemyRenderer.sprite =
-                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_left");
+                                case "Back":
+                                case "DiagFrontLeft":
+                                case "DiagBackLeft":
+                                    tmp = Resources.Load(path + rayEnemySprite.collider.name + "_AnimController") as
+                                        RuntimeAnimatorController;
                                     break;
+
                                 case "Right":
-                                    enemyRenderer.sprite =
-                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_right");
+                                    tmp = Resources.Load(path + "Left_AnimController") as RuntimeAnimatorController;
                                     break;
                                 case "DiagFrontRight":
-
-                                    enemyRenderer.sprite =
-                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_diag_front_right");
-                                    break;
-                                case "DiagFrontLeft":
-
-                                    enemyRenderer.sprite =
-                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_diag_front_left");
+                                    tmp = Resources.Load(path + "DiagFrontLeft_AnimController") as RuntimeAnimatorController;
                                     break;
                                 case "DiagBackRight":
-
-                                    enemyRenderer.sprite =
-                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_diag_back_right");
+                                    tmp = Resources.Load(path + "DiagBackLeft_AnimController") as RuntimeAnimatorController;
                                     break;
-                                case "DiagBackLeft":
-
-                                    enemyRenderer.sprite =
-                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_diag_back_left");
-                                    break;
-                                case "Back":
-
-                                    enemyRenderer.sprite =
-                                        Resources.Load<Sprite>("Enemies/Level1/enemy_idle_back");
+                                default:
                                     break;
                             }
+
+                            enemyAnimator.runtimeAnimatorController = tmp;
                         }
                     }
                 }
-
             }
         }
-        
+
+
         public void AddEnemyToEnemyList(GameObject enemy)
         {
             enemyList.Add(enemy);
             enemyRenderers.Add(enemy, enemy.GetComponentInChildren<SpriteRenderer>());
-            enemyTextureTransforms.Add(enemy, enemy.transform.Find("Texture"));
+            enemyAnimators.Add(enemy, enemy.transform.Find("Texture").GetComponent<Animator>());
         }
-        
     }
 }

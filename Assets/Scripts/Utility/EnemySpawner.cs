@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using Utility;
 using Random = UnityEngine.Random;
-using TimerEnum = Utility.TimerController.TimerEnum;
 
 namespace Enemies
 {
@@ -32,15 +31,15 @@ namespace Enemies
 
         private void FixedUpdate()
         {
-            TimerController.RunTimer(TimerEnum.EnemySpawn);
+            TimerController.RunTimer(TimerController.ENEMYSPAWN_K);
 
-                if (TimerController.GetCurrentTime()[TimerEnum.EnemySpawn] <= 0)
+                if (TimerController.GetCurrentTime()[TimerController.ENEMYSPAWN_K] <= 0)
                 {
                     RemoveDestroyedEnemies();
 
                     if (enemiesSpawned.Count < maxEnemiesConcurrently)
                     {
-                        TimerController.ResetTimer(TimerEnum.EnemySpawn);
+                        TimerController.ResetTimer(TimerController.ENEMYSPAWN_K);
                         SpawnCommonEnemy();
 
                         //After tot enemies spawned, the spawner destroys itself

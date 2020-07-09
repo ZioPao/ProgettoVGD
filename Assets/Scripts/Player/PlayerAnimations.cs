@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 
 namespace Player
 {
@@ -70,7 +71,7 @@ namespace Player
             }
             
             int currentBullets = Values.GetCurrentAmmo()[Values.WeaponEnum.Pistol];
-            if ((Utility.TimerController.GetCurrentTime()[Utility.TimerController.TimerEnum.PistolAttack] > 0)  && currentBullets >= 0)
+            if ((Utility.TimerController.GetCurrentTime()[TimerController.PISTOLATTACK_K] > 0)  && currentBullets >= 0)
             {
                 pistolRenderer.sprite = pistolShootingSprite;        //Change texture
             }
