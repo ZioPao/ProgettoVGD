@@ -26,7 +26,7 @@ namespace Utility
             ammoText = GameObject.Find("ammo_edit").GetComponent<Text>();
             signText = GameObject.Find("sign_text").GetComponent<Text>();
             
-            signParent = GameObject.Find("SignParent");
+            signParent = GameObject.Find("InteractableObjects");
             
             signScript = signParent.GetComponent<SignController>();
         }

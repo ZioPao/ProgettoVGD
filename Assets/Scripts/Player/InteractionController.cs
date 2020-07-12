@@ -19,7 +19,7 @@ namespace Player
 		    /*Setup Camera*/
             
 		    cameraMain = GameObject.Find("Camera_Main");
-		    signParent = GameObject.Find("SignParent");
+		    signParent = GameObject.Find("InteractableObjects");
 		    signScript = signParent.GetComponent<SignController>();
 		    
 	    }

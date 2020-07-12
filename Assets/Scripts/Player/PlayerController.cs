@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 namespace Player
 {
@@ -71,6 +72,19 @@ namespace Player
             ManageHealth();
             ManageOxygen();
             ManageStamina();
+            
+            //test stuff
+            
+            if (Input.GetKeyDown(KeyCode.F5))
+            {
+                new SaveGame().Save();
+            }
+
+                        
+            if (Input.GetKeyDown(KeyCode.F6))
+            {
+               
+            }
 
         }
 

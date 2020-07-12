@@ -1,5 +1,6 @@
 ﻿using Enemies;
 using UnityEngine;
+using Utility;
 
 
 namespace Boss

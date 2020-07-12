@@ -11,7 +11,7 @@ namespace Utility
         [SerializeField] private GameObject bossPrefab;
         
 
-        private void Awake()
+        private void Start()
         {
             
             GameObject boss = PrefabUtility.InstantiatePrefab(bossPrefab) as GameObject;
