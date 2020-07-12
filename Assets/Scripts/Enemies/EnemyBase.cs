@@ -8,20 +8,20 @@ namespace Enemies
     public class EnemyBase : MonoBehaviour
     {
         [SerializeField] private int maxHealth = 100;
-
-        private int health;
+        
         private GameObject hitMarker;
 
+        private EnemyStatus status;
         private EnemyIntelligence enemyIntelligence;
         private EnemyMovement enemyMovement;
         private EnemyShooting enemyShooting;
 
         private string timerName;
-        private bool isHit;
 
         void Start()
         {
             //Modules
+            status = new EnemyStatus();
             enemyIntelligence = GetComponent<EnemyIntelligence>();
             enemyMovement = GetComponent<EnemyMovement>();
             enemyShooting = GetComponent<EnemyShooting>();
@@ -34,8 +34,8 @@ namespace Enemies
             TimerController.AddCurrentTime(timerName, 0f);
 
             //Startup
-            isHit = false;
-            health = maxHealth;
+            status.SetupBase(maxHealth, maxHealth, false);
+
         }
 
         // Update is called once per frame
@@ -50,12 +50,12 @@ namespace Enemies
                 TimerController.ResetTimer(timerName);
 
             //Hitmarkers
-            if (isHit)
+            if (status.GetIsHit())
             {
                 if (TimerController.GetCurrentTime()[TimerController.HITMARKER_K] <= 0)
                 {
                     hitMarker.SetActive(false);
-                    isHit = false;
+                    status.SetIsHit(false);
                 }
             }
 
@@ -63,7 +63,7 @@ namespace Enemies
             enemyMovement.LookPlayer();
 
             /*Check whether or not it spotted the player.*/
-            if (enemyIntelligence.IsPlayerInView() && enemyIntelligence.GetMemoryTimeLeft() > 0)
+            if (status.GetIsPlayerInView() && enemyIntelligence.GetMemoryTimeLeft() > 0)
             {
                 enemyShooting.Shoot();
             }
@@ -74,14 +74,11 @@ namespace Enemies
 
         private void CheckHealth()
         {
-            if (health <= 0)
+            if (status.GetHealth() <= 0)
                 Destroy(gameObject);
         }
 
-        public int GetHealth()
-        {
-            return health;
-        }
+     
 
         public float GetAnimationTimer()
         {
@@ -89,22 +86,22 @@ namespace Enemies
         }
 
 
-        public void SetHealth(int h)
-        {
-            health = h;
-        }
-
         public void SetDamage(int hit)
         {
-            health -= hit;
+            status.ModifyHealth(-hit);
 
             //Create a hit on the model and make it stay on the model for some time
             hitMarker.SetActive(true);
-            isHit = true;
+            status.SetIsHit(true);
             TimerController.ResetTimer(TimerController.HITMARKER_K);
 
             //when hit, the enemy should know the player location for a second or so
             enemyIntelligence.AlertEnemy();
+        }
+
+        public EnemyStatus GetStatus()
+        {
+            return status;
         }
     }
 }

@@ -2,14 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using Enemies;
+using Saving;
 using UnityEngine;
 
 namespace Utility
 {
+    [System.Serializable]
     public class Save
+    
     {
  
         /*Player stuff*/
+        public SerializableVector3 playerPosition;
+        public SerializableQuaternion playerRotation;
         
         //Stats base
         public int health, stamina;
@@ -23,7 +28,7 @@ namespace Utility
         
         //Spawners
 
-        public Dictionary<string, EnemySpawner> enemySpawnerStatus;
+        public Dictionary<string, EnemySpawnerStatus> enemySpawnerStatus;
         
         //Triggers
 
@@ -31,10 +36,10 @@ namespace Utility
         
         //Nemici
 
-        public Dictionary<String, EnemyBase> enemyBaseStatus;
-        public Dictionary<String, EnemyMovement> enemyMovementStatus;
-        public Dictionary<String, EnemyIntelligence> enemyIntelligenceStatus;
-        public Dictionary<String, EnemyShooting> enemyShootingStatus;
-        
+        public Dictionary<String, EnemyStatus> enemiesStatus;
+        // public Dictionary<String, EnemyMovement> enemyMovementStatus;
+        // public Dictionary<String, EnemyIntelligence> enemyIntelligenceStatus;
+        // public Dictionary<String, EnemyShooting> enemyShootingStatus;
+        //
     }
 }

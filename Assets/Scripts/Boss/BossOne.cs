@@ -47,13 +47,14 @@ namespace Boss
 
             if (!isInPhaseTwo)
             {
-                if (boss.GetHealth() < 50)
+                EnemyStatus bossStatus = boss.GetStatus();
+                if (bossStatus.GetHealth() < 50)
                 {
                     //Change appearance
                     spriteRenderer.material = materialPhaseTwo;
                 
                     //Reset health
-                    boss.SetHealth(bossHealth);
+                    bossStatus.SetHealth(bossHealth);
 
                     //Increase projectile rate and speed
                     bossShooting.SetProjectileSpawnRate(bossProjectileRate);

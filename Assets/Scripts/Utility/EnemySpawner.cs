@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Utility
 {
+    [Serializable]
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private GameObject enemyPrefab;
@@ -17,6 +18,7 @@ namespace Utility
         [SerializeField] private int rangeSpawn;
         [SerializeField] private String customName = "e1";
 
+        private EnemySpawnerStatus status;
 
         private List<GameObject> enemiesSpawned;
 
@@ -24,19 +26,24 @@ namespace Utility
 
         private void Start()
         {
+            
+            status = new EnemySpawnerStatus();
+            status.Setup(0, maxEnemiesSpawned, maxEnemiesConcurrently);
+            
             enemiesSpawned = new List<GameObject>();
-            counter = 0;
         }
 
         private void FixedUpdate()
         {
             TimerController.RunTimer(TimerController.ENEMYSPAWN_K);
+            status.SetSpawnedEnemiesCount(enemiesSpawned.Count);
+            int enemiesSpawnedCount = status.GetSpawnedEnemiesCount();
 
                 if (TimerController.GetCurrentTime()[TimerController.ENEMYSPAWN_K] <= 0)
                 {
                     RemoveDestroyedEnemies();
 
-                    if (enemiesSpawned.Count < maxEnemiesConcurrently)
+                    if (enemiesSpawnedCount < maxEnemiesConcurrently)
                     {
                         TimerController.ResetTimer(TimerController.ENEMYSPAWN_K);
                         SpawnCommonEnemy();
@@ -75,6 +82,11 @@ namespace Utility
         {
             //todo is it that expensive?
             enemiesSpawned.RemoveAll(item => item == null);
+        }
+
+        public EnemySpawnerStatus GetStatus()
+        {
+            return status;
         }
     }
 }

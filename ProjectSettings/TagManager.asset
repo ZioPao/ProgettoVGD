@@ -16,6 +16,7 @@ TagManager:
   - Trigger
   - Level
   - Spawner
+  - BossSpawner
   layers:
   - Default
   - TransparentFX

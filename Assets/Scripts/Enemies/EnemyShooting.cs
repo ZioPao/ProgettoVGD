@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 namespace Enemies
 {
+    [Serializable]
+
     public class EnemyShooting : MonoBehaviour
     {
         private Transform enemyTextureTransform;

@@ -1,14 +1,19 @@
-﻿using Player;
+﻿using System;
+using Player;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.PlayerLoop;
 
 namespace Enemies
 {
+    [Serializable]
+
     public class EnemyIntelligence : MonoBehaviour
     {
         [SerializeField] private int viewDistance = 10;
         [SerializeField] private float maxMemoryTime = 10f;
+
+        private EnemyStatus status;
         
         private Transform playerTransform;
         
@@ -16,16 +21,15 @@ namespace Enemies
         private Transform frontEnemyTransform;
         private NavMeshAgent agent;
 
-        private float waitingTimeLeft;
-        private bool isPlayerInView;
-
-
         private void Start()
         {
+
+            status = GetComponent<EnemyBase>().GetStatus();
+            status.SetupIntelligence(viewDistance, false, true, maxMemoryTime, 0f, 0f);
+            
             frontEnemyTransform = transform.Find("ViewCheck").Find("Front");
             playerTransform = GameObject.Find("Player").GetComponent<Transform>();
 
-            waitingTimeLeft = 0f; //di default a zero
             agent = GetComponent<NavMeshAgent>();
             agent.isStopped = true;        //di base dev'essere fermo
         }
@@ -33,15 +37,20 @@ namespace Enemies
 
         private void FixedUpdate()
         {
-            isPlayerInView = CheckIfPlayerIsInView();
+            status.SetIsPlayerInView(CheckIfPlayerIsInView());
+
+            bool isPlayerInView = status.GetIsPlayerInView();
+            
             if (isPlayerInView)
             {
-                if (waitingTimeLeft > 0)
+                if (status.GetWaitingTimeLeft() > 0)
                 {
-                    waitingTimeLeft -= Time.deltaTime;
+                    status.ModifyWaitingTimeLeft(-Time.deltaTime);
                     return;
                 }
 
+                
+                //todo this stuff is kinda broken now
                 if (isPlayerInView)
                 {
                     agent.isStopped = false;
@@ -80,16 +89,16 @@ namespace Enemies
             agent.isStopped = false;
             memoryTimeLeft = maxMemoryTime;
         }
-
-        public bool IsPlayerInView()
-        {
-            return isPlayerInView;
-        }
-
-    
+        
         public float GetMemoryTimeLeft()
         {
             return memoryTimeLeft;
+        }
+
+        public void SetAgentStoppedStatus(bool value)
+        {
+            agent.isStopped = value;
+            status.SetIsStopped(value);
         }
     }
 }

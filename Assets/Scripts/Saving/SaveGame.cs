@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Player;
 using Unity.UNetWeaver;
 using UnityEngine;
 
@@ -20,8 +21,10 @@ namespace Utility
         {
             
             //Player stats
-            //todo da fare
-            
+            Transform player = Values.GetPlayerTransform();
+            save.playerPosition = player.position;
+            save.playerRotation = player.rotation;
+
             //Get the level manager
             LevelManager manager = GameObject.FindWithTag("Level").GetComponent<LevelManager>();
             
@@ -32,14 +35,14 @@ namespace Utility
             save.enemySpawnerStatus = manager.GetSpawnerStatus();
             
             //Triggers
-            save.triggersStatus = manager.GetTriggerStatus();
+            //save.triggersStatus = manager.GetTriggerStatus();
             
             //Enemies status saving
             manager.UpdateEnemiesStatus();
-            save.enemyBaseStatus = manager.enemyBaseStatus;
-            save.enemyIntelligenceStatus = manager.enemyIntelligenceStatus;
-            save.enemyMovementStatus = manager.enemyMovementStatus;
-            save.enemyShootingStatus = manager.enemyShootingStatus;
+            save.enemiesStatus = manager.enemiesStatus;
+            // save.enemyIntelligenceStatus = manager.enemyIntelligenceStatus;
+            // save.enemyMovementStatus = manager.enemyMovementStatus;
+            // save.enemyShootingStatus = manager.enemyShootingStatus;
 
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");

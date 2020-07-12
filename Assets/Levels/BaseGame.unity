@@ -138,6 +138,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level1
       objectReference: {fileID: 0}
+    - target: {fileID: 976367487576127818, guid: e1291839f1ade0f4cae78f35166ed18d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Level
+      objectReference: {fileID: 0}
     - target: {fileID: 976367487576127861, guid: e1291839f1ade0f4cae78f35166ed18d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -206,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 976367489371629108, guid: e1291839f1ade0f4cae78f35166ed18d,
         type: 3}
       propertyPath: m_TagString
-      value: Spawner
+      value: BossSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 976367489371629108, guid: e1291839f1ade0f4cae78f35166ed18d,
         type: 3}

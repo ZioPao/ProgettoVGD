@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     
     
     //Enemy stuff
-    public Dictionary<String, EnemyBase> enemyBaseStatus;
+    public Dictionary<String, EnemyStatus> enemiesStatus;
     public Dictionary<String, EnemyMovement> enemyMovementStatus;
     public Dictionary<String, EnemyIntelligence> enemyIntelligenceStatus;
     public Dictionary<String, EnemyShooting> enemyShootingStatus;
@@ -24,9 +24,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        enemyBaseStatus = new Dictionary<string, EnemyBase>();
-        enemyIntelligenceStatus = new Dictionary<string, EnemyIntelligence>();
-        enemyMovementStatus = new Dictionary<string, EnemyMovement>();
+        enemiesStatus = new Dictionary<string, EnemyStatus>();
+
     }
 
     public Dictionary<String, bool> GetTriggerStatus()
@@ -43,15 +42,15 @@ public class LevelManager : MonoBehaviour
         return triggerStatus;
     }
 
-    public Dictionary<String, EnemySpawner> GetSpawnerStatus()
+    public Dictionary<String, EnemySpawnerStatus> GetSpawnerStatus()
     {
         GameObject[] spawners = GameObject.FindGameObjectsWithTag(SpawnerTag);
 
-        Dictionary<String, EnemySpawner> spawnerStatus = new Dictionary<string, EnemySpawner>();
+        Dictionary<String, EnemySpawnerStatus> spawnerStatus = new Dictionary<string, EnemySpawnerStatus>();
 
         foreach (var spawner in spawners)
         {
-            spawnerStatus.Add(spawner.name, spawner.GetComponent<EnemySpawner>());
+            spawnerStatus.Add(spawner.name, spawner.GetComponent<EnemySpawner>().GetStatus());
         }
 
         return spawnerStatus;
@@ -64,10 +63,10 @@ public class LevelManager : MonoBehaviour
 
         foreach (var enemy in enemies)
         {
-            enemyBaseStatus.Add(enemy.name, enemy.GetComponent<EnemyBase>());
-            enemyIntelligenceStatus.Add(enemy.name, enemy.GetComponent<EnemyIntelligence>());
-            enemyMovementStatus.Add(enemy.name, enemy.GetComponent<EnemyMovement>());
-            enemyShootingStatus.Add(enemy.name, enemy.GetComponent<EnemyShooting>());
+            enemiesStatus.Add(enemy.name, enemy.GetComponent<EnemyBase>().GetStatus());
+            // enemyIntelligenceStatus.Add(enemy.name, enemy.GetComponent<EnemyIntelligence>());
+            // enemyMovementStatus.Add(enemy.name, enemy.GetComponent<EnemyMovement>());
+            // enemyShootingStatus.Add(enemy.name, enemy.GetComponent<EnemyShooting>());
 
         }
 

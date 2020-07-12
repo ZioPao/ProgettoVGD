@@ -88,9 +88,9 @@
             <e p="EnemiesManager.cs" t="Include" />
             <e p="EnemyBase.cs" t="Include" />
             <e p="EnemyIntelligence.cs" t="Include" />
-            <e p="EnemyMain.cs" t="Include" />
             <e p="EnemyMovement.cs" t="Include" />
             <e p="EnemyShooting.cs" t="Include" />
+            <e p="EnemyStatus.cs" t="Include" />
             <e p="ProjectileScript.cs" t="Include" />
           </e>
           <e p="Menu" t="Include">
@@ -110,12 +110,17 @@
             <e p="WeaponBehaviour.cs" t="Include" />
             <e p="WeaponController.cs" t="Include" />
           </e>
+          <e p="Saving" t="Include">
+            <e p="Save.cs" t="Include" />
+            <e p="SaveGame.cs" t="Include" />
+            <e p="SerializableQuaternion.cs" t="Include" />
+            <e p="SerializableVector3.cs" t="Include" />
+          </e>
           <e p="Utility" t="Include">
             <e p="BossSpawner.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
+            <e p="EnemySpawnerStatus.cs" t="Include" />
             <e p="MovingWater.cs" t="Include" />
-            <e p="Save.cs" t="Include" />
-            <e p="SaveGame.cs" t="Include" />
             <e p="SignController.cs" t="Include" />
             <e p="TimerController.cs" t="Include" />
             <e p="UIScript.cs" t="Include" />
