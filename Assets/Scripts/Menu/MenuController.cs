@@ -7,7 +7,7 @@ namespace Menu
 {
     public class MenuController : MonoBehaviour
     {
-
+        
         public void NewGame()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
