@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Numerics;
+using Saving;
+using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector3 = UnityEngine.Vector3;
 
 namespace Enemies
 {
@@ -7,6 +12,11 @@ namespace Enemies
     {
 
         //Base
+        private SerializableVector3 enemyPosition;
+        private SerializableQuaternion enemyRotation;
+
+        private string enemyType, name;        //todo add to get the correct enemy prefab
+        
         private int maxHealth, health;
         private bool isHit;
         public void SetupBase(int maxHealth, int health, bool isHit)
@@ -39,7 +49,36 @@ namespace Enemies
         {
             isHit = value;
         }
-        
+
+        public void SavePosition(Vector3 position)
+        {
+            this.enemyPosition = position;
+        }
+
+        public Vector3 GetPosition()
+        {
+            return enemyPosition;
+        }
+
+        public void SaveRotation(Quaternion rotation)
+        {
+            this.enemyRotation = rotation;
+        }
+
+        public Quaternion GetRotation()
+        {
+            return enemyRotation;
+        }
+
+        public void SetName(string name)
+        {
+            this.name = name;
+        }
+
+        public string GetName()
+        {
+            return name;
+        }
         //intelligence
         private int viewDistance;
         private bool isPlayerInView, isStopped;
@@ -81,6 +120,7 @@ namespace Enemies
         
         //Movement
         private float maxTimerAlternativeMovement, timerAlternativeMovement, minPlayerDistance;
+        
         public void SetupMovement(float maxTimerAlternativeMovement, float timerAlternativeMovement, float minPlayerDistance)
         {
             this.maxTimerAlternativeMovement = maxTimerAlternativeMovement;

@@ -111,8 +111,9 @@
             <e p="WeaponController.cs" t="Include" />
           </e>
           <e p="Saving" t="Include">
+            <e p="LoadGame.cs" t="Include" />
             <e p="Save.cs" t="Include" />
-            <e p="SaveGame.cs" t="Include" />
+            <e p="SaveSystem.cs" t="Include" />
             <e p="SerializableQuaternion.cs" t="Include" />
             <e p="SerializableVector3.cs" t="Include" />
           </e>

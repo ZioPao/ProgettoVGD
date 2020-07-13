@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Saving;
 using UnityEngine;
 using Utility;
 
@@ -54,6 +55,7 @@ namespace Player
 
         }
 
+
         private void FixedUpdate()
         {
 
@@ -73,25 +75,26 @@ namespace Player
             ManageOxygen();
             ManageStamina();
             
-            //test stuff
-            
-            if (Input.GetKeyDown(KeyCode.F5))
-            {
-                new SaveGame().Save();
-            }
-
-                        
-            if (Input.GetKeyDown(KeyCode.F6))
-            {
-               
-            }
+    
 
         }
 
         private void Update()
         {
             /*Manage Weapons*/
+            //test stuff
+            
+            if (Input.GetKeyDown(KeyCode.F5))
+            {
+                new SaveSystem().Save();
+            }
 
+                        
+            if (Input.GetKeyDown(KeyCode.F6))
+            {
+                new SaveSystem().Load();
+
+            }
             if (!Values.GetIsFrozen())
             {
                 weaponScript.UseWeapon();

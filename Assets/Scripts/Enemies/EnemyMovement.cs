@@ -74,5 +74,12 @@ namespace Enemies
                 playerPosition.z));
 
         }
+
+
+        public void Reload()
+        {
+            Start();
+            agent.Warp(transform.position);        //forces it 
+        }
     }
 }

@@ -17,10 +17,10 @@ namespace Utility
         public SerializableQuaternion playerRotation;
         
         //Stats base
-        public int health, stamina;
+        public float health, stamina;
         
         //Nome del livello
-        public string levelName = GameObject.FindWithTag("Level").name;
+        public string levelName;
 
         
         //Pickups

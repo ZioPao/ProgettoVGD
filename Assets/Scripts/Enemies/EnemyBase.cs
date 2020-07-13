@@ -17,11 +17,25 @@ namespace Enemies
         private EnemyShooting enemyShooting;
 
         private string timerName;
+        private bool isReloading = false;
 
-        void Start()
+        private void Start()
         {
+            if (!isReloading)
+            {
+                status = new EnemyStatus();
+                status.SetupBase(maxHealth, maxHealth, false);
+                status.SetName(gameObject.name);
+            }
+            else
+            {
+                name = status.GetName();
+            }
+     
+            
+
+            
             //Modules
-            status = new EnemyStatus();
             enemyIntelligence = GetComponent<EnemyIntelligence>();
             enemyMovement = GetComponent<EnemyMovement>();
             enemyShooting = GetComponent<EnemyShooting>();
@@ -33,8 +47,6 @@ namespace Enemies
             TimerController.AddTimer(timerName, 10f); //todo switch case per ogni tot per inserire il frame
             TimerController.AddCurrentTime(timerName, 0f);
 
-            //Startup
-            status.SetupBase(maxHealth, maxHealth, false);
 
         }
 
@@ -68,8 +80,11 @@ namespace Enemies
                 enemyShooting.Shoot();
             }
 
-            /*Check health*/
+            /*Check health to destroy the object*/
             CheckHealth();
+
+            status.SaveRotation(transform.rotation);
+            status.SavePosition(transform.position);
         }
 
         private void CheckHealth()
@@ -99,9 +114,22 @@ namespace Enemies
             enemyIntelligence.AlertEnemy();
         }
 
+        public void Reload(EnemyStatus status)
+        {
+            this.status = status;
+
+            isReloading = true;
+            Start();        //Reload everything about the enemy
+            isReloading = false;
+        }
         public EnemyStatus GetStatus()
         {
             return status;
+        }
+
+        public void SetName(string name)
+        {
+            gameObject.name = name;
         }
     }
 }

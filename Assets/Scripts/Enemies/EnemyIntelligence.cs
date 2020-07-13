@@ -21,7 +21,7 @@ namespace Enemies
         private Transform frontEnemyTransform;
         private NavMeshAgent agent;
 
-        private void Start()
+        public void Start()
         {
 
             status = GetComponent<EnemyBase>().GetStatus();

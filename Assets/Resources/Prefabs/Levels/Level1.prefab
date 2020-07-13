@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rockBlocker: {fileID: 976367488918723114}
-  bossSpawner: {fileID: 976367489371629108}
+  bossSpawnerObject: {fileID: 0}
   sun: {fileID: 976367488280797096}
 --- !u!64 &976367487402542211
 MeshCollider:
@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 3680271458727867885}
   m_Layer: 0
   m_Name: Level1
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rockBlocker: {fileID: 976367488918723114}
-  bossSpawner: {fileID: 0}
+  bossSpawnerObject: {fileID: 0}
   sun: {fileID: 0}
 --- !u!64 &976367489025648031
 MeshCollider:

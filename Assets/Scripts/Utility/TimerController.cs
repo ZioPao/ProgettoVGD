@@ -85,11 +85,28 @@ namespace Utility
 
         public static void AddTimer(string key, float value)
         {
-            timerLength.Add(key, value);
+
+            try
+            {
+                timerLength.Add(key, value);
+
+            }
+            catch (ArgumentException)
+            {
+                Debug.Log("Already added timer");
+            }
         }
         public static void AddCurrentTime(string key, float value)
         {
-            currentTime.Add(key, value);
+            try
+            {
+                currentTime.Add(key, value);
+
+            }
+            catch (ArgumentException)
+            {
+                Debug.Log("Already added timer (Current)");
+            }
         }
 
         public static void ResetTimer(string key)

@@ -63,7 +63,21 @@ public class LevelManager : MonoBehaviour
 
         foreach (var enemy in enemies)
         {
-            enemiesStatus.Add(enemy.name, enemy.GetComponent<EnemyBase>().GetStatus());
+
+            EnemyStatus status = enemy.GetComponent<EnemyBase>().GetStatus();
+            try
+            {
+                enemiesStatus.Add(enemy.name, status );
+
+            }
+            catch (ArgumentException)
+            {
+                enemiesStatus.Remove(enemy.name);
+                enemiesStatus.Add(enemy.name, status);
+
+            }
+            
+            //if there is currently another enemy with the same name, deletes it and then re add it
             // enemyIntelligenceStatus.Add(enemy.name, enemy.GetComponent<EnemyIntelligence>());
             // enemyMovementStatus.Add(enemy.name, enemy.GetComponent<EnemyMovement>());
             // enemyShootingStatus.Add(enemy.name, enemy.GetComponent<EnemyShooting>());
