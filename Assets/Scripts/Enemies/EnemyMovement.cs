@@ -78,7 +78,7 @@ namespace Enemies
 
         public void Reload()
         {
-            Start();
+            Start();            //non ho idea del percHé funziona tbh
             agent.Warp(transform.position);        //forces it 
         }
     }

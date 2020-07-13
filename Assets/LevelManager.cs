@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
 
         foreach (var spawner in spawners)
         {
-            spawnerStatus.Add(spawner.name, spawner.GetComponent<EnemySpawner>().GetStatus());
+            spawnerStatus.Add(spawner.gameObject.name, spawner.GetComponent<EnemySpawner>().GetStatus());
         }
 
         return spawnerStatus;

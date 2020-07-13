@@ -2,6 +2,7 @@
 using System.Runtime.Serialization.Formatters.Binary;
 using Enemies;
 using Player;
+using Unity.UNetWeaver;
 using UnityEditor;
 using UnityEngine;
 using Utility;
@@ -47,9 +48,7 @@ namespace Saving
             //Enemies status saving
             manager.UpdateEnemiesStatus();
             save.enemiesStatus = manager.enemiesStatus;
-            // save.enemyIntelligenceStatus = manager.enemyIntelligenceStatus;
-            // save.enemyMovementStatus = manager.enemyMovementStatus;
-            // save.enemyShootingStatus = manager.enemyShootingStatus;
+
 
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
@@ -61,6 +60,7 @@ namespace Saving
 
         public void Load()
         {
+            Values.SetIsLoadingSave(true);
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
 
@@ -80,8 +80,9 @@ namespace Saving
             //Clean the level and set it up 
             Object.Destroy(GameObject.FindWithTag("Level"));
             GameObject newLevel = Resources.Load<GameObject>("Prefabs/Levels/" + save.levelName);
-            
-            PrefabUtility.InstantiatePrefab(newLevel);
+
+            PrefabUtility.UnpackPrefabInstance(PrefabUtility.InstantiatePrefab(newLevel) as GameObject
+                , PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 
 
             //Deletes all the enemies and projectiles
@@ -89,7 +90,7 @@ namespace Saving
             {
                 Object.Destroy(enemy);
             }
-            
+
             //todo clean sprites manager
             //todo clean projectiles
 
@@ -98,11 +99,13 @@ namespace Saving
                 Resources.Load<GameObject>("Prefabs/Enemies/" + save.levelName); //Level name = enemy type
 
             EnemySpritesManager spritesManager = Values.GetEnemySpritesManager();
-            
+            //GameObject enemyParent = GameObject.Find("Level1");
+
             foreach (var element in save.enemiesStatus)
             {
                 GameObject tmpEnemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
-                
+                tmpEnemy.transform.SetParent(GameObject.Find("Enemies").transform);
+
                 tmpEnemy.GetComponent<EnemyBase>().Reload(element.Value);
 
                 tmpEnemy.transform.position = element.Value.GetPosition();
@@ -112,7 +115,32 @@ namespace Saving
                 tmpEnemy.GetComponent<EnemyIntelligence>().Start();
                 tmpEnemy.GetComponent<EnemyShooting>().Start();
 
+
                 spritesManager.AddEnemyToEnemyList(tmpEnemy);
+            }
+
+            GameObject spawnerPrefab =
+                Resources.Load<GameObject>("Prefabs/Spawners/EnemySpawner"); //Level name = enemy type
+
+            foreach (var oldSpawner  in GameObject.FindGameObjectsWithTag("Spawner"))
+            {
+                Object.Destroy(oldSpawner);
+            }
+            
+            foreach (var element in save.enemySpawnerStatus)
+            {
+     
+
+                  GameObject newSpawner = PrefabUtility.InstantiatePrefab(spawnerPrefab) as GameObject;
+                  
+                  
+                  //Per qualche ragione non ne vuole sapere di inserire i nuovi spawner come figli di Spawners. Mi arrendo al momento
+                  //newSpawner.transform.SetParent(GameObject.Find("Spawners").transform); 
+                  newSpawner.transform.position = element.Value.GetPosition();
+                  newSpawner.transform.rotation = element.Value.GetRotation();
+                  
+                  newSpawner.GetComponent<EnemySpawner>().SetStatus(element.Value);
+                  newSpawner.GetComponent<EnemySpawner>().SetEnemyPrefab(enemyPrefab);
             }
         }
     }

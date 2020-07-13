@@ -64,6 +64,9 @@ namespace Player
         //Collider
         private static CapsuleCollider collider;
         
+        //Saving 
+        private static bool isLoadingSave;
+        
         //Weapon Types
         public enum WeaponEnum
         {
@@ -241,6 +244,13 @@ namespace Player
         public static CapsuleCollider GetCollider()
         {
             return collider;
+        }
+        
+        //Loading
+
+        public static bool GetIsLoadingSave()
+        {
+            return isLoadingSave;
         }
         
         //Weapon Properties
@@ -438,6 +448,11 @@ namespace Player
             _enemySpritesManager = value;
         }
         
+        //Saving
+        public static void SetIsLoadingSave(bool value)
+        {
+            isLoadingSave = value;
+        }
         //Weapon Properties
         public static void SetCurrentWeapon(WeaponEnum value)
         {

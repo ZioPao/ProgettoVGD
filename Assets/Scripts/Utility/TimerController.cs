@@ -93,7 +93,7 @@ namespace Utility
             }
             catch (ArgumentException)
             {
-                Debug.Log("Already added timer");
+                //Debug.Log("Already added timer");
             }
         }
         public static void AddCurrentTime(string key, float value)
@@ -105,7 +105,7 @@ namespace Utility
             }
             catch (ArgumentException)
             {
-                Debug.Log("Already added timer (Current)");
+                //Debug.Log("Already added timer (Current)");
             }
         }
 
