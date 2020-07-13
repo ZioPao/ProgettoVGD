@@ -28,6 +28,7 @@ namespace Saving
             save.health = Values.GetHealth();
             save.stamina = Values.GetStamina();
 
+
             //Get the level manager
             GameObject level = GameObject.FindWithTag("Level");
 
@@ -88,10 +89,16 @@ namespace Saving
             {
                 Object.Destroy(enemy);
             }
+            
+            //todo clean sprites manager
+            //todo clean projectiles
 
             //creates them again
             GameObject enemyPrefab =
                 Resources.Load<GameObject>("Prefabs/Enemies/" + save.levelName); //Level name = enemy type
+
+            EnemySpritesManager spritesManager = Values.GetEnemySpritesManager();
+            
             foreach (var element in save.enemiesStatus)
             {
                 GameObject tmpEnemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
@@ -104,6 +111,8 @@ namespace Saving
 
                 tmpEnemy.GetComponent<EnemyIntelligence>().Start();
                 tmpEnemy.GetComponent<EnemyShooting>().Start();
+
+                spritesManager.AddEnemyToEnemyList(tmpEnemy);
             }
         }
     }
