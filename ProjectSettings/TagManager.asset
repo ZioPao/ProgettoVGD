@@ -17,6 +17,7 @@ TagManager:
   - Level
   - Spawner
   - BossSpawner
+  - Projectile
   layers:
   - Default
   - TransparentFX

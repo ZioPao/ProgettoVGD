@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Enemies;
 using Player;
@@ -48,7 +49,10 @@ namespace Saving
             //Enemies status saving
             manager.UpdateEnemiesStatus();
             save.enemiesStatus = manager.enemiesStatus;
+            
+            //Projectiles
 
+            save.projectileStatus = manager.GetProjectileStatus();
 
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
@@ -85,22 +89,17 @@ namespace Saving
                 , PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 
 
-            //Deletes all the enemies and projectiles
+            //Deletes all the enemies
             foreach (var enemy in GameObject.FindGameObjectsWithTag("enemy"))
             {
                 Object.Destroy(enemy);
             }
-
-            //todo clean sprites manager
-            //todo clean projectiles
-
+            
             //creates them again
             GameObject enemyPrefab =
                 Resources.Load<GameObject>("Prefabs/Enemies/" + save.levelName); //Level name = enemy type
 
             EnemySpritesManager spritesManager = Values.GetEnemySpritesManager();
-            //GameObject enemyParent = GameObject.Find("Level1");
-
             foreach (var element in save.enemiesStatus)
             {
                 GameObject tmpEnemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
@@ -119,6 +118,29 @@ namespace Saving
                 spritesManager.AddEnemyToEnemyList(tmpEnemy);
             }
 
+            
+            //Projectiles
+
+            //Destroy all the old projectiles
+            foreach (var p in GameObject.FindGameObjectsWithTag("Projectile"))
+            {
+                Object.Destroy(p);
+            }
+            
+            GameObject projPrefab =
+                Resources.Load<GameObject>("Prefabs/Projectiles/" + save.levelName); //Level name = projectile type
+            foreach (var pStatus in save.projectileStatus)
+            {
+                GameObject tmpProj = PrefabUtility.InstantiatePrefab(projPrefab) as GameObject;
+
+                ProjectileScript tmpScript = tmpProj.GetComponent<ProjectileScript>();
+
+                tmpScript.SetTransform(pStatus.GetPosition(), pStatus.GetRotation());
+                tmpScript.Reload(pStatus);
+                
+            }
+            
+            //SPAWNERS 
             GameObject spawnerPrefab =
                 Resources.Load<GameObject>("Prefabs/Spawners/EnemySpawner"); //Level name = enemy type
 
@@ -126,7 +148,6 @@ namespace Saving
             {
                 Object.Destroy(oldSpawner);
             }
-            
             foreach (var element in save.enemySpawnerStatus)
             {
      
@@ -142,6 +163,9 @@ namespace Saving
                   newSpawner.GetComponent<EnemySpawner>().SetStatus(element.Value);
                   newSpawner.GetComponent<EnemySpawner>().SetEnemyPrefab(enemyPrefab);
             }
+            
+            Values.SetIsLoadingSave(false);        //Finished loading
+
         }
     }
 }

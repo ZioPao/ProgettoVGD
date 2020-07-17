@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Enemies;
 using UnityEngine;
 using Utility;
@@ -12,13 +13,11 @@ public class LevelManager : MonoBehaviour
     private const string PickupTag = "Pickup";
     private const string TriggerTag = "Trigger";
     private const string SpawnerTag = "Spawner";
-    
+    private const string ProjectileTag = "Projectile";
+
     
     //Enemy stuff
     public Dictionary<String, EnemyStatus> enemiesStatus;
-    public Dictionary<String, EnemyMovement> enemyMovementStatus;
-    public Dictionary<String, EnemyIntelligence> enemyIntelligenceStatus;
-    public Dictionary<String, EnemyShooting> enemyShootingStatus;
 
 
 
@@ -86,6 +85,20 @@ public class LevelManager : MonoBehaviour
 
     }
 
+    public List<ProjectileStatus> GetProjectileStatus()
+    {
+        var projectiles = GameObject.FindGameObjectsWithTag(ProjectileTag).ToList();
+        List<ProjectileStatus> projectilesStatus = new List<ProjectileStatus>();
+        
+        foreach (var x in projectiles)
+        {
+            projectilesStatus.Add(x.GetComponent<ProjectileScript>().GetStatus());
+        }
+
+        return projectilesStatus;
+
+
+    }
 
     public Dictionary<string, bool> GetPickups()
     {
@@ -93,5 +106,6 @@ public class LevelManager : MonoBehaviour
 
         return null;
     }
-    
+
+
 }

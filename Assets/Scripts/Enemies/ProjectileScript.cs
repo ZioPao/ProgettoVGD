@@ -10,24 +10,36 @@ namespace Enemies
         [SerializeField] private int projectileSpeed = 15;
         [SerializeField] private int damage = 20;
 
-        private float projectileTimeLeft;
+        private ProjectileStatus status;
         private Transform enemyTransform;
         private Transform spriteTransform;
 
+        private bool isReloading = false;
+
         private void Start()
         {
-            projectileTimeLeft = projectileTimeMax;
-            spriteTransform = gameObject.transform.Find("Sprite");
+
+            if (!isReloading)
+            {
+                status = new ProjectileStatus(projectileTimeMax, projectileSpeed, gameObject);
+
+            }
+            spriteTransform = gameObject.transform.Find("Sprite");        //non ha senso salvarlo nello status
         }
 
         private void FixedUpdate()
         {
-            if (projectileTimeLeft > 0)
+            
+            //Updates transform
+            status.SetTransform(transform);
+            
+            if (status.GetProjectileTimeLeft() > 0)
             {
                 LookPlayer();
                 
-                transform.position += transform.forward * (Time.deltaTime * projectileSpeed);
-                projectileTimeLeft -= Time.deltaTime;
+                //Movimento
+                transform.position += transform.forward * (Time.deltaTime * status.GetProjectileSpeed());
+                status.DecreaseTimer();
 
             }
             else
@@ -47,13 +59,34 @@ namespace Enemies
 
         }
         
+        //Getters
+        public ProjectileStatus GetStatus()
+        {
+            return status;
+        }
         
         //Setters
         public void SetSpeed(int speed)
         {
             projectileSpeed = speed;
         }
-        
+
+        public void SetTransform(Vector3 position, Quaternion rotation)
+        {
+            transform.position = position;
+            transform.rotation = rotation;
+        }
+
+        public void Reload(ProjectileStatus status)
+        {
+            this.status = status;
+
+            isReloading = true;
+            Start();
+            isReloading = false;
+
+
+        }
         //Collisions with player
         private void OnTriggerEnter(Collider c)
         {

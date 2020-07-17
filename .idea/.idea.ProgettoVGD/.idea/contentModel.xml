@@ -92,6 +92,7 @@
             <e p="EnemyShooting.cs" t="Include" />
             <e p="EnemyStatus.cs" t="Include" />
             <e p="ProjectileScript.cs" t="Include" />
+            <e p="ProjectileStatus.cs" t="Include" />
           </e>
           <e p="Menu" t="Include">
             <e p="ButtonController.cs" t="Include" />

@@ -36,10 +36,8 @@ namespace Utility
         
         //Nemici
 
-        public Dictionary<String, EnemyStatus> enemiesStatus;
-        // public Dictionary<String, EnemyMovement> enemyMovementStatus;
-        // public Dictionary<String, EnemyIntelligence> enemyIntelligenceStatus;
-        // public Dictionary<String, EnemyShooting> enemyShootingStatus;
-        //
+        public Dictionary<string, EnemyStatus> enemiesStatus;
+
+        public List<ProjectileStatus> projectileStatus;
     }
 }

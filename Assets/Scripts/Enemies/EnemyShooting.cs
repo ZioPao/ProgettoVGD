@@ -57,7 +57,8 @@ namespace Enemies
             if (timerWaitingLeft <= 0)
             {
                 var projectile = PrefabUtility.InstantiatePrefab(projectilePrefab) as GameObject;
-
+                projectile.name = "Projectile";
+                
                 ProjectileScript projScript = projectile.GetComponent<ProjectileScript>();
                 projScript.SetSpeed(projectileSpeed);
                 
