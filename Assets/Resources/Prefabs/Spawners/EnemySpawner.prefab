@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4537548937551051481}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,3 +46,5 @@ MonoBehaviour:
   enemyPrefab: {fileID: 0}
   maxEnemiesConcurrently: 3
   maxEnemiesSpawned: 10
+  rangeSpawn: 0
+  customName: e1
