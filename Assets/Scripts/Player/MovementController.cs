@@ -97,15 +97,14 @@ namespace Player
             {
                 float slopeAngleTmp = GetSlopeAngle();
 
+                print(slopeAngleTmp);
                 //ignore check if player is in water
-                if (slopeAngleTmp > -50 && slopeAngleTmp <= 35 || !Values.GetIsInWater())
+                if (slopeAngleTmp > -30 && slopeAngleTmp <= 35 || Values.GetIsInWater())
                 {
                     Values.GetRigidbody().MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
                 }
                 else
                 {
-                    //Fa scendere forzatamente il giocatore
-                    print("stuck boy");
                     Values.GetRigidbody().MovePosition(transform.position + new Vector3(0, -9.81f, 0) * Time.deltaTime);
                 }
             }
