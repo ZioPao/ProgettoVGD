@@ -8,9 +8,11 @@ namespace Player
         
         //Hard Values (May be modified by upgrades)
         
-        private static float boostSpeed = 2f;
+        private static float boostSpeed = 3f;
         private static float jumpForce = 500f;
-        private static float movementSpeed = 10f;
+        private static float movementSpeed = 2f;
+        private static float normalDrag = 5f;
+        private static float jumpDrag = 0.1f;
         
         private static float maxHealth = 100f;
         private static float maxStamina = 100f;
@@ -27,7 +29,8 @@ namespace Player
         private static float health;
         private static float stamina;
         private static float oxygen;
-
+        private static float maxSpeed = 20f;
+        
         //State Definers
         //Collisions
         private static bool isGrounded;
@@ -108,6 +111,16 @@ namespace Player
         {
             return maxHealth;
         }
+
+        public static float GetJumpDrag()
+        {
+            return jumpDrag;
+        }
+
+        public static float GetNormalDrag()
+        {
+            return normalDrag;
+        }
         public static float GetMaxStamina()
         {
             return maxStamina;
@@ -152,6 +165,11 @@ namespace Player
         public static float GetOxygen()
         {
             return oxygen;
+        }
+
+        public static float GetMaxSpeed()
+        {
+            return maxSpeed;
         }
 
         //State Definers

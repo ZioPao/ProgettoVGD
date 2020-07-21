@@ -11,9 +11,10 @@ namespace Player
 
         private Vector3 movementVec;
 
+        private float forwardMovement, rightMovement;
+        
         public void SetupMovement()
         {
-            float forwardMovement, rightMovement;
             float movementSpeedMod = Values.GetMovementSpeed();
             float slopeSpeedMultiplier = 1 - (GetSlopeAngle() / 90);
 
@@ -33,6 +34,7 @@ namespace Player
 
             /*Boost*/
             
+            //todo da rifare con nuovo movement controller
             bool shouldBeBoosting;
             if (Input.GetKey(KeyCode.LeftShift) && !Values.GetIsTouchingWall() && !Values.GetIsTouchingWallWithHead() &&
                 (Values.GetRigidbody().velocity.magnitude > 0) && (axisMovementVertical > 0) && Values.GetStamina() >= 10)
@@ -45,19 +47,12 @@ namespace Player
                 shouldBeBoosting = false;
             }
             
+            
             forwardMovement = axisMovementVertical * movementSpeedMod;
             rightMovement = axisMovementHorizontal * movementSpeedMod;
             
-            /*Fix diagonal speed and check if player's boosting*/
             
-            if (forwardMovement != 0 && rightMovement != 0)
-            {
-                forwardMovement /= 1.42f; //todo determinare se è sempre questo valore
-                rightMovement /= 1.42f;
-            }
-
             /*Set Movement Variables*/
-            
             if (forwardMovement != 0 || rightMovement != 0)
             {
                 Values.SetIsMoving(true);
@@ -70,9 +65,22 @@ namespace Player
             }
 
             /*Setup vectors*/
-            
-            Vector3 forwardVec = transform.forward * (forwardMovement * slopeSpeedMultiplier);
-            Vector3 rightVec = transform.right * (rightMovement * slopeSpeedMultiplier);
+            Vector3 forwardVec = new Vector3(0,0,0);
+
+            if (axisMovementVertical != 0)
+            {
+                forwardVec = transform.forward * (forwardMovement * slopeSpeedMultiplier);
+            }
+    
+      
+
+            Vector3 rightVec = new Vector3(0,0,0);
+            if (axisMovementHorizontal != 0)
+            {
+                rightVec = transform.right * (rightMovement * slopeSpeedMultiplier);
+
+            }
+          
             movementVec = (forwardVec + rightVec);
 
         }
@@ -80,39 +88,43 @@ namespace Player
         public void MakeMovement()
         {
 
-            if (Values.GetIsTouchingWallWithHead())
-            {
-                if (Values.GetRigidbody().position.y < Values.GetLastGoodYPosition())
-                {
-                    //lo rende talmente lento da farlo diventare un non problema
-                    Values.GetRigidbody().MovePosition(transform.position + (movementVec / 4) * Time.fixedDeltaTime);
-                }
-                else
-                {
-                    Values.GetRigidbody().MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
-                }
-                
-            }
-            else
-            {
-                float slopeAngleTmp = GetSlopeAngle();
+            // if (Values.GetIsTouchingWallWithHead())
+            // {
+            //     if (Values.GetRigidbody().position.y < Values.GetLastGoodYPosition())
+            //     {
+            //         //lo rende talmente lento da farlo diventare un non problema
+            //         Values.GetRigidbody().AddForce(transform.position + (movementVec / 4) * Time.fixedDeltaTime);
+            //     }
+            //     else
+            //     {
+            //         Values.GetRigidbody().AddForce(transform.position + movementVec * Time.fixedDeltaTime);
+            //     }
+            //     
+            // }
+            // else
+            // {
+      
+            Values.GetRigidbody().AddForce(movementVec, ForceMode.VelocityChange);
+     
+            // }
 
-                print(slopeAngleTmp);
-                //ignore check if player is in water
-                if (slopeAngleTmp > -30 && slopeAngleTmp <= 35 || Values.GetIsInWater())
+            CapSpeed();
+        }
+
+        public void CapSpeed()
+        {
+            {
+                if (Values.GetRigidbody().velocity.magnitude > Values.GetMaxSpeed())
                 {
-                    Values.GetRigidbody().MovePosition(transform.position + movementVec * Time.fixedDeltaTime);
-                }
-                else
-                {
-                    Values.GetRigidbody().MovePosition(transform.position + new Vector3(0, -9.81f, 0) * Time.deltaTime);
+                    Values.GetRigidbody().velocity = Values.GetRigidbody().velocity.normalized * Values.GetMaxSpeed();
                 }
             }
-
         }
 
         public void Jump()
         {
+            SetDrag();
+            
             if (Input.GetKey("space") && Values.GetStamina() >= 5 && (Values.GetIsGrounded() || Values.GetIsInWater()) && !Values.GetIsTouchingWallWithHead())
             {
                 //Continue going towards that way
@@ -129,9 +141,15 @@ namespace Player
                 Vector3 tmp = (transform.up * jumpForceMod);
                 Values.GetRigidbody().AddForce(tmp, ForceMode.Force);
             }
+
             
         }
-        
+
+        private void SetDrag()
+        {
+            Values.GetRigidbody().drag = Values.GetIsGrounded() ? Values.GetNormalDrag() : Values.GetJumpDrag();
+        }
+
         public float GetSlopeAngle()
         {
             float slopeAngle = 0;    //base value
