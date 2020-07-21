@@ -95,7 +95,7 @@ namespace Enemies
 
             if (c.gameObject.name.Equals("Player"))
             {
-                Values.SetDamage(damage);
+                Values.DecreaseHealth(damage);
 
                 Destroy(gameObject);        //Destroys itself
             }
