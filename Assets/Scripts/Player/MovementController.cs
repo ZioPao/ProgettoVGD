@@ -61,6 +61,13 @@ namespace Player
                 Values.SetIsRunning(false);
             }
 
+            /*Fix diagonal movement*/
+            if (forwardMovement != 0 && rightMovement != 0)
+            {
+                forwardMovement /= 1.42f; 
+                rightMovement /= 1.42f;
+            }
+                
             /*Setup vectors*/
             Vector3 forwardVec = new Vector3(0,0,0);
             Vector3 rightVec = new Vector3(0,0,0);
@@ -77,7 +84,7 @@ namespace Player
             }
             if (!Values.GetIsGrounded() && Values.GetIsMoving())
             {
-                addedGravity.y = -0.2f;
+                addedGravity.y = -0.1f;
             }
           
             movementVec = (forwardVec + rightVec + addedGravity);
@@ -121,7 +128,7 @@ namespace Player
                 // print(jumpForceMod);
 
                 if (Values.GetIsRunning())
-                    jumpForceMod *= 5;
+                    jumpForceMod *= 3;
                     
 
                 Vector3 tmp = (transform.up * jumpForceMod);

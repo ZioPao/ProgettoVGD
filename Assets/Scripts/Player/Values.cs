@@ -9,7 +9,7 @@ namespace Player
         //Hard Values (May be modified by upgrades)
         
         private static float boostSpeed = 3f;
-        private static float jumpForce = 20f;
+        private static float jumpForce = 40f;
         private static float movementSpeed = 2f;
         private static float normalMass = 2.45f;
         private static float jumpMass = 10f;
@@ -31,7 +31,7 @@ namespace Player
         private static float health;
         private static float stamina;
         private static float oxygen;
-        private static float maxSpeed = 20f;
+        private static float maxSpeed = 10f;
         
         //State Definers
         //Collisions
