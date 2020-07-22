@@ -26,7 +26,7 @@ namespace Utility
         private void Awake()
         {
             
-            Debug.Log("Awake EnemySpawner");
+            //Debug.Log("Awake EnemySpawner");
             if (!Values.GetIsLoadingSave())
             {
                 status = new EnemySpawnerStatus();

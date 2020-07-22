@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Player
 {
@@ -36,7 +33,7 @@ namespace Player
             
             //todo da rifare con nuovo movement controller
             bool shouldBeBoosting;
-            if (Input.GetKey(KeyCode.LeftShift) && !Values.GetIsTouchingWall() && !Values.GetIsTouchingWallWithHead() &&
+            if (Input.GetKey(KeyCode.LeftShift) && Values.GetIsGrounded() &&
                 (Values.GetRigidbody().velocity.magnitude > 0) && (axisMovementVertical > 0) && Values.GetStamina() >= 10)
             {
                 movementSpeedMod = Values.GetMovementSpeed() * Values.GetBoostSpeed();
@@ -104,7 +101,7 @@ namespace Player
             // else
             // {
       
-            Values.GetRigidbody().AddForce(movementVec, ForceMode.VelocityChange);
+              Values.GetRigidbody().AddForce(movementVec, ForceMode.VelocityChange);
      
             // }
 
@@ -123,7 +120,7 @@ namespace Player
 
         public void Jump()
         {
-            SetDrag();
+            SetPhysicsValues();
             
             if (Input.GetKey("space") && Values.GetStamina() >= 5 && (Values.GetIsGrounded() || Values.GetIsInWater()) && !Values.GetIsTouchingWallWithHead())
             {
@@ -138,16 +135,27 @@ namespace Player
                     jumpForceMod /= 5;
                 }
 
+                // if (Values.GetRigidbody().velocity.magnitude != 0)
+                // {
+                //     jumpForceMod *= Values.GetRigidbody().velocity.magnitude;
+                // }
+                // print(jumpForceMod);
+
+                if (Values.GetIsRunning())
+                    jumpForceMod *= 5;
+                    
+
                 Vector3 tmp = (transform.up * jumpForceMod);
-                Values.GetRigidbody().AddForce(tmp, ForceMode.Force);
+                Values.GetRigidbody().AddForce(tmp, ForceMode.Impulse);
             }
 
             
         }
 
-        private void SetDrag()
+        private void SetPhysicsValues()
         {
             Values.GetRigidbody().drag = Values.GetIsGrounded() ? Values.GetNormalDrag() : Values.GetJumpDrag();
+            Values.GetRigidbody().mass = Values.GetIsGrounded() ? Values.GetNormaMass() : Values.GetJumpMass();
         }
 
         public float GetSlopeAngle()

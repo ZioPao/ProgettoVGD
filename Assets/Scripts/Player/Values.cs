@@ -9,10 +9,12 @@ namespace Player
         //Hard Values (May be modified by upgrades)
         
         private static float boostSpeed = 3f;
-        private static float jumpForce = 500f;
+        private static float jumpForce = 20f;
         private static float movementSpeed = 2f;
-        private static float normalDrag = 5f;
-        private static float jumpDrag = 0.1f;
+        private static float normalMass = 2.45f;
+        private static float jumpMass = 10f;
+        private static float normalDrag = 8f;
+        private static float jumpDrag = 0f;
         
         private static float maxHealth = 100f;
         private static float maxStamina = 100f;
@@ -115,6 +117,16 @@ namespace Player
         public static float GetJumpDrag()
         {
             return jumpDrag;
+        }
+
+        public static float GetNormaMass()
+        {
+            return normalMass;
+        }
+
+        public static float GetJumpMass()
+        {
+            return jumpMass;
         }
 
         public static float GetNormalDrag()
