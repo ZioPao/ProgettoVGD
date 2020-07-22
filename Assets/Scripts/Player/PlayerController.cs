@@ -51,7 +51,7 @@ namespace Player
             
             /*Setup Timer*/
 
-            Utility.TimerController.Setup();
+            TimerController.Setup();
 
         }
 
@@ -136,7 +136,7 @@ namespace Player
 
             if (Values.GetIsRunning())
             {
-                Values.DecreaseStamina(Time.deltaTime * 5);
+                Values.DecreaseStamina(Time.deltaTime * 10);
             }
             else if (Values.GetIsMoving())
             {

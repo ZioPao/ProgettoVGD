@@ -19,7 +19,6 @@ namespace Player
             
             if (Values.GetIsInWater())
             {
-                //todo i broke something 
                 movementSpeedMod *= 0.5f; //Decrease
                 //rb.mass = rigidBodyDefaultMass + 15f;
             }
@@ -30,21 +29,22 @@ namespace Player
             float axisMovementHorizontal = Input.GetAxis("Horizontal");
 
             /*Boost*/
-            
-            //todo da rifare con nuovo movement controller
             bool shouldBeBoosting;
-            if (Input.GetKey(KeyCode.LeftShift) && Values.GetIsGrounded() &&
-                (Values.GetRigidbody().velocity.magnitude > 0) && (axisMovementVertical > 0) && Values.GetStamina() >= 10)
+            if (Input.GetKey(KeyCode.LeftShift) && Values.GetIsGrounded() && (Values.GetRigidbody().velocity.magnitude > 0) && (axisMovementVertical > 0))
             {
-                movementSpeedMod = Values.GetMovementSpeed() * Values.GetBoostSpeed();
                 shouldBeBoosting = true;
+
+                if ( Values.GetStamina() > 0)
+                    movementSpeedMod = Values.GetMovementSpeed() * Values.GetBoostSpeed();
+ 
             }
             else
             {
                 shouldBeBoosting = false;
             }
+
             
-            
+            /*Set the forward and right movement*/
             forwardMovement = axisMovementVertical * movementSpeedMod;
             rightMovement = axisMovementHorizontal * movementSpeedMod;
             
@@ -63,23 +63,18 @@ namespace Player
 
             /*Setup vectors*/
             Vector3 forwardVec = new Vector3(0,0,0);
+            Vector3 rightVec = new Vector3(0,0,0);
+            Vector3 addedGravity = new Vector3(0, 0, 0);
 
             if (axisMovementVertical != 0)
             {
                 forwardVec = transform.forward * (forwardMovement * slopeSpeedMultiplier);
             }
-    
-      
-
-            Vector3 rightVec = new Vector3(0,0,0);
             if (axisMovementHorizontal != 0)
             {
                 rightVec = transform.right * (rightMovement * slopeSpeedMultiplier);
 
             }
-
-
-            Vector3 addedGravity = new Vector3(0, 0, 0);
             if (!Values.GetIsGrounded() && Values.GetIsMoving())
             {
                 addedGravity.y = -0.2f;
@@ -92,39 +87,16 @@ namespace Player
         public void MakeMovement()
         {
 
-            // if (Values.GetIsTouchingWallWithHead())
-            // {
-            //     if (Values.GetRigidbody().position.y < Values.GetLastGoodYPosition())
-            //     {
-            //         //lo rende talmente lento da farlo diventare un non problema
-            //         Values.GetRigidbody().AddForce(transform.position + (movementVec / 4) * Time.fixedDeltaTime);
-            //     }
-            //     else
-            //     {
-            //         Values.GetRigidbody().AddForce(transform.position + movementVec * Time.fixedDeltaTime);
-            //     }
-            //     
-            // }
-            // else
-            // {
-      
-              Values.GetRigidbody().AddForce(movementVec, ForceMode.VelocityChange);
-     
-            // }
-
-            CapSpeed();
-        }
-
-        public void CapSpeed()
-        {
+            var tmpRigidbody = Values.GetRigidbody();    //todo recupera all'init una volta e basta
+            tmpRigidbody.AddForce(movementVec, ForceMode.VelocityChange);
+            
+            //Caps the speed
+            if (tmpRigidbody.velocity.magnitude > Values.GetMaxSpeed())
             {
-                if (Values.GetRigidbody().velocity.magnitude > Values.GetMaxSpeed())
-                {
-                    Values.GetRigidbody().velocity = Values.GetRigidbody().velocity.normalized * Values.GetMaxSpeed();
-                }
+                tmpRigidbody.velocity = Values.GetRigidbody().velocity.normalized * Values.GetMaxSpeed();
             }
         }
-
+        
         public void Jump()
         {
             SetPhysicsValues();
