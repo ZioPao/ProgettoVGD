@@ -77,8 +77,15 @@ namespace Player
                 rightVec = transform.right * (rightMovement * slopeSpeedMultiplier);
 
             }
+
+
+            Vector3 addedGravity = new Vector3(0, 0, 0);
+            if (!Values.GetIsGrounded() && Values.GetIsMoving())
+            {
+                addedGravity.y = -0.2f;
+            }
           
-            movementVec = (forwardVec + rightVec);
+            movementVec = (forwardVec + rightVec + addedGravity);
 
         }
 
@@ -128,7 +135,7 @@ namespace Player
                 float jumpForceMod = Values.GetJumpForce();
                 
                 //Decrease Stamina
-                Values.DecreaseStamina(1);
+                Values.DecreaseStamina(3);
 
                 if (Values.GetIsInWater())
                 {
