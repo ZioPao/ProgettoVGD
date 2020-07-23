@@ -8,6 +8,8 @@ namespace Player
     {
 
         private Animator anim;
+        private const string IDLE_WEAPON = "idle";
+        private const string SHOOTING_WEAPON = "shooting";
         
         
 
@@ -16,24 +18,34 @@ namespace Player
         private static readonly int IsShootingAnim = Animator.StringToHash("isShooting");
     
     
-        //Textures
+        //Pistol
+        private Sprite pistolIdleSprite, pistolShootingSprite;
+        private Material pistolIdleMat, pistolShootingMat;
+        
+        //SMG
+        private Sprite smgIdleSprite, smgShootingSprite;
+        private Material smgIdleMat, smgShootingMat;
+        
+        //Knife
+        private Sprite knifeIdleSprite, knifeHittingSprite;
+        private Material knifeIdleMat, knifeHittingMat;
 
-        private Sprite pistolBaseSprite, pistolShootingSprite;
-        private Texture2D knifeBase, knifeAttack;
-        
-        
         //renderer
-        private SpriteRenderer pistolRenderer = null;
-        private SpriteRenderer knifeRenderer = null;
+        private SpriteRenderer pistolRenderer;
 
         void Start()
         {
             anim = GetComponent<Animator>();
 
-            //Pistol
+            pistolRenderer = null;        //init sempre a null
 
-            pistolBaseSprite = Resources.Load<Sprite>("PlayerWeapons/pistol");
-            pistolShootingSprite = Resources.Load<Sprite>("PlayerWeapons/pistolShooting");
+            ///PISTOL
+
+            pistolIdleSprite = Resources.Load<Sprite>("PlayerWeapons/pistol/Sprites/" + IDLE_WEAPON);
+            pistolShootingSprite = Resources.Load<Sprite>("PlayerWeapons/pistol/Sprites/" + SHOOTING_WEAPON);
+
+            pistolIdleMat = Resources.Load<Material>("PlayerWeapons/pistol/Mats/" + IDLE_WEAPON);
+            pistolShootingMat = Resources.Load<Material>("PlayerWeapons/pistol/Mats/" + SHOOTING_WEAPON);
             
         }
 
@@ -71,13 +83,16 @@ namespace Player
             }
             
             int currentBullets = Values.GetCurrentAmmo()[Values.WeaponEnum.Pistol];
-            if ((Utility.TimerController.GetCurrentTime()[TimerController.PISTOLATTACK_K] > 0)  && currentBullets >= 0)
+            if ((TimerController.GetCurrentTime()[TimerController.PISTOLATTACK_K] > 0)  && currentBullets >= 0)
             {
-                pistolRenderer.sprite = pistolShootingSprite;        //Change texture
+                pistolRenderer.material = pistolShootingMat;        //Change mat
+                pistolRenderer.sprite = pistolShootingSprite;        //Changes sprite
             }
             else 
             {
-                 pistolRenderer.sprite = pistolBaseSprite;
+                 pistolRenderer.material = pistolIdleMat;
+                 pistolRenderer.sprite = pistolIdleSprite;        //Changes sprite
+
             }
 
         }

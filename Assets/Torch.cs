@@ -25,18 +25,12 @@ public class Torch : MonoBehaviour
 
         float t = Mathf.PingPong(Time.time, 0.2f);
         light.color = Color.Lerp(firstColor, secondColor, t);
+
+        print(transform.right);
         transform.position = new Vector3(transform.position.x, transform.position.y, zCenter + Mathf.PingPong(Time.time * 1.5f, maxMovement) - maxMovement/2f);//move on z axis only
-        // if (timer < 0)
-        // {
-        //
-        //     if (light.color.Equals(firstColor))
-        //         light.color = secondColor;
-        //     else
-        //         light.color = firstColor;
-        //
-        //     timer = maxTimer;        //reset timer
-        // }
-        //
-        // timer -= Time.deltaTime;
+        //transform.forward = new Vector3(transform.forward.x, transform.forward.y,
+         //   zCenter + Mathf.PingPong(Time.time * 1.5f, maxMovement) - maxMovement / 2f);
+
+         
     }
 }
