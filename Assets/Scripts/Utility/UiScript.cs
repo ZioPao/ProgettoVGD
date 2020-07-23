@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using System;
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,8 +33,16 @@ namespace Utility
             signText = GameObject.Find("sign_text").GetComponent<Text>();
             
             signParent = GameObject.Find("InteractableObjects");
-            
-            signScript = signParent.GetComponent<SignController>();
+
+            try
+            {
+                signScript = signParent.GetComponent<SignController>();
+
+            }
+            catch (NullReferenceException)
+            {
+                ;
+            }
         }
 
         // Update is called once per frame
@@ -74,12 +83,17 @@ namespace Utility
                 oxygenCanvas.SetActive(false);
             }
                        
-            interactionCanvas.SetActive(Player.Values.GetIsNearInteractable() && !Values.GetIsInteracting());
-			pickupCanvas.SetActive(Player.Values.GetIsNearPickup());
-            signCanvas.SetActive(Player.Values.GetIsReadingSign());
-            
-            signText.text = signScript.GetSignText();
-            signText.alignment = TextAnchor.MiddleCenter;
+            interactionCanvas.SetActive(Values.GetIsNearInteractable() && !Values.GetIsInteracting());
+			pickupCanvas.SetActive(Values.GetIsNearPickup());
+            signCanvas.SetActive(Values.GetIsReadingSign());
+
+
+            if (Values.GetIsReadingSign())
+            {
+                signText.text = signScript.GetSignText();
+                signText.alignment = TextAnchor.MiddleCenter;
+            }
+
 
         }
 

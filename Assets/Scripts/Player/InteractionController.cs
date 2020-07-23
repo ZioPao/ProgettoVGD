@@ -20,8 +20,15 @@ namespace Player
             
 		    cameraMain = GameObject.Find("Camera_Main");
 		    signParent = GameObject.Find("InteractableObjects");
-		    signScript = signParent.GetComponent<SignController>();
-		    
+		    try
+		    {
+			    signScript = signParent.GetComponent<SignController>();
+
+		    }
+		    catch (NullReferenceException)
+		    {
+			    ;
+		    }
 	    }
 
 

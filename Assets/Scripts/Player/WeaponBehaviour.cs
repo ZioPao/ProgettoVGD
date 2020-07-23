@@ -18,8 +18,11 @@ namespace Player
         private string attackTimer;
         
         /*Camera Module*/
-        
+
         private GameObject cameraMain;
+        
+        /*Lights*/
+        private Light gunshotLight;
 
         void Start()
         {
@@ -27,7 +30,8 @@ namespace Player
             /*Setup Camera*/
             
             cameraMain = GameObject.Find("Camera_Main");
-            
+            gunshotLight = GameObject.Find("gunshot_light").GetComponent<Light>();
+
         }
         
         public void Action()
@@ -85,6 +89,8 @@ namespace Player
             if ((Utility.TimerController.GetCurrentTime()[attackTimer] == 0) && Values.GetIsAttacking()[Values.GetCurrentWeapon()])
             {
                 Values.SetIsAttacking(Values.GetCurrentWeapon(), false);
+                gunshotLight.enabled = false;
+
             }
         }
 
@@ -109,10 +115,10 @@ namespace Player
             if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0)
             {
                 //When an attack goes through the attack cooldown is reset
-                Utility.TimerController.ResetTimer(cooldownTimer);
+                TimerController.ResetTimer(cooldownTimer);
                 
                 Values.SetIsAttacking(Values.GetCurrentWeapon(), true);
-                Utility.TimerController.ResetTimer(attackTimer);
+                TimerController.ResetTimer(attackTimer);
                 
                 Values.DecrementCurrentAmmo(Values.GetCurrentWeapon(), 1);
                 
@@ -121,12 +127,14 @@ namespace Player
                     GameObject enemy =  projectile.transform.parent.gameObject;
                     EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
                     enemyScript.SetDamage(damagePerShot);
-                    
-
-
                 }
+                
+                //Activates the muzzle flash
+                gunshotLight.enabled = true;
+
             }
         }
+
 
         
         private void Reload()

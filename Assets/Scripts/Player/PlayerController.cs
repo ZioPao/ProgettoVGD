@@ -59,7 +59,7 @@ namespace Player
         private void FixedUpdate()
         {
 
-            print(Values.GetRigidbody().velocity.magnitude);
+            //print(Values.GetRigidbody().velocity.magnitude);
             /*Manage movements*/
             collisionScript.CheckCollisions();
 
