@@ -44,13 +44,20 @@ namespace Player
                     {
                         Values.SetIsInteracting(true);
                         //todo potenzialmente rotto con chest se fatte con un singolo modello. Da capire un po
-                        switch (interactor.transform.parent.parent.name)
+                        switch (interactor.transform.name)
                         {
+	                        //todo sta cosa coi parent parent parent non va bene. Da rifare il prefab del sign
                             case "SignParent":
 	                            signTemp = interactor.collider.GetComponentInParent<SignController>();
 	                            signScript.SetCurrentSignID(signTemp.GetSignID());
                                 InteractWithSign();
                                 break;
+                            case "Door":
+	                            InteractWithDoor();
+	                            break;
+                            case "Lever":
+	                            InteractWithLever();
+	                            break;
                             case "Chest":
                                 //InteractWithObject("Chest");
                                 break;
@@ -82,27 +89,25 @@ namespace Player
 					Values.SetIsNearPickup(true);
 					if (Input.GetKey("e"))
 					{
-						switch(picker.transform.parent.parent.name)
+						switch(picker.transform.name)
 						{
-							case "AmmoBoxParent":
+							case "AmmoBox":
 								CollectAmmo();
-								Destroy(picker.transform.parent.gameObject);
 								break;
 							
-							case "MedKitParent":
+							case "MedKit":
 								CollectMedKit();
-								Destroy(picker.transform.parent.gameObject);
 								break;
 							
-							case "KeyParent":
+							case "Key":
 								CollectKey();
-								Destroy(picker.transform.parent.gameObject);
 								break;
 							
 							default:
 								break;
 							
 						}
+						Destroy(picker.transform.gameObject);
 					}
 				}
 				else
@@ -128,6 +133,15 @@ namespace Player
             Values.SetIsFrozen(true);
         }
 
+        private void InteractWithDoor()
+        {
+	        Values.SetIsUsingDoor(true);
+        }
+
+        private void InteractWithLever()
+        {
+	        Values.SetIsUsingLever(true);
+        }
         /*Pickup Methods*/
 		
 		private void CollectAmmo(){

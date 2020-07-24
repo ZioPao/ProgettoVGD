@@ -50,6 +50,8 @@ namespace Player
         private static bool isInteracting = false;
         private static bool isNearInteractable = false;
         private static bool isNearPickup = false;
+        private static bool isUsingDoor = false;
+        private static bool isUsingLever = false;
         private static bool hasKey = false;
 
         //Raycasting
@@ -238,6 +240,16 @@ namespace Player
         public static bool GetIsNearPickup()
         {
             return isNearPickup;
+        }
+
+        public static bool GetIsUsingDoor()
+        {
+            return isUsingDoor;
+        }
+
+        public static bool GetIsUsingLever()
+        {
+            return isUsingLever;
         }
         public static bool GetHasKey()
         {
@@ -447,6 +459,16 @@ namespace Player
         public static void SetIsNearPickup(bool value)
         {
             isNearPickup = value;
+        }
+
+        public static void SetIsUsingDoor(bool value)
+        {
+            isUsingDoor = value;
+        }
+
+        public static void SetIsUsingLever(bool value)
+        {
+            isUsingLever = value;
         }
         public static void SetHasKey(bool value)
         {
