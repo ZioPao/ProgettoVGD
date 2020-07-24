@@ -1422,6 +1422,7 @@ GameObject:
   - component: {fileID: 1515275599156765472}
   - component: {fileID: 1515275599159632640}
   - component: {fileID: 1515275599158665664}
+  - component: {fileID: 7549672694424112272}
   m_Layer: 0
   m_Name: Rock_5 (2)
   m_TagString: Untagged
@@ -1490,6 +1491,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7549672694424112272
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515275599156477696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8386028, y: 1.168573, z: 2.146853}
+  m_Center: {x: 0.16357927, y: 0.04827511, z: 0.15328573}
 --- !u!1 &1515275599169895000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3384,7 +3398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515275599458739367}
   m_LocalRotation: {x: -0.053495824, y: 0.6622444, z: 0.008040942, w: 0.7473326}
-  m_LocalPosition: {x: 14.11, y: 10.41, z: 128.8}
+  m_LocalPosition: {x: 14.18, y: 9.57, z: 128.86}
   m_LocalScale: {x: 8, y: 5, z: 15}
   m_Children: []
   m_Father: {fileID: 1515275600085952418}
@@ -3727,6 +3741,7 @@ GameObject:
   - component: {fileID: 1515275599490458882}
   - component: {fileID: 1515275599490458880}
   - component: {fileID: 1515275599490458883}
+  - component: {fileID: 2041621851490475382}
   m_Layer: 0
   m_Name: Rock_5 (37)
   m_TagString: Untagged
@@ -3795,6 +3810,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2041621851490475382
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515275599490458893}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8386037, y: 1.1685731, z: 2.146853}
+  m_Center: {x: 0.16357885, y: 0.048274647, z: 0.15328549}
 --- !u!1 &1515275599503680753
 GameObject:
   m_ObjectHideFlags: 0
@@ -7524,6 +7552,7 @@ GameObject:
   - component: {fileID: 1515275600256515823}
   - component: {fileID: 1515275600256515821}
   - component: {fileID: 1515275600256515820}
+  - component: {fileID: 507259358078220293}
   m_Layer: 0
   m_Name: Rock_5 (34)
   m_TagString: Untagged
@@ -7592,6 +7621,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &507259358078220293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515275600256515822}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8386028, y: 1.1685734, z: 2.1468527}
+  m_Center: {x: 0.16357832, y: 0.048274633, z: 0.15328547}
 --- !u!1 &1515275600258819089
 GameObject:
   m_ObjectHideFlags: 0
@@ -7809,6 +7851,7 @@ GameObject:
   - component: {fileID: 1515275600311404094}
   - component: {fileID: 1515275600311404092}
   - component: {fileID: 1515275600311404095}
+  - component: {fileID: 668104229582462962}
   m_Layer: 0
   m_Name: Rock_5 (35)
   m_TagString: Untagged
@@ -7877,6 +7920,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &668104229582462962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515275600311404089}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8386047, y: 1.168574, z: 2.1468534}
+  m_Center: {x: 0.16357976, y: 0.048274696, z: 0.15328549}
 --- !u!1 &1515275600314242434
 GameObject:
   m_ObjectHideFlags: 0
@@ -9276,6 +9332,7 @@ GameObject:
   - component: {fileID: 1515275600514338240}
   - component: {fileID: 1515275600511438304}
   - component: {fileID: 1515275600512438048}
+  - component: {fileID: 9111936744968740963}
   m_Layer: 0
   m_Name: Rock_5 (3)
   m_TagString: Untagged
@@ -9344,6 +9401,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &9111936744968740963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515275600514699744}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8386033, y: 1.1685731, z: 2.146853}
+  m_Center: {x: 0.16357954, y: 0.048274647, z: 0.15328561}
 --- !u!1 &1515275600525731687
 GameObject:
   m_ObjectHideFlags: 0
@@ -9840,6 +9910,7 @@ GameObject:
   - component: {fileID: 1515275600576796742}
   - component: {fileID: 1515275600573896806}
   - component: {fileID: 1515275600575027878}
+  - component: {fileID: 2424092512757858120}
   m_Layer: 0
   m_Name: Rock_5 (1)
   m_TagString: Untagged
@@ -9908,6 +9979,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2424092512757858120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515275600577021030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.838603, y: 1.1685729, z: 2.1468525}
+  m_Center: {x: 0.16357929, y: 0.048274726, z: 0.15328556}
 --- !u!1 &1515275600618587544
 GameObject:
   m_ObjectHideFlags: 0
@@ -10794,6 +10878,7 @@ GameObject:
   - component: {fileID: 1515275600732265247}
   - component: {fileID: 1515275600728873791}
   - component: {fileID: 1515275600729971199}
+  - component: {fileID: 5792354337718862127}
   m_Layer: 0
   m_Name: Rock_5
   m_TagString: Untagged
@@ -10862,6 +10947,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5792354337718862127
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515275600731899711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8386033, y: 1.1685731, z: 2.146853}
+  m_Center: {x: 0.1635793, y: 0.048274647, z: 0.15328561}
 --- !u!1 &1515275600746967266
 GameObject:
   m_ObjectHideFlags: 0
@@ -11430,6 +11528,7 @@ GameObject:
   - component: {fileID: 1515275600950134773}
   - component: {fileID: 1515275600950134731}
   - component: {fileID: 1515275600950134730}
+  - component: {fileID: 1964506581036902830}
   m_Layer: 0
   m_Name: Rock_5 (36)
   m_TagString: Untagged
@@ -11498,6 +11597,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1964506581036902830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515275600950134772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8386037, y: 1.1685731, z: 2.146853}
+  m_Center: {x: 0.16357933, y: 0.048274647, z: 0.15328561}
 --- !u!1 &1515275600982671542
 GameObject:
   m_ObjectHideFlags: 0
@@ -12175,15 +12287,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5eb2d8d015947940bff59dec0ea2a04, type: 3}
---- !u!1 &1131665101930784319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 456174641510016442, guid: a5eb2d8d015947940bff59dec0ea2a04,
-    type: 3}
-  m_PrefabInstance: {fileID: 711800744318370693}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6191264507768923582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6632422660711671355, guid: a5eb2d8d015947940bff59dec0ea2a04,
+    type: 3}
+  m_PrefabInstance: {fileID: 711800744318370693}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1131665101930784319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 456174641510016442, guid: a5eb2d8d015947940bff59dec0ea2a04,
     type: 3}
   m_PrefabInstance: {fileID: 711800744318370693}
   m_PrefabAsset: {fileID: 0}
