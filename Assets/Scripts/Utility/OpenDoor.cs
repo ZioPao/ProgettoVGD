@@ -11,7 +11,7 @@ public class OpenDoor : MonoBehaviour
 
     private Quaternion correctRotation;
 
-    void Start()
+    void Awake()
     {
         isOpening = false;
         correctRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, -90f);
@@ -31,6 +31,13 @@ public class OpenDoor : MonoBehaviour
         if (isOpening)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, correctRotation, Time.deltaTime * 10f);
+
+            if (Quaternion.Angle(transform.rotation, correctRotation) <= 0.05f)
+            {
+                this.enabled = false;
+            }
+
+            
         }
         
     }
@@ -38,5 +45,6 @@ public class OpenDoor : MonoBehaviour
     public void ForceActivation()
     {
         transform.rotation = correctRotation;
+        this.enabled = false;
     }
 }

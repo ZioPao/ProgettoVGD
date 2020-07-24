@@ -18,10 +18,12 @@ namespace Saving
         public SaveSystem()
         {
             save = new Save();
+
         }
 
 
         private Save save;
+        private GameObject currentLevel;
 
         public void Save()
         {
@@ -99,7 +101,7 @@ namespace Saving
             Transform playerTransform = Values.GetPlayerTransform();
             playerTransform.position = save.playerPosition;
             playerTransform.rotation = save.playerRotation;
-            
+
             //todo salvare ammo
 
 
@@ -161,6 +163,7 @@ namespace Saving
             GameObject spawnerPrefab =
                 Resources.Load<GameObject>("Prefabs/Spawners/EnemySpawner"); //Level name = enemy type
 
+            //todo utilizza nuovo metodo
             foreach (var oldSpawner in GameObject.FindGameObjectsWithTag("Spawner"))
             {
                 Object.Destroy(oldSpawner);
@@ -184,38 +187,34 @@ namespace Saving
             //Interactables
             foreach (var interactable in save.interactableStatus)
             {
-                var interactableObject = GameObject.Find(interactable.Key);
+                var interactableObject = currentLevel.transform.Find("InteractableObjects/" + interactable.Key);
 
+                //Check aggiuntivo per capire se stiamo prendendo l'object igusto o meno
+                
                 switch (interactableObject.name)
                 {
                     case "LeverBoss":
+                        //Destroy(interactableObject);
+                        //StartCoroutine(InstantiatePrefab("Prefabs/Levels/Generic/Prefabs/LeverBoss"));
+                        
+                        //interactableObject = GameObject.Find(interactable.Key);
                         var lever = interactableObject.GetComponent<LeverScript>();
 
-                        if (interactable.Value)
-                        {
-                            //Reset
-                            
-                            //Destroy(interactableObject);
-                            //var z = LoadPrefab("Prefabs/Levels/Generic/Prefabs/LeverBoss");
-                            
-                            
-                            
-                        }
-                        else
+                        if (!interactable.Value)
                         {
                             lever.ForceActivation();
                         }
 
                         break;
 
-                    case "DoorOptional": 
-                        var door = interactableObject.GetComponent<OpenDoor>();
+                    case "DoorPassageOptional":
+                        var door = interactableObject.GetComponentInChildren<OpenDoor>();
 
                         if (!interactable.Value)
                         {
                             door.ForceActivation();
-                            
                         }
+
                         break;
                     default:
                         break;
@@ -231,26 +230,24 @@ namespace Saving
             Object.Destroy(GameObject.FindWithTag("Level"));
             GameObject newLevel = Resources.Load<GameObject>("Prefabs/Levels/" + save.levelName);
             
-            PrefabUtility.UnpackPrefabInstance(PrefabUtility.InstantiatePrefab(newLevel) as GameObject
+            
+            PrefabUtility.UnpackPrefabInstance(currentLevel = PrefabUtility.InstantiatePrefab(newLevel) as GameObject
                 , PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
-            
+
             yield return new WaitForEndOfFrame();
+            
+             
         }
 
-        IEnumerator LoadPrefab(string path)
+        IEnumerator InstantiatePrefab(string path)
         {
-            ResourceRequest prefab = Resources.LoadAsync<GameObject>(path);
+            GameObject prefab = Resources.Load<GameObject>(path);
 
-            while (!prefab.isDone)
-                yield return null; //wait
-            
-            
+            PrefabUtility.UnpackPrefabInstance(PrefabUtility.InstantiatePrefab(prefab) as GameObject
+                , PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+
 
             yield return new WaitForEndOfFrame();
-            
         }
-
-      
-        
     }
 }

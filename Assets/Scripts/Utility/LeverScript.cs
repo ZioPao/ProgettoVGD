@@ -17,9 +17,10 @@ namespace Utility
         private Vector3 correctPosition;
         private Quaternion doorRotation;
         
-        public void Start()
+        public void Awake()
         {
 
+            //print("Instanziato lever!");
             isMoving = false;
             movingPiece = transform.Find("movingPiece");
 
@@ -72,17 +73,16 @@ namespace Utility
 
         public void ForceActivation()
         {
-            //Start();        //Reinit just in case
+            Awake();        //Reinit just in case
+            //print("forzato lever");
             door = GameObject.Find(doorName).transform;
             movingPiece.position = correctPosition;
             movingPiece.rotation = correctRotation;
             door.rotation = Quaternion.Euler(door.eulerAngles.x, door.eulerAngles.y, -90f);
-            ;
-            
             this.tag = "InteractableOver"; //To disable the "interact with e" message, again just in case
             
 
-            Destroy(this);        //Non so che altro penasre
+            //Destroy(this);        //Non so che altro penasre
 
         }
     }

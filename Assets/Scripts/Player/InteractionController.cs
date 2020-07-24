@@ -52,7 +52,7 @@ namespace Player
 	                            signScript.SetCurrentSignID(signTemp.GetSignID());
                                 InteractWithSign();
                                 break;
-                            case "Door":
+                            case "DoorOptional":
 	                            InteractWithDoor();
 	                            break;
                             case "LeverBoss":

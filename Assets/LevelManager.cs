@@ -129,7 +129,7 @@ public class LevelManager : MonoBehaviour
                     break;
                 case "DoorOptional":
                     OpenDoor tmpDoor = x.GetComponent<OpenDoor>();
-                    interactablesDictionary.Add(x.name, tmpDoor.enabled);
+                    interactablesDictionary.Add(x.transform.parent.name, tmpDoor.enabled);        //Parent per via di come è strutturato il prefab
                     break;
             }
             
@@ -141,11 +141,11 @@ public class LevelManager : MonoBehaviour
             {
                 case LeverBossString:
                     LeverScript tmpLever = x.GetComponent<LeverScript>();
-                    interactablesDictionary.Add(x.name, tmpLever.enabled);
+                    interactablesDictionary.Add(x.name, false);
                     break;
                 case "DoorOptional":
                     OpenDoor tmpDoor = x.GetComponent<OpenDoor>();
-                    interactablesDictionary.Add(x.name, tmpDoor.enabled);
+                    interactablesDictionary.Add(x.transform.parent.name, false);
                     break;
             }
         }
