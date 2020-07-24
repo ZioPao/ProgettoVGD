@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Utility
 {
+    [Serializable]
     public class LeverStatus
     {
         private bool isMoving;

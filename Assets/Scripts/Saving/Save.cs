@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using Enemies;
-using Saving;
-using UnityEngine;
+using Utility;
 
-namespace Utility
+namespace Saving
 {
     [System.Serializable]
     public class Save
@@ -33,6 +31,10 @@ namespace Utility
         //Triggers
 
         public Dictionary<string, bool> triggersStatus;
+        
+        //Interactables
+
+        public Dictionary<string, bool> interactableStatus;
         
         //Nemici
 

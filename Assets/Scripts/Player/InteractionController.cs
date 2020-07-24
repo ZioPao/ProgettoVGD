@@ -55,7 +55,7 @@ namespace Player
                             case "Door":
 	                            InteractWithDoor();
 	                            break;
-                            case "Lever":
+                            case "LeverBoss":
 	                            InteractWithLever();
 	                            break;
                             case "Chest":

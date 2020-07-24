@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8747336793080251561}
   - component: {fileID: 8747336793080251562}
   m_Layer: 0
-  m_Name: Lever
+  m_Name: LeverBoss
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add2495e3ea8c7e4086fd38dd187629f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorName: bossDoor
 --- !u!65 &8747336793080251562
 BoxCollider:
   m_ObjectHideFlags: 0

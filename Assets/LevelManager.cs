@@ -11,9 +11,13 @@ public class LevelManager : MonoBehaviour
 
     private const string EnemyTag = "enemy";
     private const string PickupTag = "Pickup";
+    private const string InteractableTag = "Interactable";
+    private const string InteractableOverTag = "InteractableOver";
     private const string TriggerTag = "Trigger";
     private const string SpawnerTag = "Spawner";
     private const string ProjectileTag = "Projectile";
+
+    private const string LeverBossString = "LeverBoss";
 
     
     //Enemy stuff
@@ -106,6 +110,48 @@ public class LevelManager : MonoBehaviour
 
         return null;
     }
+
+    public Dictionary<string, bool> GetInteractables()
+    {
+
+
+        Dictionary<string, bool> interactablesDictionary = new Dictionary<string, bool>();
+        GameObject[] interactables = GameObject.FindGameObjectsWithTag(InteractableTag);
+
+        foreach (var x in interactables)
+        {
+
+            switch (x.name)
+            {
+                case LeverBossString:
+                    LeverScript tmpLever = x.GetComponent<LeverScript>();
+                    interactablesDictionary.Add(x.name, tmpLever.enabled);
+                    break;
+                case "DoorOptional":
+                    OpenDoor tmpDoor = x.GetComponent<OpenDoor>();
+                    interactablesDictionary.Add(x.name, tmpDoor.enabled);
+                    break;
+            }
+            
+        }
+
+        foreach (var x in GameObject.FindGameObjectsWithTag(InteractableOverTag))
+        {
+            switch (x.name)
+            {
+                case LeverBossString:
+                    LeverScript tmpLever = x.GetComponent<LeverScript>();
+                    interactablesDictionary.Add(x.name, tmpLever.enabled);
+                    break;
+                case "DoorOptional":
+                    OpenDoor tmpDoor = x.GetComponent<OpenDoor>();
+                    interactablesDictionary.Add(x.name, tmpDoor.enabled);
+                    break;
+            }
+        }
+        return interactablesDictionary;
+    }
+    
 
 
 }

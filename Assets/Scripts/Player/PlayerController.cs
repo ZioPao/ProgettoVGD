@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Saving;
 using UnityEngine;
 using Utility;
@@ -87,13 +88,25 @@ namespace Player
             
             if (Input.GetKeyDown(KeyCode.F5))
             {
-                new SaveSystem().Save();
+                var saveSystem = gameObject.AddComponent<SaveSystem>();
+
+                saveSystem.Save();
+                Destroy(saveSystem);
             }
 
                         
             if (Input.GetKeyDown(KeyCode.F6))
             {
-                new SaveSystem().Load();
+                var saveSystem = gameObject.AddComponent<SaveSystem>();
+                saveSystem.Load();
+                Destroy(saveSystem);
+            }
+
+            if (Input.GetKeyDown(KeyCode.F7))
+            {
+                var interactableObject = GameObject.Find("Lever");
+                interactableObject.GetComponent<LeverScript>().ForceActivation();
+
 
             }
             if (!Values.GetIsFrozen())
@@ -149,6 +162,5 @@ namespace Player
             }
 
         }
-
     }
 }

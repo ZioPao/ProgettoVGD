@@ -7,6 +7,7 @@ public class OpenDoor : MonoBehaviour
 {
 
     private bool isOpening;
+    private bool forceActivate = false;
 
     private Quaternion correctRotation;
 
@@ -24,18 +25,18 @@ public class OpenDoor : MonoBehaviour
             isOpening = true;
             Values.SetIsUsingDoor(false);
             Values.SetHasKey(false);
-            this.tag = "Untagged";        //To disable the "interact with e" message
+            this.tag = "InteractableOver";        //To disable the "interact with e" message
         }
 
         if (isOpening)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, correctRotation, Time.deltaTime * 10f);
-            
-            
-            if (transform.rotation.Equals(correctRotation)) 
-                this.enabled = false;        //end the script
-
         }
         
+    }
+
+    public void ForceActivation()
+    {
+        transform.rotation = correctRotation;
     }
 }
