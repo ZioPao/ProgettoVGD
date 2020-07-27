@@ -389,6 +389,15 @@ namespace Player
             }
         }
 
+        public static void AddHealth(float value)
+        {
+
+            if (health + value > 100)
+                health = 100;
+            else
+                health += value;
+        }
+
 
         public static void SetStamina(float value)
         {
