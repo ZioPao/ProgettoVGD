@@ -97,10 +97,10 @@ namespace Player
         public void MeleeHit()
         {
             //When an attack goes through the attack cooldown is reset
-            Utility.TimerController.ResetTimer(cooldownTimer);
+            TimerController.ResetTimer(cooldownTimer);
                 
             Values.SetIsAttacking(Values.GetCurrentWeapon(), true);
-            Utility.TimerController.ResetTimer(attackTimer);
+            TimerController.ResetTimer(attackTimer);
             
             if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit hit, Values.GetMeleeDistance(), LayerMask.GetMask("EnemyHitbox")))
             {

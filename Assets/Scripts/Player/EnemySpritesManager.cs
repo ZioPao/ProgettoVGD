@@ -92,6 +92,7 @@ namespace Player
                                     tmp = Resources.Load(path + "DiagBackLeft_AnimController") as RuntimeAnimatorController;
                                     break;
                                 default:
+                                    tmp = Resources.Load(path + "Front") as RuntimeAnimatorController;
                                     break;
                             }
 

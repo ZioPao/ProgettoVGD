@@ -30,7 +30,11 @@ namespace Player
 
         //Knife
         private Sprite knifeIdleSprite, knifeHittingSprite;
+        private RuntimeAnimatorController knifeAnimation;
         private Material knifeIdleMat, knifeHittingMat;
+        private SpriteRenderer knifeRenderer;
+        private Animator knifeAnimator;
+        private bool attackingWithKnife;
         
         
         void Start()
@@ -39,6 +43,17 @@ namespace Player
 
             pistolRenderer = null;        //init sempre a null
             smgRenderer = null;
+            knifeRenderer = null;
+
+            attackingWithKnife = false;
+            
+            
+            //KNIFE
+            knifeIdleSprite = Resources.Load<Sprite>("PlayerWeapons/knife/Sprites/" + IDLE_WEAPON);
+            knifeHittingSprite = Resources.Load<Sprite>("PlayerWeapons/knife/Sprites/" + SHOOTING_WEAPON);
+
+            knifeIdleMat = Resources.Load<Material>("PlayerWeapons/knife/Mats/" + IDLE_WEAPON);
+            knifeHittingMat = Resources.Load<Material>("PlayerWeapons/knife/Mats/" + SHOOTING_WEAPON);
             
             ///PISTOL
 
@@ -70,6 +85,9 @@ namespace Player
 
             switch (Values.GetCurrentWeapon())
             {
+                case(Values.WeaponEnum.Knife):
+                    SetupKnifeAnimations();
+                    break;
                 case(Values.WeaponEnum.Pistol):
                     SetupPistolAnimations();
                     break;
@@ -83,6 +101,41 @@ namespace Player
         }
 
 
+        private void SetupKnifeAnimations()
+        {
+            if (knifeRenderer == null)
+                knifeRenderer = Values.GetWeaponObjects()[Values.WeaponEnum.Knife].GetComponent<SpriteRenderer>();
+            if (knifeAnimator == null)
+            {
+                knifeAnimator = Values.GetWeaponObjects()[Values.WeaponEnum.Knife].GetComponent<Animator>();
+                knifeAnimation = Resources.Load("PlayerWeapons/knife/Sprites/shooting_AnimController") as RuntimeAnimatorController;
+
+            }
+            if (TimerController.GetCurrentTime()[TimerController.KNIFEATTACK_K] > 0 && !attackingWithKnife)
+            {
+                //knifeRenderer.material = knifeHittingMat;
+                knifeRenderer.sprite = knifeHittingSprite;
+                knifeAnimator.runtimeAnimatorController = knifeAnimation;                                 
+                attackingWithKnife = true;
+            }
+            else if (attackingWithKnife)
+
+                if (TimerController.GetCurrentTime()[TimerController.KNIFEATTACK_K] == 0)
+                    attackingWithKnife = false;
+                
+           
+            if (!attackingWithKnife)
+            {
+                //knifeRenderer.material = knifeIdleMat;
+                knifeRenderer.sprite = knifeIdleSprite;
+                knifeAnimator.runtimeAnimatorController = null;
+                attackingWithKnife = false;
+            }
+
+  
+
+
+        }
         private void SetupPistolAnimations()
         {
         

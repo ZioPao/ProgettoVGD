@@ -22378,6 +22378,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 064b998fc99ae55499bb3a8d1fbf2de9, type: 3}
+--- !u!1 &1111365671 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2306608299753256202, guid: 7a700cd462e9ab44698b938af92c668a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7640057085804166441}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1111365675
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111365671}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1111471110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39972,10 +39997,36 @@ PrefabInstance:
       propertyPath: m_ShowCustomSorter
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2306608299753256200, guid: 7a700cd462e9ab44698b938af92c668a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 51929de48f84e8f45ab42e882fb4a25e,
+        type: 3}
+    - target: {fileID: 2306608299753256200, guid: 7a700cd462e9ab44698b938af92c668a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306608299753256200, guid: 7a700cd462e9ab44698b938af92c668a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306608299753256200, guid: 7a700cd462e9ab44698b938af92c668a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2306608299753256200, guid: 7a700cd462e9ab44698b938af92c668a,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2306608299753256203, guid: 7a700cd462e9ab44698b938af92c668a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.007
+      value: -0.217
       objectReference: {fileID: 0}
     - target: {fileID: 2306608299998571436, guid: 7a700cd462e9ab44698b938af92c668a,
         type: 3}
