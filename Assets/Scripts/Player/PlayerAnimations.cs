@@ -21,24 +21,25 @@ namespace Player
         //Pistol
         private Sprite pistolIdleSprite, pistolShootingSprite;
         private Material pistolIdleMat, pistolShootingMat;
+        private SpriteRenderer pistolRenderer;
         
         //SMG
         private Sprite smgIdleSprite, smgShootingSprite;
         private Material smgIdleMat, smgShootingMat;
-        
+        private SpriteRenderer smgRenderer;
+
         //Knife
         private Sprite knifeIdleSprite, knifeHittingSprite;
         private Material knifeIdleMat, knifeHittingMat;
-
-        //renderer
-        private SpriteRenderer pistolRenderer;
-
+        
+        
         void Start()
         {
             anim = GetComponent<Animator>();
 
             pistolRenderer = null;        //init sempre a null
-
+            smgRenderer = null;
+            
             ///PISTOL
 
             pistolIdleSprite = Resources.Load<Sprite>("PlayerWeapons/pistol/Sprites/" + IDLE_WEAPON);
@@ -47,6 +48,13 @@ namespace Player
             pistolIdleMat = Resources.Load<Material>("PlayerWeapons/pistol/Mats/" + IDLE_WEAPON);
             pistolShootingMat = Resources.Load<Material>("PlayerWeapons/pistol/Mats/" + SHOOTING_WEAPON);
             
+            //SMG
+            
+            smgIdleSprite = Resources.Load<Sprite>("PlayerWeapons/smg/Sprites/" + IDLE_WEAPON);
+            smgShootingSprite = Resources.Load<Sprite>("PlayerWeapons/smg/Sprites/" + SHOOTING_WEAPON);
+
+            smgIdleMat = Resources.Load<Material>("PlayerWeapons/smg/Mats/" + IDLE_WEAPON);
+            smgShootingMat = Resources.Load<Material>("PlayerWeapons/smg/Mats/" + SHOOTING_WEAPON);
         }
 
         // Update is called once per frame
@@ -60,10 +68,16 @@ namespace Player
             anim.SetBool(IsRunningAnim, Values.GetIsRunning());
             anim.SetBool(IsShootingAnim, Values.GetIsAttacking()[Values.GetCurrentWeapon()]);
 
-            if (Values.GetCurrentWeapon().Equals(Values.WeaponEnum.Pistol))
+            switch (Values.GetCurrentWeapon())
             {
-                SetupPistolAnimations();
+                case(Values.WeaponEnum.Pistol):
+                    SetupPistolAnimations();
+                    break;
+                case(Values.WeaponEnum.SMG):
+                    SetupSmgAnimations();
+                    break;
             }
+      
 
 
         }
@@ -90,12 +104,30 @@ namespace Player
             }
             else 
             {
-                 pistolRenderer.material = pistolIdleMat;
-                 pistolRenderer.sprite = pistolIdleSprite;        //Changes sprite
+                pistolRenderer.material = pistolIdleMat;
+                pistolRenderer.sprite = pistolIdleSprite;        //Changes sprite
 
             }
 
         }
-    
+
+        private void SetupSmgAnimations()
+        {
+            if (smgRenderer == null)
+                smgRenderer = Values.GetWeaponObjects()[Values.WeaponEnum.SMG].GetComponent<SpriteRenderer>();
+
+            int currentBullets = Values.GetCurrentAmmo()[Values.WeaponEnum.SMG];
+
+            if ((TimerController.GetCurrentTime()[TimerController.SMGATTACK_K] > 0) && currentBullets >= 0)
+            {
+                smgRenderer.material = smgShootingMat;
+                smgRenderer.sprite = smgShootingSprite;
+            }
+            else
+            {
+                smgRenderer.material = smgIdleMat;
+                smgRenderer.sprite = smgIdleSprite;
+            }
+        }
     }
 }

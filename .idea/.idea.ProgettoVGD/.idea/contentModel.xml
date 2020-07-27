@@ -69,8 +69,6 @@
             </e>
           </e>
         </e>
-        <e p="BossDoorLevel2.cs" t="Include" />
-        <e p="LevelManager.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -123,6 +121,7 @@
             <e p="BossSpawner.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
             <e p="EnemySpawnerStatus.cs" t="Include" />
+            <e p="LevelManager.cs" t="Include" />
             <e p="LeverScript.cs" t="Include" />
             <e p="LeverStatus.cs" t="Include" />
             <e p="MovingWater.cs" t="Include" />
