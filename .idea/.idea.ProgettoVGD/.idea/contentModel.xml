@@ -69,6 +69,7 @@
             </e>
           </e>
         </e>
+        <e p="LightProbeGenerator.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -104,6 +105,10 @@
             <e p="EnemyStatus.cs" t="Include" />
             <e p="ProjectileScript.cs" t="Include" />
             <e p="ProjectileStatus.cs" t="Include" />
+          </e>
+          <e p="Illumination" t="Include">
+            <e p="LightProbesPlacement.cs" t="Include" />
+            <e p="LightProbesVolumeSettings.cs" t="Include" />
           </e>
           <e p="Menu" t="Include">
             <e p="ButtonController.cs" t="Include" />
@@ -202,6 +207,20 @@
           </e>
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="LightingTools.LightProbesVolumes.csproj" t="IncludeRecursive" />
+      <e p="LightingTools.LightProbesVolumes.Editor.csproj" t="IncludeRecursive" />
+      <e p="LocalPackages" t="Include">
+        <e p="LightingTools.LightProbesVolumes" t="Include">
+          <e p="Editor" t="Include">
+            <e p="LightProbesVolumeEditor.cs" t="Include" />
+            <e p="RefreshLightProbesVolumes.cs" t="Include" />
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="LightProbesPlacement.cs" t="Include" />
+            <e p="LightProbesVolumeSettings.cs" t="Include" />
           </e>
         </e>
       </e>
