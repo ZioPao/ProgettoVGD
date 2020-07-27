@@ -79,6 +79,17 @@
             </e>
           </e>
         </e>
+        <e p="Resources" t="Include">
+          <e p="Prefabs" t="Include">
+            <e p="Levels" t="Include">
+              <e p="Level3" t="Include">
+                <e p="Textures" t="Include">
+                  <e p="TerrainTransparencyShader.shader" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="Boss" t="Include">
             <e p="BossOne.cs" t="Include" />
