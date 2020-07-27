@@ -31,7 +31,15 @@ namespace Enemies
             playerTransform = GameObject.Find("Player").GetComponent<Transform>();
 
             agent = GetComponent<NavMeshAgent>();
-            agent.isStopped = true;        //di base dev'essere fermo
+            try
+            {
+                agent.isStopped = true; //di base dev'essere fermo
+
+            }
+            catch (Exception)
+            {
+                Destroy(this);
+            }
         }
 
 
