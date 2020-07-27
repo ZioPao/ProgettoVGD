@@ -27,7 +27,7 @@ namespace Player
 
             //Determina il nome del livello per determinare la cartella
             //todo da inserire
-            levelName = "Level1";
+            levelName = GameObject.FindWithTag("Level").name;
 
             foreach (GameObject enemy in enemyList)
             {
@@ -42,9 +42,7 @@ namespace Player
         private void FixedUpdate()
         {
             if (enemyList.Count == 0) return;
-
-            /*todo è estremamente WIP. Da inserire gestione animazioni, un sistema più decente per il caricamento delle texture, e potenzialmente una marea di altra roba che ora non mi viene in mente*/
-
+            
             //Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
 
 

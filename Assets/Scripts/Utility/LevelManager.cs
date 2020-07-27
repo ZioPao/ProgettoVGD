@@ -151,6 +151,11 @@ public class LevelManager : MonoBehaviour
         }
         return interactablesDictionary;
     }
+
+    public string GetLevelName()
+    {
+        return gameObject.name;
+    }
     
 
 
