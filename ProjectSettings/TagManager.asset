@@ -19,6 +19,7 @@ TagManager:
   - BossSpawner
   - Projectile
   - InteractableOver
+  - Health
   layers:
   - Default
   - TransparentFX

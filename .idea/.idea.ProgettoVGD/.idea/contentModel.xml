@@ -69,6 +69,7 @@
             </e>
           </e>
         </e>
+        <e p="HealthScript.cs" t="Include" />
         <e p="LightProbeGenerator.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
@@ -213,6 +214,31 @@
       <e p="LightingTools.LightProbesVolumes.csproj" t="IncludeRecursive" />
       <e p="LightingTools.LightProbesVolumes.Editor.csproj" t="IncludeRecursive" />
       <e p="LocalPackages" t="Include">
+        <e p="com.simeonradivoev.stochastic-reflections" t="Include">
+          <e p="Resources" t="Include">
+            <e p="Shaders" t="Include">
+              <e p="BilateralBlur.compute" t="Include" />
+              <e p="BRDFComputeLib.cginc" t="Include" />
+              <e p="BRDFLib.cginc" t="Include" />
+              <e p="DepthPyramid.compute" t="Include" />
+              <e p="MedianBlur.compute" t="Include" />
+              <e p="RayTraceCompute.compute" t="Include" />
+              <e p="SSRBlur.cginc" t="Include" />
+              <e p="SSRComputeLib.cginc" t="Include" />
+              <e p="SSRLib.cginc" t="Include" />
+              <e p="stochasticSSR.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="StochasticReflections.cs" t="Include" />
+          </e>
+        </e>
+        <e p="com.unity.render-pipelines.high-definition-config" t="Include">
+          <e p="Runtime" t="Include">
+            <e p="ShaderConfig.cs" t="Include" />
+            <e p="ShaderConfig.cs.hlsl" t="Include" />
+          </e>
+        </e>
         <e p="LightingTools.LightProbesVolumes" t="Include">
           <e p="Editor" t="Include">
             <e p="LightProbesVolumeEditor.cs" t="Include" />
@@ -227,7 +253,9 @@
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="ProgettoVGD.sln" t="IncludeFlat" />
+      <e p="StochasticReflections.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Unity.RenderPipelines.HighDefinition.Config.Runtime.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>

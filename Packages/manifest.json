@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.simeonradivoev.stochastic-reflections": "file:../LocalPackages/com.simeonradivoev.stochastic-reflections",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.ads": "3.4.5",
@@ -9,10 +10,13 @@
     "com.unity.ide.vscode": "1.2.0",
     "com.unity.postprocessing": "2.3.0",
     "com.unity.purchasing": "2.0.6",
+    "com.unity.render-pipelines.high-definition": "7.3.1",
+    "com.unity.render-pipelines.high-definition-config": "file:../LocalPackages/com.unity.render-pipelines.high-definition-config",
     "com.unity.test-framework": "1.1.14",
     "com.unity.textmeshpro": "2.0.1",
     "com.unity.timeline": "1.2.6",
     "com.unity.ugui": "1.0.0",
+    "li.lightingtools.lightprobesvolumes": "file:../LocalPackages/LightingTools.LightProbesVolumes",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -43,7 +47,9 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "li.lightingtools.lightprobesvolumes": "file:../LocalPackages/LightingTools.LightProbesVolumes"
+    "com.unity.modules.xr": "1.0.0"
   }
+  
+    
+  
 }

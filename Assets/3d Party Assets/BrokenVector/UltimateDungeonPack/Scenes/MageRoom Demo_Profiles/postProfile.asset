@@ -1,5 +1,75 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8440172176869401455
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5369720dfee3bfd4ea30a9e16a96bcd1, type: 3}
+  m_Name: StochasticReflections
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 0
+  intensity:
+    overrideState: 1
+    value: 0
+  raycastDownsample:
+    overrideState: 1
+    value: 0
+  resolveDownsample:
+    overrideState: 1
+    value: 0
+  rayDistance:
+    overrideState: 1
+    value: 70
+  thickness:
+    overrideState: 1
+    value: 0.2
+  screenFadeSize:
+    overrideState: 1
+    value: 0.25
+  useFresnel:
+    overrideState: 1
+    value: 1
+  BRDFBias:
+    overrideState: 1
+    value: 0.7
+  useMipMap:
+    overrideState: 1
+    value: 1
+  normalization:
+    overrideState: 1
+    value: 1
+  blurring:
+    overrideState: 1
+    value: 1
+  highQualityBlur:
+    overrideState: 1
+    value: 1
+  useTemporal:
+    overrideState: 1
+    value: 1
+  multipleBounces:
+    overrideState: 1
+    value: 1
+  temporalResponseMin:
+    overrideState: 1
+    value: 0.85
+  temporalResponseMax:
+    overrideState: 1
+    value: 1
+  smoothnessRange:
+    overrideState: 1
+    value: 1
+  debugPass:
+    overrideState: 1
+    value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22,6 +92,7 @@ MonoBehaviour:
   - {fileID: 114562257355395992}
   - {fileID: 114668888894724014}
   - {fileID: 114401940951769804}
+  - {fileID: -8440172176869401455}
 --- !u!114 &114112715140257930
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1533,7 +1604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -1542,7 +1613,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.67
+    value: 0.41
   color:
     overrideState: 0
     value: {r: 0, g: 0, b: 0, a: 1}
