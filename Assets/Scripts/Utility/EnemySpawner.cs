@@ -22,19 +22,18 @@ namespace Utility
         private EnemySpawnerStatus status;
 
         private List<GameObject> enemiesSpawned;
-        
+
         private void Awake()
         {
-            
             //Debug.Log("Awake EnemySpawner");
             if (!Values.GetIsLoadingSave())
             {
                 status = new EnemySpawnerStatus();
                 status.Setup(name, 0, maxEnemiesSpawned, maxEnemiesConcurrently);
-                
+
                 status.SaveTransform(transform.position, transform.rotation);
             }
-       
+
 
             enemiesParent = GameObject.Find("Enemies");
             enemiesSpawned = new List<GameObject>();
@@ -42,31 +41,24 @@ namespace Utility
 
         private void FixedUpdate()
         {
-            try
-            {
-                TimerController.RunTimer(TimerController.ENEMYSPAWN_K);
-                status.SetSpawnedEnemiesCount(enemiesSpawned.Count);
-                int enemiesSpawnedCount = status.GetSpawnedEnemiesCount();
+            TimerController.RunTimer(TimerController.ENEMYSPAWN_K);
+            status.SetSpawnedEnemiesCount(enemiesSpawned.Count);
+            int enemiesSpawnedCount = status.GetSpawnedEnemiesCount();
 
-                if (TimerController.GetCurrentTime()[TimerController.ENEMYSPAWN_K] <= 0)
+            if (TimerController.GetCurrentTime()[TimerController.ENEMYSPAWN_K] <= 0)
+            {
+                RemoveDestroyedEnemies();
+
+                if (enemiesSpawnedCount < status.GetMaxEnemiesConcurrently())
                 {
-                    RemoveDestroyedEnemies();
+                    TimerController.ResetTimer(TimerController.ENEMYSPAWN_K);
+                    SpawnCommonEnemy();
 
-                    if (enemiesSpawnedCount < status.GetMaxEnemiesConcurrently())
-                    {
-                        TimerController.ResetTimer(TimerController.ENEMYSPAWN_K);
-                        SpawnCommonEnemy();
-
-                        //After tot enemies spawned, the spawner destroys itself
-                        status.AddOneToCounter();
-                        if (status.GetCounter() == status.GetMaxEnemiesSpawned())
-                            this.enabled = false;
-                    }
+                    //After tot enemies spawned, the spawner destroys itself
+                    status.AddOneToCounter();
+                    if (status.GetCounter() == status.GetMaxEnemiesSpawned())
+                        this.enabled = false;
                 }
-            }
-            catch (NullReferenceException)
-            {
-                Debug.Log("rotto");
             }
         }
 
@@ -80,7 +72,7 @@ namespace Utility
             {
                 enemy.transform.parent = enemiesParent.transform;
             }
-            catch (MissingReferenceException)
+            catch (Exception )
             {
                 enemiesParent = GameObject.Find("Enemies");
                 enemy.transform.parent = enemiesParent.transform;
@@ -98,7 +90,8 @@ namespace Utility
                                            Random.Range(-rangeSpawn, rangeSpawn));
             enemy.transform.rotation = Random.rotation;
 
-            Values.GetEnemySpritesManager().AddEnemyToEnemyList(enemy); //needed to make the sprite viewing works
+            Values.GetEnemySpritesManager()
+                .AddEnemyToEnemyList(enemy); //needed to make the sprite viewing works
         }
 
         private void RemoveDestroyedEnemies()
@@ -117,7 +110,6 @@ namespace Utility
         {
             Debug.Log("Added old status");
             this.status = status;
-
         }
 
         public void SetEnemyPrefab(GameObject prefab)
