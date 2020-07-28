@@ -69,8 +69,6 @@
             </e>
           </e>
         </e>
-        <e p="HealthScript.cs" t="Include" />
-        <e p="LightProbeGenerator.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -138,11 +136,30 @@
             <e p="BossSpawner.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
             <e p="EnemySpawnerStatus.cs" t="Include" />
+            <e p="HealthScript.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
             <e p="LeverScript.cs" t="Include" />
             <e p="LeverStatus.cs" t="Include" />
+            <e p="LightProbeGenerator.cs" t="Include" />
             <e p="MovingWater.cs" t="Include" />
+            <e p="NavMeshComponents" t="Include">
+              <e p="Editor" t="Include">
+                <e p="NavMeshAssetManager.cs" t="Include" />
+                <e p="NavMeshComponentsGUIUtility.cs" t="Include" />
+                <e p="NavMeshLinkEditor.cs" t="Include" />
+                <e p="NavMeshModifierEditor.cs" t="Include" />
+                <e p="NavMeshModifierVolumeEditor.cs" t="Include" />
+                <e p="NavMeshSurfaceEditor.cs" t="Include" />
+              </e>
+              <e p="Scripts" t="Include">
+                <e p="NavMeshLink.cs" t="Include" />
+                <e p="NavMeshModifier.cs" t="Include" />
+                <e p="NavMeshModifierVolume.cs" t="Include" />
+                <e p="NavMeshSurface.cs" t="Include" />
+              </e>
+            </e>
             <e p="OpenDoor.cs" t="Include" />
+            <e p="PrefabLightmapData.cs" t="Include" />
             <e p="SignController.cs" t="Include" />
             <e p="TimerController.cs" t="Include" />
             <e p="Torch.cs" t="Include" />
@@ -233,12 +250,6 @@
             <e p="StochasticReflections.cs" t="Include" />
           </e>
         </e>
-        <e p="com.unity.render-pipelines.high-definition-config" t="Include">
-          <e p="Runtime" t="Include">
-            <e p="ShaderConfig.cs" t="Include" />
-            <e p="ShaderConfig.cs.hlsl" t="Include" />
-          </e>
-        </e>
         <e p="LightingTools.LightProbesVolumes" t="Include">
           <e p="Editor" t="Include">
             <e p="LightProbesVolumeEditor.cs" t="Include" />
@@ -250,12 +261,13 @@
           </e>
         </e>
       </e>
+      <e p="NavMeshComponents.csproj" t="IncludeRecursive" />
+      <e p="NavMeshComponentsEditor.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="ProgettoVGD.sln" t="IncludeFlat" />
       <e p="StochasticReflections.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
-      <e p="Unity.RenderPipelines.HighDefinition.Config.Runtime.csproj" t="IncludeRecursive" />
     </e>
   </component>
 </project>
