@@ -18,7 +18,7 @@ namespace Player
         private InteractionController interactionScript;
         
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             
             /*Setup Collisions*/

@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Player;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using Utility;
@@ -19,7 +20,7 @@ namespace Enemies
         private string timerName;
         private bool isReloading = false;
 
-        private void Start()
+        private void Awake()
         {
             if (!isReloading)
             {
@@ -43,6 +44,7 @@ namespace Enemies
             hitMarker = transform.Find("Texture").Find("Hitmarker").gameObject;
 
             //Animation timer
+            StartCoroutine(Values.WaitForTimer());
             timerName = name.ToUpper() + "_K";
             TimerController.AddTimer(timerName, 10f); //todo switch case per ogni tot per inserire il frame
             TimerController.AddCurrentTime(timerName, 0f);
@@ -119,7 +121,7 @@ namespace Enemies
             this.status = status;
 
             isReloading = true;
-            Start();        //Reload everything about the enemy
+            Awake();        //Reload everything about the enemy
             isReloading = false;
         }
         public EnemyStatus GetStatus()

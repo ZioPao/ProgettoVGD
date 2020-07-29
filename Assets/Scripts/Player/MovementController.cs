@@ -82,9 +82,17 @@ namespace Player
                 rightVec = transform.right * (rightMovement * slopeSpeedMultiplier);
 
             }
+            
             if (!Values.GetIsGrounded() && Values.GetIsMoving())
             {
                 addedGravity.y = -0.1f;
+            }
+            
+            if (Values.GetIsTouchingWall())
+            {
+                
+                addedGravity.y = -10f;        //per buttarlo giù
+
             }
           
             movementVec = (forwardVec + rightVec + addedGravity);

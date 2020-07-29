@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Player
@@ -92,7 +93,8 @@ namespace Player
         private static Dictionary<WeaponEnum, bool> isAttacking;
         private static WeaponEnum currentWeapon;
         
-        
+        //Timers
+        private static bool isTimerLoaded = false;
         
         /*GETTERS*/
         
@@ -666,6 +668,21 @@ namespace Player
         public static void SetIsAttacking(WeaponEnum key, bool value)
         {
             isAttacking[key] = value;
+        }
+        
+        
+        
+        
+        // Timer stuff
+        
+        public static void SetIsTimerLoaded(bool value)
+        {
+            isTimerLoaded = value;
+        }
+
+        public static IEnumerator WaitForTimer()
+        {
+            yield return new WaitUntil(() => isTimerLoaded);
         }
 
     }

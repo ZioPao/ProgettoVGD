@@ -94,6 +94,7 @@
           <e p="Boss" t="Include">
             <e p="BossOne.cs" t="Include" />
             <e p="BossTrigger.cs" t="Include" />
+            <e p="BossTwo.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">
             <e p="EnemiesManager.cs" t="Include" />

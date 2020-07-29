@@ -62,8 +62,13 @@ namespace Player
                             Animator enemyAnimator = enemyAnimators[enemy];
                             //float animationTimer = enemy.GetComponent<EnemyBase>().GetAnimationTimer();    //todo rendi piu carino
 
+                            string path = null;
+                            
+                            if(enemy.name.Contains("Boss"))
+                                path = "Enemies/" + levelName + "/Boss/";
+                            else
+                                path = "Enemies/" + levelName + "/";
 
-                            string path = "Enemies/" + levelName + "/";
 
                             enemyRenderer.flipX = !(rayEnemySprite.collider.name.Equals("Right") ||
                                                    rayEnemySprite.collider.name.Equals("DiagFrontRight") ||

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 namespace Utility
@@ -17,6 +18,7 @@ namespace Utility
         public static readonly string RELOADTIME_K = "ReloadTime";
         public static readonly string ENEMYSPAWN_K = "EnemySpawn";
         public static readonly string HITMARKER_K = "HitMarker";
+        public static readonly string BOSSTWOPHASE = "BossTwoPhase";
         
         //Timer Types
  
@@ -59,6 +61,10 @@ namespace Utility
 
             AddTimer(HITMARKER_K, 0.3f);
             AddCurrentTime(HITMARKER_K, 0f);
+
+
+            Values.SetIsTimerLoaded(true);
+
 
         }
         

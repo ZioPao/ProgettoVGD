@@ -16,6 +16,7 @@ namespace Player
 
             LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
             
+            //todo aggiungi check per dietro al player
             Values.SetIsTouchingWall
             (
                 (Physics.Raycast(Values.GetCollider().transform.position + new Vector3(0, 0, Values.GetRaycastSpread()), Values.GetCollider().transform.forward, out _, 2, tmp)
