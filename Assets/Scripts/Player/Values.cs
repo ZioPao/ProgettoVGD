@@ -24,7 +24,7 @@ namespace Player
         private static float rigidBodyDefaultMass = 2.45f;
         
         private static float projectileDistance = 100f;
-        private static float meleeDistance = 40f;
+        private static float meleeDistance = 20f;
         private static float interactionDistance = 5f;
         private static float pickupDistance = 5f;
         
@@ -56,6 +56,7 @@ namespace Player
         private static bool hasKey = false;
 
         private static bool isInPause = false;
+        private static bool isGameOver = false;
 
         private static bool hasInteractedWithWinObject = false;
 
@@ -265,6 +266,11 @@ namespace Player
         public static bool GetIsInPause()
         {
             return isInPause;
+        }
+
+        public static bool GetIsGameOver()
+        {
+            return isGameOver;
         }
         public static bool GetHasInteractedWithWinObject()
         {
@@ -503,6 +509,11 @@ namespace Player
         {
             isInPause = value;
         }
+        public static void SetGameOver(bool value)
+        {
+            isGameOver = value;
+        }
+
         public static void SetHasInteractedWithWinObject(bool value)
         {
             hasInteractedWithWinObject = value;

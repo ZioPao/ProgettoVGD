@@ -127,6 +127,14 @@ namespace Player
 
         private void ManageHealth() {
 
+
+            if (Values.GetHealth() <= 0)
+            {
+                //game over.
+                Values.SetGameOver(true);
+            }
+            
+            
             if (Values.GetOxygen() < 1)
             {
                 Values.DecreaseHealth(Time.deltaTime * 10);

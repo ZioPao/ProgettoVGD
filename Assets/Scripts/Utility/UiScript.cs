@@ -13,7 +13,8 @@ namespace Utility
             signCanvas,
             ammoCanvas,
             signParent,
-            pauseCanvas;
+            pauseCanvas,
+            gameOverCanvas;
 
         private Text healthString, staminaText, oxygenText, ammoText, signText;
         private Image healthSprite;
@@ -52,79 +53,88 @@ namespace Utility
             //Pause
             pauseCanvas = GameObject.Find("Pause_Canvas");
             pauseCanvas.SetActive(false); //disables it for the time being
+
+            //Game over
+            gameOverCanvas = GameObject.Find("GameOver_Canvas");
+            gameOverCanvas.SetActive(false);
         }
 
         // Update is called once per frame
         private void Update()
         {
-            int currentHealth = Mathf.RoundToInt(Player.Values.GetHealth());
-            SetHealthSprite(currentHealth);
-
-            healthString.text = currentHealth.ToString();
-            staminaText.text = Mathf.RoundToInt(Player.Values.GetStamina()).ToString();
-
-            //Prende l'arma attiva al momento
-            //todo still pesante
-
-
-            if (!Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()].GetIsMelee())
+            if (Values.GetIsGameOver())
             {
-                ammoCanvas.SetActive(true);
-                ammoText.text = Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] + "/" +
-                                Values.GetAmmoReserve()[Values.GetCurrentWeapon()];
+                gameOverCanvas.SetActive(true);
+                Time.timeScale = 0; //za warudo
             }
             else
             {
-                ammoCanvas.SetActive(false);
-            }
+                int currentHealth = Mathf.RoundToInt(Player.Values.GetHealth());
+                SetHealthSprite(currentHealth);
 
-            float oxygen = Values.GetOxygen();
+                healthString.text = currentHealth.ToString();
+                staminaText.text = Mathf.RoundToInt(Player.Values.GetStamina()).ToString();
 
-            if (oxygen < Values.GetMaxOxygen())
-            {
-                oxygenCanvas.SetActive(true);
-                oxygenText.text = Mathf.RoundToInt(oxygen).ToString();
-            }
-            else
-            {
-                oxygenCanvas.SetActive(false);
-            }
-
-            interactionCanvas.SetActive(Values.GetIsNearInteractable() && !Values.GetIsInteracting());
-            pickupCanvas.SetActive(Values.GetIsNearPickup());
-            signCanvas.SetActive(Values.GetIsReadingSign());
+                //Prende l'arma attiva al momento
+                //todo still pesante
 
 
-            if (Values.GetIsReadingSign())
-            {
-                signText.text = signScript.GetSignText();
-                signText.alignment = TextAnchor.MiddleCenter;
-            }
+                if (!Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()].GetIsMelee())
+                {
+                    ammoCanvas.SetActive(true);
+                    ammoText.text = Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] + "/" +
+                                    Values.GetAmmoReserve()[Values.GetCurrentWeapon()];
+                }
+                else
+                {
+                    ammoCanvas.SetActive(false);
+                }
+
+                float oxygen = Values.GetOxygen();
+
+                if (oxygen < Values.GetMaxOxygen())
+                {
+                    oxygenCanvas.SetActive(true);
+                    oxygenText.text = Mathf.RoundToInt(oxygen).ToString();
+                }
+                else
+                {
+                    oxygenCanvas.SetActive(false);
+                }
+
+                interactionCanvas.SetActive(Values.GetIsNearInteractable() && !Values.GetIsInteracting());
+                pickupCanvas.SetActive(Values.GetIsNearPickup());
+                signCanvas.SetActive(Values.GetIsReadingSign());
 
 
-            /*Manage Pause*/
+                if (Values.GetIsReadingSign())
+                {
+                    signText.text = signScript.GetSignText();
+                    signText.alignment = TextAnchor.MiddleCenter;
+                }
 
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                Values.SetIsInPause(!Values.GetIsInPause());
-            }
+
+                /*Manage Pause*/
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    Values.SetIsInPause(!Values.GetIsInPause());
+                }
 
 
-            if (Values.GetIsInPause())
-            {
-                Time.timeScale = 0;
-                pauseCanvas.SetActive(true);
-            }
-            else
-            {
-                Time.timeScale = 1;
-                pauseCanvas.SetActive(false);
+                if (Values.GetIsInPause())
+                {
+                    Time.timeScale = 0;
+                    pauseCanvas.SetActive(true);
+                }
+                else
+                {
+                    Time.timeScale = 1;
+                    pauseCanvas.SetActive(false);
+                }
             }
         }
 
-        private void ManagePauseMenu()
-        {
-        }
 
         private void SetHealthSprite(int health)
         {

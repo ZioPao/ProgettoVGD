@@ -102,7 +102,7 @@ namespace Player
             Values.SetIsAttacking(Values.GetCurrentWeapon(), true);
             TimerController.ResetTimer(attackTimer);
             
-            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit hit, Values.GetMeleeDistance(), LayerMask.GetMask("EnemyHitbox")))
+            if (!Values.GetIsFrozen() && !Values.GetIsGameOver() &&Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit hit, Values.GetMeleeDistance(), LayerMask.GetMask("EnemyHitbox")))
             {
                 GameObject enemy =  hit.transform.parent.gameObject;
                 EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
@@ -112,7 +112,7 @@ namespace Player
         
         public void ShootProjectile()
         {
-            if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0 && !Values.GetIsReloading() && !Values.GetIsInPause() && !Values.GetIsFrozen())
+            if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0 && !Values.GetIsGameOver() && !Values.GetIsReloading() && !Values.GetIsInPause() && !Values.GetIsFrozen())
             {
                 //When an attack goes through the attack cooldown is reset
                 TimerController.ResetTimer(cooldownTimer);
