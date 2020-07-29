@@ -69,6 +69,8 @@
             </e>
           </e>
         </e>
+        <e p="CheckBossSpawner.cs" t="Include" />
+        <e p="FakeBossThreeStartup.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -93,6 +95,7 @@
         <e p="Scripts" t="Include">
           <e p="Boss" t="Include">
             <e p="BossOne.cs" t="Include" />
+            <e p="BossThree.cs" t="Include" />
             <e p="BossTrigger.cs" t="Include" />
             <e p="BossTwo.cs" t="Include" />
           </e>

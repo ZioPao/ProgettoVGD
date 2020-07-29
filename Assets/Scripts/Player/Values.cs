@@ -55,9 +55,11 @@ namespace Player
         private static bool isUsingLever = false;
         private static bool hasKey = false;
 
+        private static bool hasInteractedWithWinObject = false;
+
         //Raycasting
         private static float raycastLength = 5f;
-        private static float raycastSpread = 0.08f;
+        private static float raycastSpread = 2f;//0.08f;
         
         //Transform
         private static Transform _playerTransform;
@@ -256,6 +258,11 @@ namespace Player
         public static bool GetHasKey()
         {
             return hasKey;
+        }
+
+        public static bool GetHasInteractedWithWinObject()
+        {
+            return hasInteractedWithWinObject;
         }
 
         //Raycasting
@@ -484,6 +491,11 @@ namespace Player
         public static void SetHasKey(bool value)
         {
             hasKey = value;
+        }
+        
+        public static void SetHasInteractedWithWinObject(bool value)
+        {
+            hasInteractedWithWinObject = value;
         }
         
         //Rigidbody
