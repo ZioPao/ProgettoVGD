@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
+using Saving;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,18 +17,24 @@ namespace Menu
         {
             SceneManager.LoadScene("BaseGame");
 
-            SceneManager.activeSceneChanged += OnSceneWasLoaded;
+            SceneManager.activeSceneChanged += NewGameLoadingScene;
             
 
         }
 
+        public void LoadGame()
+        {
+            SceneManager.LoadScene("BaseGame");
+            SceneManager.activeSceneChanged += LoadGameLoadingScene;
+
+        }
         public void QuitGame()
         {
             UnityEditor.EditorApplication.isPlaying = false;
             Application.Quit();
         }
 
-        private static void OnSceneWasLoaded (Scene from, Scene to) {
+        private static void NewGameLoadingScene (Scene from, Scene to) {
             var playerPrefab = Resources.Load<GameObject>("Prefabs/Player");
             var level = Resources.Load<GameObject>("Prefabs/Levels/Level1");
 
@@ -42,5 +50,16 @@ namespace Menu
             playerInstance.transform.position = spawnPoint;
         }
 
+        private static void LoadGameLoadingScene(Scene from, Scene to)
+        {
+            var playerPrefab = Resources.Load<GameObject>("Prefabs/Player");
+            var player = PrefabUtility.InstantiatePrefab(playerPrefab) as GameObject;        //Where?
+   
+            SaveSystem tmp = player.AddComponent<SaveSystem>();
+
+            tmp.Load();
+            Destroy(tmp);      
+
+        }
     }
 }
