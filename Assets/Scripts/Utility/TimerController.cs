@@ -51,7 +51,7 @@ namespace Utility
             AddTimer(SMGCOOLDOWN_K, 0.15f);
             AddCurrentTime(SMGCOOLDOWN_K, 0f);
             
-            AddTimer(RELOADTIME_K, 1.5f);
+            AddTimer(RELOADTIME_K, 1f);
             AddCurrentTime(RELOADTIME_K, 0f);
             
                         

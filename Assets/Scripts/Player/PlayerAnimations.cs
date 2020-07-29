@@ -10,6 +10,7 @@ namespace Player
         private Animator anim;
         private const string IDLE_WEAPON = "idle";
         private const string SHOOTING_WEAPON = "shooting";
+        private const string RELOAD_WEAPON = "reload";
         
         
 
@@ -19,15 +20,19 @@ namespace Player
     
     
         //Pistol
-        private Sprite pistolIdleSprite, pistolShootingSprite;
-        private Material pistolIdleMat, pistolShootingMat;
+        private Sprite pistolIdleSprite, pistolShootingSprite, pistolReloadSprite;
+        private Material pistolIdleMat, pistolShootingMat, pistolReloadMat;
         private SpriteRenderer pistolRenderer;
-        
-        //SMG
-        private Sprite smgIdleSprite, smgShootingSprite;
-        private Material smgIdleMat, smgShootingMat;
-        private SpriteRenderer smgRenderer;
+        private Animator pistolAnimator;
+        private RuntimeAnimatorController pistolReloadAnimation;
 
+        //SMG
+        private Sprite smgIdleSprite, smgShootingSprite, smgReloadSprite;
+        private Material smgIdleMat, smgShootingMat, smgReloadMat;
+        private SpriteRenderer smgRenderer;
+        private Animator smgAnimator;
+        private RuntimeAnimatorController smgReloadAnimation;
+        
         //Knife
         private Sprite knifeIdleSprite, knifeHittingSprite;
         private RuntimeAnimatorController knifeAnimation;
@@ -41,7 +46,7 @@ namespace Player
         {
             anim = GetComponent<Animator>();
 
-            pistolRenderer = null;        //init sempre a null
+            pistolRenderer = null;        //init sempre a null per i renderer
             smgRenderer = null;
             knifeRenderer = null;
 
@@ -55,21 +60,25 @@ namespace Player
             knifeIdleMat = Resources.Load<Material>("PlayerWeapons/knife/Mats/" + IDLE_WEAPON);
             knifeHittingMat = Resources.Load<Material>("PlayerWeapons/knife/Mats/" + SHOOTING_WEAPON);
             
-            ///PISTOL
+            //PISTOL
 
             pistolIdleSprite = Resources.Load<Sprite>("PlayerWeapons/pistol/Sprites/" + IDLE_WEAPON);
             pistolShootingSprite = Resources.Load<Sprite>("PlayerWeapons/pistol/Sprites/" + SHOOTING_WEAPON);
+            pistolReloadSprite = Resources.Load<Sprite>("PlayerWeapons/pistol/Sprites/" + RELOAD_WEAPON);;
 
             pistolIdleMat = Resources.Load<Material>("PlayerWeapons/pistol/Mats/" + IDLE_WEAPON);
             pistolShootingMat = Resources.Load<Material>("PlayerWeapons/pistol/Mats/" + SHOOTING_WEAPON);
+            pistolReloadMat = Resources.Load<Material>("PlayerWeapons/pistol/Mats/" + RELOAD_WEAPON);;
             
             //SMG
             
             smgIdleSprite = Resources.Load<Sprite>("PlayerWeapons/smg/Sprites/" + IDLE_WEAPON);
             smgShootingSprite = Resources.Load<Sprite>("PlayerWeapons/smg/Sprites/" + SHOOTING_WEAPON);
-
+            smgReloadSprite = Resources.Load<Sprite>("PlayerWeapons/smg/Sprites/" + RELOAD_WEAPON);
+            
             smgIdleMat = Resources.Load<Material>("PlayerWeapons/smg/Mats/" + IDLE_WEAPON);
             smgShootingMat = Resources.Load<Material>("PlayerWeapons/smg/Mats/" + SHOOTING_WEAPON);
+            smgReloadMat = Resources.Load<Material>("PlayerWeapons/smg/Mats/" + RELOAD_WEAPON);
         }
 
         // Update is called once per frame
@@ -140,13 +149,16 @@ namespace Player
         {
         
             //PlayerPistol
-            
-            //should be run only one time
-
-
             if (pistolRenderer == null)
             {
+                //should be run only one time
                 pistolRenderer = Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].GetComponent<SpriteRenderer>();
+            }
+            if (pistolAnimator == null)
+            {
+                pistolAnimator = Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].GetComponent<Animator>();
+                pistolReloadAnimation = Resources.Load("PlayerWeapons/pistol/Sprites/reload_AnimController") as RuntimeAnimatorController;
+
             }
             
             int currentBullets = Values.GetCurrentAmmo()[Values.WeaponEnum.Pistol];
@@ -155,10 +167,17 @@ namespace Player
                 pistolRenderer.material = pistolShootingMat;        //Change mat
                 pistolRenderer.sprite = pistolShootingSprite;        //Changes sprite
             }
+            else if (Values.GetIsReloading())
+            {
+                pistolRenderer.material = pistolIdleMat;        //todo temporaneo
+                pistolRenderer.sprite = pistolReloadSprite;
+                pistolAnimator.runtimeAnimatorController = pistolReloadAnimation;
+            }
             else 
             {
                 pistolRenderer.material = pistolIdleMat;
                 pistolRenderer.sprite = pistolIdleSprite;        //Changes sprite
+                pistolAnimator.runtimeAnimatorController = null;
 
             }
 
@@ -168,18 +187,33 @@ namespace Player
         {
             if (smgRenderer == null)
                 smgRenderer = Values.GetWeaponObjects()[Values.WeaponEnum.SMG].GetComponent<SpriteRenderer>();
+            if (smgAnimator == null)
+            {
+                smgAnimator = Values.GetWeaponObjects()[Values.WeaponEnum.SMG].GetComponent<Animator>();
+                smgReloadAnimation = Resources.Load("PlayerWeapons/smg/Sprites/reload_AnimController") as RuntimeAnimatorController;
 
+            }
+            
             int currentBullets = Values.GetCurrentAmmo()[Values.WeaponEnum.SMG];
 
             if ((TimerController.GetCurrentTime()[TimerController.SMGATTACK_K] > 0) && currentBullets >= 0)
             {
                 smgRenderer.material = smgShootingMat;
                 smgRenderer.sprite = smgShootingSprite;
+                smgAnimator.runtimeAnimatorController = null;
+
+            }
+            else if (Values.GetIsReloading())
+            {
+                smgRenderer.material = smgIdleMat;        //todo temporaneo
+                smgRenderer.sprite = smgReloadSprite;
+                smgAnimator.runtimeAnimatorController = smgReloadAnimation;
             }
             else
             {
                 smgRenderer.material = smgIdleMat;
                 smgRenderer.sprite = smgIdleSprite;
+                smgAnimator.runtimeAnimatorController = null;
             }
         }
     }

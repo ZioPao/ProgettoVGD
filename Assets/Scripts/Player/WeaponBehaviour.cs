@@ -112,7 +112,7 @@ namespace Player
         
         public void ShootProjectile()
         {
-            if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0)
+            if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0 && !Values.GetIsReloading())
             {
                 //When an attack goes through the attack cooldown is reset
                 TimerController.ResetTimer(cooldownTimer);
@@ -139,25 +139,31 @@ namespace Player
         
         private void Reload()
         {
-            if (Input.GetKeyDown("r") && !Values.GetIsRunning() &&!Values.GetIsAttacking()[Values.GetCurrentWeapon()] && (Utility.TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] == 0))
+
+            if (Input.GetKeyDown(KeyCode.R) && !Values.GetIsRunning() &&!Values.GetIsAttacking()[Values.GetCurrentWeapon()] && TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] <= 0
+                && Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] < Values.GetReloadAmount()[Values.GetCurrentWeapon()])
             {
                 //On successful reload the cooldown is reset
                 
                 Values.SetIsReloading(true);
-                Utility.TimerController.ResetTimer(TimerController.RELOADTIME_K);
-
+                Utility.TimerController.ResetTimer(TimerController.RELOADTIME_K);        //1.5f
+            
                 //Reloads only while having enough ammo
                 //Figures out how much ammunition to reload
                 
+                //todo if there is no ammo he shouldnt reload
+                
+            
+            }
+            
+            if (TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] <= 0 && Values.GetIsReloading())
+            {
+                //Reloads at the end of timer
                 if (Values.GetAmmoReserve()[Values.GetCurrentWeapon()] >= Values.GetReloadAmount()[Values.GetCurrentWeapon()])
                 {
                     Values.DecrementAmmoReserve(Values.GetCurrentWeapon(), (Values.GetReloadAmount()[Values.GetCurrentWeapon()] - Values.GetCurrentAmmo()[Values.GetCurrentWeapon()]));
                     Values.IncrementCurrentAmmo(Values.GetCurrentWeapon(), (Values.GetReloadAmount()[Values.GetCurrentWeapon()] - Values.GetCurrentAmmo()[Values.GetCurrentWeapon()]));
                 }
-            }
-            
-            if (Utility.TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] == 0)
-            {
                 Values.SetIsReloading(false);
             }
             
