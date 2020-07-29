@@ -27948,7 +27948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5729234387873603173}
   m_Layer: 0
-  m_Name: InteractableObjects
+  m_Name: Signs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

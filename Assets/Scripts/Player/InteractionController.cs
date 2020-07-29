@@ -47,7 +47,7 @@ namespace Player
                         switch (interactor.transform.name)
                         {
 	                        //todo sta cosa coi parent parent parent non va bene. Da rifare il prefab del sign
-                            case "SignParent":
+                            case "Top":
 	                            signTemp = interactor.collider.GetComponentInParent<SignController>();
 	                            signScript.SetCurrentSignID(signTemp.GetSignID());
                                 InteractWithSign();
@@ -125,12 +125,22 @@ namespace Player
 	        {
 		        Values.SetIsReadingSign(false);
 		        Values.SetIsFrozen(false);
+		        
+		        
+		                    
+		        //Check ulteriore per la boss battle finale
+		        if (GameObject.FindGameObjectWithTag("Level").name.Equals("Level3") && signScript.GetCurrentSignID() == 2)
+		        {
+			        Values.SetHasInteractedWithWinObject(true);
+		        }
 	        }
         }
         private void InteractWithSign()
         {
 	        Values.SetIsReadingSign(true);
             Values.SetIsFrozen(true);
+            
+
         }
 
         private void InteractWithDoor()

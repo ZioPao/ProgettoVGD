@@ -27,7 +27,7 @@ namespace Boss
             //Diminuisce la luce
 
             sun.GetComponent<Light>().intensity = 0;
-            this.enabled = false;        //disabilita il trigger
+            enabled = false;        //disabilita il trigger
         }
     }
 }

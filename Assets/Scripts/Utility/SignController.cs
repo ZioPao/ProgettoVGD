@@ -37,6 +37,9 @@ namespace Utility
                 case 1:
                     signText = "Questo cartello e' una prova";
                     break;
+                case 2:
+                    signText = "YOU WIN.... not really";
+                    break;
 
                 default:
                     signText = "418 Sono una teiera";
