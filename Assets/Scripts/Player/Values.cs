@@ -55,6 +55,8 @@ namespace Player
         private static bool isUsingLever = false;
         private static bool hasKey = false;
 
+        private static bool isInPause = false;
+
         private static bool hasInteractedWithWinObject = false;
 
         //Raycasting
@@ -260,6 +262,10 @@ namespace Player
             return hasKey;
         }
 
+        public static bool GetIsInPause()
+        {
+            return isInPause;
+        }
         public static bool GetHasInteractedWithWinObject()
         {
             return hasInteractedWithWinObject;
@@ -492,7 +498,11 @@ namespace Player
         {
             hasKey = value;
         }
-        
+
+        public static void SetIsInPause(bool value)
+        {
+            isInPause = value;
+        }
         public static void SetHasInteractedWithWinObject(bool value)
         {
             hasInteractedWithWinObject = value;

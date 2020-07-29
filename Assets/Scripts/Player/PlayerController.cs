@@ -64,7 +64,7 @@ namespace Player
             /*Manage movements*/
             collisionScript.CheckCollisions();
 
-            if (!Values.GetIsFrozen())
+            if (!Values.GetIsFrozen() || Values.GetIsInPause())
             {
                 movementScript.SetupMovement();
                 movementScript.Jump();
@@ -76,6 +76,8 @@ namespace Player
             ManageHealth();
             ManageOxygen();
             ManageStamina();
+            
+        
             
     
 
