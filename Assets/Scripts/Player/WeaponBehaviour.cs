@@ -112,7 +112,7 @@ namespace Player
         
         public void ShootProjectile()
         {
-            if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0 && !Values.GetIsReloading())
+            if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0 && !Values.GetIsReloading() && !Values.GetIsInPause() && !Values.GetIsFrozen())
             {
                 //When an attack goes through the attack cooldown is reset
                 TimerController.ResetTimer(cooldownTimer);
