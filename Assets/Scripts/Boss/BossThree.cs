@@ -26,7 +26,6 @@ namespace Boss
         [SerializeField] private int projSpeedAttack = 10;
         private EnemyBase boss;
         private EnemyShooting bossShooting;
-        private EnemySpawner enemySpawner;
 
 
         private bool isBossInProgress;
@@ -35,9 +34,8 @@ namespace Boss
         private bool isFakeBossDead;
         
         //private SpriteRenderer spriteRenderer;
-
         private bool isAttacking;
-
+        
 
         /*  Inizialmente identico a Nemico 1, quando subisce una certa quantità di danni cambia fase diventando molto più
             aggressivo (Attacca sparando un maggior numero di proiettili)
@@ -53,9 +51,11 @@ namespace Boss
             //Set boss health
             boss.GetStatus().SetHealth(bossHealth);
 
-            
+
+
+
             //Aura che fa danno a distanza. un'ombra tipo?
-        
+
         }
 
         private void FixedUpdate()

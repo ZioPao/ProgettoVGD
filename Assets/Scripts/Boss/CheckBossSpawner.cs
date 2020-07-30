@@ -76,7 +76,7 @@ namespace Boss
                     boss.transform.position = newBossPosition;
                     boss.transform.rotation = Random.rotation;
                     boss.GetComponent<NavMeshAgent>().Warp(chosenPoint);
-                    boss.GetComponent<EnemyStatus>().SetIsPlayerInView(true);        //subito aggrato
+                    boss.GetComponent<EnemyBase>().GetStatus().SetIsPlayerInView(true);        //subito aggrato
                     enabled = false;        //disables the checker
                 }
             }

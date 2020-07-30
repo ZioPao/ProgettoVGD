@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 910924351632889934}
   - component: {fileID: 5570195099897600801}
   - component: {fileID: 4010089073399049472}
+  - component: {fileID: 2436857202255727053}
   m_Layer: 0
   m_Name: DamageArea
   m_TagString: Untagged
@@ -94,6 +95,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3751355941680063488}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2436857202255727053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3751355941680063488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d98a032db338eb47a74b80e77a5d705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6640978136143130891
 GameObject:
   m_ObjectHideFlags: 0
