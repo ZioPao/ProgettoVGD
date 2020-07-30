@@ -24,6 +24,7 @@ public class EndLevelTrigger : MonoBehaviour
                 player.transform.position = new Vector3(16.51f, 26.632f, 13.16f);
                 break;
             case (3):
+                player.transform.position = new Vector3(151, 55,45);
                 break;
         }
 
