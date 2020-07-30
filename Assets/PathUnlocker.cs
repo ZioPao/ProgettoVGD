@@ -9,6 +9,11 @@ public class PathUnlocker : MonoBehaviour
     [SerializeField] private GameObject objectToMove;
 
 
+    void Start()
+    {
+        if (objectToMove == null)
+            enabled = false;        //no need to unlock a path
+    }
     void FixedUpdate()
     {
 

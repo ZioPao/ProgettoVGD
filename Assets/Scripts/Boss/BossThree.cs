@@ -44,22 +44,18 @@ namespace Boss
         */
         private void Start()
         {
-            //Il boss viene spawnato ma viene disattivato e nascosto
 
+            
+            
+            
             boss = GetComponent<EnemyBase>();
             bossShooting = GetComponent<EnemyShooting>();
             //Set boss health
             boss.GetStatus().SetHealth(bossHealth);
 
-            //Il boss spawna un altro nemico che quando viene ucciso spawna un'altra cosa interagibile
-            // fakeBoss = PrefabUtility.InstantiatePrefab(new GameObject()) as GameObject;
-            // isFakeBossDead = false;
-
-            //isBossInProgress = false;
-
-            //Init timer
-            // TimerController.AddTimer(TimerController.BOSSTWOPHASE, timerPhase);
-            // TimerController.AddCurrentTime(TimerController.BOSSTWOPHASE, 0f);
+            
+            //Aura che fa danno a distanza. un'ombra tipo?
+        
         }
 
         private void FixedUpdate()

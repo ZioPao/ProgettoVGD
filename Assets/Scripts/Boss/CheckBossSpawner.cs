@@ -1,8 +1,10 @@
 ﻿using System;
+using Enemies;
 using Player;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace Boss
 {
@@ -10,6 +12,8 @@ namespace Boss
     {
         private GameObject fakeBoss;
         private Vector3 fakeBossLastPosition;
+
+        [SerializeField] private GameObject spawnPoint1, spawnPoint2;
 
         private bool isFakeBossDead;
 
@@ -51,12 +55,28 @@ namespace Boss
                 if (Values.GetHasInteractedWithWinObject())
                 {
 
+                    Vector3 chosenPoint;
                     var signPosition = sign.transform.position - new Vector3(0,0.05f,0);
                     Destroy(sign);
+
+                    if (Vector3.Distance(Values.GetPlayerTransform().position, spawnPoint1.transform.position) < 10f)
+                    {
+                        chosenPoint = spawnPoint2.transform.position;
+                    }
+                    else
+                    {
+                        chosenPoint = spawnPoint1.transform.position;
+                    }
+                    
                     GameObject bossPrefab = Resources.Load<GameObject>("Prefabs/Enemies/BossLevel3");
                     var boss = PrefabUtility.InstantiatePrefab(bossPrefab) as GameObject;
-                    boss.transform.position = signPosition;
-                    boss.GetComponent<NavMeshAgent>().Warp(signPosition);
+
+
+                    var newBossPosition = chosenPoint;
+                    boss.transform.position = newBossPosition;
+                    boss.transform.rotation = Random.rotation;
+                    boss.GetComponent<NavMeshAgent>().Warp(chosenPoint);
+                    boss.GetComponent<EnemyStatus>().SetIsPlayerInView(true);        //subito aggrato
                     enabled = false;        //disables the checker
                 }
             }
