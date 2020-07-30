@@ -7,6 +7,7 @@ using Enemies;
 using Player;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Utility;
 using Object = UnityEngine.Object;
 
@@ -17,11 +18,13 @@ namespace Saving
         public SaveSystem()
         {
             save = new Save();
+            canLoad = false;
         }
 
 
         private Save save;
         private GameObject currentLevel;
+        private bool canLoad;
 
         public void Save()
         {
@@ -102,19 +105,26 @@ namespace Saving
             Values.SetIsLoadingSave(true);
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
-
+            
             save = (Save) bf.Deserialize(file);
             file.Close();
 
+            //Load correct scene
+            StartCoroutine(LoadLevel(save.levelName));
+            
+            //Setup player
+            
+            GameObject newPlayer = GameObject.Find("Player");
+            Transform newPlayerT = newPlayer.transform;
 
-            //Player stats and position
-
+            newPlayerT.position = save.playerPosition;
+            newPlayerT.rotation = save.playerRotation;
+            
+            Values.SetPlayerTransform(newPlayer.transform);
             Values.SetHealth(save.health);
             Values.SetStamina(save.stamina);
             
             //Weapons
-
-
             foreach (var w in save.weaponsCurrentReserve)
             {
                 Values.SetAmmoReserve(w.Key, w.Value);
@@ -124,74 +134,62 @@ namespace Saving
             {
                 Values.SetCurrentAmmo(w.Key, w.Value);
             }
-
-            Transform playerTransform = Values.GetPlayerTransform();
-            playerTransform.position = save.playerPosition;
-            playerTransform.rotation = save.playerRotation;
-
-            //todo salvare ammo
-
-
-            StartCoroutine(LoadLevel(save.levelName));
-            //WAIT FOR A SEC TO LET IT LOAD
-
-
-            //Deletes all the enemies
+            
+            //Deletes all the enemies todo should be useless now
             foreach (var enemy in GameObject.FindGameObjectsWithTag("enemy"))
             {
                 Object.Destroy(enemy);
             }
-
-            //creates them again
+            
+            //Creates them again
             GameObject enemyPrefab =
                 Resources.Load<GameObject>("Prefabs/Enemies/" + save.levelName); //Level name = enemy type
-
+            
             EnemySpritesManager spritesManager = Values.GetEnemySpritesManager();
             foreach (var element in save.enemiesStatus)
             {
                 GameObject tmpEnemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
                 tmpEnemy.transform.SetParent(GameObject.Find("Enemies").transform);
-
+            
                 tmpEnemy.GetComponent<EnemyBase>().Reload(element.Value);
-
+            
                 tmpEnemy.transform.position = element.Value.GetPosition();
                 tmpEnemy.transform.rotation = element.Value.GetRotation();
                 tmpEnemy.GetComponent<EnemyMovement>().Reload();
-
+            
                 tmpEnemy.GetComponent<EnemyIntelligence>().Start();
                 tmpEnemy.GetComponent<EnemyShooting>().Start();
-
-
+            
+            
                 spritesManager.AddEnemyToEnemyList(tmpEnemy);
             }
 
-
             //Projectiles
-
-            //Destroy all the old projectiles
+            
+            //Destroy all the old projectiles todo should be useless now
             foreach (var p in GameObject.FindGameObjectsWithTag("Projectile"))
             {
                 Object.Destroy(p);
             }
-
+            
             GameObject projPrefab =
                 Resources.Load<GameObject>("Prefabs/Projectiles/" + save.levelName); //Level name = projectile type
             foreach (var pStatus in save.projectileStatus)
             {
                 GameObject tmpProj = PrefabUtility.InstantiatePrefab(projPrefab) as GameObject;
-
+            
                 ProjectileScript tmpScript = tmpProj.GetComponent<ProjectileScript>();
-
+            
                 tmpScript.SetTransform(pStatus.GetPosition(), pStatus.GetRotation());
                 tmpScript.Reload(pStatus);
             }
-
+            
             //Spawners 
+            currentLevel = GameObject.FindWithTag("Level");
             foreach (var spawnerStatus in save.enemySpawnerStatus)
             {
                 var spawnerObject = currentLevel.transform.Find("Spawners/" + spawnerStatus.Key);
 
-                
                 //todo aggiungi caso specialep re bossSpawner
                 if (spawnerObject.name != "BossSpawner")
                 {
@@ -200,39 +198,38 @@ namespace Saving
                 }
                 
             }
-
-
+            
             //Interactables
             foreach (var interactable in save.interactableStatus)
             {
                 var interactableObject = currentLevel.transform.Find("InteractableObjects/" + interactable.Key);
-
+            
                 //Check aggiuntivo per capire se stiamo prendendo l'object igusto o meno
-
+            
                 switch (interactableObject.name)
                 {
                     case "LeverBoss":
                         //Destroy(interactableObject);
                         //StartCoroutine(InstantiatePrefab("Prefabs/Levels/Generic/Prefabs/LeverBoss"));
-
+            
                         //interactableObject = GameObject.Find(interactable.Key);
                         var lever = interactableObject.GetComponent<LeverScript>();
-
+            
                         if (!interactable.Value)
                         {
                             lever.ForceActivation();
                         }
-
+            
                         break;
-
+            
                     case "DoorPassageOptional":
                         var door = interactableObject.GetComponentInChildren<OpenDoor>();
-
+            
                         if (!interactable.Value)
                         {
                             door.ForceActivation();
                         }
-
+            
                         break;
                     default:
                         break;
@@ -240,19 +237,39 @@ namespace Saving
             }
 
             Values.SetIsLoadingSave(false); //Finished loading
+            print("Caricato");
         }
 
         IEnumerator LoadLevel(string levelName)
         {
+            yield return null;
+
+            //Begin to load the Scene you specify
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/" + levelName, LoadSceneMode.Single);
+            //Don't let the Scene activate until you allow it to
+            asyncOperation.allowSceneActivation = false;
+            //When the load is still in progress, output the Text and progress bar
+            while (!asyncOperation.isDone)
+            {
+                // Check if the load has finished
+                if (asyncOperation.progress >= 0.9f)
+                {
+                    asyncOperation.allowSceneActivation = true;
+                    canLoad = true;
+                    //StopCoroutine(LoadNewGame());
+                }
+
+
+                yield return null;
+            }
             //Clean the level and set it up 
-            Object.Destroy(GameObject.FindWithTag("Level"));
-            GameObject newLevel = Resources.Load<GameObject>("Prefabs/Levels/" + save.levelName);
+            //Object.Destroy(GameObject.FindWithTag("Level"));
+            //GameObject newLevel = Resources.Load<GameObject>("Prefabs/Levels/" + save.levelName);
 
 
-            PrefabUtility.UnpackPrefabInstance(currentLevel = PrefabUtility.InstantiatePrefab(newLevel) as GameObject
-                , PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
+            // PrefabUtility.UnpackPrefabInstance(currentLevel = PrefabUtility.InstantiatePrefab(newLevel) as GameObject
+            //     , PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 
-            yield return new WaitForEndOfFrame();
         }
 
         IEnumerator InstantiatePrefab(string path)

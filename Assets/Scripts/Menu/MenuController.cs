@@ -12,36 +12,16 @@ namespace Menu
     public class MenuController : MonoBehaviour
     {
         private Material skybox;
-        private const string MenuRootName = "MainMenuRoot";
 
         public void NewGame()
         {
-            //SceneManager.LoadScene("BaseGame");
-            var playerPrefab = Resources.Load<GameObject>("Prefabs/Player");
-            var level = Resources.Load<GameObject>("Prefabs/Levels/Level1");
-
-            PrefabUtility.InstantiatePrefab(level);
-            var playerInstance = PrefabUtility.InstantiatePrefab(playerPrefab) as GameObject; //Where?
-            RenderSettings.skybox = Resources.Load<Material>("Prefabs/Levels/Level1/Skybox");
-
-            //Spawn point del lv1
-            var spawnPoint = new Vector3(1237, 115, 1041);
-            playerInstance.transform.position = spawnPoint;
-
-            //Una volta finito tutto, distrugge il menù
-            Destroy(GameObject.Find(MenuRootName));
+            StartCoroutine(LoadNewGame());
         }
 
         public void LoadGame()
         {
-            var playerPrefab = Resources.Load<GameObject>("Prefabs/Player");
-            var player = PrefabUtility.InstantiatePrefab(playerPrefab) as GameObject;
-
-            SaveSystem tmp = player.AddComponent<SaveSystem>();
-
-            tmp.Load();
-            Destroy(tmp);
-            Destroy(GameObject.Find(MenuRootName));
+            StartCoroutine(LoadSavedGame());
+         
         }
 
         public void QuitGame()
@@ -49,5 +29,66 @@ namespace Menu
             EditorApplication.isPlaying = false;
             Application.Quit();
         }
+
+        private IEnumerator LoadNewGame()
+        {
+            yield return null;
+
+            //Begin to load the Scene you specify
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/Level1", LoadSceneMode.Single);
+            //Don't let the Scene activate until you allow it to
+            asyncOperation.allowSceneActivation = false;
+            Debug.Log("Pro :" + asyncOperation.progress);
+            //When the load is still in progress, output the Text and progress bar
+            while (!asyncOperation.isDone)
+            {
+                // Check if the load has finished
+                if (asyncOperation.progress >= 0.9f)
+                {
+                    asyncOperation.allowSceneActivation = true;
+                    //StopCoroutine(LoadNewGame());
+                }
+
+
+                yield return null;
+                //spawnPoint = new Vector3(145, 67, 40); //level 3
+
+
+                //spawnPoint = new Vector3()
+            }
+        }
+        private IEnumerator LoadSavedGame()
+        {
+            yield return null;
+
+            //we use level 1 as a basis
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/Level1", LoadSceneMode.Single);
+            //Don't let the Scene activate until you allow it to
+            asyncOperation.allowSceneActivation = false;
+            Debug.Log("Pro :" + asyncOperation.progress);
+            //When the load is still in progress, output the Text and progress bar
+            while (!asyncOperation.isDone)
+            {
+                // Check if the load has finished
+                if (asyncOperation.progress >= 0.9f)
+                {
+                    asyncOperation.allowSceneActivation = true;
+
+                    //Operations on hold until we can actually load
+                    yield return new WaitUntil(() => GameObject.Find("Player") != null);
+                    SaveSystem tmp = new GameObject().AddComponent<SaveSystem>();
+                    tmp.Load();
+                    Destroy(tmp);
+                }
+
+
+                yield return null;
+                //spawnPoint = new Vector3(145, 67, 40); //level 3
+
+
+                //spawnPoint = new Vector3()
+            }
+        }
+        
     }
 }
