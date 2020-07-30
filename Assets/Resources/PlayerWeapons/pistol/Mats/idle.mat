@@ -73,11 +73,11 @@ Material:
     m_Floats:
     - PixelSnap: 0
     - _BlendAmount: 0
-    - _Brightness: 1
+    - _Brightness: 0.825
     - _BumpScale: 1
     - _Cull: 0
     - _CustomRenderQueue: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _EmissionPower: 1
@@ -85,15 +85,15 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Hue: 0
+    - _Hue: 0.5
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RenderQueue: 0
     - _RimPower: 2
-    - _Saturation: 1
-    - _ShadowAlphaCutoff: 0.1
+    - _Saturation: 2
+    - _ShadowAlphaCutoff: 0.179
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 5
@@ -102,7 +102,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FixedNormal: {r: 0, g: 0, b: 1, a: 1}
+    - _FixedNormal: {r: 0, g: 0, b: -1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _OverlayColor: {r: 0, g: 0, b: 0, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}

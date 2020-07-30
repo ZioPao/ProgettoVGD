@@ -169,7 +169,7 @@ namespace Player
             }
             else if (Values.GetIsReloading())
             {
-                pistolRenderer.material = pistolIdleMat;        //todo temporaneo
+                pistolRenderer.material = pistolReloadMat;         //todo temp    
                 pistolRenderer.sprite = pistolReloadSprite;
                 pistolAnimator.runtimeAnimatorController = pistolReloadAnimation;
             }
