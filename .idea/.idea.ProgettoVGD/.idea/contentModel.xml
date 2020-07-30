@@ -149,6 +149,7 @@
           <e p="Illumination" t="Include">
             <e p="LightProbesPlacement.cs" t="Include" />
             <e p="LightProbesVolumeSettings.cs" t="Include" />
+            <e p="PrefabLightmapData.cs" t="Include" />
           </e>
           <e p="Menu" t="Include">
             <e p="ButtonController.cs" t="Include" />
@@ -200,7 +201,6 @@
               </e>
             </e>
             <e p="OpenDoor.cs" t="Include" />
-            <e p="PrefabLightmapData.cs" t="Include" />
             <e p="SignController.cs" t="Include" />
             <e p="TimerController.cs" t="Include" />
             <e p="Torch.cs" t="Include" />
