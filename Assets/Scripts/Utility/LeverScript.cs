@@ -5,28 +5,37 @@ namespace Utility
 {
     public class LeverScript : MonoBehaviour
     {
-        [SerializeField] private string doorName;
+        [SerializeField] private string objectName;
+        [SerializeField] private bool forcePosition = false;
+
+        [SerializeField] private float xValue, yValue, zValue;
 
         private bool isMoving;
 
         //private LeverStatus status;
-        private Transform door;
+        private Transform obj;
         private Transform movingPiece;
 
         private Quaternion correctRotation;
         private Vector3 correctPosition;
         private Quaternion doorRotation;
-        
+
         public void Awake()
         {
-
             //print("Instanziato lever!");
             isMoving = false;
             movingPiece = transform.Find("movingPiece");
 
-            correctRotation = Quaternion.Euler(movingPiece.eulerAngles.x, movingPiece.eulerAngles.y, -40f);
-            correctPosition = new Vector3(movingPiece.position.x + 0.261f, movingPiece.position.y - 0.058f,
-                movingPiece.position.z);
+            if (forcePosition)
+            {
+                correctPosition = new Vector3(xValue, yValue, zValue);
+            }
+            else
+            {
+                correctRotation = Quaternion.Euler(movingPiece.eulerAngles.x, movingPiece.eulerAngles.y, -40f);
+                correctPosition = new Vector3(movingPiece.position.x + 0.261f, movingPiece.position.y - 0.058f,
+                    movingPiece.position.z);
+            }
         }
 
         // Update is called once per frame
@@ -60,10 +69,10 @@ namespace Utility
 
                 if (diff < 1)
                 {
-                    door = GameObject.Find(doorName).transform;
-                    doorRotation = Quaternion.Euler(door.eulerAngles.x, door.eulerAngles.y, -90f);
+                    obj = GameObject.Find(objectName).transform;
+                    doorRotation = Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f);
 
-                    door.rotation = doorRotation;
+                    obj.rotation = doorRotation;
                     this.tag = "InteractableOver"; //To disable the "interact with e" message, again just in case
 
                     this.enabled = false; //end the script
@@ -73,17 +82,16 @@ namespace Utility
 
         public void ForceActivation()
         {
-            Awake();        //Reinit just in case
+            Awake(); //Reinit just in case
             //print("forzato lever");
-            door = GameObject.Find(doorName).transform;
+            obj = GameObject.Find(objectName).transform;
             movingPiece.position = correctPosition;
             movingPiece.rotation = correctRotation;
-            door.rotation = Quaternion.Euler(door.eulerAngles.x, door.eulerAngles.y, -90f);
+            obj.rotation = Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f);        //todo maybe broken with other objects
             this.tag = "InteractableOver"; //To disable the "interact with e" message, again just in case
-            
+
 
             //Destroy(this);        //Non so che altro penasre
-
         }
     }
 }
