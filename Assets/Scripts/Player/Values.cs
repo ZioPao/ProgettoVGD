@@ -77,6 +77,9 @@ namespace Player
         //Collider
         private static CapsuleCollider collider;
         
+        //Checks
+        private static GameObject currentBoss;
+        
         //Saving 
         private static bool isLoadingSave;
         
@@ -350,7 +353,11 @@ namespace Player
         {
             return currentWeapon;
         }
-        
+
+        public static GameObject GetCurrentBoss()
+        {
+            return currentBoss;
+        }
         
         
         /*SETTER*/
@@ -551,7 +558,11 @@ namespace Player
             currentWeapon = value;
         }
         
-        
+        public static void SetCurrentBoss(GameObject value)
+        {
+            currentBoss = value;
+        }
+
         
         /*Utility Methods*/
 

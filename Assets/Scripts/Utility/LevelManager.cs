@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Enemies;
+using Player;
 using UnityEngine;
 using Utility;
 
@@ -28,6 +29,10 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         enemiesStatus = new Dictionary<string, EnemyStatus>();
+        
+        //All'init di un livello resetta il current Boss presente su Values
+        
+        Values.SetCurrentBoss(null);
 
     }
 
