@@ -23,8 +23,9 @@ namespace Boss
             {
                  //Saves the old player
                 oldPlayer = GameObject.Find("Player");
-                 oldPlayer.name = "oldPlayer";        //per evitare conflitti
-                // DontDestroyOnLoad(oldPlayer);
+                oldPlayer.name = "oldPlayer";
+
+                DontDestroyOnLoad(oldPlayer);
                 Values.SetIsChangingScene(true);
                 StartCoroutine(ChangeScene());
             }
@@ -44,9 +45,9 @@ namespace Boss
                 if (asyncOperation.progress >= 0.9f)
                 {
                     asyncOperation.allowSceneActivation = true;
-                    yield return new WaitUntil(() =>  GameObject.Find("Player") != null);
+
+                    //yield return new WaitUntil(() =>  GameObject.Find("Player") != null);
                     
-                    Values.SetIsChangingScene(false);
                     
                     //Reset values of player
                     

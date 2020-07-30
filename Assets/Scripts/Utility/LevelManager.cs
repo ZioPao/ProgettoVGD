@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     private const string LeverBossString = "LeverBoss";
 
     [SerializeField] private Vector3 spawnPoint;
+    [SerializeField] private int levelId;
 
     
     //Enemy stuff
@@ -29,16 +30,25 @@ public class LevelManager : MonoBehaviour
 
 
 
-    private void Start()
+    private void Awake()
     {
+        Values.SetCurrentLevel(levelId);
 
+        GameObject player;
         if (!Values.GetIsChangingScene())
         {
-            var player = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/Player")) as GameObject;
-            Values.SetCurrentLevel(1);
-            player.transform.position = spawnPoint; //todo impostare posizione 
+            player = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/Player")) as GameObject;
+            //todo aggiungi rotazione
 
         }
+        else
+        {
+            player = GameObject.Find("oldPlayer");
+            player.name = "Player";        //reset name
+
+        }
+        player.transform.position = spawnPoint; 
+
         enemiesStatus = new Dictionary<string, EnemyStatus>();
         
         //All'init di un livello resetta il current Boss presente su Values
