@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Enemies;
 using Player;
+using Saving;
 using UnityEditor;
 using UnityEngine;
 using Utility;
@@ -35,11 +36,21 @@ public class LevelManager : MonoBehaviour
         Values.SetCurrentLevel(levelId);
 
         GameObject player;
+
+
+  
         if (!Values.GetIsChangingScene())
         {
             player = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/Player")) as GameObject;
-            //todo aggiungi rotazione
-
+            if (Values.GetIsLoadingSave())
+            {
+                SaveSystem tmp = new GameObject().AddComponent<SaveSystem>();
+                tmp.Load();
+                Destroy(tmp);
+                Values.SetIsLoadingSave(false);
+                return;        //Stops everything else, it should be ok.
+            }
+            
         }
         else
         {

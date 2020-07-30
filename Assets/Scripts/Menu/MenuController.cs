@@ -73,12 +73,12 @@ namespace Menu
                 if (asyncOperation.progress >= 0.9f)
                 {
                     asyncOperation.allowSceneActivation = true;
+                    Values.SetIsLoadingSave(true);
 
                     //Operations on hold until we can actually load
-                    yield return new WaitUntil(() => GameObject.Find("Player") != null);
-                    SaveSystem tmp = new GameObject().AddComponent<SaveSystem>();
-                    tmp.Load();
-                    Destroy(tmp);
+                    // SaveSystem tmp = new GameObject().AddComponent<SaveSystem>();
+                    // tmp.Load();
+                    // Destroy(tmp);
                 }
 
 
