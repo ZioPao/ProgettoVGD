@@ -102,6 +102,7 @@
             <e p="SpritesVertexLit.shader" t="Include" />
           </e>
         </e>
+        <e p="DamageArea.cs" t="Include" />
         <e p="PathUnlocker.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
