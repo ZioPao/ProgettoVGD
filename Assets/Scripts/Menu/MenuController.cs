@@ -12,6 +12,7 @@ namespace Menu
     public class MenuController : MonoBehaviour
     {
         private Material skybox;
+        private const string MenuRootName = "MainMenuRoot";
 
         public void NewGame()
         {
@@ -22,21 +23,13 @@ namespace Menu
             PrefabUtility.InstantiatePrefab(level);
             var playerInstance = PrefabUtility.InstantiatePrefab(playerPrefab) as GameObject; //Where?
             RenderSettings.skybox = Resources.Load<Material>("Prefabs/Levels/Level1/Skybox");
-            ;
 
-
-            //debug
+            //Spawn point del lv1
             var spawnPoint = new Vector3(1237, 115, 1041);
-            //spawnPoint = new Vector3(145, 67, 40); //level 3
-
-
-            //spawnPoint = new Vector3()
             playerInstance.transform.position = spawnPoint;
 
             //Una volta finito tutto, distrugge il menù
-
-            Destroy(GameObject.Find("MainMenu"));
-            //SceneManager.activeSceneChanged += NewGameLoadingScene;
+            Destroy(GameObject.Find(MenuRootName));
         }
 
         public void LoadGame()
@@ -48,7 +41,7 @@ namespace Menu
 
             tmp.Load();
             Destroy(tmp);
-            Destroy(GameObject.Find("MainMenu"));
+            Destroy(GameObject.Find(MenuRootName));
         }
 
         public void QuitGame()

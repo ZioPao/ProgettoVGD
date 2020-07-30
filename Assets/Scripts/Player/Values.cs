@@ -442,6 +442,17 @@ namespace Player
             }
         }
 
+        public static void SetCurrentAmmo(WeaponEnum key, int value)
+        {
+            currentAmmo[key] = value;
+        }
+        
+        public static void SetAmmoReserve(WeaponEnum key, int value)
+        {
+            ammoReserve[key] = value;
+        }
+
+
         //State Definers
         //Collisions
         public static void SetIsGrounded(bool value)

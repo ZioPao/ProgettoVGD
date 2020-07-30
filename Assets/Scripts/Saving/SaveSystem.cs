@@ -17,7 +17,6 @@ namespace Saving
         public SaveSystem()
         {
             save = new Save();
-
         }
 
 
@@ -34,7 +33,23 @@ namespace Saving
             save.health = Values.GetHealth();
             save.stamina = Values.GetStamina();
 
+            Dictionary<Values.WeaponEnum, int> weaponsCurrentAmmo = new Dictionary<Values.WeaponEnum, int>();
+            foreach (Values.WeaponEnum weaponEnum in Enum.GetValues(typeof(Values.WeaponEnum)))
+            {
+                weaponsCurrentAmmo.Add(weaponEnum, Values.GetCurrentAmmo()[weaponEnum]);
+            }
 
+            save.weaponsCurrentAmmo = weaponsCurrentAmmo;
+            
+            Dictionary<Values.WeaponEnum, int> weaponsReserveAmmo = new Dictionary<Values.WeaponEnum, int>();
+            foreach (Values.WeaponEnum weaponEnum in Enum.GetValues(typeof(Values.WeaponEnum)))
+            {
+                weaponsReserveAmmo.Add(weaponEnum, Values.GetAmmoReserve()[weaponEnum]);
+            }
+
+            save.weaponsCurrentReserve = weaponsReserveAmmo;
+
+                
             //Get the level manager
             GameObject level = GameObject.FindWithTag("Level");
 
@@ -96,6 +111,19 @@ namespace Saving
 
             Values.SetHealth(save.health);
             Values.SetStamina(save.stamina);
+            
+            //Weapons
+
+
+            foreach (var w in save.weaponsCurrentReserve)
+            {
+                Values.SetAmmoReserve(w.Key, w.Value);
+            }
+            
+            foreach (var w in save.weaponsCurrentAmmo)
+            {
+                Values.SetCurrentAmmo(w.Key, w.Value);
+            }
 
             Transform playerTransform = Values.GetPlayerTransform();
             playerTransform.position = save.playerPosition;
@@ -158,28 +186,19 @@ namespace Saving
                 tmpScript.Reload(pStatus);
             }
 
-            //SPAWNERS 
-            GameObject spawnerPrefab =
-                Resources.Load<GameObject>("Prefabs/Spawners/EnemySpawner"); //Level name = enemy type
-
-            //todo utilizza nuovo metodo
-            foreach (var oldSpawner in GameObject.FindGameObjectsWithTag("Spawner"))
+            //Spawners 
+            foreach (var spawnerStatus in save.enemySpawnerStatus)
             {
-                Object.Destroy(oldSpawner);
-            }
+                var spawnerObject = currentLevel.transform.Find("Spawners/" + spawnerStatus.Key);
 
-            foreach (var element in save.enemySpawnerStatus)
-            {
-                GameObject newSpawner = PrefabUtility.InstantiatePrefab(spawnerPrefab) as GameObject;
-
-
-                //Per qualche ragione non ne vuole sapere di inserire i nuovi spawner come figli di Spawners. Mi arrendo al momento
-                //newSpawner.transform.SetParent(GameObject.Find("Spawners").transform); 
-                newSpawner.transform.position = element.Value.GetPosition();
-                newSpawner.transform.rotation = element.Value.GetRotation();
-
-                newSpawner.GetComponent<EnemySpawner>().SetStatus(element.Value);
-                newSpawner.GetComponent<EnemySpawner>().SetEnemyPrefab(enemyPrefab);
+                
+                //todo aggiungi caso specialep re bossSpawner
+                if (spawnerObject.name != "BossSpawner")
+                {
+                    var tmpSpawner = spawnerObject.GetComponent<EnemySpawner>();
+                    StartCoroutine(WaitForComponentStartup<EnemySpawner>(tmpSpawner, spawnerStatus, enemyPrefab));
+                }
+                
             }
 
 
@@ -189,13 +208,13 @@ namespace Saving
                 var interactableObject = currentLevel.transform.Find("InteractableObjects/" + interactable.Key);
 
                 //Check aggiuntivo per capire se stiamo prendendo l'object igusto o meno
-                
+
                 switch (interactableObject.name)
                 {
                     case "LeverBoss":
                         //Destroy(interactableObject);
                         //StartCoroutine(InstantiatePrefab("Prefabs/Levels/Generic/Prefabs/LeverBoss"));
-                        
+
                         //interactableObject = GameObject.Find(interactable.Key);
                         var lever = interactableObject.GetComponent<LeverScript>();
 
@@ -228,14 +247,12 @@ namespace Saving
             //Clean the level and set it up 
             Object.Destroy(GameObject.FindWithTag("Level"));
             GameObject newLevel = Resources.Load<GameObject>("Prefabs/Levels/" + save.levelName);
-            
-            
+
+
             PrefabUtility.UnpackPrefabInstance(currentLevel = PrefabUtility.InstantiatePrefab(newLevel) as GameObject
                 , PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 
             yield return new WaitForEndOfFrame();
-            
-             
         }
 
         IEnumerator InstantiatePrefab(string path)
@@ -245,6 +262,17 @@ namespace Saving
             PrefabUtility.UnpackPrefabInstance(PrefabUtility.InstantiatePrefab(prefab) as GameObject
                 , PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
 
+
+            yield return new WaitForEndOfFrame();
+        }
+
+
+        public IEnumerator WaitForComponentStartup<T>(EnemySpawner x, KeyValuePair<String, EnemySpawnerStatus> status,
+            GameObject prefab)
+        {
+            
+            x.SetStatus(status.Value);
+            x.SetEnemyPrefab(prefab);
 
             yield return new WaitForEndOfFrame();
         }

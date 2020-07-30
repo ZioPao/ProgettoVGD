@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Enemies;
+using Player;
 using Utility;
 
 namespace Saving
@@ -16,6 +17,10 @@ namespace Saving
         
         //Stats base
         public float health, stamina;
+
+        public Dictionary<Values.WeaponEnum, int> weaponsCurrentAmmo;
+        public Dictionary<Values.WeaponEnum, int> weaponsCurrentReserve;
+        
         
         //Nome del livello
         public string levelName;
