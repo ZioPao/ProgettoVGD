@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 5956563569825846725}
   - component: {fileID: 5309173162724589402}
   m_Layer: 0
-  m_Name: Level3 1
+  m_Name: Level3
   m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -877,7 +877,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: ae97de7d911a32c4b888b16d6a781cca, type: 2}
 --- !u!114 &5309173162724589402
 MonoBehaviour:
   m_ObjectHideFlags: 0
