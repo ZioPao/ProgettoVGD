@@ -11,10 +11,11 @@ namespace Player
         
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
-            
-            /*Setup Weapons*/
+            if (!Values.GetIsChangingScene())
+            {
+                   /*Setup Weapons*/
             
             Values.InitializeWeaponObjects();
             Values.InitializeWeaponBehaviours();
@@ -64,6 +65,8 @@ namespace Player
             Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(false);
 
             Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
+            }
+         
         }
         
         public void ChangeWeapon()

@@ -23,7 +23,7 @@ namespace Utility
 
         private List<GameObject> enemiesSpawned;
 
-        private void Awake()
+        private void Start()
         {
             //Debug.Log("Awake EnemySpawner");
             if (!Values.GetIsLoadingSave())

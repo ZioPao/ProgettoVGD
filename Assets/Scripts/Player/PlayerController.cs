@@ -20,7 +20,7 @@ namespace Player
         // Start is called before the first frame update
         void Awake()
         {
-            
+
             /*Setup Collisions*/
             
             Values.SetRigidbody(GetComponent<Rigidbody>());
@@ -34,7 +34,7 @@ namespace Player
             Values.SetEnemySpritesManager(GetComponentInChildren<EnemySpritesManager>());
             
             /*Setup transform*/
-            Values.SetPlayerTransform(this.transform);
+            Values.SetPlayerTransform(transform);
             
             
             /*Setup Modules*/
@@ -43,16 +43,43 @@ namespace Player
             collisionScript = GetComponent<CollisionController>();
             weaponScript = GetComponent<WeaponController>();
             interactionScript = GetComponent<InteractionController>();
+
+            var playerAnimations = GetComponentInChildren<PlayerAnimations>();
+            var enemySpritesManager = GetComponentInChildren<EnemySpritesManager>();
+            var guiController = GetComponentInChildren<UiScript>();
+
+            playerAnimations.enabled = true;
+            weaponScript.enabled = true;
+            interactionScript.enabled = true;
+            enemySpritesManager.enabled = true;
+            guiController.enabled = true;
+            
             
             /*Setup basic stats*/
-
-            Values.SetHealth(Values.GetMaxHealth());
-            Values.SetStamina(Values.GetMaxStamina());
-            Values.SetOxygen(Values.GetMaxOxygen());
+            if (!Values.GetIsChangingScene())
+            {
+                Values.SetHealth(Values.GetMaxHealth());
+                Values.SetStamina(Values.GetMaxStamina());
+                Values.SetOxygen(Values.GetMaxOxygen());
             
-            /*Setup Timer*/
+                /*Setup Timer*/
 
-            TimerController.Setup();
+                TimerController.Setup();
+                
+                
+            }
+            
+            
+            //allo spawn del player si attivano gli spawner
+
+            foreach (var x in GameObject.FindGameObjectsWithTag("Spawner"))
+            {
+                x.GetComponent<EnemySpawner>().enabled = true;
+            }
+
+
+            
+          
 
         }
 

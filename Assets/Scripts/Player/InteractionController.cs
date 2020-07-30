@@ -14,7 +14,7 @@ namespace Player
 	    private GameObject cameraMain, signParent;
 	    private SignController signScript, signTemp;
 	    
-	    private void Start()
+	    private void Awake()
 	    {
 		    /*Setup Camera*/
             

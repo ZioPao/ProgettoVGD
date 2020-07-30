@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Enemies;
 using Player;
+using UnityEditor;
 using UnityEngine;
 using Utility;
 
@@ -20,6 +21,8 @@ public class LevelManager : MonoBehaviour
 
     private const string LeverBossString = "LeverBoss";
 
+    [SerializeField] private Vector3 spawnPoint;
+
     
     //Enemy stuff
     public Dictionary<String, EnemyStatus> enemiesStatus;
@@ -28,6 +31,14 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+
+        if (!Values.GetIsChangingScene())
+        {
+            var player = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/Player")) as GameObject;
+            Values.SetCurrentLevel(1);
+            player.transform.position = spawnPoint; //todo impostare posizione 
+
+        }
         enemiesStatus = new Dictionary<string, EnemyStatus>();
         
         //All'init di un livello resetta il current Boss presente su Values

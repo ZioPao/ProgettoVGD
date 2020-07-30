@@ -15,7 +15,7 @@ namespace Player
 
         private string levelName;
 
-        private void Start()
+        private void Awake()
         {
             //la lista è completa SOLO all'inizio. Poi diventa outdated e il sistema si rompe
             //enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici
@@ -27,7 +27,7 @@ namespace Player
 
             //Determina il nome del livello per determinare la cartella
             //todo da inserire
-            levelName = GameObject.FindWithTag("Level").name;
+            levelName = "Level" + Values.GetCurrentLevel();
 
             foreach (GameObject enemy in enemyList)
             {

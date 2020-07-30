@@ -46,16 +46,16 @@ namespace Menu
                 if (asyncOperation.progress >= 0.9f)
                 {
                     asyncOperation.allowSceneActivation = true;
-                    //StopCoroutine(LoadNewGame());
-                }
 
+
+
+                } //spawnPoint = new Vector3(145, 67, 40); //level 3
 
                 yield return null;
-                //spawnPoint = new Vector3(145, 67, 40); //level 3
-
 
                 //spawnPoint = new Vector3()
             }
+    
         }
         private IEnumerator LoadSavedGame()
         {

@@ -57,6 +57,7 @@ namespace Player
 
         private static bool isInPause = false;
         private static bool isGameOver = false;
+        private static int currentLevel;
 
         private static bool hasInteractedWithWinObject = false;
 
@@ -81,7 +82,8 @@ namespace Player
         private static GameObject currentBoss;
         
         //Saving 
-        private static bool isLoadingSave;
+        private static bool isLoadingSave = false;
+        private static bool isChangingScene = false;
         
         //Weapon Types
         public enum WeaponEnum
@@ -275,6 +277,11 @@ namespace Player
         {
             return isGameOver;
         }
+        
+        public static int GetCurrentLevel()
+        {
+            return currentLevel;
+        }
         public static bool GetHasInteractedWithWinObject()
         {
             return hasInteractedWithWinObject;
@@ -318,7 +325,11 @@ namespace Player
         {
             return isLoadingSave;
         }
-        
+        public static bool GetIsChangingScene()
+        {
+            return isChangingScene;
+        }
+
         //Weapon Properties
         public static Dictionary<WeaponEnum, GameObject> GetWeaponObjects()
         {
@@ -531,7 +542,10 @@ namespace Player
         {
             isGameOver = value;
         }
-
+        public static void SetCurrentLevel(int value)
+        {
+            currentLevel = value;
+        }
         public static void SetHasInteractedWithWinObject(bool value)
         {
             hasInteractedWithWinObject = value;
@@ -562,6 +576,11 @@ namespace Player
         public static void SetIsLoadingSave(bool value)
         {
             isLoadingSave = value;
+        }
+        
+        public static void SetIsChangingScene(bool value)
+        {
+            isChangingScene = value;
         }
         //Weapon Properties
         public static void SetCurrentWeapon(WeaponEnum value)
