@@ -68,6 +68,39 @@
               </e>
             </e>
           </e>
+          <e p="SpriteShaders" t="Include">
+            <e p="CameraDepthNormalsTexture.shader" t="Include" />
+            <e p="CameraDepthTexture.shader" t="Include" />
+            <e p="CameraNormalsTexture.shader" t="Include" />
+            <e p="CGIncludes" t="Include">
+              <e p="Noise" t="Include">
+                <e p="ClassicNoise2D.hlsl" t="Include" />
+                <e p="ClassicNoise3D.hlsl" t="Include" />
+                <e p="Noise2d.cginc" t="Include" />
+                <e p="Noise3d.cginc" t="Include" />
+                <e p="SimplexNoise2D.hlsl" t="Include" />
+                <e p="SimplexNoise3D.hlsl" t="Include" />
+              </e>
+              <e p="ShaderMaths.cginc" t="Include" />
+              <e p="ShaderShared.cginc" t="Include" />
+              <e p="SimplexNoise3D.hlsl" t="Include" />
+              <e p="SpriteDissolve.cginc" t="Include" />
+              <e p="SpriteLighting.cginc" t="Include" />
+              <e p="SpritePixelLighting.cginc" t="Include" />
+              <e p="SpriteShadows.cginc" t="Include" />
+              <e p="SpriteSpecular.cginc" t="Include" />
+              <e p="SpriteUnlit.cginc" t="Include" />
+              <e p="SpriteVertexLighting.cginc" t="Include" />
+            </e>
+            <e p="Editor" t="Include">
+              <e p="SpriteDiffuseShaderGUI.cs" t="Include" />
+              <e p="SpriteShaderGUI.cs" t="Include" />
+            </e>
+            <e p="SpritesPixelLit.shader" t="Include" />
+            <e p="SpritesPixelLitDissolve.shader" t="Include" />
+            <e p="SpritesUnlit.shader" t="Include" />
+            <e p="SpritesVertexLit.shader" t="Include" />
+          </e>
         </e>
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
@@ -92,12 +125,14 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Boss" t="Include">
+            <e p="BossEnding.cs" t="Include" />
             <e p="BossOne.cs" t="Include" />
             <e p="BossThree.cs" t="Include" />
             <e p="BossTrigger.cs" t="Include" />
             <e p="BossTrigger3.cs" t="Include" />
             <e p="BossTwo.cs" t="Include" />
             <e p="CheckBossSpawner.cs" t="Include" />
+            <e p="endLevelTrigger.cs" t="Include" />
             <e p="FakeBossThreeStartup.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">
@@ -170,39 +205,6 @@
             <e p="Torch.cs" t="Include" />
             <e p="UIScript.cs" t="Include" />
           </e>
-        </e>
-        <e p="TestS" t="Include">
-          <e p="CameraDepthNormalsTexture.shader" t="Include" />
-          <e p="CameraDepthTexture.shader" t="Include" />
-          <e p="CameraNormalsTexture.shader" t="Include" />
-          <e p="CGIncludes" t="Include">
-            <e p="Noise" t="Include">
-              <e p="ClassicNoise2D.hlsl" t="Include" />
-              <e p="ClassicNoise3D.hlsl" t="Include" />
-              <e p="Noise2d.cginc" t="Include" />
-              <e p="Noise3d.cginc" t="Include" />
-              <e p="SimplexNoise2D.hlsl" t="Include" />
-              <e p="SimplexNoise3D.hlsl" t="Include" />
-            </e>
-            <e p="ShaderMaths.cginc" t="Include" />
-            <e p="ShaderShared.cginc" t="Include" />
-            <e p="SimplexNoise3D.hlsl" t="Include" />
-            <e p="SpriteDissolve.cginc" t="Include" />
-            <e p="SpriteLighting.cginc" t="Include" />
-            <e p="SpritePixelLighting.cginc" t="Include" />
-            <e p="SpriteShadows.cginc" t="Include" />
-            <e p="SpriteSpecular.cginc" t="Include" />
-            <e p="SpriteUnlit.cginc" t="Include" />
-            <e p="SpriteVertexLighting.cginc" t="Include" />
-          </e>
-          <e p="Editor" t="Include">
-            <e p="SpriteDiffuseShaderGUI.cs" t="Include" />
-            <e p="SpriteShaderGUI.cs" t="Include" />
-          </e>
-          <e p="SpritesPixelLit.shader" t="Include" />
-          <e p="SpritesPixelLitDissolve.shader" t="Include" />
-          <e p="SpritesUnlit.shader" t="Include" />
-          <e p="SpritesVertexLit.shader" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
