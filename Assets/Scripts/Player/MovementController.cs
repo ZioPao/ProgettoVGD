@@ -123,6 +123,7 @@ namespace Player
                 
                 //Decrease Stamina
                 Values.DecreaseStamina(3);
+				
 
                 if (Values.GetIsInWater())
                 {

@@ -101,7 +101,7 @@ namespace Player
         public void MeleeHit()
         {
 			//Audio is Played
-			attackEffect.Play(1);
+			attackEffect.Play();
 			
             //When an attack goes through the attack cooldown is reset
             TimerController.ResetTimer(cooldownTimer);
@@ -122,7 +122,7 @@ namespace Player
             if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0 && !Values.GetIsGameOver() && !Values.GetIsReloading() && !Values.GetIsInPause() && !Values.GetIsFrozen())
             {
 				//Audio is Played
-				attackEffect.Play(1);
+				attackEffect.Play();
 				
                 //When an attack goes through the attack cooldown is reset
                 TimerController.ResetTimer(cooldownTimer);
