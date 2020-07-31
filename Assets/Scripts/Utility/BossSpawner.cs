@@ -25,7 +25,9 @@ namespace Utility
             boss.transform.rotation = Quaternion.Euler(0,180,0);
 
             Values.GetEnemySpritesManager().AddEnemyToEnemyList(boss); //needed to make the sprite viewing works
-            Values.SetCurrentBoss(boss);        //salva il current boss su values. abbastanza sporco così ma no time
+            
+            //todo perché?
+            //Values.SetCurrentBoss(boss);        //salva il current boss su values. abbastanza sporco così ma no time
             
             //Attiva il pathUnlocker
             pathUnlocker.GetComponent<PathUnlocker>().enabled = true;

@@ -15,8 +15,8 @@ namespace Enemies
         private EnemyStatus status;
         private NavMeshAgent agent;
         private Transform playerTransform, textureRenderer;
-
-        private void Start()
+        
+        private void Awake()
         {
             status = GetComponent<EnemyBase>().GetStatus();
             
@@ -34,32 +34,40 @@ namespace Enemies
             
             //Se sta effettuando un movimento alternativo, continuerà per un certo tot
 
-            float timerAlternativeMovement = status.GetTimerAlternativeMovement();
+            if (!status.GetForceStop())
+            {
+                float timerAlternativeMovement = status.GetTimerAlternativeMovement();
             
-            if (timerAlternativeMovement > 0f)
-            {
-                status.ModifyTimerAlternativeMovement(-Time.deltaTime);
-                return;
-            } //in caso contrario, operazione normale
-            if (Vector3.Distance(agent.nextPosition, playerTransform.position) <= minPlayerDistance)
-            {
-                status.SetTimerAlternativeMovement(maxTimerAlternativeMovement);
-                float randomChoice = Random.Range(0f, 1f);
-
-                if (randomChoice < 0.5f)
+                if (timerAlternativeMovement > 0f)
                 {
-                    agent.destination = playerTransform.position + agent.transform.right * 100f;
+                    status.ModifyTimerAlternativeMovement(-Time.deltaTime);
+                    return;
+                } //in caso contrario, operazione normale
+                if (Vector3.Distance(agent.nextPosition, playerTransform.position) <= minPlayerDistance)
+                {
+                    status.SetTimerAlternativeMovement(maxTimerAlternativeMovement);
+                    float randomChoice = Random.Range(0f, 1f);
+
+                    if (randomChoice < 0.5f)
+                    {
+                        agent.destination = playerTransform.position + agent.transform.right * 100f;
                     
+                    }
+                    else
+                    {
+                        agent.destination = playerTransform.position - agent.transform.right * 100f;
+                    
+                    }
                 }
                 else
                 {
-                    agent.destination = playerTransform.position - agent.transform.right * 100f;
-                    
+                    agent.destination = playerTransform.position;
                 }
             }
             else
             {
-                agent.destination = playerTransform.position;
+                agent.destination = transform.position;        //just in case it keeps moving
+
             }
 
         }
@@ -78,8 +86,10 @@ namespace Enemies
 
         public void Reload()
         {
-            Start();            //non ho idea del percHé funziona tbh
+            Awake();            //non ho idea del percHé funziona tbh
             agent.Warp(transform.position);        //forces it 
         }
+
+
     }
 }

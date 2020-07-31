@@ -1,5 +1,8 @@
-﻿using Enemies;
+﻿using System.Collections;
+using Enemies;
+using Player;
 using UnityEngine;
+using UnityEngine.AI;
 using Utility;
 
 
@@ -18,8 +21,10 @@ namespace Boss
         
         private EnemyBase boss;
         private EnemyShooting bossShooting;
+        private EnemyMovement bossMovement;
         private EnemySpawner enemySpawner;
         private SpriteRenderer spriteRenderer;         //todo forse da cambiare in SpriteRenderer
+        private Animator spriteAnimator;
         
         private bool isInPhaseTwo;
         
@@ -29,12 +34,14 @@ namespace Boss
     /*  Inizialmente identico a Nemico 1, quando subisce una certa quantità di danni cambia fase diventando molto più
         aggressivo (Attacca sparando un maggior numero di proiettili)
     */
-        private void Start()
+        private void Awake()
         {
 
             boss = GetComponent<EnemyBase>();
+            bossMovement = GetComponent<EnemyMovement>();
             bossShooting = GetComponent<EnemyShooting>();
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            spriteAnimator = GetComponentInChildren<Animator>();
             //enemySpawner = gameObject.AddComponent<EnemySpawner>();        //per spawnare i nemici nella fase 2    
             isInPhaseTwo = false;
             //Spawn
@@ -51,8 +58,21 @@ namespace Boss
                 if (bossStatus.GetHealth() < 50)
                 {
                     //Change appearance
-                    spriteRenderer.material = materialPhaseTwo;
+                    
+                    //blocca il player 
+                    //Values.SetIsFrozen(true);
+                    var x =  Values.GetEnemySpritesManager();
+                    x.enabled = false;
+
+                    //bossMovement.enabled = false;
+                    //boss.enabled = false;
+
+                    StartCoroutine(WaitForAnimation());
+
+                        
+                    //spriteRenderer.material = materialPhaseTwo;
                 
+                    
                     //Reset health
                     bossStatus.SetHealth(bossHealth);
 
@@ -72,6 +92,30 @@ namespace Boss
             //check health. When health
             //Movement is managed by BossBase... I guess?
             
+            
+        }
+
+        private IEnumerator WaitForAnimation()
+        {
+  
+
+            boss.GetStatus().SetForceStop(true);
+            
+            spriteRenderer.sprite = Resources.Load<Sprite>("Enemies/Level1/Boss/Wakeup");
+            spriteAnimator.runtimeAnimatorController =  Resources.Load("Enemies/Level1/Boss/Wakeup_AnimController") as RuntimeAnimatorController;
+
+
+            yield return new WaitForSecondsRealtime(1.8f);
+
+            boss.GetStatus().SetForceStop(false);
+
+            //Values.SetIsFrozen(false);
+            Values.SetCurrentBoss(gameObject);
+            Values.GetEnemySpritesManager().enabled = true;        //Reactivates everything else
+        }
+        private void SwitchSprite()
+        {
+            //Prende tutti gli sprite corretti
             
         }
     }
