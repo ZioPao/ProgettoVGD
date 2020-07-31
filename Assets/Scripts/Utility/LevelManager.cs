@@ -38,16 +38,17 @@ namespace Utility
             GameObject player;
 
 
-  
+            //Is changing scene è relativo al cambio di scena da livello a livello 2, non c'entra coi cambi di scena
+            //al cambio del salvataggio.
             if (!Values.GetIsChangingScene())
             {
                 player = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/Player")) as GameObject;
                 if (Values.GetIsLoadingSave())
                 {
-                    SaveSystem tmp = new GameObject().AddComponent<SaveSystem>();
-                    tmp.Load();
-                    Destroy(tmp);
-                    Values.SetIsLoadingSave(false);
+                    // SaveSystem tmp = new GameObject().AddComponent<SaveSystem>();
+                    // tmp.LoadData();
+                    // Destroy(tmp);
+                    // Values.SetIsLoadingSave(false);
                     return;        //Stops everything else, it should be ok.
                 }
             
@@ -58,7 +59,7 @@ namespace Utility
                 player.name = "Player";        //reset name
 
                 player.GetComponent<InteractionController>().Awake();       //upates it
-
+                player.GetComponentInChildren<EnemySpritesManager>().Awake();
             }
             player.transform.position = spawnPoint; 
 

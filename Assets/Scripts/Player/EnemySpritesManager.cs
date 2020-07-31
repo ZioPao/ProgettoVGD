@@ -15,7 +15,7 @@ namespace Player
 
         private string levelName;
 
-        private void Awake()
+        public void Awake()
         {
             //la lista è completa SOLO all'inizio. Poi diventa outdated e il sistema si rompe
             //enemyList = enemyBase.GetAllEnemies(); //todo gestire nel caso volessimo aggiungere nemici

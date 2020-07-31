@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Saving;
 using UnityEngine;
 
 namespace Player
@@ -84,6 +85,7 @@ namespace Player
         //Saving 
         private static bool isLoadingSave = false;
         private static bool isChangingScene = false;
+        private static GameObject saveManager;
         
         //Weapon Types
         public enum WeaponEnum
@@ -328,6 +330,11 @@ namespace Player
         public static bool GetIsChangingScene()
         {
             return isChangingScene;
+        }
+
+        public static GameObject GetCurrentSaveManager()
+        {
+            return saveManager;
         }
 
         //Weapon Properties
@@ -582,6 +589,12 @@ namespace Player
         {
             isChangingScene = value;
         }
+        
+        public static void SetCurrentSaveManager(GameObject value)
+        {
+            saveManager = value;
+        }
+
         //Weapon Properties
         public static void SetCurrentWeapon(WeaponEnum value)
         {
