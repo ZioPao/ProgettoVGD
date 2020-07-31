@@ -155,7 +155,7 @@ namespace Player
             {
 				
 				//Audio is Played
-				reloadEffect.Play(1);
+				reloadEffect.Play();
 				
                 //On successful reload the cooldown is reset
                 
