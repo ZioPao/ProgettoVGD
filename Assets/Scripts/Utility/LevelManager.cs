@@ -37,6 +37,7 @@ namespace Utility
             Values.SetCurrentLevel(levelId);
 
             GameObject player;
+            print("game over: " + Values.GetIsGameOver());
 
 
             //Is changing scene è relativo al cambio di scena da livello a livello 2, non c'entra coi cambi di scena
