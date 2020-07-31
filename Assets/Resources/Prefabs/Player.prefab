@@ -825,6 +825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 219f001277762c54ea0f739ee15f17a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpEffect: {fileID: 0}
 --- !u!114 &2147016438947929644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2913,7 +2914,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Qualcosa \xE8 andato molto storto"
+  m_Text: Qualcosa e' andato molto storto
 --- !u!1 &7509975157101954426
 GameObject:
   m_ObjectHideFlags: 0

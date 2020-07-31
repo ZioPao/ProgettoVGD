@@ -110,7 +110,7 @@ namespace Player
 						}
 											
 						//Play Audio
-						collectEffect.Play(1);
+						collectEffect.Play();
 					}
 				}
 				else
