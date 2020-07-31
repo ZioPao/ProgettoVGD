@@ -64218,6 +64218,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3665160563866550967, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trigger
+      objectReference: {fileID: 0}
     - target: {fileID: 3843205685626799171, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_Enabled
@@ -64297,6 +64302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756958982784231950, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trigger
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}

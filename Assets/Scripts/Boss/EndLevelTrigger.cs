@@ -19,10 +19,10 @@ namespace Boss
         {
 
             print("will change level");
-            if (other.name == "Player")
+            if (other.CompareTag("Player"))
             {
                  //Saves the old player
-                oldPlayer = GameObject.Find("Player");
+                oldPlayer = GameObject.FindWithTag("Player");
                 oldPlayer.name = "oldPlayer";
 
                 DontDestroyOnLoad(oldPlayer);

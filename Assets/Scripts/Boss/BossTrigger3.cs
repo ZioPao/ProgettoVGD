@@ -18,7 +18,16 @@ namespace Boss
     
         private void OnTriggerEnter(Collider other)
         {
-        
+
+            if (other.CompareTag("Player"))
+            {
+                RunTrigger();
+            }
+            
+        }
+
+        public void RunTrigger()
+        {
             //Set buildings positions
             building1.transform.position = newPosition1;
             building1.transform.rotation = newRotation1;
@@ -31,8 +40,7 @@ namespace Boss
             fakeBossSpawner.enabled = true;
 
             //Play Sound
-			fallEffect.Play();
-            
+            fallEffect.Play();
         }
     }
 }

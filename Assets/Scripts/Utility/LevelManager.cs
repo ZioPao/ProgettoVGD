@@ -30,6 +30,9 @@ namespace Utility
         //Enemy stuff
         public Dictionary<String, EnemyStatus> enemiesStatus;
 
+        
+        //Triggers
+        public List<string> triggersStart, pickupsStart;
 
 
         private void Awake()
@@ -59,31 +62,78 @@ namespace Utility
                 player.GetComponent<InteractionController>().Awake();       //upates it
                 player.GetComponentInChildren<EnemySpritesManager>().Awake();
             }
+            
             player.transform.position = spawnPoint;
             player.transform.rotation = Quaternion.Euler(spawnPointRotation);
 
             enemiesStatus = new Dictionary<string, EnemyStatus>();
-        
+            
             //All'init di un livello resetta il current Boss presente su Values
         
             Values.SetCurrentBoss(null);
 
-        }
-
-        public Dictionary<String, bool> GetTriggerStatus()
-        {
-            //get if they're active or not
-            GameObject[] triggers = GameObject.FindGameObjectsWithTag(TriggerTag);
-            Dictionary<String, bool> triggerStatus = new Dictionary<string, bool>();
-
-            foreach (var trigger in triggers)
+            var tmpTriggers = GameObject.FindGameObjectsWithTag("Trigger");
+            triggersStart = new List<string>();
+            foreach (var t in tmpTriggers)
             {
-                triggerStatus.Add(trigger.name, trigger.activeSelf);
+                triggersStart.Add(t.name);
+            }
+            
+            var tmpPickups = GameObject.FindGameObjectsWithTag("Pickup");
+            pickupsStart = new List<string>();
+            foreach (var p in tmpPickups)
+            {
+                pickupsStart.Add(p.name);
             }
 
-            return triggerStatus;
         }
 
+        public List<string> GetCurrentTriggers()
+        {
+            
+            var triggers = GameObject.FindGameObjectsWithTag(TriggerTag);
+
+            List<string> list = new List<string>();
+            foreach (var x in triggers)
+            {
+                list.Add(x.name);
+            }
+            return list;
+
+            // //get if they're active or not
+            // GameObject[] triggers = GameObject.FindGameObjectsWithTag(TriggerTag);
+            // Dictionary<String, bool> triggerStatus = new Dictionary<string, bool>();
+            //
+            // foreach (var trigger in triggers)
+            // {
+            //     triggerStatus.Add(trigger.name, trigger.activeSelf);
+            // }
+            //
+            // return triggerStatus;
+        }
+
+        public List<string> GetOriginalTriggers()
+        { 
+            return triggersStart;
+        }
+        public List<string> GetCurrentPickups()
+        {
+            
+            var pickups = GameObject.FindGameObjectsWithTag(PickupTag);
+
+            List<string> list = new List<string>();
+            foreach (var x in pickups)
+            {
+                list.Add(x.name);
+            }
+            return list;
+            
+        }
+
+        public List<string> GetOriginalPickups()
+        {
+            return pickupsStart;
+        }
         public Dictionary<String, EnemySpawnerStatus> GetSpawnerStatus()
         {
             GameObject[] spawners = GameObject.FindGameObjectsWithTag(SpawnerTag);
@@ -143,17 +193,19 @@ namespace Utility
 
         }
 
-        public Dictionary<string, bool> GetPickups()
+        public GameObject[] GetPickups()
         {
-            GameObject[] pickups = GameObject.FindGameObjectsWithTag(PickupTag);
+            
+            //Prende i pickups che sono presenti al momento del salvataggio
+            var pickups = GameObject.FindGameObjectsWithTag(PickupTag);
+            return pickups;
+            //todo non serve se sono sullo stesso livello i guess. Ma credo sia rotto con gli altri
 
-            return null;
         }
 
         public Dictionary<string, bool> GetInteractables()
         {
-
-
+         
             Dictionary<string, bool> interactablesDictionary = new Dictionary<string, bool>();
             GameObject[] interactables = GameObject.FindGameObjectsWithTag(InteractableTag);
 

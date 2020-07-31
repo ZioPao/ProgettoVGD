@@ -25,7 +25,14 @@ public class PathUnlocker : MonoBehaviour
         {
             objectToMove.transform.position = new Vector3(-1000, -1000, -1000); //lo sposta in un punto lontano
             Values.SetCanSave(true); //permette di salvare nuovamente
-            enabled = false;
+            gameObject.SetActive(false);
         }
+    }
+
+    public void RunTrigger()
+    {
+        objectToMove.transform.position = new Vector3(-1000, -1000, -1000); //lo sposta in un punto lontano
+        Values.SetCanSave(true); //permette di salvare nuovamente
+        gameObject.SetActive(false);
     }
 }

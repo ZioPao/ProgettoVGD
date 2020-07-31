@@ -27,7 +27,7 @@ namespace Saving
 
         
         //Pickups
-        public Dictionary<String, bool> pickupStatus;
+        public List<string> pickups;
         
         //Spawners
 
@@ -35,7 +35,7 @@ namespace Saving
         
         //Triggers
 
-        public Dictionary<string, bool> triggersStatus;
+        public List<string> triggers;
         
         //Interactables
 
