@@ -18,19 +18,15 @@ namespace Saving
         public SaveSystem()
         {
             save = new Save();
-            canLoad = false;
-
         }
 
 
         private Save save;
         private GameObject currentLevel;
-        private bool canLoad;
         private Canvas canvas;
 
         public void Save()
         {
-            
             //Player stats
             Transform player = Values.GetPlayerTransform();
             save.playerPosition = player.position;
@@ -110,154 +106,9 @@ namespace Saving
 
             save = (Save) bf.Deserialize(file);
             file.Close();
-
-
-            //Reload scene
-            //StopAllCoroutines();
             StartCoroutine(LoadLevel(save.levelName));
-
-            //Check if it's the same scene
-
-            // if (GameObject.FindWithTag("Level").name.Equals(save.levelName))
-            // {
-            //     
-            //     //IT WORKED BEFORE, IM NOT GONNA CHANGE IT
-            //     //Load correct scene
-            //     StartCoroutine(LoadLevel(save.levelName));
-            //     //Setup player
-            //
-            //     GameObject newPlayer = GameObject.Find("Player");
-            //     Transform newPlayerT = newPlayer.transform;
-            //
-            //     newPlayerT.position = save.playerPosition;
-            //     newPlayerT.rotation = save.playerRotation;
-            //
-            //     Values.SetPlayerTransform(newPlayer.transform);
-            //     Values.SetHealth(save.health);
-            //     Values.SetStamina(save.stamina);
-            //
-            //     //Weapons
-            //     foreach (var w in save.weaponsCurrentReserve)
-            //     {
-            //         Values.SetAmmoReserve(w.Key, w.Value);
-            //     }
-            //
-            //     foreach (var w in save.weaponsCurrentAmmo)
-            //     {
-            //         Values.SetCurrentAmmo(w.Key, w.Value);
-            //     }
-            //
-            //     //Deletes all the enemies todo should be useless now
-            //     foreach (var enemy in GameObject.FindGameObjectsWithTag("enemy"))
-            //     {
-            //         Object.Destroy(enemy);
-            //     }
-            //
-            //     //Creates them again
-            //     GameObject enemyPrefab =
-            //         Resources.Load<GameObject>("Prefabs/Enemies/" + save.levelName); //Level name = enemy type
-            //
-            //     EnemySpritesManager spritesManager = Values.GetEnemySpritesManager();
-            //     foreach (var element in save.enemiesStatus)
-            //     {
-            //         GameObject tmpEnemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
-            //         tmpEnemy.transform.SetParent(GameObject.Find("Enemies").transform);
-            //
-            //         tmpEnemy.GetComponent<EnemyBase>().Reload(element.Value);
-            //
-            //         tmpEnemy.transform.position = element.Value.GetPosition();
-            //         tmpEnemy.transform.rotation = element.Value.GetRotation();
-            //         tmpEnemy.GetComponent<EnemyMovement>().Reload();
-            //
-            //         tmpEnemy.GetComponent<EnemyIntelligence>().Start();
-            //         tmpEnemy.GetComponent<EnemyShooting>().Start();
-            //
-            //
-            //         spritesManager.AddEnemyToEnemyList(tmpEnemy);
-            //     }
-            //
-            //     //Projectiles
-            //
-            //     //Destroy all the old projectiles todo should be useless now
-            //     foreach (var p in GameObject.FindGameObjectsWithTag("Projectile"))
-            //     {
-            //         Object.Destroy(p);
-            //     }
-            //
-            //     GameObject projPrefab =
-            //         Resources.Load<GameObject>("Prefabs/Projectiles/" + save.levelName); //Level name = projectile type
-            //     foreach (var pStatus in save.projectileStatus)
-            //     {
-            //         GameObject tmpProj = PrefabUtility.InstantiatePrefab(projPrefab) as GameObject;
-            //
-            //         ProjectileScript tmpScript = tmpProj.GetComponent<ProjectileScript>();
-            //
-            //         tmpScript.SetTransform(pStatus.GetPosition(), pStatus.GetRotation());
-            //         tmpScript.Reload(pStatus);
-            //     }
-            //
-            //     //Spawners 
-            //     currentLevel = GameObject.FindWithTag("Level");
-            //     foreach (var spawnerStatus in save.enemySpawnerStatus)
-            //     {
-            //         var spawnerObject = currentLevel.transform.Find("Spawners/" + spawnerStatus.Key);
-            //
-            //         //todo aggiungi caso specialep re bossSpawner
-            //         if (spawnerObject.name != "BossSpawner")
-            //         {
-            //             var tmpSpawner = spawnerObject.GetComponent<EnemySpawner>();
-            //             StartCoroutine(WaitForComponentStartup<EnemySpawner>(tmpSpawner, spawnerStatus, enemyPrefab));
-            //         }
-            //     }
-            //
-            //     //Interactables
-            //     foreach (var interactable in save.interactableStatus)
-            //     {
-            //         var interactableObject = currentLevel.transform.Find("InteractableObjects/" + interactable.Key);
-            //
-            //         //Check aggiuntivo per capire se stiamo prendendo l'object igusto o meno
-            //
-            //         switch (interactableObject.name)
-            //         {
-            //             case "LeverBoss":
-            //                 //Destroy(interactableObject);
-            //                 //StartCoroutine(InstantiatePrefab("Prefabs/Levels/Generic/Prefabs/LeverBoss"));
-            //
-            //                 //interactableObject = GameObject.Find(interactable.Key);
-            //                 var lever = interactableObject.GetComponent<LeverScript>();
-            //
-            //                 if (!interactable.Value)
-            //                 {
-            //                     lever.ForceActivation();
-            //                 }
-            //
-            //                 break;
-            //
-            //             case "DoorPassageOptional":
-            //                 var door = interactableObject.GetComponentInChildren<OpenDoor>();
-            //
-            //                 if (!interactable.Value)
-            //                 {
-            //                     door.ForceActivation();
-            //                 }
-            //
-            //                 break;
-            //             default:
-            //                 break;
-            //         }
-            //     }
-            //
-            //     Values.SetIsLoadingSave(false); //Finished loading
-            //     print("Caricato");
-            // }
-            // else
-            // {
-            //     StartCoroutine(LoadLevel(save.levelName));
-            //
-            // }
         }
-        
-        
+
 
         IEnumerator LoadLevel(string levelName)
         {
@@ -270,12 +121,10 @@ namespace Saving
                 // Check if the load has finished
                 if (asyncOperation.progress >= 0.9f)
                 {
-
-
                     asyncOperation.allowSceneActivation = true;
 
-                    yield return new WaitForEndOfFrame();
-                    
+                    yield return new WaitForSeconds(5);        //non ho idea di come fare il check al momento
+
                     Values.SetIsLoadingSave(true);
 
                     //just in case?
@@ -312,8 +161,7 @@ namespace Saving
                         Object.Destroy(enemy);
                     }
 
-                    
-                    
+
                     //Creates them again
                     GameObject enemyPrefab =
                         Resources.Load<GameObject>("Prefabs/Enemies/" + save.levelName); //Level name = enemy type
@@ -410,9 +258,6 @@ namespace Saving
                         }
                     }
 
-                    
-
-
 
                     Values.SetIsLoadingSave(false); //Finished loading
                     print("Caricato");
@@ -422,17 +267,6 @@ namespace Saving
                 yield return null;
             }
         }
-        IEnumerator InstantiatePrefab(string path)
-        {
-            GameObject prefab = Resources.Load<GameObject>(path);
-
-            PrefabUtility.UnpackPrefabInstance(PrefabUtility.InstantiatePrefab(prefab) as GameObject
-                , PrefabUnpackMode.Completely, InteractionMode.AutomatedAction);
-
-
-            yield return new WaitForEndOfFrame();
-        }
-
 
         public IEnumerator WaitForComponentStartup<T>(EnemySpawner x, KeyValuePair<String, EnemySpawnerStatus> status,
             GameObject prefab)

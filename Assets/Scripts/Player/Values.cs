@@ -85,6 +85,7 @@ namespace Player
         //Saving 
         private static bool isLoadingSave = false;
         private static bool isChangingScene = false;
+        private static bool canSave = true;
         private static GameObject saveManager;
         
         //Weapon Types
@@ -335,6 +336,10 @@ namespace Player
         public static GameObject GetCurrentSaveManager()
         {
             return saveManager;
+        }
+        public static bool GetCanSave()
+        {
+            return canSave;
         }
 
         //Weapon Properties
@@ -594,7 +599,10 @@ namespace Player
         {
             saveManager = value;
         }
-
+        public static void SetCanSave(bool value)
+        {
+            canSave = value;
+        }
         //Weapon Properties
         public static void SetCurrentWeapon(WeaponEnum value)
         {

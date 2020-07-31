@@ -112,7 +112,7 @@ namespace Player
             /*Manage Weapons*/
             //test stuff
 
-            if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && Values.GetCurrentBoss() == null)
+            if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && Values.GetCanSave())
             {
                 GameObject saveManager;
                 if (Values.GetCurrentSaveManager() != null)
@@ -152,9 +152,8 @@ namespace Player
                 Values.SetGameOver(false);
                 Time.timeScale = 1;
                 Values.SetHealth(1);        //tmp per evitare che riparta il game over
+                Values.SetCanSave(true);        //reset nel caso il player abbia caricato da dentro una boss battle
 
-                //var saveCanvas = saveManager.GetComponentInChildren<Canvas>();
-                //saveCanvas.enabled = true;
                 saveManager.GetComponent<SaveSystem>().Load();
                 
                 //saveCanvas.enabled = false;
