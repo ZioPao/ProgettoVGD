@@ -82,20 +82,29 @@ namespace Player
         {
             //print(Values.GetRigidbody().velocity.magnitude);
             /*Manage movements*/
-            collisionScript.CheckCollisions();
 
-            if (!Values.GetIsFrozen() || Values.GetIsInPause())
+            if (!Values.GetIsGameOver())
             {
-                movementScript.SetupMovement();
-                movementScript.Jump();
-                movementScript.MakeMovement();
+                collisionScript.CheckCollisions();
+
+                if (!Values.GetIsFrozen() || Values.GetIsInPause())
+                {
+                    movementScript.SetupMovement();
+                    movementScript.Jump();
+                    movementScript.MakeMovement();
+                }
+
+                /*Manage stats*/
+
+                ManageHealth();
+                ManageOxygen();
+                ManageStamina();
             }
+            else
+            {
+                print("game over: " + Values.GetIsGameOver());
 
-            /*Manage stats*/
-
-            ManageHealth();
-            ManageOxygen();
-            ManageStamina();
+            }
         }
 
         private void Update()
@@ -124,6 +133,7 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.F6))
             {
                 GameObject saveManager;
+                print("game over: " + Values.GetIsGameOver());
                 if (Values.GetCurrentSaveManager() != null)
                 {
                     saveManager = Values.GetCurrentSaveManager();
@@ -135,18 +145,22 @@ namespace Player
                     Values.SetCurrentSaveManager(saveManager);
                 }
 
+                //In caso di game over, reset tutto
+                Values.SetGameOver(false);
+                Time.timeScale = 1;
+                Values.SetHealth(1);        //tmp per evitare che riparta il game over
                 saveManager.GetComponent<SaveSystem>().Load();
             }
 
-            // if (Input.GetKeyDown(KeyCode.F7))
-            // {
-            //     var interactableObject = GameObject.Find("Lever");
-            //     interactableObject.GetComponent<LeverScript>().ForceActivation();
-            //
-            //
-            // }
+            if (Input.GetKeyDown(KeyCode.F7))
+            {
+                // var interactableObject = GameObject.Find("Lever");
+                // interactableObject.GetComponent<LeverScript>().ForceActivation();
+            
+                Values.SetHealth(0);
+            }
 
-            if (!Values.GetIsFrozen())
+            if (!Values.GetIsFrozen() && !Values.GetIsGameOver())
             {
                 weaponScript.UseWeapon();
                 weaponScript.ChangeWeapon();
@@ -162,10 +176,13 @@ namespace Player
 
         private void ManageHealth()
         {
-            if (Values.GetHealth() <= 0)
+            if (Values.GetHealth() <= 0 && !Values.GetIsLoadingSave())
             {
                 //game over.
                 Values.SetGameOver(true);
+                Time.timeScale = 0; //za warudo, lo dovrebbe fare una sola volta
+                return;
+
             }
 
 

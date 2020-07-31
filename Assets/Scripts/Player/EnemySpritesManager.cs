@@ -63,9 +63,15 @@ namespace Player
                             //float animationTimer = enemy.GetComponent<EnemyBase>().GetAnimationTimer();    //todo rendi piu carino
 
                             string path = null;
-                            
-                            if(enemy.name.Contains("Boss"))
+
+
+                            if (enemy.Equals(Values.GetCurrentBoss()))
+                            {
+                                
+                                //eccezione per boss 1 
                                 path = "Enemies/" + levelName + "/Boss/";
+
+                            }
                             else
                                 path = "Enemies/" + levelName + "/";
 

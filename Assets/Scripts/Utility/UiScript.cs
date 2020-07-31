@@ -21,7 +21,7 @@ namespace Utility
         private SignController signScript;
 
         // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
             oxygenCanvas = GameObject.Find("Oxygen_Canvas");
             interactionCanvas = GameObject.Find("Interaction_Canvas");
@@ -65,7 +65,6 @@ namespace Utility
             if (Values.GetIsGameOver())
             {
                 gameOverCanvas.SetActive(true);
-                Time.timeScale = 0; //za warudo
             }
             else
             {

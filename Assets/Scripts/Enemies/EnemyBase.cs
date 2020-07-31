@@ -76,17 +76,23 @@ namespace Enemies
             //Manage the looking at player stuff
             enemyMovement.LookPlayer();
 
-            /*Check whether or not it spotted the player.*/
-            if (status.GetIsPlayerInView() && enemyIntelligence.GetMemoryTimeLeft() > 0)
-            {
-                enemyShooting.Shoot();
+
+            if (!status.GetForceStop())
+            {            
+                /*Check whether or not it spotted the player.*/
+
+                if (status.GetIsPlayerInView() && enemyIntelligence.GetMemoryTimeLeft() > 0)
+                {
+                    enemyShooting.Shoot();
+                }
+
+                /*Check health to destroy the object*/
+                CheckHealth();
+
+                status.SaveRotation(transform.rotation);
+                status.SavePosition(transform.position);
             }
-
-            /*Check health to destroy the object*/
-            CheckHealth();
-
-            status.SaveRotation(transform.rotation);
-            status.SavePosition(transform.position);
+          
         }
 
         private void CheckHealth()
@@ -133,5 +139,6 @@ namespace Enemies
         {
             gameObject.name = name;
         }
+        
     }
 }

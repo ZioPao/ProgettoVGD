@@ -19,6 +19,7 @@ namespace Enemies
         
         private int maxHealth, health;
         private bool isHit;
+        private bool forceStop;
         public void SetupBase(int maxHealth, int health, bool isHit)
         {
             this.maxHealth = maxHealth;
@@ -78,6 +79,16 @@ namespace Enemies
         public string GetName()
         {
             return name;
+        }
+
+        public void SetForceStop(bool value)
+        {
+            forceStop = value;
+        }
+
+        public bool GetForceStop()
+        {
+            return forceStop;
         }
         //intelligence
         private int viewDistance;
