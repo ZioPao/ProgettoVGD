@@ -16,6 +16,9 @@ namespace Player
         private bool input;
         private string cooldownTimer;
         private string attackTimer;
+		
+		[SerializeField] private AudioSource attackEffect;
+		[SerializeField] private AudioSource reloadEffect;
         
         /*Camera Module*/
 
@@ -31,6 +34,7 @@ namespace Player
             
             cameraMain = GameObject.Find("Camera_Main");
             gunshotLight = GameObject.Find("gunshot_light").GetComponent<Light>();
+		
 
         }
         
@@ -96,6 +100,9 @@ namespace Player
 
         public void MeleeHit()
         {
+			//Audio is Played
+			attackEffect.Play(1);
+			
             //When an attack goes through the attack cooldown is reset
             TimerController.ResetTimer(cooldownTimer);
                 
@@ -114,6 +121,9 @@ namespace Player
         {
             if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0 && !Values.GetIsGameOver() && !Values.GetIsReloading() && !Values.GetIsInPause() && !Values.GetIsFrozen())
             {
+				//Audio is Played
+				attackEffect.Play(1);
+				
                 //When an attack goes through the attack cooldown is reset
                 TimerController.ResetTimer(cooldownTimer);
                 
@@ -143,6 +153,10 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.R) && !Values.GetIsRunning() &&!Values.GetIsAttacking()[Values.GetCurrentWeapon()] && TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] <= 0
                 && Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] < Values.GetReloadAmount()[Values.GetCurrentWeapon()])
             {
+				
+				//Audio is Played
+				reloadEffect.Play(1);
+				
                 //On successful reload the cooldown is reset
                 
                 Values.SetIsReloading(true);
