@@ -122,6 +122,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &894594737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6756958982382456361, guid: 1af5e2aba8da1924bb01a637d71678c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1876491366532472761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &894594739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894594737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5feda9476352916419ea2c660f7bd9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signID: -1
 --- !u!1001 &1876491366532472761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64189,10 +64208,30 @@ PrefabInstance:
       propertyPath: m_SourcePositions.Array.data[5152].z
       value: 100.99988
       objectReference: {fileID: 0}
+    - target: {fileID: 1349376442475586359, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349376443363877030, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3843205685626799171, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802769656742895567, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802769657477799006, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982377728486, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
@@ -64282,32 +64321,32 @@ PrefabInstance:
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 7.7755e-41
+      value: 1.202e-42
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_ShadowAngle
-      value: 0
+      value: 11.3
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_Shadows.m_NormalBias
-      value: 0.047
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_Shadows.m_Bias
-      value: 0.051
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 0
+      value: 6.75e-43
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
@@ -64317,12 +64356,12 @@ PrefabInstance:
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 3895
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
@@ -64342,12 +64381,17 @@ PrefabInstance:
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_Shadows.m_Strength
-      value: 0.483
+      value: 0.354
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_BounceIntensity
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989273, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}

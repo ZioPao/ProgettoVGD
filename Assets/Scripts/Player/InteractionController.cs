@@ -51,9 +51,9 @@ namespace Player
                         {
 	                        //todo sta cosa coi parent parent parent non va bene. Da rifare il prefab del sign
                             case "Top":
-	                            signTemp = interactor.collider.GetComponentInParent<SignController>();
-	                             if (!signScript)
-		                             signScript = signParent.GetComponent<SignController>();
+		                            signTemp = interactor.collider.GetComponentInParent<SignController>();
+		                             if (!signScript)
+			                             signScript = signParent.GetComponent<SignController>();
 	                            
 	                            signScript.SetCurrentSignID(signTemp.GetSignID());
                                 InteractWithSign();
