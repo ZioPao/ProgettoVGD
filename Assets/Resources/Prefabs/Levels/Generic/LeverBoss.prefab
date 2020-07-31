@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add2495e3ea8c7e4086fd38dd187629f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorName: bossDoor
+  objectName: 
+  forcePosition: 0
+  xValue: 0
+  yValue: 0
+  zValue: 0
 --- !u!65 &8747336793080251562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,7 +122,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 1b487e4aa512c6c46b231d5aacdceae0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -197,7 +201,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2cb987137b739894682ccea9106cd69b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

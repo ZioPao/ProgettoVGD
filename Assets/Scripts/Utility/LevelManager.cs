@@ -37,7 +37,7 @@ namespace Utility
             Values.SetCurrentLevel(levelId);
 
             GameObject player;
-            print("game over: " + Values.GetIsGameOver());
+            //print("game over: " + Values.GetIsGameOver());
 
 
             //Is changing scene è relativo al cambio di scena da livello a livello 2, non c'entra coi cambi di scena
@@ -47,10 +47,6 @@ namespace Utility
                 player = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/Player")) as GameObject;
                 if (Values.GetIsLoadingSave())
                 {
-                    // SaveSystem tmp = new GameObject().AddComponent<SaveSystem>();
-                    // tmp.LoadData();
-                    // Destroy(tmp);
-                    // Values.SetIsLoadingSave(false);
                     return;        //Stops everything else, it should be ok.
                 }
             

@@ -19,15 +19,18 @@ namespace Saving
         {
             save = new Save();
             canLoad = false;
+
         }
 
 
         private Save save;
         private GameObject currentLevel;
         private bool canLoad;
+        private Canvas canvas;
 
         public void Save()
         {
+            
             //Player stats
             Transform player = Values.GetPlayerTransform();
             save.playerPosition = player.position;
@@ -254,11 +257,14 @@ namespace Saving
             // }
         }
         
+        
 
         IEnumerator LoadLevel(string levelName)
         {
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/" + levelName, LoadSceneMode.Single);
             asyncOperation.allowSceneActivation = false;
+            GetComponentInChildren<Canvas>().enabled = true;
+
             while (!asyncOperation.isDone)
             {
                 // Check if the load has finished
@@ -408,6 +414,7 @@ namespace Saving
 
                     Values.SetIsLoadingSave(false); //Finished loading
                     print("Caricato");
+                    GetComponentInChildren<Canvas>().enabled = false;
                 }
 
                 yield return null;

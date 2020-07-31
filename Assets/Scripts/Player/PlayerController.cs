@@ -126,7 +126,10 @@ namespace Player
                     Values.SetCurrentSaveManager(saveManager);
                 }
 
+
                 saveManager.GetComponent<SaveSystem>().Save();
+  
+
             }
 
 
@@ -149,7 +152,12 @@ namespace Player
                 Values.SetGameOver(false);
                 Time.timeScale = 1;
                 Values.SetHealth(1);        //tmp per evitare che riparta il game over
+
+                //var saveCanvas = saveManager.GetComponentInChildren<Canvas>();
+                //saveCanvas.enabled = true;
                 saveManager.GetComponent<SaveSystem>().Load();
+                
+                //saveCanvas.enabled = false;
             }
 
             if (Input.GetKeyDown(KeyCode.F7))
