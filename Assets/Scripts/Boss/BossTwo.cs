@@ -34,7 +34,7 @@ namespace Boss
     /*  Inizialmente identico a Nemico 1, quando subisce una certa quantità di danni cambia fase diventando molto più
         aggressivo (Attacca sparando un maggior numero di proiettili)
     */
-        private void Start()
+        private void Awake()
         {
 
             boss = GetComponent<EnemyBase>();
@@ -43,6 +43,8 @@ namespace Boss
             
             //Set boss health
             boss.GetStatus().SetHealth(bossHealth);
+
+            Values.SetCurrentBoss(gameObject);
 
             
             
