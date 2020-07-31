@@ -194,6 +194,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7159518407506185950, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: spawnPoint.y
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159518407506185950, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: spawnPointRotation.y
+      value: -100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1af5e2aba8da1924bb01a637d71678c5, type: 3}
 --- !u!108 &5174399102511463201 stripped

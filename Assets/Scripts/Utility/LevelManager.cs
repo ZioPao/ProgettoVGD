@@ -23,6 +23,7 @@ namespace Utility
         private const string LeverBossString = "LeverBoss";
 
         [SerializeField] private Vector3 spawnPoint;
+        [SerializeField] private Vector3 spawnPointRotation;
         [SerializeField] private int levelId;
 
     
@@ -61,7 +62,8 @@ namespace Utility
                 player.GetComponent<InteractionController>().Awake();       //upates it
                 player.GetComponentInChildren<EnemySpritesManager>().Awake();
             }
-            player.transform.position = spawnPoint; 
+            player.transform.position = spawnPoint;
+            player.transform.rotation = Quaternion.Euler(spawnPointRotation);
 
             enemiesStatus = new Dictionary<string, EnemyStatus>();
         

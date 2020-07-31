@@ -16949,7 +16949,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f25e80f9308f01499b0484f812a56e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {x: 1229.75, y: 115.67, z: 1021.83}
+  spawnPoint: {x: 1229.75, y: 112, z: 1021.83}
+  spawnPointRotation: {x: 0, y: -100, z: 0}
   levelId: 1
 --- !u!114 &6131983206335238099
 MonoBehaviour:
