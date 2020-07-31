@@ -105,7 +105,7 @@ namespace Boss
             spriteAnimator.runtimeAnimatorController =  Resources.Load("Enemies/Level1/Boss/Wakeup_AnimController") as RuntimeAnimatorController;
 
 
-            yield return new WaitForSecondsRealtime(1.8f);
+            yield return new WaitForSecondsRealtime(1.3f);
 
             boss.GetStatus().SetForceStop(false);
 
