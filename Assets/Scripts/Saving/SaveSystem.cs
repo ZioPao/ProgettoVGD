@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Boss;
 using Enemies;
 using Player;
 using UnityEditor;
@@ -59,14 +60,8 @@ namespace Saving
             LevelManager manager = level.GetComponent<LevelManager>();
 
             //Pickups
-            try
-            {
-                save.pickupStatus = manager.GetPickups();
-            }
-            catch (NullReferenceException)
-            {
-                ;
-            }
+            save.pickups = manager.GetCurrentPickups();
+
 
             //Spawners
             try
@@ -78,7 +73,10 @@ namespace Saving
                 ;
             }
             //Triggers
-            //save.triggersStatus = manager.GetTriggerStatus();
+            save.triggers = manager.GetCurrentTriggers();
+           
+            
+           //save.triggersStatus = manager.GetTriggerStatus();
 
             //Levers and doors
             save.interactableStatus = manager.GetInteractables();
@@ -98,6 +96,7 @@ namespace Saving
 
             UnityEngine.Debug.Log("Saved");
         }
+        
 
         public void Load()
         {
@@ -276,7 +275,45 @@ namespace Saving
                                 break;
                         }
                     }
+                    
+                    var tmpLevelManager = currentLevel.GetComponent<LevelManager>();
+                    
+                    //Triggers
+                    var oldTriggers = tmpLevelManager.GetOriginalTriggers();
+                    foreach (var oldT in oldTriggers)
+                    {
+                        if (!save.triggers.Contains(oldT))
+                        {
+                            //in quanto non ho pensato a fare un'interfaccia a tempo debito, andiamo di metodo spazzatura
+                            var tmpTrigger = GameObject.Find(oldT);
 
+                            switch (oldT)
+                            {
+                                case "boss_trigger":
+                                    tmpTrigger.GetComponent<BossTrigger>().RunTrigger();
+                                    break;
+                                case "boss_trigger_3":
+                                    tmpTrigger.GetComponent<BossTrigger3>().RunTrigger();
+                                    break;
+                                case "path_unlocker":
+                                    tmpTrigger.GetComponent<PathUnlocker>().RunTrigger();
+                                    break;
+                            }
+                        }
+                    }
+
+                    //Pickups
+
+                    var oldPickups = tmpLevelManager.GetOriginalPickups();
+                    foreach (var oldP in oldPickups)
+                    {
+                        if (!save.pickups.Contains(oldP))
+                        {
+                            //cerca e distrugge il pickup in questione
+                            var tmpPickup = GameObject.Find(oldP);
+                            Destroy(tmpPickup);
+                        }
+                    }
 
                     Values.SetIsLoadingSave(false); //Finished loading
                     print("Caricato");

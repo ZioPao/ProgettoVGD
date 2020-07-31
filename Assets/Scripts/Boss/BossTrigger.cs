@@ -13,7 +13,16 @@ namespace Boss
     
         private void OnTriggerEnter(Collider other)
         {
-        
+
+            if (other.CompareTag("Player"))
+            {
+                RunTrigger();
+            }
+         
+        }
+
+        public void RunTrigger()
+        {
             //riattiva la roccia e fa un rumorone
             rockBlocker.GetComponent<MeshCollider>().enabled = true;
             rockBlocker.GetComponent<MeshRenderer>().enabled = true;
@@ -23,7 +32,7 @@ namespace Boss
             bossSpawner.enabled = true;
 
             //Play Sound
-			fallEffect.Play();
+            fallEffect.Play();
 
             //Diminuisce la luce
 
@@ -32,7 +41,7 @@ namespace Boss
                 sun.GetComponent<Light>().intensity = 0;
             }
 
-            enabled = false;        //disabilita il trigger
+            gameObject.SetActive(false); //disattiva i lgameobject
 
         }
     }

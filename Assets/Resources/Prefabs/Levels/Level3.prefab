@@ -1021,7 +1021,6 @@ GameObject:
   - component: {fileID: 5057120237046955846}
   - component: {fileID: 5057120237046955847}
   - component: {fileID: 6713336328821642688}
-  - component: {fileID: 6713336328821642695}
   m_Layer: 0
   m_Name: Level3
   m_TagString: Level
@@ -1065,6 +1064,8 @@ MonoBehaviour:
   spawnPoint: {x: 153, y: 56.9, z: 54}
   spawnPointRotation: {x: 0, y: 0, z: 0}
   levelId: 0
+  triggersStart: []
+  pickupsStart: []
 --- !u!114 &6713336328821642688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,35 +1086,6 @@ MonoBehaviour:
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
---- !u!114 &6713336328821642695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5057120237046955845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: ae97de7d911a32c4b888b16d6a781cca, type: 2}
 --- !u!1 &6713336329267062047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1261,7 @@ GameObject:
   - component: {fileID: 6713336330654466304}
   - component: {fileID: 6386771106022371682}
   m_Layer: 2
-  m_Name: boss_trigger
+  m_Name: boss_trigger_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35265,15 +35237,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34b58e8037ded9c4e920ad3c1d6d3906, type: 3}
---- !u!4 &4261671845499441785 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6152176887168720135, guid: 34b58e8037ded9c4e920ad3c1d6d3906,
-    type: 3}
-  m_PrefabInstance: {fileID: 7945638088305823614}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4940366988976706782 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3083600321919687584, guid: 34b58e8037ded9c4e920ad3c1d6d3906,
+    type: 3}
+  m_PrefabInstance: {fileID: 7945638088305823614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4261671845499441785 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6152176887168720135, guid: 34b58e8037ded9c4e920ad3c1d6d3906,
     type: 3}
   m_PrefabInstance: {fileID: 7945638088305823614}
   m_PrefabAsset: {fileID: 0}

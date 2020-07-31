@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Player;
 using UnityEngine;
 using UnityEngine.AI;
@@ -29,15 +30,8 @@ namespace Enemies
             frontEnemyTransform = transform.Find("ViewCheck").Find("Front");
 
             agent = GetComponent<NavMeshAgent>();
-            try
-            {
-                agent.isStopped = true; //di base dev'essere fermo
+            agent.isStopped = true;
 
-            }
-            catch (Exception)
-            {
-                Destroy(this);
-            }
         }
 
 
@@ -79,7 +73,7 @@ namespace Enemies
 
         private bool CheckIfPlayerIsInView()
         {
-            LayerMask tmp = ~ LayerMask.GetMask("Enemy"); //ignore viewchecks for sprite management
+            LayerMask tmp =~ LayerMask.GetMask("tmpEnemy"); //ignore viewchecks for sprite management
 
             if (!(Vector3.Distance(frontEnemyTransform.position, this.transform.position) < viewDistance)) return false;
 
@@ -105,6 +99,16 @@ namespace Enemies
         {
             agent.isStopped = value;
             status.SetIsStopped(value);
+        }
+
+        private IEnumerator WaitForAgent()
+        {
+            while (!agent)
+            {
+                yield return null;
+            }
+
+            agent.isStopped = true;
         }
     }
 }

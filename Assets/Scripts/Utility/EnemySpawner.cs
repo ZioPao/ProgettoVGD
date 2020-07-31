@@ -65,9 +65,17 @@ namespace Utility
 
         private void SpawnCommonEnemy()
         {
-            var enemy = Instantiate(enemyPrefab) as GameObject;
+
+            var correctPosition = (transform.position +
+                                   new Vector3(Random.Range(-rangeSpawn, rangeSpawn), 0,
+                                       Random.Range(-rangeSpawn, rangeSpawn)));
+            var correctRotation = Random.rotation;
+            
+            var enemy = Instantiate(enemyPrefab, correctPosition , correctRotation);
             enemy.name = customName + "_" + status.GetCounter();
 
+            enemy.GetComponent<NavMeshAgent>()
+                .Warp(correctPosition);
             try
             {
                 enemy.transform.parent = enemiesParent.transform;
@@ -79,18 +87,6 @@ namespace Utility
             }
 
             enemiesSpawned.Add(enemy); //So we can check if they're destroyed or not
-
-            //todo sta roba è un macigno
-            enemy.GetComponent<NavMeshAgent>()
-                .Warp(transform.position + new Vector3(Random.Range(-rangeSpawn, rangeSpawn), 0,
-                    Random.Range(-rangeSpawn, rangeSpawn)));
-
-            enemy.transform.position = transform.position +
-                                       new Vector3(Random.Range(-rangeSpawn, rangeSpawn), 0,
-                                           Random.Range(-rangeSpawn, rangeSpawn));
-            enemy.transform.rotation = Random.rotation;
-            
-
             Values.GetEnemySpritesManager()
                 .AddEnemyToEnemyList(enemy); //needed to make the sprite viewing works
         }
