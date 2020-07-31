@@ -19,7 +19,7 @@ namespace Player
             
             if (Values.GetIsInWater())
             {
-                movementSpeedMod *= 0.5f; //Decrease
+                movementSpeedMod *= 0.85f; //Decrease
                 //rb.mass = rigidBodyDefaultMass + 15f;
             }
 
@@ -126,7 +126,7 @@ namespace Player
 
                 if (Values.GetIsInWater())
                 {
-                    jumpForceMod /= 5;
+                    jumpForceMod /= 2;
                 }
 
                 // if (Values.GetRigidbody().velocity.magnitude != 0)

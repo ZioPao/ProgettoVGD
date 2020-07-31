@@ -10,7 +10,7 @@ namespace Player
         
         //Hard Values (May be modified by upgrades)
         
-        private static float boostSpeed = 3f;
+        private static float boostSpeed = 5f;
         private static float jumpForce = 40f;
         private static float movementSpeed = 2f;
         private static float normalMass = 2.45f;

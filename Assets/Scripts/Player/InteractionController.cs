@@ -13,6 +13,8 @@ namespace Player
         
 	    private GameObject cameraMain, signParent;
 	    private SignController signScript, signTemp;
+		
+		[SerializeField] private AudioSource collectEffect;
 	    
 	    public void Awake()
 	    {
@@ -109,6 +111,9 @@ namespace Player
 							
 						}
 						Destroy(picker.transform.gameObject);
+						
+						//Play Audio
+						collectEffect.Play(1);
 					}
 				}
 				else

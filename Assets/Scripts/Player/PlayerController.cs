@@ -191,15 +191,15 @@ namespace Player
         {
             if (Values.GetIsRunning())
             {
-                Values.DecreaseStamina(Time.deltaTime * 10);
+                Values.DecreaseStamina(Time.deltaTime * 9);
             }
             else if (Values.GetIsMoving())
             {
-                Values.IncreaseStamina(Time.deltaTime * 3);
+                Values.IncreaseStamina(Time.deltaTime * 8);
             }
             else
             {
-                Values.IncreaseStamina(Time.deltaTime * 8);
+                Values.IncreaseStamina(Time.deltaTime * 14);
             }
         }
     }
