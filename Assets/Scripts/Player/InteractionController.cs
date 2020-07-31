@@ -94,24 +94,26 @@ namespace Player
 					{
 						switch(picker.transform.name)
 						{
-							case "AmmoBox":
+							case "Object005":
 								CollectAmmo();
+								Destroy(picker.transform.parent);
 								break;
-							
-							case "MedKit":
-								CollectMedKit();
+								
+							case "Object004":
+								CollectAmmo();
+								Destroy(picker.transform.parent);
 								break;
 							
 							case "Key":
 								CollectKey();
+								Destroy(picker.transform.gameObject);
 								break;
 							
 							default:
 								break;
 							
 						}
-						Destroy(picker.transform.gameObject);
-						
+											
 						//Play Audio
 						collectEffect.Play(1);
 					}
@@ -162,11 +164,6 @@ namespace Player
 		
 		private void CollectAmmo(){
 			Values.IncrementAmmoReserve(Values.GetCurrentWeapon(),25);
-		}
-
-		private void CollectMedKit()
-		{
-			Values.IncreaseHealth(25);
 		}
 
 		private void CollectKey()
