@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2561f4ea3d56e444c9f5bd5a68e04c54
+guid: 89109589b0a71fd44bf785224a278b90
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -114,10 +114,10 @@ TextureImporter:
       name: Front_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 0
-        width: 27
-        height: 64
+        x: 23
+        y: 4
+        width: 73
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,10 +135,10 @@ TextureImporter:
       name: Front_1
       rect:
         serializedVersion: 2
-        x: 82
-        y: 0
-        width: 27
-        height: 63
+        x: 152
+        y: 4
+        width: 80
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: Front_2
       rect:
         serializedVersion: 2
-        x: 146
-        y: 0
-        width: 27
-        height: 61
+        x: 288
+        y: 5
+        width: 73
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,10 +177,10 @@ TextureImporter:
       name: Front_3
       rect:
         serializedVersion: 2
-        x: 210
-        y: 0
-        width: 27
-        height: 63
+        x: 408
+        y: 6
+        width: 80
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -198,10 +198,10 @@ TextureImporter:
       name: Front_4
       rect:
         serializedVersion: 2
-        x: 274
-        y: 0
-        width: 27
-        height: 64
+        x: 535
+        y: 5
+        width: 73
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: Front_5
       rect:
         serializedVersion: 2
-        x: 338
-        y: 0
-        width: 27
-        height: 63
+        x: 664
+        y: 4
+        width: 80
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,10 +240,10 @@ TextureImporter:
       name: Front_6
       rect:
         serializedVersion: 2
-        x: 402
-        y: 0
-        width: 27
-        height: 61
+        x: 800
+        y: 5
+        width: 73
+        height: 119
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,10 +261,10 @@ TextureImporter:
       name: Front_7
       rect:
         serializedVersion: 2
-        x: 466
-        y: 0
-        width: 27
-        height: 63
+        x: 920
+        y: 3
+        width: 80
+        height: 120
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,7 +281,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 72efe054a593c7f43ad8bb120aa5f7a5
     internalID: 0
     vertices: []
     indices: 

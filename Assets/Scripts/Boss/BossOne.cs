@@ -23,6 +23,10 @@ namespace Boss
         private EnemyShooting bossShooting;
         private EnemyMovement bossMovement;
         private EnemySpawner enemySpawner;
+
+
+        private Transform textureTransform;
+        
         private SpriteRenderer spriteRenderer;         //todo forse da cambiare in SpriteRenderer
         private Animator spriteAnimator;
         
@@ -40,6 +44,8 @@ namespace Boss
             boss = GetComponent<EnemyBase>();
             bossMovement = GetComponent<EnemyMovement>();
             bossShooting = GetComponent<EnemyShooting>();
+
+            textureTransform = transform.Find("Texture");
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             spriteAnimator = GetComponentInChildren<Animator>();
             //enemySpawner = gameObject.AddComponent<EnemySpawner>();        //per spawnare i nemici nella fase 2    
@@ -104,7 +110,7 @@ namespace Boss
             spriteRenderer.sprite = Resources.Load<Sprite>("Enemies/Level1/Boss/Wakeup");
             spriteAnimator.runtimeAnimatorController =  Resources.Load("Enemies/Level1/Boss/Wakeup_AnimController") as RuntimeAnimatorController;
 
-
+            textureTransform.position = textureTransform.position + new Vector3(0, 0.5f, 0);
             yield return new WaitForSecondsRealtime(1.3f);
 
             boss.GetStatus().SetForceStop(false);

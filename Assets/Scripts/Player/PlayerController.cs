@@ -160,13 +160,13 @@ namespace Player
                 //saveCanvas.enabled = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.F7))
-            {
-                // var interactableObject = GameObject.Find("Lever");
-                // interactableObject.GetComponent<LeverScript>().ForceActivation();
-            
-                Values.SetHealth(0);
-            }
+            // if (Input.GetKeyDown(KeyCode.F7))
+            // {
+            //     // var interactableObject = GameObject.Find("Lever");
+            //     // interactableObject.GetComponent<LeverScript>().ForceActivation();
+            //
+            //     Values.SetHealth(0);
+            // }
 
             if (!Values.GetIsFrozen() && !Values.GetIsGameOver())
             {
