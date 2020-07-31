@@ -112,7 +112,7 @@ namespace Player
             /*Manage Weapons*/
             //test stuff
 
-            if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver())
+            if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && Values.GetCurrentBoss() == null)
             {
                 GameObject saveManager;
                 if (Values.GetCurrentSaveManager() != null)

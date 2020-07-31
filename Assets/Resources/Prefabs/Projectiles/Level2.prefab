@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7862359989826453289}
   - component: {fileID: 8436050570516368805}
   m_Layer: 0
-  m_Name: Proj1Base
+  m_Name: Proj2Base
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,8 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3404333886518146401, guid: 3f33b5e058bc6ed44b0888c99676cf72,
-    type: 3}
+  m_Sprite: {fileID: 520005141443262910, guid: 846cd04df8308144bbbd0c9dcade2ff3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,7 +171,7 @@ Animator:
   m_GameObject: {fileID: 8076086713948433530}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 711c32e59457a2f4b9fe3f1a18a47034, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3548874b0ee8d374e9962f0890f1724f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

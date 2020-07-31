@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7862359989826453289}
   - component: {fileID: 8436050570516368805}
   m_Layer: 0
-  m_Name: Proj1Base
+  m_Name: Level1Boss
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3404333886518146401, guid: 3f33b5e058bc6ed44b0888c99676cf72,
+  m_Sprite: {fileID: 1899948040821597692, guid: d3ff78e6450dc63419275bdfc6fd1bcc,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -172,7 +172,7 @@ Animator:
   m_GameObject: {fileID: 8076086713948433530}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 711c32e59457a2f4b9fe3f1a18a47034, type: 2}
+  m_Controller: {fileID: 9100000, guid: cdbc7ef6cf9e3bf48a8427210bbe0b7e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
