@@ -14,7 +14,7 @@ namespace Player
 	    private GameObject cameraMain, signParent;
 	    private SignController signScript, signTemp;
 	    
-	    private void Awake()
+	    public void Awake()
 	    {
 		    /*Setup Camera*/
             
@@ -23,6 +23,7 @@ namespace Player
 		    try
 		    {
 			    signScript = signParent.GetComponent<SignController>();
+			    
 
 		    }
 		    catch (NullReferenceException)
