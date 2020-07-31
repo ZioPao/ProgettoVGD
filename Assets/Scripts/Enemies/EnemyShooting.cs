@@ -30,7 +30,7 @@ namespace Enemies
 
         private bool isEnemyShooting;
 
-        public void Start()
+        public void Awake()
         {
             //Vector3[] initLaserPositions = new Vector3[2] { Vector3.zero, Vector3.zero };
             //laserLineRenderer.SetPositions(initLaserPositions);
@@ -56,7 +56,7 @@ namespace Enemies
 
             if (timerWaitingLeft <= 0)
             {
-                var projectile = PrefabUtility.InstantiatePrefab(projectilePrefab) as GameObject;
+                var projectile = Instantiate(projectilePrefab) as GameObject;
                 projectile.name = "Projectile";
                 
                 ProjectileScript projScript = projectile.GetComponent<ProjectileScript>();

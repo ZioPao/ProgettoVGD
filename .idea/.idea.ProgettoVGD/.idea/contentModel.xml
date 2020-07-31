@@ -186,7 +186,6 @@
             <e p="LevelManager.cs" t="Include" />
             <e p="LeverScript.cs" t="Include" />
             <e p="LeverStatus.cs" t="Include" />
-            <e p="LightProbeGenerator.cs" t="Include" />
             <e p="MovingWater.cs" t="Include" />
             <e p="NavMeshComponents" t="Include">
               <e p="Editor" t="Include">

@@ -15,20 +15,18 @@ namespace Enemies
 
         private EnemyStatus status;
         
-        private Transform playerTransform;
         
         private float memoryTimeLeft;
         private Transform frontEnemyTransform;
         private NavMeshAgent agent;
 
-        public void Start()
+        public void Awake()
         {
 
             status = GetComponent<EnemyBase>().GetStatus();
             status.SetupIntelligence(viewDistance, false, true, maxMemoryTime, 0f, 0f);
             
             frontEnemyTransform = transform.Find("ViewCheck").Find("Front");
-            playerTransform = GameObject.Find("Player").GetComponent<Transform>();
 
             agent = GetComponent<NavMeshAgent>();
             try
@@ -85,7 +83,7 @@ namespace Enemies
 
             if (!(Vector3.Distance(frontEnemyTransform.position, this.transform.position) < viewDistance)) return false;
 
-            return Physics.Linecast(frontEnemyTransform.position, playerTransform.position,
+            return Physics.Linecast(frontEnemyTransform.position, Values.GetPlayerTransform().position,
                        out RaycastHit rayEnemySprite,
                        tmp) &&
                    rayEnemySprite.collider.CompareTag("Player");

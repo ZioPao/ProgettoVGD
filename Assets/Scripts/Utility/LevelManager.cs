@@ -44,7 +44,7 @@ namespace Utility
             //al cambio del salvataggio.
             if (!Values.GetIsChangingScene())
             {
-                player = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/Player")) as GameObject;
+                player = Instantiate(Resources.Load("Prefabs/Player")) as GameObject;
                 if (Values.GetIsLoadingSave())
                 {
                     return;        //Stops everything else, it should be ok.

@@ -41,6 +41,11 @@ namespace Enemies
             enemyMovement = GetComponent<EnemyMovement>();
             enemyShooting = GetComponent<EnemyShooting>();
 
+
+            enemyIntelligence.enabled = true;
+            enemyMovement.enabled = true;
+            enemyShooting.enabled = true;
+
             hitMarker = transform.Find("Texture").Find("Hitmarker").gameObject;
 
             //Animation timer

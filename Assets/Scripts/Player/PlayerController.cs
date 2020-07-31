@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Enemies;
 using Saving;
 using UnityEditor;
 using UnityEngine;
@@ -75,6 +76,7 @@ namespace Player
             {
                 x.GetComponent<EnemySpawner>().enabled = true;
             }
+            
         }
 
 
@@ -121,7 +123,7 @@ namespace Player
                 }
                 else
                 {
-                    saveManager = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/SaveManager")) as GameObject;
+                    saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
                     DontDestroyOnLoad(saveManager);
                     Values.SetCurrentSaveManager(saveManager);
                 }
@@ -143,7 +145,7 @@ namespace Player
                 }
                 else
                 {
-                    saveManager = PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/SaveManager")) as GameObject;
+                    saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
                     DontDestroyOnLoad(saveManager);
                     Values.SetCurrentSaveManager(saveManager);
                 }

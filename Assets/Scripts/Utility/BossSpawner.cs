@@ -16,7 +16,7 @@ namespace Utility
         private void Start()
         {
 
-            GameObject boss = PrefabUtility.InstantiatePrefab(bossPrefab) as GameObject;
+            GameObject boss = Instantiate(bossPrefab) as GameObject;
             
             
             boss.GetComponent<NavMeshAgent>().Warp(transform.position);

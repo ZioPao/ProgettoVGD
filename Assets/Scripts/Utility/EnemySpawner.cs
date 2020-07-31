@@ -65,7 +65,7 @@ namespace Utility
 
         private void SpawnCommonEnemy()
         {
-            var enemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
+            var enemy = Instantiate(enemyPrefab) as GameObject;
             enemy.name = customName + "_" + status.GetCounter();
 
             try

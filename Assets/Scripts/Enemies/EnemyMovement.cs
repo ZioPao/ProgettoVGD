@@ -1,4 +1,5 @@
 ﻿using System;
+using Player;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -14,14 +15,13 @@ namespace Enemies
         
         private EnemyStatus status;
         private NavMeshAgent agent;
-        private Transform playerTransform, textureRenderer;
+        private Transform textureRenderer;
         
         private void Awake()
         {
             status = GetComponent<EnemyBase>().GetStatus();
             
             agent = GetComponent<NavMeshAgent>();
-            playerTransform = GameObject.Find("Player").GetComponent<Transform>();
             textureRenderer = transform.Find("Texture");
             
             //Init variabili
@@ -37,31 +37,31 @@ namespace Enemies
             if (!status.GetForceStop())
             {
                 float timerAlternativeMovement = status.GetTimerAlternativeMovement();
-            
+                
                 if (timerAlternativeMovement > 0f)
                 {
                     status.ModifyTimerAlternativeMovement(-Time.deltaTime);
                     return;
                 } //in caso contrario, operazione normale
-                if (Vector3.Distance(agent.nextPosition, playerTransform.position) <= minPlayerDistance)
+                if (Vector3.Distance(agent.nextPosition, Values.GetPlayerTransform().position) <= minPlayerDistance)
                 {
                     status.SetTimerAlternativeMovement(maxTimerAlternativeMovement);
                     float randomChoice = Random.Range(0f, 1f);
 
                     if (randomChoice < 0.5f)
                     {
-                        agent.destination = playerTransform.position + agent.transform.right * 100f;
+                        agent.destination = Values.GetPlayerTransform().position + agent.transform.right * 100f;
                     
                     }
                     else
                     {
-                        agent.destination = playerTransform.position - agent.transform.right * 100f;
+                        agent.destination = Values.GetPlayerTransform().position - agent.transform.right * 100f;
                     
                     }
                 }
                 else
                 {
-                    agent.destination = playerTransform.position;
+                    agent.destination = Values.GetPlayerTransform().position;
                 }
             }
             else
@@ -76,7 +76,7 @@ namespace Enemies
         public void LookPlayer()
         {
             //Manage the looking at player stuff
-            Vector3 playerPosition = playerTransform.position;
+            Vector3 playerPosition = Values.GetPlayerTransform().position;
             textureRenderer.LookAt(new Vector3(playerPosition.x,
                 textureRenderer.position.y,
                 playerPosition.z));

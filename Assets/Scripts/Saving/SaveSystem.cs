@@ -134,8 +134,27 @@ namespace Saving
                     save = (Save) bf.Deserialize(file);
                     file.Close();
 
-                    GameObject newPlayer = GameObject.Find("Player");
-                    Transform newPlayerT = newPlayer.transform;
+                    GameObject newPlayer = null;
+                    Transform newPlayerT = null;
+                    bool isPlayerLoaded = false;
+                    
+                    while (!isPlayerLoaded)
+                    {
+                        newPlayer = GameObject.FindWithTag("Player");
+                        if (newPlayer == null)
+                        {
+                            yield return new WaitForEndOfFrame();
+                        }
+                        else
+                        {
+                            newPlayerT = newPlayer.transform;
+                            isPlayerLoaded = true;
+                        }
+
+                    }
+
+                  
+                    
 
                     newPlayerT.position = save.playerPosition;
                     newPlayerT.rotation = save.playerRotation;
@@ -169,7 +188,7 @@ namespace Saving
                     EnemySpritesManager spritesManager = Values.GetEnemySpritesManager();
                     foreach (var element in save.enemiesStatus)
                     {
-                        GameObject tmpEnemy = PrefabUtility.InstantiatePrefab(enemyPrefab) as GameObject;
+                        GameObject tmpEnemy = Instantiate(enemyPrefab);
                         tmpEnemy.transform.SetParent(GameObject.Find("Enemies").transform);
 
                         tmpEnemy.GetComponent<EnemyBase>().Reload(element.Value);
@@ -178,8 +197,8 @@ namespace Saving
                         tmpEnemy.transform.rotation = element.Value.GetRotation();
                         tmpEnemy.GetComponent<EnemyMovement>().Reload();
 
-                        tmpEnemy.GetComponent<EnemyIntelligence>().Start();
-                        tmpEnemy.GetComponent<EnemyShooting>().Start();
+                        tmpEnemy.GetComponent<EnemyIntelligence>().Awake();
+                        tmpEnemy.GetComponent<EnemyShooting>().Awake();
 
 
                         spritesManager.AddEnemyToEnemyList(tmpEnemy);
@@ -198,7 +217,7 @@ namespace Saving
                                                    save.levelName); //Level name = projectile type
                     foreach (var pStatus in save.projectileStatus)
                     {
-                        GameObject tmpProj = PrefabUtility.InstantiatePrefab(projPrefab) as GameObject;
+                        GameObject tmpProj = Instantiate(projPrefab);
 
                         ProjectileScript tmpScript = tmpProj.GetComponent<ProjectileScript>();
 

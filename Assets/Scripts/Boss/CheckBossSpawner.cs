@@ -42,7 +42,7 @@ namespace Boss
                     //Spawn the object that'll start the real boss battle
                     GameObject signPrefab = Resources.Load<GameObject>("Prefabs/Levels/Generic/FakeSign");
 
-                    sign = PrefabUtility.InstantiatePrefab(signPrefab) as GameObject;
+                    sign = Instantiate(signPrefab) as GameObject;
                     sign.transform.name = "Sign";        //per far funzionare correttamente l'interactioncontroller
                     sign.transform.parent = GameObject.Find("InteractableObjects").transform;
                     sign.transform.position = fakeBossLastPosition;
@@ -69,7 +69,7 @@ namespace Boss
                     }
                     
                     GameObject bossPrefab = Resources.Load<GameObject>("Prefabs/Enemies/BossLevel3");
-                    var boss = PrefabUtility.InstantiatePrefab(bossPrefab) as GameObject;
+                    var boss = Instantiate(bossPrefab) as GameObject;
 
 
                     var newBossPosition = chosenPoint;

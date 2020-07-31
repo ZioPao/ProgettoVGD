@@ -21,7 +21,7 @@ namespace Menu
         public void LoadGame()
         {
             GameObject saveManager =
-                PrefabUtility.InstantiatePrefab(Resources.Load("Prefabs/SaveManager")) as GameObject;
+                Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
             DontDestroyOnLoad(saveManager);
             Values.SetCurrentSaveManager(saveManager);
             saveManager.GetComponent<SaveSystem>().Load();
@@ -29,7 +29,7 @@ namespace Menu
 
         public void QuitGame()
         {
-            EditorApplication.isPlaying = false;
+            //EditorApplication.isPlaying = false;
             Application.Quit();
         }
 
