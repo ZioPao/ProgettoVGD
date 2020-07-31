@@ -274,7 +274,7 @@ namespace Saving
 
                     asyncOperation.allowSceneActivation = true;
 
-                    yield return new WaitForSeconds(2);
+                    yield return new WaitForEndOfFrame();
                     
                     Values.SetIsLoadingSave(true);
 
@@ -312,6 +312,8 @@ namespace Saving
                         Object.Destroy(enemy);
                     }
 
+                    
+                    
                     //Creates them again
                     GameObject enemyPrefab =
                         Resources.Load<GameObject>("Prefabs/Enemies/" + save.levelName); //Level name = enemy type
