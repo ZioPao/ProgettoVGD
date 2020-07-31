@@ -32,6 +32,12 @@ TextureImporter:
   - first:
       213: 969284863542959564
     second: Alive_9
+  - first:
+      213: 9040879190431018056
+    second: Front_0
+  - first:
+      213: -4617293510232987901
+    second: Front_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -180,48 +186,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alive_3
-      rect:
-        serializedVersion: 2
-        x: 212
-        y: 4
-        width: 27
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d39ef468e905e220800000000000000
-      internalID: 2514426860687758295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alive_4
-      rect:
-        serializedVersion: 2
-        x: 236
-        y: 19
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc4496fbff31aa6a0800000000000000
-      internalID: -6437310728223767349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Alive_5
       rect:
         serializedVersion: 2
@@ -285,13 +249,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alive_8
+      name: Front_1
       rect:
         serializedVersion: 2
-        x: 470
-        y: 2
-        width: 30
-        height: 55
+        x: 204
+        y: 4
+        width: 41
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47b188a5fa957a600800000000000000
-      internalID: 479450495011265396
+      spriteID: 307a8d214041cefb0800000000000000
+      internalID: -4617293510232987901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alive_9
+      name: Front_0
       rect:
         serializedVersion: 2
         x: 460
-        y: 5
-        width: 7
-        height: 6
+        y: 2
+        width: 40
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccd14a9a277937d00800000000000000
-      internalID: 969284863542959564
+      spriteID: 84cacda19b7a77d70800000000000000
+      internalID: 9040879190431018056
       vertices: []
       indices: 
       edges: []

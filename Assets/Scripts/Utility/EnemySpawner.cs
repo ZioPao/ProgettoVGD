@@ -89,6 +89,7 @@ namespace Utility
                                        new Vector3(Random.Range(-rangeSpawn, rangeSpawn), 0,
                                            Random.Range(-rangeSpawn, rangeSpawn));
             enemy.transform.rotation = Random.rotation;
+            
 
             Values.GetEnemySpritesManager()
                 .AddEnemyToEnemyList(enemy); //needed to make the sprite viewing works
