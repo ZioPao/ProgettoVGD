@@ -64189,6 +64189,11 @@ PrefabInstance:
       propertyPath: m_SourcePositions.Array.data[5152].z
       value: 100.99988
       objectReference: {fileID: 0}
+    - target: {fileID: 3843205685626799171, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6756958982377728486, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_LightmapParameters
@@ -64394,6 +64399,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 145.45
       objectReference: {fileID: 0}
+    - target: {fileID: 6756958983900620925, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7150896878736950622, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_Enabled
@@ -64409,7 +64419,9 @@ PrefabInstance:
       propertyPath: spawnPointRotation.y
       value: -100
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6756958983900620925, guid: 1af5e2aba8da1924bb01a637d71678c5, type: 3}
+    - {fileID: 3843205685626799171, guid: 1af5e2aba8da1924bb01a637d71678c5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1af5e2aba8da1924bb01a637d71678c5, type: 3}
 --- !u!108 &5174399102511463201 stripped
 Light:

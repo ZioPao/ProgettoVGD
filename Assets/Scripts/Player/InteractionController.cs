@@ -94,16 +94,11 @@ namespace Player
 					{
 						switch(picker.transform.name)
 						{
-							case "Object005":
+							case "AmmoBox":
 								CollectAmmo();
-								Destroy(picker.transform.parent);
+								Destroy(picker.transform.gameObject);
 								break;
-								
-							case "Object004":
-								CollectAmmo();
-								Destroy(picker.transform.parent);
-								break;
-							
+						
 							case "Key":
 								CollectKey();
 								Destroy(picker.transform.gameObject);
