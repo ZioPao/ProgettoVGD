@@ -15,8 +15,7 @@ namespace Utility
 
         private void Start()
         {
-            //todo gestisci saving
-            
+
             GameObject boss = PrefabUtility.InstantiatePrefab(bossPrefab) as GameObject;
             
             
@@ -26,8 +25,9 @@ namespace Utility
 
             Values.GetEnemySpritesManager().AddEnemyToEnemyList(boss); //needed to make the sprite viewing works
             
-            //todo perché?
-            //Values.SetCurrentBoss(boss);        //salva il current boss su values. abbastanza sporco così ma no time
+            //Disabilita il salvataggio durante le boss battles
+            Values.SetCanSave(false);
+            Values.SetCurrentBoss(boss);        //salva il current boss su values per il path unlocker
             
             //Attiva il pathUnlocker
             pathUnlocker.GetComponent<PathUnlocker>().enabled = true;

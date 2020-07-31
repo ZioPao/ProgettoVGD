@@ -9,25 +9,23 @@ public class PathUnlocker : MonoBehaviour
     [SerializeField] private GameObject objectToMove;
 
 
-    void Start()
+    void Awake()
     {
         if (objectToMove == null)
-            enabled = false;        //no need to unlock a path
+            enabled = false; //no need to unlock a path
     }
+
     void FixedUpdate()
     {
-
         try
         {
             var x = Values.GetCurrentBoss().transform.position;
-
         }
         catch (Exception)
         {
             objectToMove.transform.position = new Vector3(-1000, -1000, -1000); //lo sposta in un punto lontano
+            Values.SetCanSave(true); //permette di salvare nuovamente
             enabled = false;
         }
-
-        
     }
 }

@@ -123,7 +123,7 @@ namespace Saving
                 {
                     asyncOperation.allowSceneActivation = true;
 
-                    yield return new WaitForEndOfFrame();
+                    yield return new WaitForSeconds(5);        //non ho idea di come fare il check al momento
 
                     Values.SetIsLoadingSave(true);
 
