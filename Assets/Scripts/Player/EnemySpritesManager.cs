@@ -107,6 +107,15 @@ namespace Player
                                     break;
                             }
 
+
+                            if (tmp == null)
+                            {
+                                print("tmp è null");
+                                tmp = Resources.Load(path + "Front") as RuntimeAnimatorController;
+                                
+
+                            }
+
                             enemyAnimator.runtimeAnimatorController = tmp;
                         }
                     }
