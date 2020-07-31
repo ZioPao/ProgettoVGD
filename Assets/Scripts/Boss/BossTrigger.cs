@@ -26,8 +26,13 @@ namespace Boss
 
             //Diminuisce la luce
 
-            sun.GetComponent<Light>().intensity = 0;
+            if (sun)
+            {
+                sun.GetComponent<Light>().intensity = 0;
+            }
+
             enabled = false;        //disabilita il trigger
+
         }
     }
 }

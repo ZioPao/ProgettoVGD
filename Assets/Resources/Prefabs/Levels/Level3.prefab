@@ -1063,6 +1063,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f25e80f9308f01499b0484f812a56e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {x: 153, y: 56.9, z: 54}
+  spawnPointRotation: {x: 0, y: 0, z: 0}
+  levelId: 0
 --- !u!114 &6713336328821642688
 MonoBehaviour:
   m_ObjectHideFlags: 0
