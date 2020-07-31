@@ -3977,7 +3977,7 @@ GameObject:
   - component: {fileID: 5390467969796808266}
   - component: {fileID: 5390467969796808267}
   - component: {fileID: 5390467969796808260}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LightprobeVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4090,7 +4090,7 @@ GameObject:
   - component: {fileID: 5390467970519746016}
   - component: {fileID: 5390467970519746017}
   - component: {fileID: 5390467970519746018}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LightprobeVolume (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
