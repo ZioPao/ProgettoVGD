@@ -38,7 +38,79 @@ namespace Utility
                     signText = "Questo cartello e' una prova";
                     break;
                 case 2:
-                    signText = "YOU WIN.... not really";
+                    signText = "Hai Vinto!" +
+                               Environment.NewLine + Environment.NewLine +
+                               "Premi Q per raggiungere la schermata finale!";
+                    break;
+
+                case 3:
+                    signText = "Benvenuto!" +
+                               Environment.NewLine +
+                               "Il gioco è composto da 3 livelli distinti." +
+                               Environment.NewLine +
+                               "Per superare un livello, raggiungi l'arena del boss e sconfiggilo, poi dirigiti verso l'uscita." +
+                               Environment.NewLine +
+                               "Lungo la tua strada troverai nemici da sconfiggere e utili consumabili che ti saranno d'aiuto." +
+                               Environment.NewLine +
+                               "Sfrutta al meglio tutto ciò che riesci a trovare! Buona Fortuna" +
+                               Environment.NewLine + Environment.NewLine +
+                               "Premi Q per tornare al gioco.";
+                    break;
+
+                case 4:
+                    signText = "Comandi di Gioco:" +
+                               Environment.NewLine +
+                               "W - A - S - D: Controlla il Movimento del giocatore" +
+                               Environment.NewLine +
+                               "1 - 2 - 3: Permette di scegliere l'arma corrente" +
+                               Environment.NewLine +
+                               "Tasto sinistro del Mouse: Attacca con l'arma corrente" +
+                               Environment.NewLine +
+                               "R: Ricarica l'arma (Il migliore amico di ogni giocatore)" +
+                               Environment.NewLine +
+                               "Esc: Accedi al menu di pausa" +
+                               Environment.NewLine + Environment.NewLine +
+                               "Premi Q per tornare al gioco.";
+                    break;
+
+                case 5:
+                    signText = "Oggetti Disponibili:" +
+                               Environment.NewLine +
+                               "Cura: Ripristina parte della vita" +
+                               Environment.NewLine +
+                               "Cassa di Munizioni: Aggiunge munizioni alle scorte" +
+                               Environment.NewLine +
+                               "Chiave: Permette di aprire una porta bloccata" +
+                               Environment.NewLine + Environment.NewLine +
+                               "Premi Q per tornare al gioco.";
+                    break;
+
+                case 6:
+                    signText = "Tutti hanno messo in dubbio la mia sanità mentale quando ho costruito un cartello sott'acqua" +
+                               Environment.NewLine +
+                               "Oooooh, sicuramente ora si staranno pentendo" +
+                               Environment.NewLine +
+                               "Quelle dannate bestie nascondono un segreto, e questo è l'unico luogo che non controllerebbero mai" +
+                               Environment.NewLine +
+                               "Non è ancora troppo tardi, possono ancora essere fermate, a patto che la creatura nascosta nei paraggi venga sconfitta" +
+                               Environment.NewLine +
+                               "Dovrebbe trovarsi in una caverna, ma purtroppo non so altro." +
+                               Environment.NewLine + Environment.NewLine +
+                               "Premi Q per tornare al gioco.";
+                    break;
+
+                case 7:
+                    signText = "Non disturbare il guardiano" +
+                               Environment.NewLine + Environment.NewLine +
+                               "Premi Q per tornare al gioco.";
+                    break;
+
+                case 8:
+                    signText = "La tentazione e' stata troppo forte, non abbiamo resistito" +
+                               Environment.NewLine +
+                               "Il Signore abbia pieta' per le povere anime che decideranno di attivare quella leva" +
+                               Environment.NewLine + Environment.NewLine +
+                               "Premi Q per tornare al gioco.";
                     break;
 
                 default:
