@@ -46,13 +46,13 @@ namespace Utility
                 case 3:
                     signText = "Benvenuto!" +
                                Environment.NewLine +
-                               "Il gioco è composto da 3 livelli distinti." +
+                               "Il gioco e' composto da 3 livelli distinti." +
                                Environment.NewLine +
                                "Per superare un livello, raggiungi l'arena del boss e sconfiggilo, poi dirigiti verso l'uscita." +
                                Environment.NewLine +
                                "Lungo la tua strada troverai nemici da sconfiggere e utili consumabili che ti saranno d'aiuto." +
                                Environment.NewLine +
-                               "Sfrutta al meglio tutto ciò che riesci a trovare! Buona Fortuna" +
+                               "Sfrutta al meglio tutto cio' che riesci a trovare! Buona Fortuna" +
                                Environment.NewLine + Environment.NewLine +
                                "Premi Q per tornare al gioco.";
                     break;
@@ -86,13 +86,13 @@ namespace Utility
                     break;
 
                 case 6:
-                    signText = "Tutti hanno messo in dubbio la mia sanità mentale quando ho costruito un cartello sott'acqua" +
+                    signText = "Tutti hanno messo in dubbio la mia sanita' mentale quando ho nascosto un cartello sott'acqua." +
                                Environment.NewLine +
-                               "Oooooh, sicuramente ora si staranno pentendo" +
+                               "Oooooh, sicuramente ora se ne staranno pentendo." +
                                Environment.NewLine +
-                               "Quelle dannate bestie nascondono un segreto, e questo è l'unico luogo che non controllerebbero mai" +
+                               "Quelle dannate bestie nascondono un segreto, e questo e' l'unico luogo che non controllerebbero mai." +
                                Environment.NewLine +
-                               "Non è ancora troppo tardi, possono ancora essere fermate, a patto che la creatura nascosta nei paraggi venga sconfitta" +
+                               "Non e' ancora troppo tardi, possono ancora essere fermate, a patto che la creatura nascosta nei paraggi venga sconfitta." +
                                Environment.NewLine +
                                "Dovrebbe trovarsi in una caverna, ma purtroppo non so altro." +
                                Environment.NewLine + Environment.NewLine +
@@ -100,15 +100,15 @@ namespace Utility
                     break;
 
                 case 7:
-                    signText = "Non disturbare il guardiano" +
+                    signText = "Non disturbare il guardiano." +
                                Environment.NewLine + Environment.NewLine +
                                "Premi Q per tornare al gioco.";
                     break;
 
                 case 8:
-                    signText = "La tentazione e' stata troppo forte, non abbiamo resistito" +
+                    signText = "La tentazione e' stata troppo forte, non abbiamo resistito." +
                                Environment.NewLine +
-                               "Il Signore abbia pieta' per le povere anime che decideranno di attivare quella leva" +
+                               "Il Signore abbia pieta' per le povere anime che decideranno di abbassare quella leva." +
                                Environment.NewLine + Environment.NewLine +
                                "Premi Q per tornare al gioco.";
                     break;
