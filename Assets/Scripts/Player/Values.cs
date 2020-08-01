@@ -7,9 +7,9 @@ namespace Player
 {
     public static class Values
     {
+        //todo sarebbe più sensato dividere in più Values piuttosto che uno generico. 
         
         //Hard Values (May be modified by upgrades)
-        
         private static float boostSpeed = 5f;
         private static float jumpForce = 40f;
         private static float movementSpeed = 2f;
@@ -17,13 +17,10 @@ namespace Player
         private static float jumpMass = 10f;
         private static float normalDrag = 8f;
         private static float jumpDrag = 0f;
-        
         private static float maxHealth = 100f;
         private static float maxStamina = 100f;
         private static float maxOxygen = 100f;
-        
         private static float rigidBodyDefaultMass = 2.45f;
-        
         private static float projectileDistance = 100f;
         private static float meleeDistance = 20f;
         private static float interactionDistance = 5f;
@@ -42,6 +39,8 @@ namespace Player
         private static bool isTouchingWallWithHead = false;
         private static float lastGoodYPosition;
         private static bool isInWater = false;
+        private static int currentLevel;
+
         //Actions
         //private static bool isMoving = false; //Da implementare
         private static bool isFrozen = false;
@@ -55,11 +54,8 @@ namespace Player
         private static bool isUsingDoor = false;
         private static bool isUsingLever = false;
         private static bool hasKey = false;
-
         private static bool isInPause = false;
         private static bool isGameOver = false;
-        private static int currentLevel;
-
         private static bool hasInteractedWithWinObject = false;
 
         //Raycasting
@@ -82,12 +78,6 @@ namespace Player
         //Checks
         private static GameObject currentBoss;
         
-        //Saving 
-        private static bool isLoadingSave = false;
-        private static bool isChangingScene = false;
-        private static bool canSave = true;
-        private static GameObject saveManager;
-        
         //Weapon Types
         public enum WeaponEnum
         {
@@ -105,14 +95,22 @@ namespace Player
         private static Dictionary<WeaponEnum, int> reloadAmount;
         private static Dictionary<WeaponEnum, bool> isAttacking;
         private static WeaponEnum currentWeapon;
+
+        //Saving 
+        private static bool isLoadingSave = false;
+        private static bool isChangingScene = false;
+        private static bool canSave = true;
+        private static GameObject saveManager;
+        
+        //Tags
+        private const string playerTag = "Player";
         
         //Timers
         private static bool isTimerLoaded = false;
         
-        /*GETTERS*/
-        
-        //Hard Values
-
+        /// <summary>
+        /// Getters constant player values
+        /// </summary>
         public static float GetBoostSpeed()
         {
             return boostSpeed;
@@ -125,27 +123,26 @@ namespace Player
         {
             return movementSpeed;
         }
-
+        public static float GetMaxSpeed()
+        {
+            return maxSpeed;
+        }
         public static float GetMaxHealth()
         {
             return maxHealth;
         }
-
         public static float GetJumpDrag()
         {
             return jumpDrag;
         }
-
         public static float GetNormaMass()
         {
             return normalMass;
         }
-
         public static float GetJumpMass()
         {
             return jumpMass;
         }
-
         public static float GetNormalDrag()
         {
             return normalDrag;
@@ -158,12 +155,10 @@ namespace Player
         {
             return maxOxygen;
         }
-
         public static float GetRigidBodyDefaultMass()
         {
             return rigidBodyDefaultMass;
         }
-
         public static float GetProjectileDistance()
         {
             return projectileDistance;
@@ -181,8 +176,9 @@ namespace Player
             return pickupDistance;
         }
         
-        //Player Stats
-
+        /// <summary>
+        /// Getters player variables
+        /// </summary>
         public static float GetHealth()
         {
             return health;
@@ -196,13 +192,10 @@ namespace Player
             return oxygen;
         }
 
-        public static float GetMaxSpeed()
-        {
-            return maxSpeed;
-        }
 
-        //State Definers
-        //Collisions
+        /// <summary>
+        /// Get state definers
+        /// </summary>
         public static bool GetIsGrounded()
         {
             return isGrounded;
@@ -223,7 +216,6 @@ namespace Player
         {
             return isInWater;
         }
-        //Actions
         public static bool GetIsFrozen()
         {
             return isFrozen;
@@ -256,12 +248,10 @@ namespace Player
         {
             return isNearPickup;
         }
-
         public static bool GetIsUsingDoor()
         {
             return isUsingDoor;
         }
-
         public static bool GetIsUsingLever()
         {
             return isUsingLever;
@@ -270,17 +260,14 @@ namespace Player
         {
             return hasKey;
         }
-
         public static bool GetIsInPause()
         {
             return isInPause;
         }
-
         public static bool GetIsGameOver()
         {
             return isGameOver;
         }
-        
         public static int GetCurrentLevel()
         {
             return currentLevel;
@@ -290,7 +277,9 @@ namespace Player
             return hasInteractedWithWinObject;
         }
 
-        //Raycasting
+        /// <summary>
+        /// Get pre-defined game values
+        /// </summary>
         public static float GetRaycastLength()
         {
             return raycastLength;

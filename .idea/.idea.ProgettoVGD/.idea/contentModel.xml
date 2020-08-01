@@ -183,6 +183,7 @@
             <e p="EnemySpawner.cs" t="Include" />
             <e p="EnemySpawnerStatus.cs" t="Include" />
             <e p="HealthScript.cs" t="Include" />
+            <e p="ITrigger.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
             <e p="LeverScript.cs" t="Include" />
             <e p="LeverStatus.cs" t="Include" />

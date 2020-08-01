@@ -71,12 +71,9 @@ namespace Player
 
 
             //allo spawn del player si attivano gli spawner
+            StartCoroutine(WaitAndInitEnemySpawns());
 
-            foreach (var x in GameObject.FindGameObjectsWithTag("Spawner"))
-            {
-                x.GetComponent<EnemySpawner>().enabled = true;
-            }
-            
+
         }
 
 
@@ -113,7 +110,7 @@ namespace Player
         {
             /*Manage Weapons*/
             //test stuff
-
+            print("Can save " + Values.GetCanSave());
             if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && Values.GetCanSave())
             {
                 GameObject saveManager;
@@ -181,8 +178,7 @@ namespace Player
             interactionScript.Pickup();
             interactionScript.SignBuffer();
         }
-
-
+        
         private void ManageHealth()
         {
             if (Values.GetHealth() <= 0 && !Values.GetIsLoadingSave())
@@ -226,6 +222,21 @@ namespace Player
             else
             {
                 Values.IncreaseStamina(Time.deltaTime * 14);
+            }
+        }
+        
+        
+        //Waiting methods
+
+        IEnumerator WaitAndInitEnemySpawns()
+        {
+            //Aspetta che la navmesh sia pronta
+            //todo determinare come capire se la navmesh è pronta
+            yield return new WaitForSeconds(1);
+            
+            foreach (var x in GameObject.FindGameObjectsWithTag("Spawner"))
+            {
+                x.GetComponent<EnemySpawner>().enabled = true;
             }
         }
     }

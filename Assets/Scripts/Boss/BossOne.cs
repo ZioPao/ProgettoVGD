@@ -16,20 +16,19 @@ namespace Boss
         [SerializeField] private int bossHealth = 150;
         [SerializeField] private int bossProjectileSpeed = 20;
         [SerializeField] private float bossProjectileRate;
-        [SerializeField] private Material materialPhaseTwo;
 
-        
         private EnemyBase boss;
         private EnemyShooting bossShooting;
         private EnemyMovement bossMovement;
         private EnemySpawner enemySpawner;
 
 
+        //Graphical stuff
         private Transform textureTransform;
-        
-        private SpriteRenderer spriteRenderer;         //todo forse da cambiare in SpriteRenderer
+        private SpriteRenderer spriteRenderer;
         private Animator spriteAnimator;
         
+        //Change phase
         private bool isInPhaseTwo;
         
         

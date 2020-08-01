@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4438038330532706620}
   - component: {fileID: 3044900469229628070}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Hitmarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8652647939351697625}
   - component: {fileID: 8652647939351697626}
   - component: {fileID: 8652647939351697624}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Hitbox
   m_TagString: EnemyHitbox
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8652647939382363547}
   - component: {fileID: 8652647939382363541}
   - component: {fileID: 8652647939382363546}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: DiagFrontLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 8652647939478305720}
   - component: {fileID: 8652647939478305722}
   - component: {fileID: 8652647939478305723}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 8652647940206649614}
   - component: {fileID: 8652647940206649608}
   - component: {fileID: 8652647940206649609}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 8652647940262824753}
   - component: {fileID: 8652647940262824755}
   - component: {fileID: 8652647940262824752}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 5673882480759911212}
   - component: {fileID: 8652647940364635941}
   - component: {fileID: 8311133069895315485}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BossLevel1
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 8652647940419271494}
   - component: {fileID: 8652647940419271488}
   - component: {fileID: 8652647940419271489}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 8652647940512181088}
   - component: {fileID: 8652647940512181090}
   - component: {fileID: 8652647940512181091}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   - component: {fileID: 8652647940847400860}
   - component: {fileID: 8652647940847400862}
   - component: {fileID: 8652647940847400863}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: DiagBackLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 8652647940940458718}
   - component: {fileID: 8652647940940458712}
   - component: {fileID: 8652647940940458713}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: DiagFrontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 8652647941175229208}
   - component: {fileID: 8652647941175229210}
   - component: {fileID: 8652647941175229211}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: DiagBackRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 8652647941188435569}
   - component: {fileID: 2686341670362474039}
   - component: {fileID: 8463336745303362524}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -958,7 +958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8652647941272109770}
-  m_Layer: 9
+  m_Layer: 14
   m_Name: ViewCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

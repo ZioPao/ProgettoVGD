@@ -11,7 +11,6 @@ namespace Utility
 {
     public class LevelManager : MonoBehaviour
     {
-
         private const string EnemyTag = "enemy";
         private const string PickupTag = "Pickup";
         private const string InteractableTag = "Interactable";
@@ -19,19 +18,17 @@ namespace Utility
         private const string TriggerTag = "Trigger";
         private const string SpawnerTag = "Spawner";
         private const string ProjectileTag = "Projectile";
-
         private const string LeverBossString = "LeverBoss";
 
         [SerializeField] private Vector3 spawnPoint;
         [SerializeField] private Vector3 spawnPointRotation;
         [SerializeField] private int levelId;
 
-    
+
         //Enemy stuff
         public Dictionary<String, EnemyStatus> enemiesStatus;
 
-        
-        //Triggers
+        //To save status at the start of the level. Necessary for saving
         public List<string> triggersStart, pickupsStart;
 
 
@@ -50,47 +47,46 @@ namespace Utility
                 player = Instantiate(Resources.Load("Prefabs/Player")) as GameObject;
                 if (Values.GetIsLoadingSave())
                 {
-                    return;        //Stops everything else, it should be ok.
+                    return; //Stops everything else, it should be ok.
                 }
-            
             }
             else
             {
                 player = GameObject.Find("oldPlayer");
-                player.name = "Player";        //reset name
+                player.name = "Player"; //reset name
 
-                player.GetComponent<InteractionController>().Awake();       //upates it
+                player.GetComponent<InteractionController>().Awake(); //upates it
                 player.GetComponentInChildren<EnemySpritesManager>().Awake();
             }
-            
+
             player.transform.position = spawnPoint;
             player.transform.rotation = Quaternion.Euler(spawnPointRotation);
 
             enemiesStatus = new Dictionary<string, EnemyStatus>();
-            
+
             //All'init di un livello resetta il current Boss presente su Values
-        
+
             Values.SetCurrentBoss(null);
 
+            //Per deterimnare che triggers\pickups resettare quando si carica una partita
             var tmpTriggers = GameObject.FindGameObjectsWithTag("Trigger");
             triggersStart = new List<string>();
             foreach (var t in tmpTriggers)
             {
                 triggersStart.Add(t.name);
             }
-            
+
             var tmpPickups = GameObject.FindGameObjectsWithTag("Pickup");
             pickupsStart = new List<string>();
             foreach (var p in tmpPickups)
             {
                 pickupsStart.Add(p.name);
             }
-
         }
+
 
         public List<string> GetCurrentTriggers()
         {
-            
             var triggers = GameObject.FindGameObjectsWithTag(TriggerTag);
 
             List<string> list = new List<string>();
@@ -98,6 +94,7 @@ namespace Utility
             {
                 list.Add(x.name);
             }
+
             return list;
 
             // //get if they're active or not
@@ -113,12 +110,12 @@ namespace Utility
         }
 
         public List<string> GetOriginalTriggers()
-        { 
+        {
             return triggersStart;
         }
+
         public List<string> GetCurrentPickups()
         {
-            
             var pickups = GameObject.FindGameObjectsWithTag(PickupTag);
 
             List<string> list = new List<string>();
@@ -126,14 +123,15 @@ namespace Utility
             {
                 list.Add(x.name);
             }
+
             return list;
-            
         }
 
         public List<string> GetOriginalPickups()
         {
             return pickupsStart;
         }
+
         public Dictionary<String, EnemySpawnerStatus> GetSpawnerStatus()
         {
             GameObject[] spawners = GameObject.FindGameObjectsWithTag(SpawnerTag);
@@ -146,7 +144,6 @@ namespace Utility
             }
 
             return spawnerStatus;
-
         }
 
         public void UpdateEnemiesStatus()
@@ -155,63 +152,47 @@ namespace Utility
 
             foreach (var enemy in enemies)
             {
-
                 EnemyStatus status = enemy.GetComponent<EnemyBase>().GetStatus();
                 try
                 {
-                    enemiesStatus.Add(enemy.name, status );
-
+                    enemiesStatus.Add(enemy.name, status);
                 }
                 catch (ArgumentException)
                 {
                     enemiesStatus.Remove(enemy.name);
                     enemiesStatus.Add(enemy.name, status);
-
                 }
-            
-                //if there is currently another enemy with the same name, deletes it and then re add it
-                // enemyIntelligenceStatus.Add(enemy.name, enemy.GetComponent<EnemyIntelligence>());
-                // enemyMovementStatus.Add(enemy.name, enemy.GetComponent<EnemyMovement>());
-                // enemyShootingStatus.Add(enemy.name, enemy.GetComponent<EnemyShooting>());
-
             }
-
         }
 
         public List<ProjectileStatus> GetProjectileStatus()
         {
             var projectiles = GameObject.FindGameObjectsWithTag(ProjectileTag).ToList();
             List<ProjectileStatus> projectilesStatus = new List<ProjectileStatus>();
-        
+
             foreach (var x in projectiles)
             {
                 projectilesStatus.Add(x.GetComponent<ProjectileScript>().GetStatus());
             }
 
             return projectilesStatus;
-
-
         }
 
         public GameObject[] GetPickups()
         {
-            
             //Prende i pickups che sono presenti al momento del salvataggio
             var pickups = GameObject.FindGameObjectsWithTag(PickupTag);
             return pickups;
             //todo non serve se sono sullo stesso livello i guess. Ma credo sia rotto con gli altri
-
         }
 
         public Dictionary<string, bool> GetInteractables()
         {
-         
             Dictionary<string, bool> interactablesDictionary = new Dictionary<string, bool>();
             GameObject[] interactables = GameObject.FindGameObjectsWithTag(InteractableTag);
 
             foreach (var x in interactables)
             {
-
                 switch (x.name)
                 {
                     case LeverBossString:
@@ -220,10 +201,10 @@ namespace Utility
                         break;
                     case "DoorOptional":
                         OpenDoor tmpDoor = x.GetComponent<OpenDoor>();
-                        interactablesDictionary.Add(x.transform.parent.name, tmpDoor.enabled);        //Parent per via di come è strutturato il prefab
+                        interactablesDictionary.Add(x.transform.parent.name,
+                            tmpDoor.enabled); //Parent per via di come è strutturato il prefab
                         break;
                 }
-            
             }
 
             foreach (var x in GameObject.FindGameObjectsWithTag(InteractableOverTag))
@@ -240,15 +221,8 @@ namespace Utility
                         break;
                 }
             }
+
             return interactablesDictionary;
         }
-
-        public string GetLevelName()
-        {
-            return gameObject.name;
-        }
-    
-
-
     }
 }

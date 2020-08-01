@@ -95,15 +95,6 @@ namespace Enemies
             agent.isStopped = value;
             status.SetIsStopped(value);
         }
-
-        private IEnumerator WaitForAgent()
-        {
-            while (!agent)
-            {
-                yield return null;
-            }
-
-            agent.isStopped = true;
-        }
+        
     }
 }

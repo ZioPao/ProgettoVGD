@@ -8,6 +8,7 @@ using Enemies;
 using Player;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using Utility;
 using Object = UnityEngine.Object;
@@ -28,6 +29,9 @@ namespace Saving
 
         public void Save()
         {
+
+            StartCoroutine(ShowSaveTip());
+            
             //Player stats
             Transform player = Values.GetPlayerTransform();
             save.playerPosition = player.position;
@@ -122,10 +126,14 @@ namespace Saving
                 {
                     asyncOperation.allowSceneActivation = true;
 
-                    yield return new WaitForSeconds(5);        //non ho idea di come fare il check al momento
+                    
+                    //Necessario un minimo d'attesa per determinare quando ha effettivamente caricato TUTTO.
+                    yield return new WaitForSeconds(0.2f);        //non ho idea di come fare il check al momento
 
+                    Values.SetCanSave(false);
                     Values.SetIsLoadingSave(true);
 
+                    //todo probably totally useless
                     //just in case?
                     BinaryFormatter bf = new BinaryFormatter();
                     FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
@@ -173,11 +181,11 @@ namespace Saving
                         Values.SetCurrentAmmo(w.Key, w.Value);
                     }
 
-                    //Deletes all the enemies todo should be useless now
-                    foreach (var enemy in GameObject.FindGameObjectsWithTag("enemy"))
-                    {
-                        Object.Destroy(enemy);
-                    }
+                    // //Deletes all the enemies todo should be useless now
+                    // foreach (var enemy in GameObject.FindGameObjectsWithTag("enemy"))
+                    // {
+                    //     Object.Destroy(enemy);
+                    // }
 
 
                     //Creates them again
@@ -187,15 +195,13 @@ namespace Saving
                     EnemySpritesManager spritesManager = Values.GetEnemySpritesManager();
                     foreach (var element in save.enemiesStatus)
                     {
-                        GameObject tmpEnemy = Instantiate(enemyPrefab);
-                        tmpEnemy.transform.SetParent(GameObject.Find("Enemies").transform);
-
+                        GameObject tmpEnemy = Instantiate(enemyPrefab, element.Value.GetPosition(), element.Value.GetRotation(), 
+                            GameObject.Find("Enemies").transform );
+                        
+                        //todo non rimette il nome corretto 
+                        //todo ci dev'essere una maniera meno orribile per reiniziallizare un nemico
                         tmpEnemy.GetComponent<EnemyBase>().Reload(element.Value);
-
-                        tmpEnemy.transform.position = element.Value.GetPosition();
-                        tmpEnemy.transform.rotation = element.Value.GetRotation();
                         tmpEnemy.GetComponent<EnemyMovement>().Reload();
-
                         tmpEnemy.GetComponent<EnemyIntelligence>().Awake();
                         tmpEnemy.GetComponent<EnemyShooting>().Awake();
 
@@ -316,10 +322,10 @@ namespace Saving
                     }
 
                     Values.SetIsLoadingSave(false); //Finished loading
+                    Values.SetCanSave(true);        //Permette di salvare nuovamente
                     print("Caricato");
-                    GetComponentInChildren<Canvas>().enabled = false;
+                    GameObject.Find("LoadingCanvas").GetComponent<Canvas>().enabled = false;
                 }
-
                 yield return null;
             }
         }
@@ -331,6 +337,19 @@ namespace Saving
             x.SetEnemyPrefab(prefab);
 
             yield return new WaitForEndOfFrame();
+        }
+
+        private IEnumerator ShowSaveTip()
+        {
+
+            var canvas = GameObject.Find("SavingCanvas").GetComponent<Canvas>();
+            canvas.enabled = true;
+
+            yield return new WaitForSecondsRealtime(3);
+            
+            canvas.enabled = false;
+
+
         }
     }
 }

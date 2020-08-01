@@ -3,7 +3,7 @@ using Utility;
 
 namespace Boss
 {
-    public class BossTrigger3 : MonoBehaviour
+    public class BossTrigger3 : MonoBehaviour, ITriggerMidGame
     {
         [SerializeField] private GameObject building1, building2;
         [SerializeField] private GameObject bossSpawnerObject;

@@ -3,7 +3,7 @@ using Utility;
 
 namespace Boss
 {
-    public class BossTrigger : MonoBehaviour
+    public class BossTrigger : MonoBehaviour, ITriggerMidGame
     {
         [SerializeField] private GameObject rockBlocker;
         [SerializeField] private GameObject bossSpawnerObject;

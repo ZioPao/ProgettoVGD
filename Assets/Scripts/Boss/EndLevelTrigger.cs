@@ -3,9 +3,12 @@ using Player;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utility;
 
 namespace Boss
 {
+    //non è necessario utilizzare l'interfaccia in quanto non dobbiamo salvare lo status
+    //di questo trigger, in quanto lo si esegue una sola volta a fine livello e poi si cambia scena
     public class EndLevelTrigger : MonoBehaviour
     {
     
@@ -17,8 +20,6 @@ namespace Boss
 
         private void OnTriggerEnter(Collider other)
         {
-
-            print("will change level");
             if (other.CompareTag("Player"))
             {
                  //Saves the old player
