@@ -61,7 +61,7 @@ namespace Player
                     if (Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit rayEnemySprite,
                         LayerMask.GetMask("tmpEnemy")))
                     {
-                        enemy.layer = LayerMask.GetMask("Default");        //Reset layer
+                        SetChildLayers(enemyViewCheck, 14);        //reset a ViewCheckDefault
                         SpriteRenderer enemyRenderer = enemyRenderers[enemy];
                         Animator enemyAnimator = enemyAnimators[enemy];
 
