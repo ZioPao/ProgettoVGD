@@ -137,9 +137,9 @@
             <e p="BossTrigger.cs" t="Include" />
             <e p="BossTrigger3.cs" t="Include" />
             <e p="BossTwo.cs" t="Include" />
-            <e p="CheckBossSpawner.cs" t="Include" />
             <e p="endLevelTrigger.cs" t="Include" />
             <e p="FakeBossThreeStartup.cs" t="Include" />
+            <e p="FinalBossSpawner.cs" t="Include" />
             <e p="IBoss.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">

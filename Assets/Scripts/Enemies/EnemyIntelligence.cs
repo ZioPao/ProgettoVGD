@@ -20,7 +20,7 @@ namespace Enemies
         private Transform frontEnemyTransform;
         private NavMeshAgent agent;
 
-        public void Awake()
+        public void Start()
         {
             status = GetComponent<EnemyBase>().GetStatus();
             status.SetupIntelligence(viewDistance, false, true, maxMemoryTime, 0f, 0f);

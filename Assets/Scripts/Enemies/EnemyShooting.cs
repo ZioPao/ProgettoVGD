@@ -30,7 +30,7 @@ namespace Enemies
 
         private bool isEnemyShooting;
 
-        public void Awake()
+        public void Start()
         {
             //Vector3[] initLaserPositions = new Vector3[2] { Vector3.zero, Vector3.zero };
             //laserLineRenderer.SetPositions(initLaserPositions);

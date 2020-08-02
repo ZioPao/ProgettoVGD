@@ -10,11 +10,18 @@ namespace Player
 
         private List<GameObject> enemyList;
         private Dictionary<GameObject, SpriteRenderer> enemyRenderers;
+
         private Dictionary<GameObject, Animator> enemyAnimators;
+
         //private Dictionary<GameObject, Transform> enemyTextureTransforms;
         private Dictionary<GameObject, Transform> enemyViewChecks;
-        
+
         private string levelName;
+
+        private const int layerTmpEnemy = 13;
+        private const int layerViewChecksDefault = 14;
+
+        private string pathCommonEnemy, pathBoss;
 
         public void Awake()
         {
@@ -24,13 +31,13 @@ namespace Player
             enemyRenderers = new Dictionary<GameObject, SpriteRenderer>();
             enemyAnimators = new Dictionary<GameObject, Animator>();
             enemyViewChecks = new Dictionary<GameObject, Transform>();
-
-            //enemyTextureTransforms = new Dictionary<GameObject, Transform>();
-
+            
             //Determina il nome del livello per determinare la cartella
-            //todo da inserire
             levelName = "Level" + Values.GetCurrentLevel();
+            pathCommonEnemy = "Enemies/" + levelName + "/";
+            pathBoss = "Enemies/" + levelName + "/Boss/";
 
+            //Update iniziale della enemyList
             foreach (GameObject enemy in enemyList)
             {
                 enemyRenderers.Add(enemy, enemy.GetComponentInChildren<SpriteRenderer>());
@@ -40,82 +47,26 @@ namespace Player
             }
         }
 
-        // Update is called once per frame
         private void FixedUpdate()
         {
             if (enemyList.Count == 0) return;
 
-            //Texture[] enemyTexture = Resources.LoadAll<Texture>("Assets/Textures/Enemies/Level1");
-
-
             foreach (GameObject enemy in enemyList)
             {
                 //Check esistenza nemico
-
-                //todo dovrebbero avere maschere singole per evitare qualsiasi possibile casino
                 if (enemy)
                 {
                     var enemyViewCheck = enemyViewChecks[enemy];
-                    SetChildLayers(enemyViewCheck, 13); //todo setta numero
+                    SetChildLayers(enemyViewCheck, layerTmpEnemy);
 
                     if (Physics.Linecast(transform.position, enemy.transform.position, out RaycastHit rayEnemySprite,
                         LayerMask.GetMask("tmpEnemy")))
                     {
-                        SetChildLayers(enemyViewCheck, 14);        //reset a ViewCheckDefault
+                        SetChildLayers(enemyViewCheck, layerViewChecksDefault); //reset a ViewCheckDefault
                         SpriteRenderer enemyRenderer = enemyRenderers[enemy];
                         Animator enemyAnimator = enemyAnimators[enemy];
-
-                        string path = null;
-                        if (enemy.Equals(Values.GetCurrentBoss()))
-                        {
-                            //eccezione per boss 1 
-                            path = "Enemies/" + levelName + "/Boss/";
-                        }
-                        else
-                            path = "Enemies/" + levelName + "/";
-
-
-                        enemyRenderer.flipX = !(rayEnemySprite.collider.name.Equals("Right") ||
-                                                rayEnemySprite.collider.name.Equals("DiagFrontRight") ||
-                                                rayEnemySprite.collider.name.Equals("DiagBackRight"));
-
-                        RuntimeAnimatorController tmp = null;
-
-                        switch (rayEnemySprite.collider.name)
-                        {
-                            case "Front":
-                            case "Left":
-                            case "Back":
-                            case "DiagFrontLeft":
-                            case "DiagBackLeft":
-                                tmp = Resources.Load(path + rayEnemySprite.collider.name + "_AnimController") as
-                                    RuntimeAnimatorController;
-                                break;
-
-                            case "Right":
-                                tmp = Resources.Load(path + "Left_AnimController") as RuntimeAnimatorController;
-                                break;
-                            case "DiagFrontRight":
-                                tmp = Resources.Load(
-                                    path + "DiagFrontLeft_AnimController") as RuntimeAnimatorController;
-                                break;
-                            case "DiagBackRight":
-                                tmp = Resources.Load(path + "DiagBackLeft_AnimController") as RuntimeAnimatorController;
-                                break;
-                            default:
-                                tmp = Resources.Load(path + "Front") as RuntimeAnimatorController;
-                                break;
-                        }
-
-
-                        //FIX PER NEMICI CON SINGOLO SPRITE
-                        if (tmp == null)
-                        {
-                            print("tmp è null");
-                            tmp = Resources.Load(path + "Front") as RuntimeAnimatorController;
-                        }
-
-                        enemyAnimator.runtimeAnimatorController = tmp;
+                        ManageSprites(enemyRenderer, enemyAnimator,
+                            enemy.Equals(Values.GetCurrentBoss()) ? pathBoss : pathCommonEnemy, rayEnemySprite);
                     }
                 }
             }
@@ -128,16 +79,61 @@ namespace Player
             enemyRenderers.Add(enemy, enemy.GetComponentInChildren<SpriteRenderer>());
             enemyAnimators.Add(enemy, enemy.transform.Find("Texture").GetComponent<Animator>());
             enemyViewChecks.Add(enemy, enemy.transform.Find("ViewCheck"));
-
         }
 
-        public void SetChildLayers(Transform t, int layer)
+        private void SetChildLayers(Transform t, int layer)
         {
             for (int i = 0; i < t.childCount; i++)
             {
                 Transform child = t.GetChild(i);
                 child.gameObject.layer = layer;
             }
+        }
+
+        private void ManageSprites(SpriteRenderer enemyRenderer, Animator enemyAnimator, string path, RaycastHit ray)
+        {
+            RuntimeAnimatorController tmp = null;
+
+            enemyRenderer.flipX = !(ray.collider.name.Equals("Right") ||
+                                    ray.collider.name.Equals("DiagFrontRight") ||
+                                    ray.collider.name.Equals("DiagBackRight"));
+
+            switch (ray.collider.name)
+            {
+                case "Front":
+                case "Left":
+                case "Back":
+                case "DiagFrontLeft":
+                case "DiagBackLeft":
+                    tmp = Resources.Load(path + ray.collider.name + "_AnimController") as
+                        RuntimeAnimatorController;
+                    break;
+
+                case "Right":
+                    tmp = Resources.Load(path + "Left_AnimController") as RuntimeAnimatorController;
+                    break;
+                case "DiagFrontRight":
+                    tmp = Resources.Load(
+                        path + "DiagFrontLeft_AnimController") as RuntimeAnimatorController;
+                    break;
+                case "DiagBackRight":
+                    tmp = Resources.Load(path + "DiagBackLeft_AnimController") as RuntimeAnimatorController;
+                    break;
+                default:
+                    tmp = Resources.Load(path + "Front") as RuntimeAnimatorController;
+                    break;
+            }
+
+
+            //FIX PER NEMICI CON SINGOLO SPRITE
+            // //todo in questi casi rinomiamo i vari view checks in front e basta, è un po monco sto sistema
+            // if (tmp == null)
+            // {
+            //     print("tmp è null");
+            //     tmp = Resources.Load(path + "Front") as RuntimeAnimatorController;
+            // }
+
+            enemyAnimator.runtimeAnimatorController = tmp;
         }
     }
 }

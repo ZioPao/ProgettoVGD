@@ -11,7 +11,7 @@ namespace Utility
     {
         [SerializeField] private GameObject bossPrefab;
         [SerializeField] private GameObject pathUnlocker;
-        
+        [SerializeField] private string customName;
 
         private void Start()
         {
@@ -19,6 +19,11 @@ namespace Utility
             //todo permetti di spawnarei l boss con una posizione programmabile
             GameObject boss = Instantiate(bossPrefab, transform.position, Quaternion.Euler(0,180,0));
 
+            if (customName != null)
+            {
+                boss.transform.name = customName;
+            }
+            
             Values.GetEnemySpritesManager().AddEnemyToEnemyList(boss); //needed to make the sprite viewing works
             
             //Disabilita il salvataggio durante le boss battles

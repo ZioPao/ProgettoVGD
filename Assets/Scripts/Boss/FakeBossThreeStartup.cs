@@ -4,7 +4,7 @@ namespace Boss
 {
     public class FakeBossThreeStartup : MonoBehaviour
     {
-        private CheckBossSpawner checker;
+        private FinalBossSpawner checker;
     
     
         //todo un trigger fa partire lo FakeSpawn, che crea un fake boss
@@ -14,9 +14,8 @@ namespace Boss
         //todo 
         void Awake()
         {
-            //Deve fare l'init a CheckBossSpawner
-
-            checker = GameObject.Find("BossSpawner").GetComponent<CheckBossSpawner>();
+            //Deve fare l'init al FinalBossSpawner, che determina la gestione dello spawn del boss finale
+            checker = GameObject.Find("BossSpawner").GetComponent<FinalBossSpawner>();
             checker.enabled = true;
         }
 

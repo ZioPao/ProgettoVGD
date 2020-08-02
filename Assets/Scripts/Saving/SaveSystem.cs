@@ -203,8 +203,8 @@ namespace Saving
                         //todo ci dev'essere una maniera meno orribile per reiniziallizare un nemico
                         tmpEnemy.GetComponent<EnemyBase>().Reload(element.Value);
                         tmpEnemy.GetComponent<EnemyMovement>().Reload();
-                        tmpEnemy.GetComponent<EnemyIntelligence>().Awake();
-                        tmpEnemy.GetComponent<EnemyShooting>().Awake();
+                        tmpEnemy.GetComponent<EnemyIntelligence>().Start();
+                        tmpEnemy.GetComponent<EnemyShooting>().Start();
 
 
                         spritesManager.AddEnemyToEnemyList(tmpEnemy);

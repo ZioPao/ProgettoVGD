@@ -9,7 +9,7 @@ using Utility;
 
 namespace Boss
 {
-    public class BossThree : MonoBehaviour
+    public class BossThree : MonoBehaviour, IBoss
     {
         //todo add status
 
@@ -37,10 +37,10 @@ namespace Boss
         private bool isAttacking;
         
 
-        /*  Inizialmente identico a Nemico 1, quando subisce una certa quantità di danni cambia fase diventando molto più
+        /*  Inizialmente identico a Nemico 3, quando subisce una certa quantità di danni cambia fase diventando molto più
             aggressivo (Attacca sparando un maggior numero di proiettili)
         */
-        private void Awake()
+        private void Start()
         {
 
             
@@ -135,6 +135,12 @@ namespace Boss
                 bossShooting.SetProjectileSpawnRate(projRateDefense);
                 bossShooting.SetProjectileSpeed(projSpeedDefense);
             }
+        }
+
+        public void ChangePhase()
+        {
+            //todo mettiamo n'altra fase?
+            throw new System.NotImplementedException();
         }
     }
 }

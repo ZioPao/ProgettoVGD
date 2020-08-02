@@ -129,6 +129,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 579413149715554716, guid: 23be430bea6fc0548b2e01d41d7ff868,
+        type: 3}
+      propertyPath: m_Name
+      value: health3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268231252645212664, guid: 23be430bea6fc0548b2e01d41d7ff868,
+        type: 3}
+      propertyPath: m_Name
+      value: health2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268231253487300253, guid: 23be430bea6fc0548b2e01d41d7ff868,
+        type: 3}
+      propertyPath: m_Name
+      value: health
+      objectReference: {fileID: 0}
+    - target: {fileID: 2904671253576068119, guid: 23be430bea6fc0548b2e01d41d7ff868,
+        type: 3}
+      propertyPath: m_Name
+      value: health4
+      objectReference: {fileID: 0}
     - target: {fileID: 5057120237046955845, guid: 23be430bea6fc0548b2e01d41d7ff868,
         type: 3}
       propertyPath: m_Name
@@ -194,19 +214,35 @@ PrefabInstance:
       propertyPath: levelId
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5817541353555544224, guid: 23be430bea6fc0548b2e01d41d7ff868,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6713336328821642695, guid: 23be430bea6fc0548b2e01d41d7ff868,
         type: 3}
       propertyPath: m_NavMeshData
       value: 
       objectReference: {fileID: 23800000, guid: 2a3297eac6fd2cd44aa4c950bad2f0d0,
         type: 2}
+    - target: {fileID: 6713336330321419188, guid: 23be430bea6fc0548b2e01d41d7ff868,
+        type: 3}
+      propertyPath: customName
+      value: FakeBossLevel3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6713336330654466306, guid: 23be430bea6fc0548b2e01d41d7ff868,
+        type: 3}
+      propertyPath: m_TagString
+      value: Trigger
+      objectReference: {fileID: 0}
     - target: {fileID: 7733056201802740210, guid: 23be430bea6fc0548b2e01d41d7ff868,
         type: 3}
       propertyPath: m_NavMeshData
       value: 
       objectReference: {fileID: 23800000, guid: 6c419ca164322c54294fe45f19fc6db3,
         type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6713336329267062018, guid: 23be430bea6fc0548b2e01d41d7ff868, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 23be430bea6fc0548b2e01d41d7ff868, type: 3}
 --- !u!108 &5660889685523013567 stripped
 Light:
