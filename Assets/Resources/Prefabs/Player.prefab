@@ -178,7 +178,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.3
   far clip plane: 1000
   field of view: 89.7
   orthographic: 0
@@ -2197,7 +2197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -266, y: 80}
+  m_AnchoredPosition: {x: -305, y: 80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3833093073465839673
@@ -2614,8 +2614,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 6.41
-  m_Text: Premi F5 per salvare la partita o F6 per caricarne una precedentemente
-    salvata
+  m_Text: Premi F5 per salvare la partita o F6 per caricarne una precedentemente salvata
 --- !u!1 &7509975157854419205
 GameObject:
   m_ObjectHideFlags: 0
