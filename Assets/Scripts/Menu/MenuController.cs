@@ -13,6 +13,12 @@ namespace Menu
     {
         private Material skybox;
 
+        public void Awake()
+        {
+            Audio.SoundManager.InitializeSoundEffects();
+            Audio.SoundManager.InitializeSoundPlayer();
+        }
+
         public void NewGame()
         {
             StartCoroutine(LoadNewGame());

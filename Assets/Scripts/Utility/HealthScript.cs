@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class HealthScript : MonoBehaviour
 {
-    [SerializeField] private AudioSource healthEffect;
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -17,8 +15,8 @@ public class HealthScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (Values.GetHealth() < 100)
-        {	
-			healthEffect.Play();
+        {
+            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.Sound.HealthPickup);
             Values.AddHealth(25);
             Destroy(gameObject);
         }
