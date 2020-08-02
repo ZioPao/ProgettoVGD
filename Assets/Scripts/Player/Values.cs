@@ -100,6 +100,7 @@ namespace Player
         private static bool isLoadingSave = false;
         private static bool isChangingScene = false;
         private static bool canSave = true;
+        private static bool canPause = true;
         private static GameObject saveManager;
         
         //Tags
@@ -338,7 +339,10 @@ namespace Player
         {
             return canSave;
         }
-
+        public static bool GetCanPause()
+        {
+            return canPause;
+        }
         //Weapon Properties
         public static Dictionary<WeaponEnum, GameObject> GetWeaponObjects()
         {
@@ -599,6 +603,10 @@ namespace Player
         public static void SetCanSave(bool value)
         {
             canSave = value;
+        }
+        public static void SetCanPause(bool value)
+        {
+            canPause = value;
         }
         //Weapon Properties
         public static void SetCurrentWeapon(WeaponEnum value)
