@@ -121,7 +121,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 4a7a7fabfa53b8045b46134c273bb18e, type: 2}
 --- !u!1001 &353873648
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85101,7 +85101,12 @@ PrefabInstance:
     - target: {fileID: 6756958982861666223, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756958982861666223, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6756958982889989272, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
@@ -85267,6 +85272,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CastShadows
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756958983732027269, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756958983732027269, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6756958983900620925, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}

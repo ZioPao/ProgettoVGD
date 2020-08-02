@@ -131,6 +131,7 @@ namespace Saving
                     yield return new WaitForSeconds(0.2f);        //non ho idea di come fare il check al momento
 
                     Values.SetCanSave(false);
+                    Values.SetCanPause(false);
                     Values.SetIsLoadingSave(true);
 
                     //todo probably totally useless
@@ -310,13 +311,19 @@ namespace Saving
                             Destroy(tmpPickup);
                         }
                     }
-
-                    Values.SetIsLoadingSave(false); //Finished loading
-                    Values.SetCanSave(true);        //Permette di salvare nuovamente
-                    print("Caricato");
+                    Values.SetIsLoadingSave(false);        //gli enemy spawner torneranno a funzionare
                     GameObject.Find(Values.loadingCanvasName).GetComponent<Canvas>().enabled = false;
+                    print("Caricato");
+
+                    yield return new WaitForSeconds(2);
+                    Values.SetCanPause(true);
+
                 }
-                yield return null;
+                else
+                {
+                    yield return null;
+
+                }
             }
         }
 

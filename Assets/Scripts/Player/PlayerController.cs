@@ -135,7 +135,7 @@ namespace Player
             if (Input.GetKeyDown(KeyCode.F6))
             {
                 GameObject saveManager;
-                print("game over: " + Values.GetIsGameOver());
+                //print("game over: " + Values.GetIsGameOver());
                 if (Values.GetCurrentSaveManager() != null)
                 {
                     saveManager = Values.GetCurrentSaveManager();
@@ -152,9 +152,9 @@ namespace Player
                 Time.timeScale = 1;
                 Values.SetHealth(1);        //tmp per evitare che riparta il game over
                 Values.SetCanSave(true);        //reset nel caso il player abbia caricato da dentro una boss battle
-
-                saveManager.GetComponent<SaveSystem>().Load();
                 
+                saveManager.GetComponent<SaveSystem>().Load();
+
                 //saveCanvas.enabled = false;
             }
 
