@@ -83,7 +83,7 @@ namespace Audio{
 
 			effect = Resources.Load("Audio/Player_Hurt") as AudioClip;
 			soundEffects.Add(SoundEffects.PlayerHurt, effect);
-			effectVolumes.Add(SoundEffects.PlayerHurt, 0.5f);
+			effectVolumes.Add(SoundEffects.PlayerHurt, 0.08f);
 			effectPitches.Add(SoundEffects.PlayerHurt, 1f);
 
 		}

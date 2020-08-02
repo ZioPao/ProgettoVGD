@@ -7,7 +7,6 @@ namespace Boss
     {
         [SerializeField] private GameObject building1, building2;
         [SerializeField] private GameObject bossSpawnerObject;
-		[SerializeField] private AudioSource fallEffect;
         
         private Quaternion newRotation1 = Quaternion.Euler(86, 0,0);
         private Vector3 newPosition1 = new Vector3(204, 64, 192);
@@ -40,7 +39,7 @@ namespace Boss
             fakeBossSpawner.enabled = true;
 
             //Play Sound
-            fallEffect.Play();
+            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.FallingRocks);
         }
     }
 }
