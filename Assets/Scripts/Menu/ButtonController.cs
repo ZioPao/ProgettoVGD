@@ -19,6 +19,7 @@
          public void OnSelect(BaseEventData eventData)
          {
              buttonText.color = Color.white;
+             Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.MenuBlip);
          }
          
          public void OnDeselect(BaseEventData eventData)

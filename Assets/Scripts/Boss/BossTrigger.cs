@@ -8,7 +8,6 @@ namespace Boss
         [SerializeField] private GameObject rockBlocker;
         [SerializeField] private GameObject bossSpawnerObject;
         [SerializeField] private GameObject sun;
-		[SerializeField] private AudioSource fallEffect;
 
     
         private void OnTriggerEnter(Collider other)
@@ -32,7 +31,7 @@ namespace Boss
             bossSpawner.enabled = true;
 
             //Play Sound
-            fallEffect.Play();
+            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.FallingRocks);
 
             //Diminuisce la luce
 

@@ -97,6 +97,9 @@ namespace Enemies
             {
                 Values.DecreaseHealth(damage);
 
+                //Play sound effect
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.PlayerHurt);
+
                 Destroy(gameObject);        //Destroys itself
             }
  
