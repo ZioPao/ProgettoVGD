@@ -39,6 +39,9 @@ namespace Utility
             GameObject player;
             //print("game over: " + Values.GetIsGameOver());
 
+            //Initializes Sound Player
+            Audio.SoundManager.InitializeSoundPlayer();
+
 
             //Is changing scene è relativo al cambio di scena da livello a livello 2, non c'entra coi cambi di scena
             //al cambio del salvataggio.
