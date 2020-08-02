@@ -46,7 +46,11 @@ namespace Enemies
             enemyMovement.enabled = true;
             enemyShooting.enabled = true;
 
-            hitMarker = transform.Find("Texture").Find("Hitmarker").gameObject;
+
+            var texture = transform.Find("Texture");
+
+            hitMarker = texture.Find("Hitmarker").gameObject;
+            texture.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 
             //Animation timer
             StartCoroutine(Values.WaitForTimer());

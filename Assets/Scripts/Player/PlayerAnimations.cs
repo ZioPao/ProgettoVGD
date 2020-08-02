@@ -43,11 +43,12 @@ namespace Player
         private bool attackingWithKnife;
         
         
-        void Start()
+        void Awake()
         {
             anim = GetComponent<Animator>();
 
-            pistolRenderer = null;        //init sempre a null per i renderer
+            //init sempre a null per i renderer
+            pistolRenderer = null;        
             smgRenderer = null;
             knifeRenderer = null;
 
@@ -82,16 +83,16 @@ namespace Player
             smgReloadMat = Resources.Load<Material>("PlayerWeapons/smg/Mats/" + RELOAD_WEAPON);
         }
 
-        // Update is called once per frame
         void Update()
         {
+            //Col fixed non girerebbe correttamente
             SetAnimations();
         }
 
         private void SetAnimations()
         { 
             anim.SetBool(IsRunningAnim, Values.GetIsRunning());
-            anim.SetBool(IsMovingAnim, Values.GetIsMoving());
+            anim.SetBool(IsMovingAnim, Values.GetIsMoving()); 
             anim.SetBool(IsShootingAnim, Values.GetIsAttacking()[Values.GetCurrentWeapon()]);
             
             switch (Values.GetCurrentWeapon())
@@ -106,9 +107,6 @@ namespace Player
                     SetupSmgSprites();
                     break;
             }
-      
-
-
         }
 
 

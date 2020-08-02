@@ -96,6 +96,7 @@
               <e p="SpriteDiffuseShaderGUI.cs" t="Include" />
               <e p="SpriteShaderGUI.cs" t="Include" />
             </e>
+            <e p="SpriteShadow.shader" t="Include" />
             <e p="SpritesPixelLit.shader" t="Include" />
             <e p="SpritesPixelLitDissolve.shader" t="Include" />
             <e p="SpritesUnlit.shader" t="Include" />

@@ -152,23 +152,23 @@ QualitySettings:
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Very High
-    pixelLightCount: 64
+    pixelLightCount: 128
     shadows: 2
     shadowResolution: 2
-    shadowProjection: 1
-    shadowCascades: 2
-    shadowDistance: 600
-    shadowNearPlaneOffset: 3
+    shadowProjection: 0
+    shadowCascades: 1
+    shadowDistance: 1300
+    shadowNearPlaneOffset: 0
     shadowCascade2Split: 0.33333334
     shadowCascade4Split: {x: 0.06666667, y: 0.2, z: 0.46666667}
     shadowmaskMode: 1
     skinWeights: 4
     textureQuality: 0
-    anisotropicTextures: 1
-    antiAliasing: 2
+    anisotropicTextures: 2
+    antiAliasing: 0
     softParticles: 1
     softVegetation: 1
-    realtimeReflectionProbes: 1
+    realtimeReflectionProbes: 0
     billboardsFaceCameraPosition: 1
     vSyncCount: 1
     lodBias: 1.5
@@ -187,16 +187,4 @@ QualitySettings:
     customRenderPipeline: {fileID: 0}
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
-    Android: 2
-    Nintendo 3DS: 4
-    Nintendo Switch: 4
-    PS4: 4
-    PSP2: 2
     Standalone: 4
-    Tizen: 2
-    WebGL: 3
-    WiiU: 4
-    Windows Store Apps: 4
-    XboxOne: 4
-    iPhone: 2
-    tvOS: 2

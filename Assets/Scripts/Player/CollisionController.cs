@@ -14,7 +14,7 @@ namespace Player
                 Physics.Raycast(Values.GetRigidbody().transform.position, Vector3.down, out RaycastHit rayGround, 2)
             );     //todo determina l'altezza corretta
 
-            LayerMask tmp = ~ LayerMask.GetMask("Player", "Enemy", "Ignore Raycast"); //ignore viewchecks for sprite management
+            LayerMask tmp = ~ LayerMask.GetMask("Player", "Enemy", "Ignore Raycast", "ViewCheckDefault", "tmpEnemy"); //ignore viewchecks for sprite management
             
             //todo aggiungi check per dietro al player
             //todo è totalmente rotto!!!!
