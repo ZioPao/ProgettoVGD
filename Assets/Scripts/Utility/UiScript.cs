@@ -116,9 +116,9 @@ namespace Utility
 
 
                     /*Manage Pause*/
-                    //todo maybe put in playercontroller
+                    //in debug mode non funge correttamente, canPause va inizializzato dal menù o da un caricamento
 
-                    if (Input.GetKeyDown(KeyCode.Escape) && !Values.GetCanPause())
+                    if (Input.GetKeyDown(KeyCode.Escape) && Values.GetCanPause())
                     {
                         Values.SetIsInPause(!Values.GetIsInPause());
                     }

@@ -110,7 +110,7 @@ namespace Player
         {
             /*Manage Weapons*/
             //test stuff
-            print("Can save " + Values.GetCanSave());
+
             if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && Values.GetCanSave())
             {
                 GameObject saveManager;
