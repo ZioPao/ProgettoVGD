@@ -97,21 +97,27 @@ namespace Player
 
         public void MeleeHit()
         {
-            //Audio is Played
-            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.MeleeAttack);
-			
-            //When an attack goes through the attack cooldown is reset
-            TimerController.ResetTimer(cooldownTimer);
-                
-            Values.SetIsAttacking(Values.GetCurrentWeapon(), true);
-            TimerController.ResetTimer(attackTimer);
-            
-            if (!Values.GetIsFrozen() && !Values.GetIsGameOver() &&Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit hit, Values.GetMeleeDistance(), LayerMask.GetMask("EnemyHitbox")))
+
+            if (!Values.GetIsGameOver() && !Values.GetIsReloading() && !Values.GetIsInPause() && !Values.GetIsFrozen())
             {
-                GameObject enemy =  hit.transform.parent.gameObject;
-                EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
-                enemyScript.SetDamage(damagePerShot);
+                //Audio is Played
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.MeleeAttack);
+			
+                //When an attack goes through the attack cooldown is reset
+                TimerController.ResetTimer(cooldownTimer);
+                
+                Values.SetIsAttacking(Values.GetCurrentWeapon(), true);
+                TimerController.ResetTimer(attackTimer);
+            
+                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit hit, Values.GetMeleeDistance(), LayerMask.GetMask("EnemyHitbox")))
+                {
+                    GameObject enemy =  hit.transform.parent.gameObject;
+                    EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
+                    enemyScript.SetDamage(damagePerShot);
+                }
             }
+            
+         
         }
         
         public void ShootProjectile()

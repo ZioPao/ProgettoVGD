@@ -165,7 +165,7 @@ namespace Player
             //     Values.SetHealth(0);
             // }
 
-            if (!Values.GetIsFrozen() && !Values.GetIsGameOver())
+            if (!Values.GetIsFrozen() && !Values.GetIsGameOver() && !Values.GetIsInPause())
             {
                 weaponScript.UseWeapon();
                 weaponScript.ChangeWeapon();
