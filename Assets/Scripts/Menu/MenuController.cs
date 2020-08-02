@@ -17,6 +17,10 @@ namespace Menu
         {
             Audio.SoundManager.InitializeSoundEffects();
             Audio.SoundManager.InitializeSoundPlayer();
+            Audio.SoundManager.InitializeSoundTracks();
+            Audio.SoundManager.InitializeMusicPlayer();
+
+            Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.TitleTrack);
         }
 
         public void NewGame()

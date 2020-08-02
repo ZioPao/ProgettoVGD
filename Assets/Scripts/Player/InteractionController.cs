@@ -111,7 +111,7 @@ namespace Player
 						}
 
 						//Play Audio
-						Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.Sound.CollectiblePickup);
+						Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.CollectiblePickup);
 					}
 				}
 				else

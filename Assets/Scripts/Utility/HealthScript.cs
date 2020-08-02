@@ -16,7 +16,7 @@ public class HealthScript : MonoBehaviour
     {
         if (Values.GetHealth() < 100)
         {
-            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.Sound.HealthPickup);
+            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.HealthPickup);
             Values.AddHealth(25);
             Destroy(gameObject);
         }

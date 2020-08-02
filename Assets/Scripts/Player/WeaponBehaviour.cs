@@ -98,7 +98,7 @@ namespace Player
         public void MeleeHit()
         {
             //Audio is Played
-            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.Sound.MeleeAttack);
+            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.MeleeAttack);
 			
             //When an attack goes through the attack cooldown is reset
             TimerController.ResetTimer(cooldownTimer);
@@ -119,7 +119,7 @@ namespace Player
             if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] > 0 && !Values.GetIsGameOver() && !Values.GetIsReloading() && !Values.GetIsInPause() && !Values.GetIsFrozen())
             {
                 //Audio is Played
-                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.Sound.RangedAttack);
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.RangedAttack);
 
                 //When an attack goes through the attack cooldown is reset
                 TimerController.ResetTimer(cooldownTimer);
@@ -152,7 +152,7 @@ namespace Player
             {
 
                 //Audio is Played
-                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.Sound.WeaponReload);
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.WeaponReload);
 
                 //On successful reload the cooldown is reset
 
