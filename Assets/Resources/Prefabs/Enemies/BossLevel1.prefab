@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4438038330532706620}
   - component: {fileID: 3044900469229628070}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Hitmarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8652647939351697625}
   - component: {fileID: 8652647939351697626}
   - component: {fileID: 8652647939351697624}
-  m_Layer: 14
+  m_Layer: 11
   m_Name: Hitbox
   m_TagString: EnemyHitbox
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8652647939382363544}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -236,7 +236,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8652647939478305721}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -290,7 +290,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8652647940206649615}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -344,7 +344,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8652647940262824758}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 5673882480759911212}
   - component: {fileID: 8652647940364635941}
   - component: {fileID: 8311133069895315485}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: BossLevel1
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -484,7 +484,6 @@ MonoBehaviour:
   bossHealth: 150
   bossProjectileSpeed: 20
   bossProjectileRate: 0
-  materialPhaseTwo: {fileID: 2100000, guid: 76956b1247d8d2f4b9f8785d0c58d36e, type: 2}
 --- !u!1 &8652647940419271495
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +532,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8652647940419271495}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -550,7 +549,7 @@ GameObject:
   - component: {fileID: 8652647940512181088}
   - component: {fileID: 8652647940512181090}
   - component: {fileID: 8652647940512181091}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,7 +731,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8652647940847400861}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -786,7 +785,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8652647940940458719}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -840,7 +839,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8652647941175229209}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -857,7 +856,7 @@ GameObject:
   - component: {fileID: 8652647941188435569}
   - component: {fileID: 2686341670362474039}
   - component: {fileID: 8463336745303362524}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}

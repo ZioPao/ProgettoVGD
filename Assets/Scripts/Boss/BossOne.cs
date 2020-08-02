@@ -8,16 +8,14 @@ using Utility;
 
 namespace Boss
 {
-
-    public class BossOne : MonoBehaviour
+    public class BossOne : MonoBehaviour, IBoss
     {
-
-
         [SerializeField] private int bossHealth = 150;
         [SerializeField] private int bossProjectileSpeed = 20;
         [SerializeField] private float bossProjectileRate;
 
         private EnemyBase boss;
+        private EnemyStatus bossStatus;
         private EnemyShooting bossShooting;
         private EnemyMovement bossMovement;
         private EnemySpawner enemySpawner;
@@ -27,22 +25,20 @@ namespace Boss
         private Transform textureTransform;
         private SpriteRenderer spriteRenderer;
         private Animator spriteAnimator;
-        
+
         //Change phase
         private bool isInPhaseTwo;
-        
-        
-        
-        
-    /*  Inizialmente identico a Nemico 1, quando subisce una certa quantità di danni cambia fase diventando molto più
-        aggressivo (Attacca sparando un maggior numero di proiettili)
-    */
+
+
+        /*  Inizialmente identico a Nemico 1, quando subisce una certa quantità di danni cambia fase diventando molto più
+            aggressivo (Attacca sparando un maggior numero di proiettili)
+        */
         private void Awake()
         {
-
             boss = GetComponent<EnemyBase>();
             bossMovement = GetComponent<EnemyMovement>();
             bossShooting = GetComponent<EnemyShooting>();
+            bossStatus = boss.GetStatus();
 
             textureTransform = transform.Find("Texture");
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -56,58 +52,25 @@ namespace Boss
 
         private void FixedUpdate()
         {
-
             if (!isInPhaseTwo)
             {
-                EnemyStatus bossStatus = boss.GetStatus();
                 if (bossStatus.GetHealth() < 50)
                 {
-                    //Change appearance
-                    
-                    //blocca il player 
-                    //Values.SetIsFrozen(true);
-                    var x =  Values.GetEnemySpritesManager();
-                    x.enabled = false;
-
-                    //bossMovement.enabled = false;
-                    //boss.enabled = false;
-
-                    StartCoroutine(WaitForAnimation());
-
-                        
-                    //spriteRenderer.material = materialPhaseTwo;
-                
-                    
-                    //Reset health
-                    bossStatus.SetHealth(bossHealth);
-
-                    //Increase projectile rate and speed
-                    bossShooting.SetProjectileSpawnRate(bossProjectileRate);
-                    bossShooting.SetProjectileSpeed(bossProjectileSpeed);
-
-
-                    isInPhaseTwo = true;
-                };
-                
-                
-             
-
+                    ChangePhase();
+                }
             }
-            
+
             //check health. When health
             //Movement is managed by BossBase... I guess?
-            
-            
         }
 
         private IEnumerator WaitForAnimation()
         {
-  
-
             boss.GetStatus().SetForceStop(true);
-            
+
             spriteRenderer.sprite = Resources.Load<Sprite>("Enemies/Level1/Boss/Wakeup");
-            spriteAnimator.runtimeAnimatorController =  Resources.Load("Enemies/Level1/Boss/Wakeup_AnimController") as RuntimeAnimatorController;
+            spriteAnimator.runtimeAnimatorController =
+                Resources.Load("Enemies/Level1/Boss/Wakeup_AnimController") as RuntimeAnimatorController;
 
             textureTransform.position = textureTransform.position + new Vector3(0, 0.5f, 0);
             yield return new WaitForSecondsRealtime(1.3f);
@@ -116,12 +79,37 @@ namespace Boss
 
             //Values.SetIsFrozen(false);
             Values.SetCurrentBoss(gameObject);
-            Values.GetEnemySpritesManager().enabled = true;        //Reactivates everything else
+            Values.GetEnemySpritesManager().enabled = true; //Reactivates everything else
         }
+
         private void SwitchSprite()
         {
             //Prende tutti gli sprite corretti
-            
         }
+
+        public void ChangePhase()
+        {
+            Values.SetCurrentBoss(this.gameObject);        //salva il current boss su values per il path unlocker
+
+            //blocca il player 
+            //Values.SetIsFrozen(true);
+            var x = Values.GetEnemySpritesManager();
+            x.enabled = false;
+
+            //bossMovement.enabled = false;
+            //boss.enabled = false;
+
+            //Stops the player and let the enemy do an animation
+            StartCoroutine(WaitForAnimation());        
+
+            //Reset health
+            bossStatus.SetHealth(bossHealth);
+
+            //Increase projectile rate and speed
+            bossShooting.SetProjectileSpawnRate(bossProjectileRate);
+            bossShooting.SetProjectileSpeed(bossProjectileSpeed);
+
+
+            isInPhaseTwo = true;        }
     }
 }

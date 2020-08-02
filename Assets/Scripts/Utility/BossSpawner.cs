@@ -16,18 +16,13 @@ namespace Utility
         private void Start()
         {
 
-            GameObject boss = Instantiate(bossPrefab) as GameObject;
-            
-            
-            boss.GetComponent<NavMeshAgent>().Warp(transform.position);
-            boss.transform.position = transform.position;
-            boss.transform.rotation = Quaternion.Euler(0,180,0);
+            //todo permetti di spawnarei l boss con una posizione programmabile
+            GameObject boss = Instantiate(bossPrefab, transform.position, Quaternion.Euler(0,180,0));
 
             Values.GetEnemySpritesManager().AddEnemyToEnemyList(boss); //needed to make the sprite viewing works
             
             //Disabilita il salvataggio durante le boss battles
             Values.SetCanSave(false);
-            Values.SetCurrentBoss(boss);        //salva il current boss su values per il path unlocker
             
             //Attiva il pathUnlocker
             pathUnlocker.GetComponent<PathUnlocker>().enabled = true;
