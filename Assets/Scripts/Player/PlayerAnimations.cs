@@ -17,7 +17,8 @@ namespace Player
         //IDs
         private static readonly int IsRunningAnim = Animator.StringToHash("isRunning");
         private static readonly int IsShootingAnim = Animator.StringToHash("isShooting");
-    
+        private static readonly int IsMovingAnim = Animator.StringToHash("isMoving");
+
     
         //Pistol
         private Sprite pistolIdleSprite, pistolShootingSprite, pistolReloadSprite;
@@ -90,18 +91,19 @@ namespace Player
         private void SetAnimations()
         { 
             anim.SetBool(IsRunningAnim, Values.GetIsRunning());
+            anim.SetBool(IsMovingAnim, Values.GetIsMoving());
             anim.SetBool(IsShootingAnim, Values.GetIsAttacking()[Values.GetCurrentWeapon()]);
-
+            
             switch (Values.GetCurrentWeapon())
             {
                 case(Values.WeaponEnum.Knife):
-                    SetupKnifeAnimations();
+                    SetupKnifeSprites();
                     break;
                 case(Values.WeaponEnum.Pistol):
-                    SetupPistolAnimations();
+                    SetupPistolSprites();
                     break;
                 case(Values.WeaponEnum.SMG):
-                    SetupSmgAnimations();
+                    SetupSmgSprites();
                     break;
             }
       
@@ -110,7 +112,7 @@ namespace Player
         }
 
 
-        private void SetupKnifeAnimations()
+        private void SetupKnifeSprites()
         {
             if (knifeRenderer == null)
                 knifeRenderer = Values.GetWeaponObjects()[Values.WeaponEnum.Knife].GetComponent<SpriteRenderer>();
@@ -145,7 +147,7 @@ namespace Player
 
 
         }
-        private void SetupPistolAnimations()
+        private void SetupPistolSprites()
         {
         
             //PlayerPistol
@@ -183,7 +185,7 @@ namespace Player
 
         }
 
-        private void SetupSmgAnimations()
+        private void SetupSmgSprites()
         {
             if (smgRenderer == null)
                 smgRenderer = Values.GetWeaponObjects()[Values.WeaponEnum.SMG].GetComponent<SpriteRenderer>();

@@ -103,7 +103,15 @@ namespace Player
         private static GameObject saveManager;
         
         //Tags
-        private const string playerTag = "Player";
+        public const string playerTag = "Player";
+        public const string bossSpawnerTag = "BossSpawner";
+        public const string levelTag = "Level";
+        public const string interactableOverTag = "InteractableOver";
+        
+        
+        //Objects name
+        public const string loadingCanvasName = "LoadingCanvas";
+        
         
         //Timers
         private static bool isTimerLoaded = false;

@@ -16956,6 +16956,8 @@ MonoBehaviour:
   spawnPoint: {x: 1229.75, y: 112, z: 1021.83}
   spawnPointRotation: {x: 0, y: -100, z: 0}
   levelId: 1
+  triggersStart: []
+  pickupsStart: []
 --- !u!114 &6131983206335238099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17675,7 +17677,7 @@ GameObject:
   - component: {fileID: 6756958983979867396}
   m_Layer: 0
   m_Name: BossSpawner
-  m_TagString: Untagged
+  m_TagString: BossSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

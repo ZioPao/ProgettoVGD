@@ -1,50 +1,52 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Player;
+﻿using Player;
 using UnityEngine;
 
-public class OpenDoor : MonoBehaviour
+namespace Utility
 {
-
-    private bool isOpening;
-    private bool forceActivate = false;
-
-    private Quaternion correctRotation;
-
-    void Awake()
+    public class OpenDoor : MonoBehaviour, IInteractableMidGame
     {
-        isOpening = false;
-        correctRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, -90f);
-    }
+        private bool isOpening;
+        private Quaternion correctRotation;
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (Values.GetIsUsingDoor() && Values.GetHasKey())
+        void Awake()
         {
-            isOpening = true;
-            Values.SetIsUsingDoor(false);
-            Values.SetHasKey(false);
-            this.tag = "InteractableOver";        //To disable the "interact with e" message
+            isOpening = false;
+            correctRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, -90f);
         }
 
-        if (isOpening)
+        // Update is called once per frame
+        void FixedUpdate()
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, correctRotation, Time.deltaTime * 10f);
+            InteractableBehaviour();
+        }
 
-            if (Quaternion.Angle(transform.rotation, correctRotation) <= 0.05f)
+        public void InteractableBehaviour()
+        {
+            if (Values.GetIsUsingDoor() && Values.GetHasKey())
             {
-                this.enabled = false;
+                isOpening = true;
+                Values.SetIsUsingDoor(false);
+                Values.SetHasKey(false);
+                tag = Values.interactableOverTag;     //To disable the "interact with e" message
             }
 
-            
-        }
-        
-    }
+            if (isOpening)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, correctRotation, Time.deltaTime * 10f);
 
-    public void ForceActivation()
-    {
-        transform.rotation = correctRotation;
-        this.enabled = false;
+                if (Quaternion.Angle(transform.rotation, correctRotation) <= 0.05f)
+                {
+                    this.enabled = false;
+                }
+            }
+
+        }
+
+        public void ForceActivation()
+        {
+            transform.rotation = correctRotation;
+            tag = Values.interactableOverTag;     //To disable the "interact with e" message
+            enabled = false;
+        }
     }
 }

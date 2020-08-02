@@ -231,17 +231,17 @@ namespace Saving
                     }
 
                     //Spawners 
-                    currentLevel = GameObject.FindWithTag("Level");
+                    currentLevel = GameObject.FindWithTag(Values.levelTag);
                     foreach (var spawnerStatus in save.enemySpawnerStatus)
                     {
                         var spawnerObject = currentLevel.transform.Find("Spawners/" + spawnerStatus.Key);
 
                         //todo aggiungi caso specialep re bossSpawner
-                        if (spawnerObject.name != "BossSpawner")
+                        if (!spawnerObject.CompareTag(Values.bossSpawnerTag))
                         {
                             var tmpSpawner = spawnerObject.GetComponent<EnemySpawner>();
-                            StartCoroutine(
-                                WaitForComponentStartup<EnemySpawner>(tmpSpawner, spawnerStatus, enemyPrefab));
+                            StartCoroutine(WaitForComponentStartup<EnemySpawner>
+                                (tmpSpawner, spawnerStatus, enemyPrefab));
                         }
                     }
 
@@ -250,36 +250,39 @@ namespace Saving
                     {
                         var interactableObject = currentLevel.transform.Find("InteractableObjects/" + interactable.Key);
 
-                        //Check aggiuntivo per capire se stiamo prendendo l'object igusto o meno
+                        interactableObject.GetComponent<IInteractableMidGame>().ForceActivation();
 
-                        switch (interactableObject.name)
-                        {
-                            case "LeverBoss":
-                                //Destroy(interactableObject);
-                                //StartCoroutine(InstantiatePrefab("Prefabs/Levels/Generic/Prefabs/LeverBoss"));
-
-                                //interactableObject = GameObject.Find(interactable.Key);
-                                var lever = interactableObject.GetComponent<LeverScript>();
-
-                                if (!interactable.Value)
-                                {
-                                    lever.ForceActivation();
-                                }
-
-                                break;
-
-                            case "DoorPassageOptional":
-                                var door = interactableObject.GetComponentInChildren<OpenDoor>();
-
-                                if (!interactable.Value)
-                                {
-                                    door.ForceActivation();
-                                }
-
-                                break;
-                            default:
-                                break;
-                        }
+                        // //Check aggiuntivo per capire se stiamo prendendo l'object igusto o meno
+                        //
+                        // switch (interactableObject.name)
+                        // {
+                        //     
+                        //     case "LeverBoss":
+                        //         //Destroy(interactableObject);
+                        //         //StartCoroutine(InstantiatePrefab("Prefabs/Levels/Generic/Prefabs/LeverBoss"));
+                        //
+                        //         //interactableObject = GameObject.Find(interactable.Key);
+                        //         var lever = interactableObject.GetComponent<LeverScript>();
+                        //
+                        //         if (!interactable.Value)
+                        //         {
+                        //             lever.ForceActivation();
+                        //         }
+                        //
+                        //         break;
+                        //
+                        //     case "DoorPassageOptional":
+                        //         var door = interactableObject.GetComponentInChildren<OpenDoor>();
+                        //
+                        //         if (!interactable.Value)
+                        //         {
+                        //             door.ForceActivation();
+                        //         }
+                        //
+                        //         break;
+                        //     default:
+                        //         break;
+                        // }
                     }
                     
                     var tmpLevelManager = currentLevel.GetComponent<LevelManager>();
@@ -289,22 +292,9 @@ namespace Saving
                     foreach (var oldT in oldTriggers)
                     {
                         if (!save.triggers.Contains(oldT))
-                        {
-                            //in quanto non ho pensato a fare un'interfaccia a tempo debito, andiamo di metodo spazzatura
-                            var tmpTrigger = GameObject.Find(oldT);
-
-                            switch (oldT)
-                            {
-                                case "boss_trigger":
-                                    tmpTrigger.GetComponent<BossTrigger>().RunTrigger();
-                                    break;
-                                case "boss_trigger_3":
-                                    tmpTrigger.GetComponent<BossTrigger3>().RunTrigger();
-                                    break;
-                                case "path_unlocker":
-                                    tmpTrigger.GetComponent<PathUnlocker>().RunTrigger();
-                                    break;
-                            }
+                        { 
+                            GameObject.Find(oldT).GetComponent<ITriggerMidGame>().RunTrigger();
+                            
                         }
                     }
 
@@ -315,7 +305,7 @@ namespace Saving
                     {
                         if (!save.pickups.Contains(oldP))
                         {
-                            //cerca e distrugge il pickup in questione
+                            //cerca e distrugge il pickup in questione in quanto è già stato preso
                             var tmpPickup = GameObject.Find(oldP);
                             Destroy(tmpPickup);
                         }
@@ -324,7 +314,7 @@ namespace Saving
                     Values.SetIsLoadingSave(false); //Finished loading
                     Values.SetCanSave(true);        //Permette di salvare nuovamente
                     print("Caricato");
-                    GameObject.Find("LoadingCanvas").GetComponent<Canvas>().enabled = false;
+                    GameObject.Find(Values.loadingCanvasName).GetComponent<Canvas>().enabled = false;
                 }
                 yield return null;
             }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Utility
 {
-    public class LeverScript : MonoBehaviour
+    public class LeverScript : MonoBehaviour, IInteractableMidGame
     {
         [SerializeField] private string objectName;
         [SerializeField] private bool forcePosition = false;
@@ -52,12 +52,16 @@ namespace Utility
             // +261;
             // +58;
 
+            InteractableBehaviour();
+        }
 
+        public void InteractableBehaviour()
+        {
             if (Values.GetIsUsingLever())
             {
                 isMoving = true;
                 Values.SetIsUsingLever(false);
-                this.tag = "InteractableOver"; //To disable the "interact with e" message
+                this.tag = Values.interactableOverTag; //To disable the "interact with e" message
             }
 
             if (isMoving)
@@ -73,7 +77,8 @@ namespace Utility
                     doorRotation = Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f);
 
                     obj.rotation = doorRotation;
-                    this.tag = "InteractableOver"; //To disable the "interact with e" message, again just in case
+                    //todo credo sia inutile
+                    //this.tag = "InteractableOver"; //To disable the "interact with e" message, again just in case
 
                     this.enabled = false; //end the script
                 }
@@ -82,16 +87,14 @@ namespace Utility
 
         public void ForceActivation()
         {
-            Awake(); //Reinit just in case
-            //print("forzato lever");
+            Awake();
+
             obj = GameObject.Find(objectName).transform;
             movingPiece.position = correctPosition;
             movingPiece.rotation = correctRotation;
-            obj.rotation = Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f);        //todo maybe broken with other objects
-            this.tag = "InteractableOver"; //To disable the "interact with e" message, again just in case
-
-
-            //Destroy(this);        //Non so che altro penasre
+            obj.rotation =
+                Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f); //todo maybe broken with other objects
+            this.tag = Values.interactableOverTag; //To disable the "interact with e" message, again just in case
         }
     }
 }
