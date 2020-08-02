@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Enemies;
@@ -82,6 +83,10 @@ namespace Utility
             {
                 pickupsStart.Add(p.name);
             }
+            
+            
+            //allo spawn del player si attivano gli spawner
+            StartCoroutine(WaitAndInitEnemySpawns());
         }
 
 
@@ -223,6 +228,17 @@ namespace Utility
             }
 
             return interactablesDictionary;
+        }
+        IEnumerator WaitAndInitEnemySpawns()
+        {
+            //Aspetta che la navmesh sia pronta
+            //todo determinare come capire se la navmesh è pronta
+            yield return new WaitForSeconds(1);
+            
+            foreach (var x in GameObject.FindGameObjectsWithTag(SpawnerTag))
+            {
+                x.GetComponent<EnemySpawner>().enabled = true;
+            }
         }
     }
 }
