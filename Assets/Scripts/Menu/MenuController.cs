@@ -6,13 +6,12 @@ using Saving;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Menu
 {
     public class MenuController : MonoBehaviour
     {
-        private Material skybox;
-
         public void Awake()
         {
             Audio.SoundManager.InitializeSoundEffects();
@@ -25,11 +24,13 @@ namespace Menu
 
         public void NewGame()
         {
-            StartCoroutine(LoadNewGame());
+            StartCoroutine(StartNewGame());
         }
 
         public void LoadGame()
         {
+            GetComponentInParent<Canvas>().enabled = false;
+
             GameObject saveManager =
                 Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
             DontDestroyOnLoad(saveManager);
@@ -37,21 +38,26 @@ namespace Menu
             saveManager.GetComponent<SaveSystem>().Load();
         }
 
+        public void SelectLevel()
+        {
+            
+        }
         public void QuitGame()
         {
-            //EditorApplication.isPlaying = false;
             Application.Quit();
         }
 
-        private IEnumerator LoadNewGame()
+        private IEnumerator StartNewGame()
         {
-            yield return null;
 
+            //todo per evitare più click. Vedi di mettere la schermata di caricamento o qualcosa così
+            GetComponentInParent<Canvas>().enabled = false;
+            yield return null;
+            
             //Begin to load the Scene you specify
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/Level1", LoadSceneMode.Single);
             //Don't let the Scene activate until you allow it to
             asyncOperation.allowSceneActivation = false;
-            Debug.Log("Pro :" + asyncOperation.progress);
             //When the load is still in progress, output the Text and progress bar
             while (!asyncOperation.isDone)
             {
@@ -67,19 +73,6 @@ namespace Menu
             }
         }
 
-        private IEnumerator LoadSavedGame()
-        {
-            //Operations on hold until we can actually load
-            // SaveSystem tmp = new GameObject().AddComponent<SaveSystem>();
-            // tmp.Load();
-            // Destroy(tmp);
-
-
-            yield return null;
-            //spawnPoint = new Vector3(145, 67, 40); //level 3
-
-
-            //spawnPoint = new Vector3()
-        }
+       
     }
 }
