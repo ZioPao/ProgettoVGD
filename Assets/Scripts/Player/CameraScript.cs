@@ -64,25 +64,6 @@ namespace Player
                 mouseY = 0.0f;
                 SetLockCamera(85.0f);
             }
-            
-            print(maxY);
-
-            // print(minY);
-            //
-            // if (minY > 90)
-            // {
-            //     minY = 90.0f;
-            //     mouseY = 0.0f;
-            //     SetLockCamera(85f);
-            //
-            // }else if (minY < -90)
-            // {
-            //     minY = -90f;
-            //     mouseY = 0;
-            //     SetLockCamera(-85f);
-            // }
-            
-
 
             //Spostamento effettivo
             transform.Rotate(Vector3.left * mouseY);

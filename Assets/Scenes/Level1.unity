@@ -87158,10 +87158,30 @@ PrefabInstance:
       propertyPath: customName
       value: Boss1
       objectReference: {fileID: 0}
+    - target: {fileID: 6756958984466391321, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756958984466391321, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756958984466425732, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6756958984468594649, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_CastShadows
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756958984468594649, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7150896878736950622, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
