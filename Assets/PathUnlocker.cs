@@ -34,7 +34,12 @@ public class PathUnlocker : MonoBehaviour
             {
                 objectToMove.transform.position = new Vector3(-1000, -1000, -1000); //lo sposta in un punto lontano
                 Values.SetCanSave(true); //permette di salvare nuovamente
-                gameObject.SetActive(false); 
+
+                //Play Regular Level Soundtrack
+                Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
+
+                gameObject.SetActive(false);
+
             }
             else
             {
@@ -48,6 +53,11 @@ public class PathUnlocker : MonoBehaviour
     {
         objectToMove.transform.position = new Vector3(-1000, -1000, -1000); //lo sposta in un punto lontano
         Values.SetCanSave(true); //permette di salvare nuovamente
+
+        //Play Regular Level Soundtrack
+        Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
+
         gameObject.SetActive(false);
+
     }
 }
