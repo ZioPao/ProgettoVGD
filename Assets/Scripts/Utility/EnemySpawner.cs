@@ -23,7 +23,7 @@ namespace Utility
 
         private List<GameObject> enemiesSpawned;
 
-        private void Start()
+        private void Awake()
         {
             //Debug.Log("Awake EnemySpawner");
             if (!Values.GetIsLoadingSave())
@@ -105,7 +105,6 @@ namespace Utility
 
         public void SetStatus(EnemySpawnerStatus status)
         {
-            Debug.Log("Added old status");
             this.status = status;
         }
 
