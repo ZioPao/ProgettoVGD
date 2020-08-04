@@ -317,6 +317,7 @@ namespace Saving
 
                     yield return new WaitForSeconds(2);
                     Values.SetCanPause(true);
+                    Values.SetCanSave(true);
 
                 }
                 else
