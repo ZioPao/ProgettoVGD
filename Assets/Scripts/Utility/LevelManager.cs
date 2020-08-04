@@ -89,8 +89,9 @@ namespace Utility
             {
                 pickupsStart.Add(p.name);
             }
-            
-            
+
+
+            GetComponentInChildren<Terrain>().detailObjectDistance = 10000;        //todo rendi piu carino
             //allo spawn del player si attivano gli spawner
             StartCoroutine(WaitAndInitComponents());
         }
