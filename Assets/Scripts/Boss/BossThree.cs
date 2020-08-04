@@ -24,6 +24,9 @@ namespace Boss
 
         [SerializeField] private float projRateAttack = 0.2f;
         [SerializeField] private int projSpeedAttack = 10;
+
+        [SerializeField] private PathUnlocker pathUnlocker;
+        
         private EnemyBase boss;
         private EnemyShooting bossShooting;
 
@@ -52,7 +55,8 @@ namespace Boss
             boss.GetStatus().SetHealth(bossHealth);
 
             Values.SetCurrentBoss(gameObject);
-
+            FindPathUnlocker();
+            ActivatePathUnlocker();
 
             //Aura che fa danno a distanza. un'ombra tipo?
 
@@ -141,6 +145,17 @@ namespace Boss
         {
             //todo mettiamo n'altra fase?
             throw new System.NotImplementedException();
+        }
+
+        public void FindPathUnlocker()
+        {
+            pathUnlocker = GameObject.Find("Triggers").GetComponentInChildren<PathUnlocker>();
+
+        }
+
+        public void ActivatePathUnlocker()
+        {
+            pathUnlocker.enabled = true;
         }
     }
 }

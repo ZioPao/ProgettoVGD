@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Enemies;
 using Player;
 using UnityEngine;
@@ -9,7 +10,7 @@ using Utility;
 namespace Boss
 {
 
-    public class BossTwo : MonoBehaviour
+    public class BossTwo : MonoBehaviour, IBoss
     {
 
 
@@ -20,6 +21,8 @@ namespace Boss
 
         [SerializeField] private float projRateAttack = 0.2f;
         [SerializeField] private int projSpeedAttack = 10;
+
+        [SerializeField] private PathUnlocker pathUnlocker;
         private EnemyBase boss;
         private EnemyShooting bossShooting;
         private EnemySpawner enemySpawner;
@@ -45,6 +48,8 @@ namespace Boss
             boss.GetStatus().SetHealth(bossHealth);
 
             Values.SetCurrentBoss(gameObject);
+            FindPathUnlocker();
+            ActivatePathUnlocker();
 
             
             
@@ -105,6 +110,21 @@ namespace Boss
                 bossShooting.SetProjectileSpeed(projSpeedDefense);
 
             }
+        }
+
+        public void ChangePhase()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void FindPathUnlocker()
+        {
+            pathUnlocker = GameObject.Find("Triggers").GetComponentInChildren<PathUnlocker>();
+        }
+
+        public void ActivatePathUnlocker()
+        {
+            pathUnlocker.enabled = true;
         }
     }
 }

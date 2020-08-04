@@ -10,7 +10,6 @@ namespace Utility
     public class BossSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject bossPrefab;
-        [SerializeField] private GameObject pathUnlocker;
         [SerializeField] private string customName;
 
         private void Start()
@@ -27,9 +26,7 @@ namespace Utility
             Values.GetEnemySpritesManager().AddEnemyToEnemyList(boss); //needed to make the sprite viewing works
             
             //Attiva il pathUnlocker
-            pathUnlocker.GetComponent<PathUnlocker>().enabled = true;
-            
-            this.enabled = false;        //disattiva lo spawner
+            enabled = false;        //disattiva lo spawner
         }
         
         

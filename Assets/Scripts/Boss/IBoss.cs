@@ -6,4 +6,7 @@ public interface IBoss
 {
     void ChangePhase();
 
+    void FindPathUnlocker();
+    void ActivatePathUnlocker();
+
 }
