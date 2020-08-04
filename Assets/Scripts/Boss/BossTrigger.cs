@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 using Utility;
 
 namespace Boss
@@ -22,6 +23,10 @@ namespace Boss
 
         public void RunTrigger()
         {
+
+            //Disabilita il salvataggio durante le boss battles
+            Values.SetCanSave(false);
+
             //riattiva la roccia e fa un rumorone
             rockBlocker.GetComponent<MeshCollider>().enabled = true;
             rockBlocker.GetComponent<MeshRenderer>().enabled = true;

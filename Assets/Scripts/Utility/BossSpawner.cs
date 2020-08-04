@@ -26,9 +26,6 @@ namespace Utility
             
             Values.GetEnemySpritesManager().AddEnemyToEnemyList(boss); //needed to make the sprite viewing works
             
-            //Disabilita il salvataggio durante le boss battles
-            Values.SetCanSave(false);
-            
             //Attiva il pathUnlocker
             pathUnlocker.GetComponent<PathUnlocker>().enabled = true;
             
