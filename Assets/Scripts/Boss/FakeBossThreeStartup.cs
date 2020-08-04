@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 
 namespace Boss
 {
@@ -15,6 +16,8 @@ namespace Boss
         void Awake()
         {
             //Deve fare l'init al FinalBossSpawner, che determina la gestione dello spawn del boss finale
+
+            Values.SetCanSave(false);
             checker = GameObject.Find("BossSpawner").GetComponent<FinalBossSpawner>();
             checker.enabled = true;
         }
