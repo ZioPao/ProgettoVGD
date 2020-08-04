@@ -168,7 +168,8 @@ namespace Player
             }
 
             if (Input.GetKeyDown(KeyCode.R) && !Values.GetIsRunning() && !Values.GetIsAttacking()[Values.GetCurrentWeapon()] && TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] <= 0
-                && ((Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] >= Values.GetReloadAmount()[Values.GetCurrentWeapon()]) || (Values.GetAmmoReserve()[Values.GetCurrentWeapon()] == 0)))
+                && ((Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] >= Values.GetReloadAmount()[Values.GetCurrentWeapon()]) || (Values.GetAmmoReserve()[Values.GetCurrentWeapon()] == 0)) 
+                && Values.GetCurrentWeapon() != Values.WeaponEnum.Knife)
             {
                 //Audio is Played
                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.ReloadFail);
