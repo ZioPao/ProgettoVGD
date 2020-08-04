@@ -14,6 +14,7 @@ namespace Audio{
 			MenuBlip,
 			MeleeAttack,
 			RangedAttack,
+			RangedAttackFail,
 			FallingRocks,
 			WeaponReload,
 			ReloadFail,
@@ -72,6 +73,11 @@ namespace Audio{
 			effectVolumes.Add(SoundEffects.RangedAttack, 1f);
 			effectPitches.Add(SoundEffects.RangedAttack, 1f);
 
+			effect = Resources.Load("Audio/Shot") as AudioClip;
+			soundEffects.Add(SoundEffects.RangedAttackFail, effect);
+			effectVolumes.Add(SoundEffects.RangedAttackFail, 0.5f);
+			effectPitches.Add(SoundEffects.RangedAttackFail, 3f);
+
 			effect = Resources.Load("Audio/FallingRocks") as AudioClip;
 			soundEffects.Add(SoundEffects.FallingRocks, effect);
 			effectVolumes.Add(SoundEffects.FallingRocks, 1f);
@@ -82,7 +88,7 @@ namespace Audio{
 			effectVolumes.Add(SoundEffects.WeaponReload, 0.5f);
 			effectPitches.Add(SoundEffects.WeaponReload, 1f);
 
-			effect = Resources.Load("Audio/Shot") as AudioClip;
+			effect = Resources.Load("Audio/Reload") as AudioClip;
 			soundEffects.Add(SoundEffects.ReloadFail, effect);
 			effectVolumes.Add(SoundEffects.ReloadFail, 0.5f);
 			effectPitches.Add(SoundEffects.ReloadFail, 3f);
