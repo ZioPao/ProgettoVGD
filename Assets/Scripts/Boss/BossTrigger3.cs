@@ -40,6 +40,9 @@ namespace Boss
 
             //Play Sound
             Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.FallingRocks);
+
+            //Play Boss Soundtrack
+            Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.BossTrack);
         }
     }
 }
