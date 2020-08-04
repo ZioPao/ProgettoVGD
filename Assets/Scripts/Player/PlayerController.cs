@@ -107,8 +107,6 @@ namespace Player
 
         private void Update()
         {
-            /*Manage Weapons*/
-            //test stuff
 
             if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && Values.GetCanSave())
             {
