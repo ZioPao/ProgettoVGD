@@ -551,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4f852ae1536a4468f766f92fc5ddac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 7862359989826453290, guid: fb54485d05d357e46970125e9ccf6ad4,
+  projectilePrefab: {fileID: 7862359989826453290, guid: 129ce79c645a97942aa12b6873320516,
     type: 3}
   timerProjectileRate: 5
   projectileSpeed: 10
@@ -595,6 +595,7 @@ MonoBehaviour:
   projSpeedDefense: 3
   projRateAttack: 0.2
   projSpeedAttack: 10
+  pathUnlocker: {fileID: 0}
 --- !u!1 &8652647940419271495
 GameObject:
   m_ObjectHideFlags: 0
