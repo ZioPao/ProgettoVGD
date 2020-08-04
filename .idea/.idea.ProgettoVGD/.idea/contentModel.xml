@@ -103,9 +103,6 @@
             <e p="SpritesVertexLit.shader" t="Include" />
           </e>
         </e>
-        <e p="CloudScript.cs" t="Include" />
-        <e p="DamageArea.cs" t="Include" />
-        <e p="PathUnlocker.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -138,10 +135,12 @@
             <e p="BossTrigger.cs" t="Include" />
             <e p="BossTrigger3.cs" t="Include" />
             <e p="BossTwo.cs" t="Include" />
+            <e p="DamageArea.cs" t="Include" />
             <e p="endLevelTrigger.cs" t="Include" />
             <e p="FakeBossThreeStartup.cs" t="Include" />
             <e p="FinalBossSpawner.cs" t="Include" />
             <e p="IBoss.cs" t="Include" />
+            <e p="PathUnlocker.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">
             <e p="EnemiesManager.cs" t="Include" />
@@ -183,6 +182,7 @@
           </e>
           <e p="Utility" t="Include">
             <e p="BossSpawner.cs" t="Include" />
+            <e p="CloudScript.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
             <e p="EnemySpawnerStatus.cs" t="Include" />
             <e p="HealthScript.cs" t="Include" />
@@ -209,6 +209,7 @@
               </e>
             </e>
             <e p="OpenDoor.cs" t="Include" />
+            <e p="SceneLoader.cs" t="Include" />
             <e p="SignController.cs" t="Include" />
             <e p="TimerController.cs" t="Include" />
             <e p="Torch.cs" t="Include" />

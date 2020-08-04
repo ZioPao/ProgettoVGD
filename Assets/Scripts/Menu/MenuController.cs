@@ -7,6 +7,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Utility;
 
 namespace Menu
 {
@@ -27,6 +28,9 @@ namespace Menu
 
             Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.TitleTrack);
             
+            Values.SetIsInPause(false);        //Evita casini al reload
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
             
             //Settings stuff
             resolutions = Screen.resolutions;
@@ -83,24 +87,11 @@ namespace Menu
 
         }
 
-        public void LoadLevel1()
+        public void LoadLevel(int id)
         {
-            StartCoroutine(LoadLevel(1));
+            StartCoroutine(SceneLoader.LoadScene("Scenes/Level" + id));
 
         }
-
-        public void LoadLevel2()
-        {
-            StartCoroutine(LoadLevel(2));
-
-        }
-
-        public void LoadLevel3()
-        {
-            StartCoroutine(LoadLevel(3));
-
-        }
-
         public void GetBackToMainMenuFromSelect()
         {
             selectMenu.SetActive(false);
@@ -134,31 +125,6 @@ namespace Menu
             mainMenu.SetActive(true);
         }
 
-        private IEnumerator LoadLevel(int id)
-        {
-
-            //todo per evitare più click. Vedi di mettere la schermata di caricamento o qualcosa così
-            GetComponentInParent<Canvas>().enabled = false;
-            yield return null;
-            
-            //Begin to load the Scene you specify
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/Level" + id, LoadSceneMode.Single);
-            //Don't let the Scene activate until you allow it to
-            asyncOperation.allowSceneActivation = false;
-            //When the load is still in progress, output the Text and progress bar
-            while (!asyncOperation.isDone)
-            {
-                // Check if the load has finished
-                if (asyncOperation.progress >= 0.9f)
-                {
-                    asyncOperation.allowSceneActivation = true;
-                } //spawnPoint = new Vector3(145, 67, 40); //level 3
-
-                yield return null;
-
-                //spawnPoint = new Vector3()
-            }
-        }
 
        
     }

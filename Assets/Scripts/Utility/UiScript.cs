@@ -107,17 +107,22 @@ namespace Utility
                     if (Input.GetKeyDown(KeyCode.Escape) && Values.GetCanPause())
                     {
                         Values.SetIsInPause(!Values.GetIsInPause());
+
                     }
 
 
                     if (Values.GetIsInPause())
                     {
                         Time.timeScale = 0;
+                        Cursor.visible = true;
+                        Cursor.lockState = CursorLockMode.Confined;        //permette di spostare il mouse nel menu
                         pauseCanvas.SetActive(true);
                     }
                     else
                     {
                         Time.timeScale = 1;
+                        Cursor.visible = false;
+                        Cursor.lockState = CursorLockMode.Locked;        //permette di spostare il mouse nel menu
                         pauseCanvas.SetActive(false);
                     }
                 }
@@ -125,6 +130,15 @@ namespace Utility
         }
 
 
+
+        public void GetBackToMainMenu()
+        {
+
+            Cursor.lockState = CursorLockMode.Confined;        //permette di spostare il mouse nel menu
+            StartCoroutine(SceneLoader.LoadScene("Scenes/MainMenu"));
+            Values.SetIsInPause(false);        //Evita casini al reload
+            Cursor.visible = true;
+        }
         private void SetHealthSprite(int health)
         {
             healthSprite.preserveAspect = true;
