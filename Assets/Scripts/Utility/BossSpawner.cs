@@ -18,6 +18,7 @@ namespace Utility
             //todo permetti di spawnarei l boss con una posizione programmabile
             GameObject boss = Instantiate(bossPrefab, transform.position, Quaternion.Euler(0,180,0));
 
+            boss.transform.LookAt(Values.GetPlayerTransform());
             if (customName != null)
             {
                 boss.transform.name = customName;
