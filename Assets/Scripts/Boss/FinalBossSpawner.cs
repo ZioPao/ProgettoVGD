@@ -47,10 +47,10 @@ namespace Boss
                 }
 
                 GameObject bossPrefab = Resources.Load<GameObject>("Prefabs/Enemies/BossLevel3");
-                var boss = Instantiate(bossPrefab, chosenPoint, Random.rotation);
-
+                var boss = Instantiate(bossPrefab, chosenPoint, Quaternion.identity);
+                boss.transform.LookAt(Values.GetPlayerTransform());
                 Values.GetEnemySpritesManager().AddEnemyToEnemyList(boss);
-                boss.GetComponent<EnemyBase>().GetStatus().SetIsPlayerInView(true); //subito aggrato
+
                 enabled = false; //disables the spawner
             }
         }
