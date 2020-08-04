@@ -11,7 +11,7 @@ namespace Player
         [SerializeField] private Transform player = null; //Sarebbe il player controller
 
 
-        private float maxY;
+        private float maxY, minY;
 
         /*Graphical stuff*/
         private bool isCameraInWater;
@@ -50,19 +50,20 @@ namespace Player
             //Check clamping
             maxY += mouseY;
 
+            minY -= mouseY;
+            
             if (maxY > 90.0f)
             {
                 maxY = 90.0f;
                 mouseY = 0.0f;
                 SetLockCamera(270.0f);
             }
-            else if (maxY < -90.0f)
+            else if (maxY < -85.0f)
             {
-                maxY = -90.0f;
+                maxY = -85.0f;
                 mouseY = 0.0f;
-                SetLockCamera(90.0f);
+                SetLockCamera(85.0f);
             }
-
 
             //Spostamento effettivo
             transform.Rotate(Vector3.left * mouseY);

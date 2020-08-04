@@ -183,6 +183,12 @@ namespace Saving
                     }
 
                     //Creates them again
+                    foreach (var enemy in GameObject.FindGameObjectsWithTag("enemy"))
+                    {
+                        Destroy(enemy);
+                    }
+
+
                     GameObject enemyPrefab =
                         Resources.Load<GameObject>("Prefabs/Enemies/" + save.levelName); //Level name = enemy type
 
@@ -191,7 +197,6 @@ namespace Saving
                     {
                         GameObject tmpEnemy = Instantiate(enemyPrefab, element.Value.GetPosition(), element.Value.GetRotation(), 
                             GameObject.Find("Enemies").transform );
-                        tmpEnemy.name = element.Key;        //Mette il nome corretto
                         
                         //todo non rimette il nome corretto 
                         //todo ci dev'essere una maniera meno orribile per reiniziallizare un nemico
@@ -200,7 +205,7 @@ namespace Saving
                         tmpEnemy.GetComponent<EnemyIntelligence>().Start();
                         tmpEnemy.GetComponent<EnemyShooting>().Start();
 
-
+                        tmpEnemy.name = element.Key;        //Mette il nome corretto
                         spritesManager.AddEnemyToEnemyList(tmpEnemy);
                     }
 
@@ -231,13 +236,15 @@ namespace Saving
                     {
                         var spawnerObject = currentLevel.transform.Find("Spawners/" + spawnerStatus.Key);
 
-                        //todo aggiungi caso specialep re bossSpawner
+                        //todo aggiungi caso speciale per bossSpawner
                         if (!spawnerObject.CompareTag(Values.bossSpawnerTag))
                         {
                             var tmpSpawner = spawnerObject.GetComponent<EnemySpawner>();
-                            StartCoroutine(WaitForComponentStartup<EnemySpawner>
-                                (tmpSpawner, spawnerStatus, enemyPrefab));
+                            tmpSpawner.SetStatus(spawnerStatus.Value);
+                            tmpSpawner.SetEnemyPrefab(enemyPrefab);
                         }
+                        
+                        
                     }
 
                     //Interactables
@@ -325,8 +332,7 @@ namespace Saving
         public IEnumerator WaitForComponentStartup<T>(EnemySpawner x, KeyValuePair<String, EnemySpawnerStatus> status,
             GameObject prefab)
         {
-            x.SetStatus(status.Value);
-            x.SetEnemyPrefab(prefab);
+    
 
             yield return new WaitForEndOfFrame();
         }
