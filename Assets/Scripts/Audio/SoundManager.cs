@@ -98,6 +98,9 @@ namespace Audio{
 
 			track = Resources.Load("Audio/LevelTrack") as AudioClip;
 			soundTracks.Add(SoundTracks.LevelTrack, track);
+
+			track = Resources.Load("Audio/BossTrack") as AudioClip;
+			soundTracks.Add(SoundTracks.BossTrack, track);
 		}
 
 		public static void InitializeSoundPlayer()
