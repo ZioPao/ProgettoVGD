@@ -9,22 +9,26 @@
      public class ButtonController : MonoBehaviour, ISelectHandler, IDeselectHandler
      {
 
-         private TextMeshProUGUI buttonText;
+         private TextMeshProUGUI text;
          
          void Start()
          {
-             buttonText = GetComponentInChildren<TextMeshProUGUI>();
+             text = GetComponentInChildren<TextMeshProUGUI>();
          }
 
          public void OnSelect(BaseEventData eventData)
          {
-             buttonText.color = Color.white;
-             Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.MenuBlip);
+
+             
+                 text.color = Color.white;
+                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.MenuBlip);
+             
+              
          }
          
          public void OnDeselect(BaseEventData eventData)
          {
-             buttonText.color = Color.gray;
+             text.color = Color.gray;
          }
      }
  }

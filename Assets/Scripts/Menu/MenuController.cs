@@ -13,8 +13,11 @@ namespace Menu
     public class MenuController : MonoBehaviour
     {
 
-        [SerializeField] private GameObject mainMenu, selectMenu;
+        [SerializeField] private GameObject mainMenu, selectMenu, optionsMenu;
 
+        [SerializeField] private Dropdown resolutionDropdown;
+
+        private Resolution[] resolutions;
         public void Awake()
         {
             Audio.SoundManager.InitializeSoundEffects();
@@ -23,6 +26,34 @@ namespace Menu
             Audio.SoundManager.InitializeMusicPlayer();
 
             Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.TitleTrack);
+            
+            
+            //Settings stuff
+            resolutions = Screen.resolutions;
+            resolutionDropdown.ClearOptions();
+
+            List<string> possibleResolutions = new List<string>();
+
+
+            int index = 0;
+            int currentResolutionindex = 0;
+            foreach (var res in resolutions)
+            {
+                possibleResolutions.Add(res.width + "x" + res.height);
+
+
+                if (resolutions[index].width == Screen.currentResolution.width &&
+                    resolutions[index].height == Screen.currentResolution.height)
+                    currentResolutionindex = index;
+
+                index++;
+
+            }
+
+            resolutionDropdown.AddOptions(possibleResolutions);
+            resolutionDropdown.value = currentResolutionindex;
+            resolutionDropdown.RefreshShownValue();
+
         }
         
 
@@ -69,10 +100,37 @@ namespace Menu
             StartCoroutine(LoadLevel(3));
 
         }
-        
-        public void GetBackToMainMenu()
+
+        public void GetBackToMainMenuFromSelect()
         {
             selectMenu.SetActive(false);
+            mainMenu.SetActive(true);
+        }
+
+        
+        
+        
+        
+        /// <summary>
+        /// Options
+        /// </summary>
+
+        public void OptionsMenu()
+        {
+            mainMenu.SetActive(false);
+            optionsMenu.SetActive(true);
+
+        }
+
+        public void SetResolution(int index)
+        {
+            Resolution resolution = resolutions[index];
+            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        }
+
+        public void GetBackToMainMenuFromOptions()
+        {
+            optionsMenu.SetActive(false);
             mainMenu.SetActive(true);
         }
 
