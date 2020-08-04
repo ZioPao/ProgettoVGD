@@ -182,13 +182,6 @@ namespace Saving
                         Values.SetCurrentAmmo(w.Key, w.Value);
                     }
 
-                    // //Deletes all the enemies todo should be useless now
-                    // foreach (var enemy in GameObject.FindGameObjectsWithTag("enemy"))
-                    // {
-                    //     Object.Destroy(enemy);
-                    // }
-
-
                     //Creates them again
                     GameObject enemyPrefab =
                         Resources.Load<GameObject>("Prefabs/Enemies/" + save.levelName); //Level name = enemy type
@@ -198,6 +191,7 @@ namespace Saving
                     {
                         GameObject tmpEnemy = Instantiate(enemyPrefab, element.Value.GetPosition(), element.Value.GetRotation(), 
                             GameObject.Find("Enemies").transform );
+                        tmpEnemy.name = element.Key;        //Mette il nome corretto
                         
                         //todo non rimette il nome corretto 
                         //todo ci dev'essere una maniera meno orribile per reiniziallizare un nemico
