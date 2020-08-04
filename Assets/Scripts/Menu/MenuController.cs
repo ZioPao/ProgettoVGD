@@ -12,6 +12,9 @@ namespace Menu
 {
     public class MenuController : MonoBehaviour
     {
+
+        [SerializeField] private GameObject mainMenu, selectMenu;
+
         public void Awake()
         {
             Audio.SoundManager.InitializeSoundEffects();
@@ -21,11 +24,7 @@ namespace Menu
 
             Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.TitleTrack);
         }
-
-        public void NewGame()
-        {
-            StartCoroutine(StartNewGame());
-        }
+        
 
         public void LoadGame()
         {
@@ -37,17 +36,47 @@ namespace Menu
             Values.SetCurrentSaveManager(saveManager);
             saveManager.GetComponent<SaveSystem>().Load();
         }
-
-        public void SelectLevel()
-        {
-            
-        }
         public void QuitGame()
         {
             Application.Quit();
         }
 
-        private IEnumerator StartNewGame()
+        /// <summary>
+        /// Select level menu
+        /// </summary>
+        public void SelectLevelMenu()
+        {
+            
+            mainMenu.SetActive(false);
+            selectMenu.SetActive(true);
+
+        }
+
+        public void LoadLevel1()
+        {
+            StartCoroutine(LoadLevel(1));
+
+        }
+
+        public void LoadLevel2()
+        {
+            StartCoroutine(LoadLevel(2));
+
+        }
+
+        public void LoadLevel3()
+        {
+            StartCoroutine(LoadLevel(3));
+
+        }
+        
+        public void GetBackToMainMenu()
+        {
+            selectMenu.SetActive(false);
+            mainMenu.SetActive(true);
+        }
+
+        private IEnumerator LoadLevel(int id)
         {
 
             //todo per evitare più click. Vedi di mettere la schermata di caricamento o qualcosa così
@@ -55,7 +84,7 @@ namespace Menu
             yield return null;
             
             //Begin to load the Scene you specify
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/Level1", LoadSceneMode.Single);
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/Level" + id, LoadSceneMode.Single);
             //Don't let the Scene activate until you allow it to
             asyncOperation.allowSceneActivation = false;
             //When the load is still in progress, output the Text and progress bar
