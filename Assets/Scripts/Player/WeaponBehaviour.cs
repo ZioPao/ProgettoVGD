@@ -154,7 +154,7 @@ namespace Player
         {
 
             if (Input.GetKeyDown(KeyCode.R) && !Values.GetIsRunning() &&!Values.GetIsAttacking()[Values.GetCurrentWeapon()] && TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] <= 0
-                && Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] < Values.GetReloadAmount()[Values.GetCurrentWeapon()])
+                && Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] < Values.GetReloadAmount()[Values.GetCurrentWeapon()] && Values.GetAmmoReserve()[Values.GetCurrentWeapon()] > 0)
             {
 
                 //Audio is Played
@@ -165,22 +165,32 @@ namespace Player
                 Values.SetIsReloading(true);
                 Utility.TimerController.ResetTimer(TimerController.RELOADTIME_K);        //1.5f
             
-                //Reloads only while having enough ammo
-                //Figures out how much ammunition to reload
-                
-                //todo if there is no ammo he shouldnt reload
-                
-            
+            }
+
+            if (Input.GetKeyDown(KeyCode.R) && !Values.GetIsRunning() && !Values.GetIsAttacking()[Values.GetCurrentWeapon()] && TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] <= 0
+                && ((Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] >= Values.GetReloadAmount()[Values.GetCurrentWeapon()]) || (Values.GetAmmoReserve()[Values.GetCurrentWeapon()] == 0)))
+            {
+                //Audio is Played
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.ReloadFail);
             }
             
             if (TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] <= 0 && Values.GetIsReloading())
             {
                 //Reloads at the end of timer
-                if (Values.GetAmmoReserve()[Values.GetCurrentWeapon()] >= Values.GetReloadAmount()[Values.GetCurrentWeapon()])
+                int tempAmmoReserve = Values.GetAmmoReserve()[Values.GetCurrentWeapon()];
+
+                if ((tempAmmoReserve >= Values.GetReloadAmount()[Values.GetCurrentWeapon()]) ||
+                    (tempAmmoReserve - (Values.GetReloadAmount()[Values.GetCurrentWeapon()] - Values.GetCurrentAmmo()[Values.GetCurrentWeapon()])) >= 0)
                 {
                     Values.DecrementAmmoReserve(Values.GetCurrentWeapon(), (Values.GetReloadAmount()[Values.GetCurrentWeapon()] - Values.GetCurrentAmmo()[Values.GetCurrentWeapon()]));
                     Values.IncrementCurrentAmmo(Values.GetCurrentWeapon(), (Values.GetReloadAmount()[Values.GetCurrentWeapon()] - Values.GetCurrentAmmo()[Values.GetCurrentWeapon()]));
                 }
+                else
+                {
+                    Values.DecrementAmmoReserve(Values.GetCurrentWeapon(), tempAmmoReserve);
+                    Values.IncrementCurrentAmmo(Values.GetCurrentWeapon(), tempAmmoReserve);
+                }
+
                 Values.SetIsReloading(false);
             }
             

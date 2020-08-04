@@ -16,6 +16,7 @@ namespace Audio{
 			RangedAttack,
 			FallingRocks,
 			WeaponReload,
+			ReloadFail,
 			PlayerHurt,
         }
 
@@ -80,6 +81,11 @@ namespace Audio{
 			soundEffects.Add(SoundEffects.WeaponReload, effect);
 			effectVolumes.Add(SoundEffects.WeaponReload, 0.5f);
 			effectPitches.Add(SoundEffects.WeaponReload, 1f);
+
+			effect = Resources.Load("Audio/Shot") as AudioClip;
+			soundEffects.Add(SoundEffects.ReloadFail, effect);
+			effectVolumes.Add(SoundEffects.ReloadFail, 0.5f);
+			effectPitches.Add(SoundEffects.ReloadFail, 3f);
 
 			effect = Resources.Load("Audio/Player_Hurt") as AudioClip;
 			soundEffects.Add(SoundEffects.PlayerHurt, effect);
