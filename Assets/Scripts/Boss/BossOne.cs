@@ -47,9 +47,9 @@ namespace Boss
             isInPhaseTwo = false;
             //Spawn
 
-            //SpawnEnemy(chicken1);
-            
-            Values.SetCurrentBoss(gameObject);
+            Values.SetCanSave(false);
+
+
         }
 
         private void FixedUpdate()
@@ -75,7 +75,7 @@ namespace Boss
                 Resources.Load("Enemies/Level1/Boss/Wakeup_AnimController") as RuntimeAnimatorController;
 
             textureTransform.position = textureTransform.position + new Vector3(0, 0.5f, 0);
-            yield return new WaitForSecondsRealtime(1.3f);
+            yield return new WaitForSecondsRealtime(1.699f);
 
             boss.GetStatus().SetForceStop(false);
 
@@ -91,7 +91,7 @@ namespace Boss
 
         public void ChangePhase()
         {
-            Values.SetCurrentBoss(this.gameObject);        //salva il current boss su values per il path unlocker
+            Values.SetCurrentBoss(gameObject);        //salva il current boss su values per il path unlocker
 
             //blocca il player 
             //Values.SetIsFrozen(true);
