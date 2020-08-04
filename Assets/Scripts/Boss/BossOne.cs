@@ -48,6 +48,8 @@ namespace Boss
             //Spawn
 
             //SpawnEnemy(chicken1);
+            
+            Values.SetCurrentBoss(gameObject);
         }
 
         private void FixedUpdate()
