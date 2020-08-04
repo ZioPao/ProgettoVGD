@@ -12,16 +12,13 @@ namespace Utility
             pickupCanvas,
             signCanvas,
             ammoCanvas,
-            signParent,
             pauseCanvas,
             gameOverCanvas;
 
         private Text healthString, staminaText, oxygenText, ammoText, signText;
         private Image healthSprite;
-        private SignController signScript;
 
-        // Start is called before the first frame update
-        void Awake()
+        void Start()
         {
             oxygenCanvas = GameObject.Find("Oxygen_Canvas");
             interactionCanvas = GameObject.Find("Interaction_Canvas");
@@ -38,17 +35,6 @@ namespace Utility
             oxygenText = GameObject.Find("oxygen_edit").GetComponent<Text>();
             ammoText = GameObject.Find("ammo_edit").GetComponent<Text>();
             signText = GameObject.Find("sign_text").GetComponent<Text>();
-            signParent = GameObject.Find("InteractableObjects");
-
-            try
-            {
-                signScript = signParent.GetComponent<SignController>();
-            }
-            catch (NullReferenceException)
-            {
-                ;
-            }
-
 
             //Pause
             pauseCanvas = GameObject.Find("Pause_Canvas");
@@ -110,7 +96,7 @@ namespace Utility
 
                     if (Values.GetIsReadingSign())
                     {
-                        signText.text = signScript.GetSignText();
+                        signText.text = Values.GetCurrentSignController().GetSignText();
                         signText.alignment = TextAnchor.MiddleCenter;
                     }
 

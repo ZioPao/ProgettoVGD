@@ -16,12 +16,14 @@ namespace Boss
         [SerializeField] private GameObject currentLevel;
 
         private GameObject oldPlayer;
+        private bool alreadyExecuted = false;
 
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !alreadyExecuted)
             {
+                alreadyExecuted = true;
                  //Saves the old player
                 oldPlayer = GameObject.FindWithTag("Player");
                 oldPlayer.name = "oldPlayer";

@@ -92,7 +92,7 @@ namespace Utility
             
             
             //allo spawn del player si attivano gli spawner
-            StartCoroutine(WaitAndInitEnemySpawns());
+            StartCoroutine(WaitAndInitComponents());
         }
 
 
@@ -235,7 +235,7 @@ namespace Utility
 
             return interactablesDictionary;
         }
-        IEnumerator WaitAndInitEnemySpawns()
+        IEnumerator WaitAndInitComponents()
         {
             //Aspetta che la navmesh sia pronta
             //todo determinare come capire se la navmesh è pronta
@@ -245,6 +245,10 @@ namespace Utility
             {
                 x.GetComponent<EnemySpawner>().enabled = true;
             }
+
+            SignController tmp = GameObject.Find("InteractableObjects").GetComponent<SignController>();
+            Values.SetCurrentSignController(tmp);
+
         }
     }
 }

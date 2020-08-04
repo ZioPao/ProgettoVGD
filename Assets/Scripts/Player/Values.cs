@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Saving;
 using UnityEngine;
+using Utility;
 
 namespace Player
 {
@@ -77,6 +78,7 @@ namespace Player
         
         //Checks
         private static GameObject currentBoss;
+        private static SignController currentSignController;
         
         //Weapon Types
         public enum WeaponEnum
@@ -382,7 +384,10 @@ namespace Player
         {
             return currentBoss;
         }
-        
+        public static SignController GetCurrentSignController()
+        {
+            return currentSignController;
+        }
         
         /*SETTER*/
         
@@ -618,7 +623,10 @@ namespace Player
         {
             currentBoss = value;
         }
-
+        public static void SetCurrentSignController(SignController value)
+        {
+            currentSignController = value;
+        }
         
         /*Utility Methods*/
 
