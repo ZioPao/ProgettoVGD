@@ -37,6 +37,9 @@ namespace Boss
                 var signPosition = sign.transform.position - new Vector3(0, 0.05f, 0);
                 Destroy(sign);
 
+                //Resume Boss Music
+                Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.BossTrack);
+
                 if (Vector3.Distance(Values.GetPlayerTransform().position, spawnPoint1.transform.position) < 10f)
                 {
                     chosenPoint = spawnPoint2.transform.position;
@@ -73,6 +76,9 @@ namespace Boss
                 "InteractableObjects").transform);
             sign.transform.name = "Sign"; //per far funzionare correttamente l'interactioncontroller
             isFakeBossDead = true;
+
+            //Play Regular Level Soundtrack
+            Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
         }
     }
 }
