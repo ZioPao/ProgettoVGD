@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ public class SettingsScript
         resolutions = Screen.resolutions;
         
     }
-    public void SetResolutionOptions(Dropdown resolutionDropdown)
+    public void SetResolutionOptions(TMP_Dropdown resolutionDropdown)
     {
         //Settings stuff
         
