@@ -89,6 +89,7 @@ namespace Menu
 
         public void LoadLevel(int id)
         {
+            mainMenu.SetActive(false);        //Lo disattiva per evitare che il player possa continaure a clickare sui buttons
             StartCoroutine(SceneLoader.LoadScene("Scenes/Level" + id));
 
         }
