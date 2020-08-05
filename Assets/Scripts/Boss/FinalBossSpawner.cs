@@ -37,6 +37,9 @@ namespace Boss
                 var signPosition = sign.transform.position - new Vector3(0, 0.05f, 0);
                 Destroy(sign);
 
+                //Play Laugh Sound
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.FinalBossLaugh);
+
                 //Resume Boss Music
                 Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.BossTrack);
 
