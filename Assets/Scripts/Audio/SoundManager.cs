@@ -53,12 +53,12 @@ namespace Audio{
 
 			effect = Resources.Load("Audio/Health") as AudioClip;
 			soundEffects.Add(SoundEffects.HealthPickup, effect);
-			effectVolumes.Add(SoundEffects.HealthPickup, 0.3f);
+			effectVolumes.Add(SoundEffects.HealthPickup, 0.15f);
 			effectPitches.Add(SoundEffects.HealthPickup, 1f);
 
 			effect = Resources.Load("Audio/Collectible") as AudioClip;
 			soundEffects.Add(SoundEffects.CollectiblePickup, effect);
-			effectVolumes.Add(SoundEffects.CollectiblePickup, 0.2f);
+			effectVolumes.Add(SoundEffects.CollectiblePickup, 0.1f);
 			effectPitches.Add(SoundEffects.CollectiblePickup, 1f);
 
 			effect = Resources.Load("Audio/Menu") as AudioClip;

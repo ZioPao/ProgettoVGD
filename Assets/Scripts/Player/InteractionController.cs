@@ -154,9 +154,6 @@ namespace Player
 
         private void InteractWithLever()
         {
-			//Play Sound
-			Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.LeverActivate);
-
 			Values.SetIsUsingLever(true);
 		}
         /*Pickup Methods*/
