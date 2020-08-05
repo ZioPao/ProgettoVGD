@@ -14,7 +14,7 @@ namespace Player
                 Physics.Raycast(Values.GetRigidbody().transform.position, Vector3.down, out RaycastHit rayGround, 2)
             );     //todo determina l'altezza corretta
 
-            LayerMask tmp = ~ LayerMask.GetMask("Player", "Enemy", "Ignore Raycast", "ViewCheckDefault", "tmpEnemy"); //ignore viewchecks for sprite management
+            LayerMask tmp = ~ LayerMask.GetMask("Player", "EnemyHitbox", "Ignore Raycast", "ViewCheckDefault", "tmpEnemy"); //ignore viewchecks for sprite management
             
             //todo aggiungi check per dietro al player
             //todo è totalmente rotto!!!!
@@ -30,22 +30,26 @@ namespace Player
                  )
             );
 
-            ///Debug stuff
-            // var coll = Values.GetCollider();
-            // RaycastHit hit1, hit2, hit3, hit4;
-            // var t = (Physics.Raycast(coll.transform.position, coll.transform.forward,
-            //              out hit1, maxDistance, tmp)
-            //          || Physics.Raycast(Values.GetCollider().transform.position, Values.GetCollider().transform.right,
-            //              out hit2, maxDistance, tmp)
-            //          || Physics.Raycast(Values.GetCollider().transform.position,
-            //              -Values.GetCollider().transform.forward, out hit3, maxDistance, tmp)
-            //          || Physics.Raycast(Values.GetCollider().transform.position, -Values.GetCollider().transform.right,
-            //              out hit4, maxDistance, tmp)
+
+            // if (Values.GetIsTouchingWall() == true)
+            // {
+            //     print("za warudo");
+            // }
+            // //Debug stuff
+            //  var coll = Values.GetCollider();
+            //  RaycastHit hit1, hit2, hit3, hit4;
+            //  var t = (Physics.Raycast(coll.transform.position, coll.transform.forward,
+            //               out hit1, maxDistance, tmp)
+            //           || Physics.Raycast(Values.GetCollider().transform.position, Values.GetCollider().transform.right,
+            //               out hit2, maxDistance, tmp)
+            //           || Physics.Raycast(Values.GetCollider().transform.position,
+            //               -Values.GetCollider().transform.forward, out hit3, maxDistance, tmp)
+            //           || Physics.Raycast(Values.GetCollider().transform.position, -Values.GetCollider().transform.right,
+            //               out hit4, maxDistance, tmp)
             //
-            //     );
+            //      );
             //
-            // print(Values.GetIsTouchingWall());
-            //
+            
             // //DEBUG
             // Debug.DrawRay(Values.GetCollider().transform.position,
             //     Values.GetCollider().transform.forward);
