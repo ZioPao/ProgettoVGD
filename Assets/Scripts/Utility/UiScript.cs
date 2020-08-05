@@ -1,5 +1,6 @@
 ﻿using System;
 using Player;
+using Saving;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -152,6 +153,47 @@ namespace Utility
             pauseCanvas.SetActive(true);
         }
 
+        public void SaveGame()
+        {
+            GameObject saveManager;
+            if (Values.GetCurrentSaveManager() != null)
+            {
+                saveManager = Values.GetCurrentSaveManager();
+            }
+            else
+            {
+                saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
+                DontDestroyOnLoad(saveManager);
+                Values.SetCurrentSaveManager(saveManager);
+            }
+            
+            saveManager.GetComponent<SaveSystem>().Save();
+
+        }
+
+        public void LoadGame()
+        {
+            GameObject saveManager;
+            //print("game over: " + Values.GetIsGameOver());
+            if (Values.GetCurrentSaveManager() != null)
+            {
+                saveManager = Values.GetCurrentSaveManager();
+            }
+            else
+            {
+                saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
+                DontDestroyOnLoad(saveManager);
+                Values.SetCurrentSaveManager(saveManager);
+            }
+
+            //In caso di game over, reset tutto
+            Values.SetGameOver(false);
+            Time.timeScale = 1;
+            Values.SetHealth(1);        //tmp per evitare che riparta il game over
+            Values.SetCanSave(true);        //reset nel caso il player abbia caricato da dentro una boss battle
+            Values.SetIsInPause(false);
+            saveManager.GetComponent<SaveSystem>().Load();
+        }
         private void GoBackInGame()
         {
             Time.timeScale = 1;

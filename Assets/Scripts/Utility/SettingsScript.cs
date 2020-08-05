@@ -42,6 +42,6 @@ public class SettingsScript
     public void SetChosenResolution(int index)
     {
         Resolution resolution = resolutions[index];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen, resolution.refreshRate);
     }
 }
