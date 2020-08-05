@@ -27,6 +27,7 @@ namespace Utility
                     asyncOperation.allowSceneActivation = true;
                 } //spawnPoint = new Vector3(145, 67, 40); //level 3
 
+                Time.timeScale = 1;
                 yield return null;
 
             }
