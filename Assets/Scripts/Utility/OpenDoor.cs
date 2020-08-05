@@ -24,10 +24,20 @@ namespace Utility
         {
             if (Values.GetIsUsingDoor() && Values.GetHasKey())
             {
+                //Play Sound
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.DoorOpen);
+
                 isOpening = true;
                 Values.SetIsUsingDoor(false);
                 Values.SetHasKey(false);
                 tag = Values.interactableOverTag;     //To disable the "interact with e" message
+            }
+
+            if (Values.GetIsUsingDoor() && !Values.GetHasKey())
+            {
+                //Play Sound
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.DoorLocked);
+                Values.SetIsUsingDoor(false);
             }
 
             if (isOpening)
