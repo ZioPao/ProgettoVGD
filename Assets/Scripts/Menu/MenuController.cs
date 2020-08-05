@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Player;
 using Saving;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,7 +17,7 @@ namespace Menu
 
         [SerializeField] private GameObject mainMenu, selectMenu, optionsMenu;
 
-        [SerializeField] private Dropdown resolutionDropdown;
+        [SerializeField] private TMP_Dropdown resolutionDropdown;
         
         public void Start()
         {

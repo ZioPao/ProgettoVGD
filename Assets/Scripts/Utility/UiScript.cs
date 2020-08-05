@@ -1,5 +1,6 @@
 ﻿using System;
 using Player;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ namespace Utility
             inGameSettingsCanvas,
             gameOverCanvas;
 
-        private Dropdown resolutionDropdown;
+        private TMP_Dropdown resolutionDropdown;
 
         private Text healthString, staminaText, oxygenText, ammoText, signText;
         private Image healthSprite;
@@ -46,7 +47,7 @@ namespace Utility
             pauseCanvas.SetActive(false);
             inGameSettingsCanvas = mainPauseCanvas.transform.Find("Settings_Canvas").gameObject;
             inGameSettingsCanvas.SetActive(false);
-            resolutionDropdown = inGameSettingsCanvas.transform.Find("Resolution Dropdown").GetComponent<Dropdown>();
+            resolutionDropdown = inGameSettingsCanvas.transform.Find("Resolution_Dropdown").GetComponent<TMP_Dropdown>();
 
             mainPauseCanvas.SetActive(false);
             
