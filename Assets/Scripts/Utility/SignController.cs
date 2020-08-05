@@ -62,7 +62,7 @@ namespace Utility
                                Environment.NewLine +
                                "W - A - S - D: Controlla il Movimento del giocatore" +
                                Environment.NewLine +
-                               "1 - 2 - 3: Permette di scegliere l'arma corrente" +
+                               "1 - 2 - 3: Scegli l'arma corrente" +
                                Environment.NewLine +
                                "Tasto sinistro del Mouse: Attacca con l'arma corrente" +
                                Environment.NewLine +
