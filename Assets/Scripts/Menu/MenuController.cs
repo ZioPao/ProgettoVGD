@@ -17,47 +17,23 @@ namespace Menu
         [SerializeField] private GameObject mainMenu, selectMenu, optionsMenu;
 
         [SerializeField] private Dropdown resolutionDropdown;
-
-        private Resolution[] resolutions;
-        public void Awake()
+        
+        public void Start()
         {
             Audio.SoundManager.InitializeSoundEffects();
             Audio.SoundManager.InitializeSoundPlayer();
             Audio.SoundManager.InitializeSoundTracks();
             Audio.SoundManager.InitializeMusicPlayer();
-
             Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.TitleTrack);
             
             Values.SetIsInPause(false);        //Evita casini al reload
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
-            
-            //Settings stuff
-            resolutions = Screen.resolutions;
-            resolutionDropdown.ClearOptions();
 
-            List<string> possibleResolutions = new List<string>();
-
-
-            int index = 0;
-            int currentResolutionindex = 0;
-            foreach (var res in resolutions)
-            {
-                possibleResolutions.Add(res.width + "x" + res.height);
-
-
-                if (resolutions[index].width == Screen.currentResolution.width &&
-                    resolutions[index].height == Screen.currentResolution.height)
-                    currentResolutionindex = index;
-
-                index++;
-
-            }
-
-            resolutionDropdown.AddOptions(possibleResolutions);
-            resolutionDropdown.value = currentResolutionindex;
-            resolutionDropdown.RefreshShownValue();
-
+            var settings = new SettingsScript();
+            Values.SetSettings(settings);
+            settings.Init();
+            settings.SetResolutionOptions(resolutionDropdown);
         }
         
 
@@ -99,6 +75,11 @@ namespace Menu
             mainMenu.SetActive(true);
         }
 
+        public void SetResolution(int index)
+        {
+            Values.GetSettings().SetChosenResolution(index);
+        }
+
         
         
         
@@ -112,12 +93,6 @@ namespace Menu
             mainMenu.SetActive(false);
             optionsMenu.SetActive(true);
 
-        }
-
-        public void SetResolution(int index)
-        {
-            Resolution resolution = resolutions[index];
-            Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
         }
 
         public void GetBackToMainMenuFromOptions()

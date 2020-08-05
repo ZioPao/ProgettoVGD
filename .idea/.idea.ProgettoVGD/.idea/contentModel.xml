@@ -210,6 +210,7 @@
             </e>
             <e p="OpenDoor.cs" t="Include" />
             <e p="SceneLoader.cs" t="Include" />
+            <e p="SettingsScript.cs" t="Include" />
             <e p="SignController.cs" t="Include" />
             <e p="TimerController.cs" t="Include" />
             <e p="Torch.cs" t="Include" />

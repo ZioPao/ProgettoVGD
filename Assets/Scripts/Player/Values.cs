@@ -33,6 +33,9 @@ namespace Player
         private static float oxygen;
         private static float maxSpeed = 10f;
         
+        //Current settings
+        private static SettingsScript settings;
+        
         //State Definers
         //Collisions
         private static bool isGrounded;
@@ -138,6 +141,12 @@ namespace Player
         {
             return maxSpeed;
         }
+
+        public static SettingsScript GetSettings()
+        {
+            return settings;
+        }
+        
         public static float GetMaxHealth()
         {
             return maxHealth;
@@ -406,6 +415,10 @@ namespace Player
             movementSpeed = value;
         }
 
+        public static void SetSettings(SettingsScript value)
+        {
+            settings = value;
+        }
         public static void SetMaxHealth(float value)
         {
             maxHealth = value;

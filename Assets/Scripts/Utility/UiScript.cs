@@ -11,9 +11,12 @@ namespace Utility
             interactionCanvas,
             pickupCanvas,
             signCanvas,
-            ammoCanvas,
+            ammoCanvas, mainPauseCanvas,
             pauseCanvas,
+            inGameSettingsCanvas,
             gameOverCanvas;
+
+        private Dropdown resolutionDropdown;
 
         private Text healthString, staminaText, oxygenText, ammoText, signText;
         private Image healthSprite;
@@ -37,9 +40,16 @@ namespace Utility
             signText = GameObject.Find("sign_text").GetComponent<Text>();
 
             //Pause
-            pauseCanvas = GameObject.Find("Pause_Canvas");
-            pauseCanvas.SetActive(false); //disables it for the time being
+            mainPauseCanvas = GameObject.Find("MainPause_Canvas");
 
+            pauseCanvas = mainPauseCanvas.transform.Find("Pause_Canvas").gameObject;
+            pauseCanvas.SetActive(false);
+            inGameSettingsCanvas = mainPauseCanvas.transform.Find("Settings_Canvas").gameObject;
+            inGameSettingsCanvas.SetActive(false);
+            resolutionDropdown = inGameSettingsCanvas.transform.Find("Resolution Dropdown").GetComponent<Dropdown>();
+
+            mainPauseCanvas.SetActive(false);
+            
             //Game over
             gameOverCanvas = GameObject.Find("GameOver_Canvas");
             gameOverCanvas.SetActive(false);
@@ -107,29 +117,48 @@ namespace Utility
                     if (Input.GetKeyDown(KeyCode.Escape) && Values.GetCanPause())
                     {
                         Values.SetIsInPause(!Values.GetIsInPause());
+                        mainPauseCanvas.SetActive(Values.GetIsInPause());
 
+                        if (Values.GetIsInPause())
+                        {
+
+                            GetIntoPause();
+                        }
+                        else
+                        {
+                            GoBackInGame();
+
+                        }
                     }
 
 
-                    if (Values.GetIsInPause())
-                    {
-                        Time.timeScale = 0;
-                        Cursor.visible = true;
-                        Cursor.lockState = CursorLockMode.Confined;        //permette di spostare il mouse nel menu
-                        pauseCanvas.SetActive(true);
-                    }
-                    else
-                    {
-                        Time.timeScale = 1;
-                        Cursor.visible = false;
-                        Cursor.lockState = CursorLockMode.Locked;        //permette di spostare il mouse nel menu
-                        pauseCanvas.SetActive(false);
-                    }
+                 
                 }
             }
         }
 
 
+
+        /// <summary>
+        /// Pause menu
+        /// </summary>
+
+        private void GetIntoPause()
+        {
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;        //permette di spostare il mouse nel menu
+            pauseCanvas.SetActive(true);
+        }
+
+        private void GoBackInGame()
+        {
+            Time.timeScale = 1;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;        //permette di spostare il mouse nel menu
+            pauseCanvas.SetActive(false);
+            inGameSettingsCanvas.SetActive(false);
+        }
 
         public void GetBackToMainMenu()
         {
@@ -139,6 +168,32 @@ namespace Utility
             Values.SetIsInPause(false);        //Evita casini al reload
             Cursor.visible = true;
         }
+        
+        public void GoToInGameSettings()
+        {
+            pauseCanvas.SetActive(false);
+            inGameSettingsCanvas.SetActive(true);
+            
+            
+            //Aggiorna il dropdown
+            Values.GetSettings().SetResolutionOptions(resolutionDropdown);
+        }
+
+        /// <summary>
+        /// In game Settings menu
+        /// </summary>
+
+        public void GetBackToPauseMenu()
+        {
+            inGameSettingsCanvas.SetActive(false);
+            pauseCanvas.SetActive(true);
+        }
+        public void SetResolutionInGame(int index)
+        {
+            Values.GetSettings().SetChosenResolution(index);
+        }
+        
+        
         private void SetHealthSprite(int health)
         {
             healthSprite.preserveAspect = true;
