@@ -9,14 +9,20 @@ namespace Enemies
     public class EnemyBase : MonoBehaviour
     {
         [SerializeField] private int maxHealth = 100;
+        [SerializeField] private Sprite hitmarkerSprite;
+        [SerializeField] private RuntimeAnimatorController hitmarkerAnimation;
         
-        private GameObject hitMarker;
 
         private EnemyStatus status;
         private EnemyIntelligence enemyIntelligence;
         private EnemyMovement enemyMovement;
         private EnemyShooting enemyShooting;
 
+
+        //Hitmarkers
+        private GameObject hitMarker;
+        private Animator hitmarkerAnimator;
+        
         private string timerName;
         private bool isReloading = false;
 
@@ -50,6 +56,11 @@ namespace Enemies
             var texture = transform.Find("Texture");
 
             hitMarker = texture.Find("Hitmarker").gameObject;
+            hitMarker.GetComponent<SpriteRenderer>().sprite = hitmarkerSprite;
+            hitmarkerAnimator = hitMarker.GetComponent<Animator>();
+            hitmarkerAnimator.runtimeAnimatorController = hitmarkerAnimation;
+            
+            
             texture.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
 
             //Animation timer
@@ -74,12 +85,33 @@ namespace Enemies
 
             //Hitmarkers
             if (status.GetIsHit())
-            {
-                if (TimerController.GetCurrentTime()[TimerController.HITMARKER_K] <= 0)
+            { 
+                //Controlla prima che l'animator non stesse già girando
+                if (hitmarkerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >=
+                    hitmarkerAnimator.GetCurrentAnimatorStateInfo(0).length)
                 {
                     hitMarker.SetActive(false);
                     status.SetIsHit(false);
+                    hitmarkerAnimator.enabled = false;
+
                 }
+                else if (hitmarkerAnimator.enabled == false)
+                {
+                    //Fa partire l'animazione
+                    hitMarker.SetActive(true);
+                    hitmarkerAnimator.enabled = true;        //riattiva l'animator
+                    hitmarkerAnimator.Play("hitmarker_Anim", -1, 0f);
+
+                }
+                
+              
+               
+                //     hitMarker.SetActive(false);
+                //
+                // if (TimerController.GetCurrentTime()[TimerController.HITMARKER_K] <= 0)
+                // {
+                //     status.SetIsHit(false);
+                // }
             }
 
             //Manage the looking at player stuff

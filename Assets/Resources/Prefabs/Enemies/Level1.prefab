@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4721490298412716510}
   - component: {fileID: 6430594190140479260}
+  - component: {fileID: 8228791515241441030}
   m_Layer: 0
   m_Name: Hitmarker
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6640978136143130891}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.473, z: 0.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8652647941188435569}
@@ -70,17 +71,37 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5b947bce1caacea45915eb5a82212be5, type: 3}
+  m_Sprite: {fileID: -3456819443802960952, guid: 7f1498cae65e4334e95bb925ad02f199,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.69, y: 1.51}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8228791515241441030
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6640978136143130891}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8652647939351697630
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,6 +423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  hitmarkerSprite: {fileID: -3456819443802960952, guid: 954dec4f398330d41bc1e22e4205d1df,
+    type: 3}
+  hitmarkerAnimation: {fileID: 9100000, guid: 8f10e7dc09da21848892425ac0e6db5c, type: 2}
 --- !u!114 &2221299235373204377
 MonoBehaviour:
   m_ObjectHideFlags: 0
