@@ -160,6 +160,7 @@
           <e p="Menu" t="Include">
             <e p="ButtonController.cs" t="Include" />
             <e p="MenuController.cs" t="Include" />
+            <e p="SliderManager.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="CameraCollider.cs" t="Include" />

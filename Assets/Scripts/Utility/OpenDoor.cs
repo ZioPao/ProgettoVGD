@@ -5,13 +5,14 @@ namespace Utility
 {
     public class OpenDoor : MonoBehaviour, IInteractableMidGame
     {
+        [SerializeField] private GameObject door;
         private bool isOpening;
         private Quaternion correctRotation;
 
         void Awake()
         {
             isOpening = false;
-            correctRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, -90f);
+            correctRotation = Quaternion.Euler(door.transform.eulerAngles.x, door.transform.eulerAngles.y, -90f);
         }
 
         // Update is called once per frame
@@ -42,9 +43,9 @@ namespace Utility
 
             if (isOpening)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, correctRotation, Time.deltaTime * 10f);
+                door.transform.rotation = Quaternion.Slerp(transform.rotation, correctRotation, Time.deltaTime * 10f);
 
-                if (Quaternion.Angle(transform.rotation, correctRotation) <= 0.05f)
+                if (Quaternion.Angle(door.transform.rotation, correctRotation) <= 0.05f)
                 {
                     this.enabled = false;
                 }
@@ -54,7 +55,7 @@ namespace Utility
 
         public void ForceActivation()
         {
-            transform.rotation = correctRotation;
+            door.transform.rotation = correctRotation;
             tag = Values.interactableOverTag;     //To disable the "interact with e" message
             enabled = false;
         }
