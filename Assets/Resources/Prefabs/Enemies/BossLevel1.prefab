@@ -484,6 +484,7 @@ MonoBehaviour:
   bossHealth: 150
   bossProjectileSpeed: 20
   bossProjectileRate: 0
+  textureTransformModifier: 4
 --- !u!1 &8652647940419271495
 GameObject:
   m_ObjectHideFlags: 0
