@@ -113,7 +113,7 @@ namespace Player
                 {
                     GameObject enemy =  hit.transform.parent.gameObject;
                     EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
-                    enemyScript.SetDamage(damagePerShot);
+                    enemyScript.SetDamage(damagePerShot, hit.point);
                 }
             }
             
@@ -139,7 +139,7 @@ namespace Player
                 {
                     GameObject enemy =  projectile.transform.parent.gameObject;
                     EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
-                    enemyScript.SetDamage(damagePerShot);
+                    enemyScript.SetDamage(damagePerShot, projectile.point);
                 }
                 
                 //Activates the muzzle flash

@@ -75,13 +75,13 @@ namespace Enemies
         // Update is called once per frame
         void FixedUpdate()
         {
-            TimerController.RunTimer(timerName);
-            TimerController.RunTimer(TimerController.HITMARKER_K);
-
-
-            //Loops it
-            if (TimerController.GetCurrentTime()[timerName] <= 0)
-                TimerController.ResetTimer(timerName);
+            // TimerController.RunTimer(timerName);
+            // TimerController.RunTimer(TimerController.HITMARKER_K);
+            //
+            //
+            // //Loops it
+            // if (TimerController.GetCurrentTime()[timerName] <= 0)
+            //     TimerController.ResetTimer(timerName);
 
             //Hitmarkers
             if (status.GetIsHit())
@@ -150,14 +150,14 @@ namespace Enemies
         }
 
 
-        public void SetDamage(int hit)
+        public void SetDamage(int hit, Vector3 hitPoint)
         {
             status.ModifyHealth(-hit);
 
             //Create a hit on the model and make it stay on the model for some time
             hitMarker.SetActive(true);
+            hitMarker.transform.position = hitPoint;
             status.SetIsHit(true);
-            TimerController.ResetTimer(TimerController.HITMARKER_K);
 
             //when hit, the enemy should know the player location for a second or so
             enemyIntelligence.AlertEnemy();
