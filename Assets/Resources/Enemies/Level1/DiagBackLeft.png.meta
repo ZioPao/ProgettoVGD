@@ -114,12 +114,12 @@ TextureImporter:
       name: DiagBackLeft_0
       rect:
         serializedVersion: 2
-        x: 12
+        x: 0
         y: 0
-        width: 40
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,12 +135,12 @@ TextureImporter:
       name: DiagBackLeft_1
       rect:
         serializedVersion: 2
-        x: 76
+        x: 64
         y: 0
-        width: 40
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: DiagBackLeft_2
       rect:
         serializedVersion: 2
-        x: 140
+        x: 128
         y: 0
-        width: 40
-        height: 61
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,12 +177,12 @@ TextureImporter:
       name: DiagBackLeft_3
       rect:
         serializedVersion: 2
-        x: 204
+        x: 192
         y: 0
-        width: 40
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,12 +198,12 @@ TextureImporter:
       name: DiagBackLeft_4
       rect:
         serializedVersion: 2
-        x: 268
+        x: 256
         y: 0
-        width: 40
+        width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: DiagBackLeft_5
       rect:
         serializedVersion: 2
-        x: 332
+        x: 320
         y: 0
-        width: 40
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: DiagBackLeft_6
       rect:
         serializedVersion: 2
-        x: 396
+        x: 384
         y: 0
-        width: 40
-        height: 61
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,12 +261,12 @@ TextureImporter:
       name: DiagBackLeft_7
       rect:
         serializedVersion: 2
-        x: 460
+        x: 448
         y: 0
-        width: 40
-        height: 63
+        width: 64
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
