@@ -22,7 +22,7 @@ namespace Boss
         [SerializeField] private float projRateAttack = 0.2f;
         [SerializeField] private int projSpeedAttack = 10;
 
-        [SerializeField] private PathUnlocker pathUnlocker;
+        [SerializeField] private BossEndTrigger pathUnlocker;
         private EnemyBase boss;
         private EnemyShooting bossShooting;
         private EnemySpawner enemySpawner;
@@ -119,7 +119,7 @@ namespace Boss
 
         public void FindPathUnlocker()
         {
-            pathUnlocker = GameObject.Find("Triggers").GetComponentInChildren<PathUnlocker>();
+            pathUnlocker = GameObject.Find("Triggers").GetComponentInChildren<BossEndTrigger>();
         }
 
         public void ActivatePathUnlocker()

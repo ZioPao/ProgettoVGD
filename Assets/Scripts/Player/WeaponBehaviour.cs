@@ -142,9 +142,11 @@ namespace Player
                     //0 equivale a default
                     if (projectile.collider.gameObject.layer == 0)
                     {
-                        print("colpito un muro");
+                        //print("colpito un muro");
                         
                         //Istanzia hit
+                        
+                        //todo finisci mettendo un prefab ad hoc
                         
                         
                     }

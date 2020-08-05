@@ -36,7 +36,7 @@ namespace Player
             //Only temporary values, in the final game the player won't have all weapons from the start
             Values.AddHeldWeapon(Values.WeaponEnum.Knife, true);
             Values.AddHeldWeapon(Values.WeaponEnum.Pistol, true);    
-            Values.AddHeldWeapon(Values.WeaponEnum.SMG, true);
+            Values.AddHeldWeapon(Values.WeaponEnum.SMG, false);
 
             /*Setup Ammo Values*/
             

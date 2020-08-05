@@ -87826,6 +87826,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Trigger
       objectReference: {fileID: 0}
+    - target: {fileID: 3665160563866550968, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: weapon
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3827205786629265001, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_LocalPosition.x

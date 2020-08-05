@@ -13,14 +13,16 @@ namespace Utility
             interactionCanvas,
             pickupCanvas,
             signCanvas,
-            ammoCanvas, mainPauseCanvas,
+            ammoCanvas,
+            mainPauseCanvas,
             pauseCanvas,
             inGameSettingsCanvas,
-            gameOverCanvas;
+            gameOverCanvas,
+            tipsCanvas;
 
         private TMP_Dropdown resolutionDropdown;
 
-        private Text healthString, staminaText, oxygenText, ammoText, signText;
+        private Text healthString, staminaText, oxygenText, ammoText, signText, tipsText;
         private Image healthSprite;
 
         void Start()
@@ -55,6 +57,11 @@ namespace Utility
             //Game over
             gameOverCanvas = GameObject.Find("GameOver_Canvas");
             gameOverCanvas.SetActive(false);
+            
+            //Tips
+            tipsCanvas = GameObject.Find("Tips_Canvas");
+            tipsText = tipsCanvas.GetComponentInChildren<Text>();
+            tipsCanvas.SetActive(false);
         }
 
         // Update is called once per frame
@@ -134,8 +141,21 @@ namespace Utility
                     }
 
 
+                    if (Values.GetTip() != null && TimerController.GetCurrentTime()[TimerController.TIP_K] > 0)
+                    {
+                        TimerController.RunTimer(TimerController.TIP_K);
+                        tipsCanvas.SetActive(true);
+                        tipsText.text = Values.GetTip();
+                    }
+                    else
+                    {
+                        tipsText.text = "";
+                        tipsCanvas.SetActive(false);
+                    }
                  
                 }
+                
+                
             }
         }
 

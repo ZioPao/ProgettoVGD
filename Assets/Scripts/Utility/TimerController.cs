@@ -17,8 +17,8 @@ namespace Utility
         public static readonly string SMGCOOLDOWN_K = "SMGCooldown";
         public static readonly string RELOADTIME_K = "ReloadTime";
         public static readonly string ENEMYSPAWN_K = "EnemySpawn";
-        public static readonly string HITMARKER_K = "HitMarker";
         public static readonly string BOSSTWOPHASE = "BossTwoPhase";
+        public static readonly string TIP_K = "Tip";
         
         //Timer Types
  
@@ -59,8 +59,9 @@ namespace Utility
             AddTimer(ENEMYSPAWN_K, 10f);
             AddCurrentTime(ENEMYSPAWN_K, 0f);
 
-            AddTimer(HITMARKER_K, 0.3f);
-            AddCurrentTime(HITMARKER_K, 0f);
+            //Timer for tips
+            AddTimer(TIP_K, 3f);
+            AddCurrentTime(TIP_K, 0f);
 
 
             Values.SetIsTimerLoaded(true);

@@ -60,7 +60,7 @@ namespace Player
         private static bool hasKey = false;
         private static bool isInPause = false;
         private static bool isGameOver = false;
-        private static bool hasInteractedWithWinObject = false;
+        private static bool hasInteractedWithWinObject = false;        //todo non viene salvato\caricato correttamente
 
         //Raycasting
         private static float raycastLength = 5f;
@@ -83,12 +83,15 @@ namespace Player
         private static GameObject currentBoss;
         private static SignController currentSignController;
         
+        //Tips
+        private static string tip;
+        
         //Weapon Types
         public enum WeaponEnum
         {
-            Knife,
-            Pistol,
-            SMG,
+            Knife,        //0
+            Pistol,        //1
+            SMG,            //2
         }
         
         //Weapon Properties
@@ -288,6 +291,7 @@ namespace Player
         {
             return isGameOver;
         }
+        
         public static int GetCurrentLevel()
         {
             return currentLevel;
@@ -346,6 +350,12 @@ namespace Player
         {
             return saveManager;
         }
+
+        public static string GetTip()
+        {
+            return tip;
+        }
+        
         public static bool GetCanSave()
         {
             return canSave;
@@ -573,6 +583,7 @@ namespace Player
         {
             isGameOver = value;
         }
+
         public static void SetCurrentLevel(int value)
         {
             currentLevel = value;
@@ -617,6 +628,11 @@ namespace Player
         public static void SetCurrentSaveManager(GameObject value)
         {
             saveManager = value;
+        }
+        
+        public static void SetTip(string value)
+        {
+            tip = value;
         }
         public static void SetCanSave(bool value)
         {
@@ -751,7 +767,15 @@ namespace Player
         }
         public static void AddHeldWeapon(WeaponEnum key, bool value)
         {
-            heldWeapons.Add(key, value);
+            if (!heldWeapons.ContainsKey(key))
+            {
+                heldWeapons.Add(key, value);
+
+            }
+            else
+            {
+                heldWeapons[key] = value;        //Replaces it
+            }
         }
         public static void AddCurrentAmmo(WeaponEnum key, int value)
         {

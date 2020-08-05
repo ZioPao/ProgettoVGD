@@ -131,6 +131,7 @@
           </e>
           <e p="Boss" t="Include">
             <e p="BossEnding.cs" t="Include" />
+            <e p="BossEndTrigger.cs" t="Include" />
             <e p="BossOne.cs" t="Include" />
             <e p="BossThree.cs" t="Include" />
             <e p="BossTrigger.cs" t="Include" />
@@ -141,7 +142,6 @@
             <e p="FakeBossThreeStartup.cs" t="Include" />
             <e p="FinalBossSpawner.cs" t="Include" />
             <e p="IBoss.cs" t="Include" />
-            <e p="PathUnlocker.cs" t="Include" />
           </e>
           <e p="Enemies" t="Include">
             <e p="EnemiesManager.cs" t="Include" />

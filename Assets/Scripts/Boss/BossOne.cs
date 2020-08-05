@@ -15,7 +15,7 @@ namespace Boss
         [SerializeField] private float bossProjectileRate;
         [SerializeField] private float textureTransformModifier;
 
-        private PathUnlocker pathUnlocker;
+        private BossEndTrigger pathUnlocker;
         private EnemyBase boss;
         private EnemyStatus bossStatus;
         private EnemyShooting bossShooting;
@@ -107,7 +107,7 @@ namespace Boss
 
         public void FindPathUnlocker()
         {
-            pathUnlocker = GameObject.Find("Triggers").GetComponentInChildren<PathUnlocker>();
+            pathUnlocker = GameObject.Find("Triggers").GetComponentInChildren<BossEndTrigger>();
 
         }
         public void ActivatePathUnlocker()
