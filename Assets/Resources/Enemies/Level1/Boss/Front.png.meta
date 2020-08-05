@@ -114,12 +114,12 @@ TextureImporter:
       name: Boss1_Front_Walk_0
       rect:
         serializedVersion: 2
-        x: 29
+        x: 0
         y: 128
-        width: 64
-        height: 89
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,12 +135,12 @@ TextureImporter:
       name: Boss1_Front_Walk_1
       rect:
         serializedVersion: 2
-        x: 157
+        x: 128
         y: 128
-        width: 63
-        height: 91
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,12 +156,12 @@ TextureImporter:
       name: Boss1_Front_Walk_2
       rect:
         serializedVersion: 2
-        x: 285
+        x: 256
         y: 128
-        width: 63
-        height: 91
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,12 +177,12 @@ TextureImporter:
       name: Boss1_Front_Walk_3
       rect:
         serializedVersion: 2
-        x: 413
+        x: 384
         y: 128
-        width: 63
-        height: 91
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,12 +198,12 @@ TextureImporter:
       name: Boss1_Front_Walk_4
       rect:
         serializedVersion: 2
-        x: 29
+        x: 0
         y: 0
-        width: 64
-        height: 89
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: Boss1_Front_Walk_5
       rect:
         serializedVersion: 2
-        x: 157
+        x: 128
         y: 0
-        width: 64
-        height: 90
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -240,12 +240,12 @@ TextureImporter:
       name: Boss1_Front_Walk_6
       rect:
         serializedVersion: 2
-        x: 282
+        x: 256
         y: 0
-        width: 67
-        height: 91
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,12 +261,12 @@ TextureImporter:
       name: Boss1_Front_Walk_7
       rect:
         serializedVersion: 2
-        x: 413
+        x: 384
         y: 0
-        width: 64
-        height: 90
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
