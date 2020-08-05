@@ -102,9 +102,9 @@ TextureImporter:
       name: Front_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 180
+        width: 192
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -123,9 +123,9 @@ TextureImporter:
       name: Front_1
       rect:
         serializedVersion: 2
-        x: 198
+        x: 192
         y: 0
-        width: 180
+        width: 192
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -144,9 +144,9 @@ TextureImporter:
       name: Front_2
       rect:
         serializedVersion: 2
-        x: 390
+        x: 384
         y: 0
-        width: 180
+        width: 192
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -165,9 +165,9 @@ TextureImporter:
       name: Front_3
       rect:
         serializedVersion: 2
-        x: 582
+        x: 576
         y: 0
-        width: 180
+        width: 192
         height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
