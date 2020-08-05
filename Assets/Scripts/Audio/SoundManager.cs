@@ -19,6 +19,9 @@ namespace Audio{
 			WeaponReload,
 			ReloadFail,
 			PlayerHurt,
+			LeverActivate,
+			DoorOpen,
+			DoorLocked,
         }
 
 		public enum SoundTracks
@@ -97,6 +100,21 @@ namespace Audio{
 			soundEffects.Add(SoundEffects.PlayerHurt, effect);
 			effectVolumes.Add(SoundEffects.PlayerHurt, 0.08f);
 			effectPitches.Add(SoundEffects.PlayerHurt, 1f);
+
+			effect = Resources.Load("Audio/Lever") as AudioClip;
+			soundEffects.Add(SoundEffects.LeverActivate, effect);
+			effectVolumes.Add(SoundEffects.LeverActivate, 1.2f);
+			effectPitches.Add(SoundEffects.LeverActivate, 1f);
+
+			effect = Resources.Load("Audio/DoorOpen") as AudioClip;
+			soundEffects.Add(SoundEffects.DoorOpen, effect);
+			effectVolumes.Add(SoundEffects.DoorOpen, 1f);
+			effectPitches.Add(SoundEffects.DoorOpen, 1f);
+
+			effect = Resources.Load("Audio/DoorLocked") as AudioClip;
+			soundEffects.Add(SoundEffects.DoorLocked, effect);
+			effectVolumes.Add(SoundEffects.DoorLocked, 0.5f);
+			effectPitches.Add(SoundEffects.DoorLocked, 1f);
 
 		}
 
