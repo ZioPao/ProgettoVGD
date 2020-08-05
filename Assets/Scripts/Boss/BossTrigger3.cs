@@ -14,13 +14,15 @@ namespace Boss
         private Quaternion newRotation2 = Quaternion.Euler(-73, 0, 0);
         private Vector3 newPosition2 = new Vector3(202, 64, 263);
 
+        private bool alreadyExecuted = false;
     
         private void OnTriggerEnter(Collider other)
         {
 
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !alreadyExecuted)
             {
                 RunTrigger();
+                alreadyExecuted = true;
             }
             
         }
