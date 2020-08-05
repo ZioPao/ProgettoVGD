@@ -103,6 +103,7 @@
             <e p="SpritesVertexLit.shader" t="Include" />
           </e>
         </e>
+        <e p="KeyScript.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">

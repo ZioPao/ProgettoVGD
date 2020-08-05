@@ -135,11 +135,26 @@ namespace Player
                 
                 Values.DecrementCurrentAmmo(Values.GetCurrentWeapon(), 1);
                 
-                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit projectile, Values.GetProjectileDistance(), LayerMask.GetMask("EnemyHitbox")))
+                //Check se ha colpito nemico
+                if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out RaycastHit projectile, Values.GetProjectileDistance(), LayerMask.GetMask("EnemyHitbox", "Default")))
                 {
-                    GameObject enemy =  projectile.transform.parent.gameObject;
-                    EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
-                    enemyScript.SetDamage(damagePerShot, projectile.point);
+
+                    //0 equivale a default
+                    if (projectile.collider.gameObject.layer == 0)
+                    {
+                        print("colpito un muro");
+                        
+                        //Istanzia hit
+                        
+                        
+                    }
+                    else
+                    {
+                        GameObject enemy =  projectile.transform.parent.gameObject;
+                        EnemyBase enemyScript = enemy.GetComponent<EnemyBase>();
+                        enemyScript.SetDamage(damagePerShot, projectile.point); 
+                    }
+
                 }
                 
                 //Activates the muzzle flash
