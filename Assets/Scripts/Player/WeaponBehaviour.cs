@@ -150,6 +150,8 @@ namespace Player
             {
                 //Audio is Played
                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.RangedAttackFail);
+
+                TimerController.ResetTimer(cooldownTimer);
             }
         }
 
