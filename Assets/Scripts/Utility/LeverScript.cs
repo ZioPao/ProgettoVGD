@@ -59,6 +59,9 @@ namespace Utility
         {
             if (Values.GetIsUsingLever())
             {
+                //Play Sound
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.LeverActivate);
+
                 isMoving = true;
                 Values.SetIsUsingLever(false);
                 this.tag = Values.interactableOverTag; //To disable the "interact with e" message
