@@ -19,6 +19,7 @@ namespace Enemies
         private float memoryTimeLeft;
         private Transform frontEnemyTransform;
         private NavMeshAgent agent;
+        
 
         public void Start()
         {
@@ -28,11 +29,20 @@ namespace Enemies
             frontEnemyTransform = transform.Find("ViewCheck").Find("Front");
 
             agent = GetComponent<NavMeshAgent>();
-            agent.Warp(status.GetPosition());            //Per evitare il solito errore del navmesh, forziamo qui il warp
-            agent.isStopped = true;
+            //agent.Warp(status.GetPosition());            //Per evitare il solito errore del navmesh, forziamo qui il warp
 
         }
 
+        private void LateUpdate()
+        {
+            if (status.GetIsInitializing())
+            {
+                agent.isStopped = true;
+                agent.Warp(gameObject.transform.position);
+                status.SetIsInitializing(false);
+            }
+
+        }
 
         private void FixedUpdate()
         {

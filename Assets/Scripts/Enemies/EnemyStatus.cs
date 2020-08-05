@@ -92,7 +92,7 @@ namespace Enemies
         }
         //intelligence
         private int viewDistance;
-        private bool isPlayerInView, isStopped;
+        private bool isPlayerInView, isStopped, isInitializing;
         private float maxMemoryTime, memoryTimeLeft, waitingTimeLeft;
         
         public void SetupIntelligence(int viewDistance, bool isPlayerInView, bool isStopped, float maxMemoryTime, float memoryTimeLeft, float waitingTimeLeft)
@@ -103,6 +103,7 @@ namespace Enemies
             this.maxMemoryTime = maxMemoryTime;
             this.memoryTimeLeft = memoryTimeLeft;
             this.waitingTimeLeft = waitingTimeLeft;
+            isInitializing = true;
         }
 
         public void SetIsStopped(bool value)
@@ -118,6 +119,14 @@ namespace Enemies
         public bool GetIsPlayerInView()
         {
             return isPlayerInView;
+        }
+        public bool GetIsInitializing()
+        {
+            return isInitializing;
+        }
+        public void SetIsInitializing(bool value)
+        {
+            isInitializing = value;
         }
 
         public float GetWaitingTimeLeft()
