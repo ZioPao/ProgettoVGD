@@ -28,7 +28,9 @@ namespace Enemies
             frontEnemyTransform = transform.Find("ViewCheck").Find("Front");
 
             agent = GetComponent<NavMeshAgent>();
+            agent.Warp(status.GetPosition());            //Per evitare il solito errore del navmesh, forziamo qui il warp
             agent.isStopped = true;
+
         }
 
 
