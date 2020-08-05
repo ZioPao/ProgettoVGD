@@ -22,6 +22,7 @@ namespace Audio{
 			LeverActivate,
 			DoorOpen,
 			DoorLocked,
+			FinalBossLaugh,
         }
 
 		public enum SoundTracks
@@ -115,6 +116,11 @@ namespace Audio{
 			soundEffects.Add(SoundEffects.DoorLocked, effect);
 			effectVolumes.Add(SoundEffects.DoorLocked, 0.5f);
 			effectPitches.Add(SoundEffects.DoorLocked, 1f);
+
+			effect = Resources.Load("Audio/Boss3Laugh") as AudioClip;
+			soundEffects.Add(SoundEffects.FinalBossLaugh, effect);
+			effectVolumes.Add(SoundEffects.FinalBossLaugh, 0.5f);
+			effectPitches.Add(SoundEffects.FinalBossLaugh, 1f);
 
 		}
 
