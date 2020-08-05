@@ -146,6 +146,11 @@ namespace Player
                 gunshotLight.enabled = true;
 
             }
+            else if (Values.GetCurrentAmmo()[Values.GetCurrentWeapon()] == 0 && !Values.GetIsGameOver() && !Values.GetIsReloading() && !Values.GetIsInPause() && !Values.GetIsFrozen())
+            {
+                //Audio is Played
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.RangedAttackFail);
+            }
         }
 
 

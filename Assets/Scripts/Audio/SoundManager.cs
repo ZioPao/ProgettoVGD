@@ -91,7 +91,7 @@ namespace Audio{
 			effect = Resources.Load("Audio/Reload") as AudioClip;
 			soundEffects.Add(SoundEffects.ReloadFail, effect);
 			effectVolumes.Add(SoundEffects.ReloadFail, 0.5f);
-			effectPitches.Add(SoundEffects.ReloadFail, 3f);
+			effectPitches.Add(SoundEffects.ReloadFail, 2.5f);
 
 			effect = Resources.Load("Audio/Player_Hurt") as AudioClip;
 			soundEffects.Add(SoundEffects.PlayerHurt, effect);
