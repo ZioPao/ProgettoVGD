@@ -75,8 +75,7 @@ namespace Boss
             }
 
             GameObject signPrefab = Resources.Load<GameObject>("Prefabs/Levels/Generic/FakeSign");
-            sign = Instantiate(signPrefab, fakeBossLastPosition, Quaternion.identity, GameObject.Find(
-                "InteractableObjects").transform);
+            sign = Instantiate(signPrefab, fakeBossLastPosition, Quaternion.identity, Values.GetCurrentSignController().transform);
             sign.transform.name = "Sign"; //per far funzionare correttamente l'interactioncontroller
             isFakeBossDead = true;
 

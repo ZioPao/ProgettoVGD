@@ -59,6 +59,10 @@ namespace Utility
                 {
                     return; //Stops everything else, it should be ok.
                 }
+
+                Values.SetCurrentSignController(GameObject.Find("Signs").GetComponent<SignController>());
+
+
             }
             else
             {
