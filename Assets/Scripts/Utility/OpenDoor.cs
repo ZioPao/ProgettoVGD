@@ -17,12 +17,17 @@ namespace Utility
         // Update is called once per frame
         void FixedUpdate()
         {
-            InteractableBehaviour();
+            //InteractableBehaviour();
+
+            if (isOpening)
+            {
+                MoveDoor();
+            }
         }
 
         public void InteractableBehaviour()
         {
-            if (Values.GetIsUsingDoor() && Values.GetHasKey())
+            if (Values.GetHasKey())
             {
                 //Play Sound
                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.DoorOpen);
@@ -32,24 +37,22 @@ namespace Utility
                 Values.SetHasKey(false);
                 tag = Values.interactableOverTag;     //To disable the "interact with e" message
             }
-
-            if (Values.GetIsUsingDoor() && !Values.GetHasKey())
+            else
             {
                 //Play Sound
                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.DoorLocked);
                 Values.SetIsUsingDoor(false);
             }
+        }
 
-            if (isOpening)
+        private void MoveDoor()
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, correctRotation, Time.deltaTime * 10f);
+
+            if (Quaternion.Angle(transform.rotation, correctRotation) <= 0.05f)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, correctRotation, Time.deltaTime * 10f);
-
-                if (Quaternion.Angle(transform.rotation, correctRotation) <= 0.05f)
-                {
-                    this.enabled = false;
-                }
+                this.enabled = false;
             }
-
         }
 
         public void ForceActivation()

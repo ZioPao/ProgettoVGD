@@ -180,7 +180,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5711386515471709239}
-  - component: {fileID: 4984338313731301340}
   m_Layer: 0
   m_Name: FakeSign
   m_TagString: Interactable
@@ -205,19 +204,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4984338313731301340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5711386515471709232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5feda9476352916419ea2c660f7bd9a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  signID: 2
 --- !u!1 &5711386517237408866
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +216,7 @@ GameObject:
   - component: {fileID: 5711386517237408870}
   - component: {fileID: 5711386517237408871}
   - component: {fileID: 5711386517237408864}
+  - component: {fileID: 8337466536618018415}
   m_Layer: 0
   m_Name: Top
   m_TagString: Interactable
@@ -311,3 +298,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3, y: 2.5, z: 1.3}
   m_Center: {x: 0, y: -0.6, z: 0}
+--- !u!114 &8337466536618018415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711386517237408866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5feda9476352916419ea2c660f7bd9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signID: 2

@@ -52,52 +52,53 @@ namespace Utility
             // +261;
             // +58;
 
-            InteractableBehaviour();
+            //InteractableBehaviour();
+
+
+            if (isMoving)
+            {
+                MoveLever();
+            }
         }
 
         public void InteractableBehaviour()
         {
-            if (Values.GetIsUsingLever())
-            {
-                //Play Sound
-                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.LeverActivate);
-
-                isMoving = true;
-                Values.SetIsUsingLever(false);
-                this.tag = Values.interactableOverTag; //To disable the "interact with e" message
-            }
-
-            if (isMoving)
-            {
-                movingPiece.position = Vector3.Slerp(movingPiece.position, correctPosition, Time.deltaTime * 10f);
-                movingPiece.rotation = Quaternion.Slerp(movingPiece.rotation, correctRotation, Time.deltaTime * 10f);
-
-                float diff = Mathf.Abs(movingPiece.position.sqrMagnitude - correctPosition.sqrMagnitude);
-
-                if (diff < 1)
-                {
-                    obj = GameObject.Find(objectName).transform;
-                    doorRotation = Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f);
-
-                    obj.rotation = doorRotation;
-                    //todo credo sia inutile
-                    //this.tag = "InteractableOver"; //To disable the "interact with e" message, again just in case
-
-                    this.enabled = false; //end the script
-                }
-            }
+            //Play Sound
+            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.LeverActivate);
+            isMoving = true;
+            //Values.SetIsUsingLever(false);
+            tag = Values.interactableOverTag; //To disable the "interact with e" message
         }
+
 
         public void ForceActivation()
         {
             Awake();
-
             obj = GameObject.Find(objectName).transform;
             movingPiece.position = correctPosition;
             movingPiece.rotation = correctRotation;
             obj.rotation =
                 Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f); //todo maybe broken with other objects
             this.tag = Values.interactableOverTag; //To disable the "interact with e" message, again just in case
+        }
+
+        public void MoveLever()
+        {
+            movingPiece.position = Vector3.Slerp(movingPiece.position, correctPosition, Time.deltaTime * 10f);
+            movingPiece.rotation = Quaternion.Slerp(movingPiece.rotation, correctRotation, Time.deltaTime * 10f);
+
+            float diff = Mathf.Abs(movingPiece.position.sqrMagnitude - correctPosition.sqrMagnitude);
+            if (diff < 1)
+            {
+                obj = GameObject.Find(objectName).transform;
+                doorRotation = Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f);
+
+                obj.rotation = doorRotation;
+                //todo credo sia inutile
+                //this.tag = "InteractableOver"; //To disable the "interact with e" message, again just in case
+
+                this.enabled = false; //end the script
+            }
         }
 
         public bool GetIsEnabled()

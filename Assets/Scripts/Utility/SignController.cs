@@ -6,8 +6,8 @@ namespace Utility
 {
     public class SignController : MonoBehaviour, IInteractableMidGame
     {
-
         [SerializeField] private int signID = 0;
+
 
         private string signText = "I Am Error";
         private int currentSignID;
@@ -23,7 +23,7 @@ namespace Utility
                                + Environment.NewLine +
                                "Premi Q e dimentica cio' che hai visto";
                     break;
-                    
+
                 case 0:
                     signText = "Su questo cartello saranno presenti le regole del gioco." + Environment.NewLine +
                                "Probabilmente ti verra' detto di premere dei tasti, oppure di raccogliere oggetti di vario tipo, ma qualsiasi cosa accada, questo e' e restera' per sempre un cartello." +
@@ -33,7 +33,7 @@ namespace Utility
                                Environment.NewLine + Environment.NewLine + Environment.NewLine +
                                "Premi Q per tornare al gioco.";
                     break;
-                
+
                 case 1:
                     signText = "Questo cartello e' una prova";
                     break;
@@ -86,17 +86,18 @@ namespace Utility
                     break;
 
                 case 6:
-                    signText = "Tutti hanno messo in dubbio la mia sanita' mentale quando ho nascosto un cartello sott'acqua." +
-                               Environment.NewLine +
-                               "Oooooh, sicuramente ora se ne staranno pentendo." +
-                               Environment.NewLine +
-                               "Quelle dannate bestie nascondono un segreto, e questo e' l'unico luogo che non controllerebbero mai." +
-                               Environment.NewLine +
-                               "Non e' ancora troppo tardi, possono ancora essere fermate, a patto che la creatura nascosta nei paraggi venga sconfitta." +
-                               Environment.NewLine +
-                               "Dovrebbe trovarsi in una caverna, ma purtroppo non so altro." +
-                               Environment.NewLine + Environment.NewLine +
-                               "Premi Q per tornare al gioco.";
+                    signText =
+                        "Tutti hanno messo in dubbio la mia sanita' mentale quando ho nascosto un cartello sott'acqua." +
+                        Environment.NewLine +
+                        "Oooooh, sicuramente ora se ne staranno pentendo." +
+                        Environment.NewLine +
+                        "Quelle dannate bestie nascondono un segreto, e questo e' l'unico luogo che non controllerebbero mai." +
+                        Environment.NewLine +
+                        "Non e' ancora troppo tardi, possono ancora essere fermate, a patto che la creatura nascosta nei paraggi venga sconfitta." +
+                        Environment.NewLine +
+                        "Dovrebbe trovarsi in una caverna, ma purtroppo non so altro." +
+                        Environment.NewLine + Environment.NewLine +
+                        "Premi Q per tornare al gioco.";
                     break;
 
                 case 7:
@@ -138,7 +139,22 @@ namespace Utility
 
         public void InteractableBehaviour()
         {
-            return;
+            //Cerca il sign controller
+
+            SignController signController;
+            if (!Values.GetCurrentSignController())
+            {
+                signController = GetComponentInParent<SignController>();
+                Values.SetCurrentSignController(signController);
+            }
+            else
+            {
+                signController = Values.GetCurrentSignController();
+            }
+            
+            signController.SetCurrentSignID(GetSignID());
+            Values.SetIsReadingSign(true);
+            Values.SetIsFrozen(true);
         }
 
         public void ForceActivation()
