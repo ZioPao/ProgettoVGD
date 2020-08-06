@@ -280,6 +280,8 @@ namespace Saving
                     }
                     
                     //Triggers
+              
+                    
                     foreach (var oldT in Values.GetOriginalTriggers())
                     {
                         

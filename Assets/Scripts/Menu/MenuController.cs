@@ -52,6 +52,7 @@ namespace Menu
         {
             mainMenu.SetActive(false);
             Values.SetIsStartingNewGame(true);
+            Values.SetIsWeaponControllerDoneLoading(false);        //todo aggiungi nel load level del sceneloader
             LoadLevel(1);
             //StartCoroutine(SceneLoader.LoadWeapons(Values.WeaponEnum.Pistol, true));
 

@@ -118,6 +118,10 @@ namespace Player
         private static List<string> originalTriggers, originalPickups;
         private static HashSet<string> completedTriggers;
 
+        
+        //Loading and stuff
+        private static bool isWeaponControllerDoneLoading;
+        
         //Tags
         public const string PlayerTag = "Player";
         public const string BossSpawnerTag = "BossSpawner";
@@ -434,6 +438,16 @@ namespace Player
             completedTriggers.Add(value);
         }
 
+
+        public static bool GetIsWeaponControllerDoneLoading()
+        {
+            return isWeaponControllerDoneLoading;
+        }
+
+        public static void SetIsWeaponControllerDoneLoading(bool value)
+        {
+            isWeaponControllerDoneLoading = value;
+        }
         
         
         public static string GetTip()

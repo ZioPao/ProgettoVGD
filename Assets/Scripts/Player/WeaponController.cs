@@ -8,7 +8,6 @@ namespace Player
     {
         public void Start()
         {
-            
             //Init di base 
             Values.InitializeWeaponObjects();
             Values.InitializeWeaponBehaviours();
@@ -20,7 +19,7 @@ namespace Player
             Values.AddWeaponObject(Values.WeaponEnum.Knife, GameObject.Find("PlayerKnife"));
             Values.AddWeaponObject(Values.WeaponEnum.Pistol, GameObject.Find("PlayerPistol"));
             Values.AddWeaponObject(Values.WeaponEnum.SMG, GameObject.Find("PlayerSMG"));
-  
+
             Values.AddWeaponBehaviour(Values.WeaponEnum.Knife,
                 GameObject.Find("PlayerKnife").GetComponent<WeaponBehaviour>());
             Values.AddWeaponBehaviour(Values.WeaponEnum.Pistol,
@@ -31,7 +30,6 @@ namespace Player
 
             if (Values.GetIsStartingNewGame())
             {
-                
                 //Di base ha solo pistola e coltello
                 Values.AddHeldWeapon(Values.WeaponEnum.Knife, true);
                 Values.AddHeldWeapon(Values.WeaponEnum.Pistol, true);
@@ -65,6 +63,7 @@ namespace Player
 
                 Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
                 Values.SetIsStartingNewGame(false);
+                Values.SetIsWeaponControllerDoneLoading(true);
 
                 return;
             }
@@ -103,10 +102,8 @@ namespace Player
                 Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(false);
 
                 Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
-                Values.SetGiveAllWeapons(false);        //Disabilita per poter fare il cambio di scena correttamente
+                Values.SetGiveAllWeapons(false); //Disabilita per poter fare il cambio di scena correttamente
             }
-            
-            
             else if (!Values.GetIsChangingScene())
             {
                 /*Setup Weapons*/
@@ -145,6 +142,8 @@ namespace Player
 
                 //Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
             }
+
+            Values.SetIsWeaponControllerDoneLoading(true);
         }
 
         public void ChangeWeapon()
@@ -184,12 +183,8 @@ namespace Player
         {
             /*Calls Appropriate Weapon Behaviour*/
 
-            if (Values.GetWeaponBehaviours().Count != 0)
-            {
-                var weaponTmp = Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()];
-                weaponTmp.Action();
-            }
-
+            var weaponTmp = Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()];
+            weaponTmp.Action();
         }
     }
 }

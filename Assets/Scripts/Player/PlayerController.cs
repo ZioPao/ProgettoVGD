@@ -50,8 +50,8 @@ namespace Player
             var enemySpritesManager = GetComponentInChildren<EnemySpritesManager>();
             var guiController = GetComponentInChildren<UiScript>();
 
-            playerAnimations.enabled = true;
             weaponScript.enabled = true;
+            playerAnimations.enabled = true;
             interactionScript.enabled = true;
             enemySpritesManager.enabled = true;
             guiController.enabled = true;
@@ -101,7 +101,7 @@ namespace Player
 
         private void Update()
         {
-            if (!Values.GetIsLoadingSave() && !Values.GetIsStartingNewGame() && !Values.GetIsChangingScene())
+            if (!Values.GetIsLoadingSave() && !Values.GetIsStartingNewGame() && !Values.GetIsChangingScene() && Values.GetIsWeaponControllerDoneLoading())
             {
                 //SAVE
                 if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && !Values.GetIsReadingSign() &&

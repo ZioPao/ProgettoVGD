@@ -20,8 +20,13 @@ namespace Utility
         //Enemy stuff
         public Dictionary<String, EnemyStatus> enemiesStatus;
 
-        public void Start()
+        public void Awake()
         {
+            
+            
+            //E' AWAKE PER FARLO GIRARE PRIMA DEL LOAD SAVE, COSI CHE POSSA RECUPERARE I TRIGGERS ORIGINALI
+            
+            
             Values.SetCurrentLevel(levelId);
             Values.SetHasInteractedWithWinObject(false); //per evitare problemi dopo aver finito il gioco
             GameObject player;
@@ -160,6 +165,11 @@ namespace Utility
         {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(Values.EnemyTag);
 
+            //todo non dovrebbe dare problemi ma tienilo d'occhio
+            if (enemiesStatus == null)
+                enemiesStatus = new Dictionary<string, EnemyStatus>();
+            
+            
             foreach (var enemy in enemies)
             {
                 EnemyStatus status = enemy.GetComponent<EnemyBase>().GetStatus();
