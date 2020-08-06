@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008821557, g: 0.009596803, b: 0.010910279, a: 1}
+  m_IndirectSpecularColor: {r: 0.00017642944, g: 0.0001919268, b: 0.0002181528, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15418,17 +15418,17 @@ PrefabInstance:
     - target: {fileID: 8747336793080251560, guid: 35413a10ebd34954a955e249a045a9ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.633
+      value: 18.94
       objectReference: {fileID: 0}
     - target: {fileID: 8747336793080251560, guid: 35413a10ebd34954a955e249a045a9ca,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.1
+      value: 11.86
       objectReference: {fileID: 0}
     - target: {fileID: 8747336793080251560, guid: 35413a10ebd34954a955e249a045a9ca,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 126.402
+      value: 123.97
       objectReference: {fileID: 0}
     - target: {fileID: 8747336793080251560, guid: 35413a10ebd34954a955e249a045a9ca,
         type: 3}
@@ -15472,13 +15472,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8747336793080251561, guid: 35413a10ebd34954a955e249a045a9ca,
         type: 3}
-      propertyPath: doorName
+      propertyPath: objectName
       value: bossDoor
       objectReference: {fileID: 0}
     - target: {fileID: 8747336793080251561, guid: 35413a10ebd34954a955e249a045a9ca,
         type: 3}
-      propertyPath: objectName
-      value: bossDoor
+      propertyPath: zRotation
+      value: -60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35413a10ebd34954a955e249a045a9ca, type: 3}

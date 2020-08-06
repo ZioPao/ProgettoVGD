@@ -6,9 +6,12 @@ namespace Utility
     public class LeverScript : MonoBehaviour, IInteractableMidGame
     {
         [SerializeField] private string objectName;
+        [SerializeField] private bool disableLinkedObject = false;
+
         [SerializeField] private bool forcePosition = false;
 
-        [SerializeField] private float xValue, yValue, zValue;
+        [SerializeField] private float zRotation;
+
 
         private bool isMoving;
 
@@ -17,25 +20,21 @@ namespace Utility
         private Transform movingPiece;
 
         private Quaternion correctRotation;
-        private Vector3 correctPosition;
-        private Quaternion doorRotation;
+        private Quaternion objRotation;
 
         public void Awake()
         {
             //print("Instanziato lever!");
             isMoving = false;
-            movingPiece = transform.Find("movingPiece");
+            movingPiece = transform.Find("movingPiecePivot");
 
-            if (forcePosition)
-            {
-                correctPosition = new Vector3(xValue, yValue, zValue);
-            }
-            else
-            {
-                correctRotation = Quaternion.Euler(movingPiece.eulerAngles.x, movingPiece.eulerAngles.y, -40f);
-                correctPosition = new Vector3(movingPiece.position.x + 0.261f, movingPiece.position.y - 0.058f,
-                    movingPiece.position.z);
-            }
+
+            correctRotation = Quaternion.Euler(0,0, zRotation);
+ 
+            // correctRotation = Quaternion.Euler(movingPiece.eulerAngles.x, movingPiece.eulerAngles.y, -40f);
+            // correctPosition = new Vector3(movingPiece.position.x + 0.261f, movingPiece.position.y - 0.058f,
+            //     movingPiece.position.z);
+
         }
 
         // Update is called once per frame
@@ -74,31 +73,42 @@ namespace Utility
         public void ForceActivation()
         {
             Awake();
+            //obj indica la porta\cosa che si deve attivare
             obj = GameObject.Find(objectName).transform;
-            movingPiece.position = correctPosition;
             movingPiece.rotation = correctRotation;
             obj.rotation =
                 Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f); //todo maybe broken with other objects
-            this.tag = Values.interactableOverTag; //To disable the "interact with e" message, again just in case
+            tag = Values.interactableOverTag; //To disable the "interact with e" message, again just in case
         }
 
         public void MoveLever()
         {
-            movingPiece.position = Vector3.Slerp(movingPiece.position, correctPosition, Time.deltaTime * 10f);
             movingPiece.rotation = Quaternion.Slerp(movingPiece.rotation, correctRotation, Time.deltaTime * 10f);
 
-            float diff = Mathf.Abs(movingPiece.position.sqrMagnitude - correctPosition.sqrMagnitude);
-            if (diff < 1)
+            if (movingPiece.rotation.z - correctRotation.z <= 0.01f)
             {
-                obj = GameObject.Find(objectName).transform;
-                doorRotation = Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f);
+                ActivateLinkedObject();
+                enabled = false; //end the script
 
-                obj.rotation = doorRotation;
-                //todo credo sia inutile
-                //this.tag = "InteractableOver"; //To disable the "interact with e" message, again just in case
-
-                this.enabled = false; //end the script
             }
+
+        }
+
+        private void ActivateLinkedObject()
+        {
+            obj = GameObject.Find(objectName).transform;
+
+            if (disableLinkedObject)
+            {
+                obj.gameObject.SetActive(false);
+            }
+            else
+            {
+                objRotation = Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f);
+                obj.rotation = objRotation; 
+            }
+
+
         }
 
         public bool GetIsEnabled()

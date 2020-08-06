@@ -21,6 +21,8 @@ namespace Saving
         public Dictionary<Values.WeaponEnum, bool> heldWeapons;
         public Dictionary<Values.WeaponEnum, int> weaponsCurrentAmmo;
         public Dictionary<Values.WeaponEnum, int> weaponsCurrentReserve;
+
+        public bool hasKey;
         
         
         //Nome del livello
