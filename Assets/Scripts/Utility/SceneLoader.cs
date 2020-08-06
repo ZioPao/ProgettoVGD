@@ -25,51 +25,7 @@ namespace Utility
 
                 Time.timeScale = 1;
                 yield return null;
-
             }
         }
-
-        public static IEnumerator LoadNewGame(Values.WeaponEnum weapon)
-        {
-            //Begin to load the Scene you specify
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/Level1", LoadSceneMode.Single);
-            //Don't let the Scene activate until you allow it to
-            asyncOperation.allowSceneActivation = false;
-            //When the load is still in progress, output the Text and progress bar
-            while (!asyncOperation.isDone)
-            {
-                // Check if the load has finished
-                if (asyncOperation.progress >= 0.9f)
-                {
-                    asyncOperation.allowSceneActivation = true;
-
-                    // Values.InitializeHeldWeapons();
-                    // Values.AddHeldWeapon(weapon, true);
-                    // Values.GetWeaponObjects()[weapon].SetActive(true);
-                    //
-                    // Values.SetCurrentWeapon(weapon);
-                } //spawnPoint = new Vector3(145, 67, 40); //level 3
-
-                Time.timeScale = 1;
-                yield return null;
-
-            }
-            //
-            // while (!Values.GetWeaponController())
-            // {
-            //     yield return null;
-            // }
-
-        
-            //Values.SetWeaponController(null);            //In caso di reload non si caga addosso
-        
-          
-            
-        
-            }
-        }
-        
-            
-        
-    
+    }
 }

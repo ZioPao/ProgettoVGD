@@ -27,8 +27,8 @@ namespace Player
                 GameObject.Find("PlayerPistol").GetComponent<WeaponBehaviour>());
             Values.AddWeaponBehaviour(Values.WeaponEnum.SMG,
                 GameObject.Find("PlayerSMG").GetComponent<WeaponBehaviour>());
-            
-            
+
+
             if (Values.GetIsStartingNewGame())
             {
                 
@@ -68,8 +68,46 @@ namespace Player
 
                 return;
             }
-         
-            if (!Values.GetIsChangingScene())
+
+            if (Values.GetGiveAllWeapons())
+            {
+                //Da tutte le armi
+                Values.AddHeldWeapon(Values.WeaponEnum.Knife, true);
+                Values.AddHeldWeapon(Values.WeaponEnum.Pistol, true);
+                Values.AddHeldWeapon(Values.WeaponEnum.SMG, true);
+
+                /*Setup Ammo Values*/
+
+                Values.AddCurrentAmmo(Values.WeaponEnum.Knife, 0);
+                Values.AddCurrentAmmo(Values.WeaponEnum.Pistol, 10);
+                Values.AddCurrentAmmo(Values.WeaponEnum.SMG, 25);
+
+                Values.AddAmmoReserve(Values.WeaponEnum.Knife, 0);
+                Values.AddAmmoReserve(Values.WeaponEnum.Pistol, 100);
+                Values.AddAmmoReserve(Values.WeaponEnum.SMG, 250);
+
+                Values.AddReloadAmount(Values.WeaponEnum.Knife, 0);
+                Values.AddReloadAmount(Values.WeaponEnum.Pistol, 10);
+                Values.AddReloadAmount(Values.WeaponEnum.SMG, 25);
+
+                /*Setup Attack State*/
+
+                Values.AddIsAttacking(Values.WeaponEnum.Knife, false);
+                Values.AddIsAttacking(Values.WeaponEnum.Pistol, false);
+                Values.AddIsAttacking(Values.WeaponEnum.SMG, false);
+
+                /*Sets Pistol as Default Weapon*/
+
+                Values.GetWeaponObjects()[Values.WeaponEnum.Knife].SetActive(false);
+                Values.GetWeaponObjects()[Values.WeaponEnum.Pistol].SetActive(true);
+                Values.GetWeaponObjects()[Values.WeaponEnum.SMG].SetActive(false);
+
+                Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
+                Values.SetGiveAllWeapons(false);        //Disabilita per poter fare il cambio di scena correttamente
+            }
+            
+            
+            else if (!Values.GetIsChangingScene())
             {
                 /*Setup Weapons*/
 

@@ -109,6 +109,7 @@ namespace Player
         private static bool canSave = true;
         private static bool canPause = true;
         private static bool isStartingNewGame;
+        private static bool giveAllWeapons;
         private static GameObject saveManager;
 
         //Tags
@@ -420,7 +421,10 @@ namespace Player
         {
             return isStartingNewGame;
         }
-
+        public static bool GetGiveAllWeapons()
+        {
+            return giveAllWeapons;
+        }
         //Weapon Properties
         public static Dictionary<WeaponEnum, GameObject> GetWeaponObjects()
         {
@@ -742,7 +746,10 @@ namespace Player
         {
             isStartingNewGame = value;
         }
-
+        public static void SetGiveAllWeapons(bool value)
+        {
+            giveAllWeapons = value;
+        }
         //Weapon Properties
         public static void SetCurrentWeapon(WeaponEnum value)
         {
