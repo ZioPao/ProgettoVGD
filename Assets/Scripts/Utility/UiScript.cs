@@ -3,6 +3,7 @@ using Player;
 using Saving;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Utility
@@ -227,7 +228,12 @@ namespace Utility
         {
 
             Cursor.lockState = CursorLockMode.Confined;        //permette di spostare il mouse nel menu
+            
+            SceneManager.MoveGameObjectToScene(Values.GetPlayerTransform().gameObject, SceneManager.GetActiveScene());
             StartCoroutine(SceneLoader.LoadScene("Scenes/MainMenu"));
+
+
+            Values.SetIsChangingScene(false);        //Reistanzia correttamente il player dal main menu
             Values.SetIsInPause(false);        //Evita casini al reload
             Cursor.visible = true;
         }
