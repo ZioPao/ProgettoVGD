@@ -56,15 +56,11 @@ namespace Enemies
 
             if (timerWaitingLeft <= 0)
             {
-                var projectile = Instantiate(projectilePrefab) as GameObject;
+                var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
                 projectile.name = "Projectile";
                 
                 ProjectileScript projScript = projectile.GetComponent<ProjectileScript>();
                 projScript.SetSpeed(projectileSpeed);
-                
-                projectile.transform.position = enemyTextureTransform.position + new Vector3(0, 2.5f, 0);        //poco poco più in alto
-                projectile.transform.rotation = enemyTextureTransform.rotation;
-                    
                 isEnemyShooting = true;
                 timerWaitingLeft = timerProjectileRate;        //reset timer
             }
