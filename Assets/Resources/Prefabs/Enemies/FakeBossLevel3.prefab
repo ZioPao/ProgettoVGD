@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a34b5cc504cfc814b88dc005d91b9fb2, type: 2}
+  - {fileID: 2100000, guid: e8c5e75630e2e9346ab545b55cbc9192, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -468,9 +468,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7862359989826453290, guid: 464d6aa53d8658844a388afec3514c9b,
     type: 3}
+  bulletSpawnPoint: {fileID: 8652647940512181089}
   timerProjectileRate: 5
   projectileSpeed: 10
-  bulletSpawnPoint: {fileID: 8652647940512181089}
 --- !u!195 &8652647940364635941
 NavMeshAgent:
   m_ObjectHideFlags: 0
