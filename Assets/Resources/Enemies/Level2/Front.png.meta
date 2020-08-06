@@ -19,13 +19,13 @@ TextureImporter:
     second: Alive_4
   - first:
       213: -5538294158607480318
-    second: Alive_5
+    second: Alive_4
   - first:
       213: 4390634322052713963
-    second: Alive_6
+    second: Alive_5
   - first:
       213: 2729064195368465342
-    second: Alive_7
+    second: Alive_6
   - first:
       213: 479450495011265396
     second: Alive_8
@@ -34,10 +34,10 @@ TextureImporter:
     second: Alive_9
   - first:
       213: 9040879190431018056
-    second: Front_0
+    second: Alive_7
   - first:
       213: -4617293510232987901
-    second: Front_1
+    second: Alive_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -186,7 +186,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alive_5
+      name: Alive_4
       rect:
         serializedVersion: 2
         x: 256
@@ -207,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alive_6
+      name: Alive_5
       rect:
         serializedVersion: 2
         x: 320
@@ -228,7 +228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alive_7
+      name: Alive_6
       rect:
         serializedVersion: 2
         x: 384
@@ -249,7 +249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Front_1
+      name: Alive_3
       rect:
         serializedVersion: 2
         x: 192
@@ -270,7 +270,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Front_0
+      name: Alive_7
       rect:
         serializedVersion: 2
         x: 448
