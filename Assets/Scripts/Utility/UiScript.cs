@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Utility
 {
@@ -25,6 +26,10 @@ namespace Utility
 
         private Text healthString, staminaText, oxygenText, ammoText, signText, tipsText;
         private Image healthSprite;
+
+        [SerializeField] private GameObject selectedOnPause;
+        [SerializeField] private GameObject selectedOnOptionsOpen;
+        [SerializeField] private GameObject selectedOnOptionsClose;
 
         void Start()
         {
@@ -168,10 +173,16 @@ namespace Utility
 
         private void GetIntoPause()
         {
+            //Clear button selection
+            EventSystem.current.SetSelectedGameObject(null);
+
             Time.timeScale = 0;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;        //permette di spostare il mouse nel menu
             pauseCanvas.SetActive(true);
+
+            //Sets selected button
+            EventSystem.current.SetSelectedGameObject(selectedOnPause);
         }
 
         public void SaveGame()
@@ -240,12 +251,18 @@ namespace Utility
         
         public void GoToInGameSettings()
         {
+
+            //Clear button selection
+            EventSystem.current.SetSelectedGameObject(null);
+
             pauseCanvas.SetActive(false);
             inGameSettingsCanvas.SetActive(true);
             
-            
             //Aggiorna il dropdown
             Values.GetSettings().SetResolutionOptions(resolutionDropdown);
+
+            //Sets selected button
+            EventSystem.current.SetSelectedGameObject(selectedOnOptionsOpen);
         }
 
         /// <summary>
@@ -254,9 +271,16 @@ namespace Utility
 
         public void GetBackToPauseMenu()
         {
+            //Clear button selection
+            EventSystem.current.SetSelectedGameObject(null);
+
             inGameSettingsCanvas.SetActive(false);
             pauseCanvas.SetActive(true);
+
+            //Sets selected button
+            EventSystem.current.SetSelectedGameObject(selectedOnOptionsClose);
         }
+
         public void SetResolutionInGame(int index)
         {
             Values.GetSettings().SetChosenResolution(index);

@@ -52,7 +52,7 @@ namespace Utility
                                Environment.NewLine +
                                "Lungo la tua strada troverai nemici da sconfiggere e utili consumabili che ti saranno d'aiuto." +
                                Environment.NewLine +
-                               "Sfrutta al meglio tutto cio' che riesci a trovare! Buona Fortuna" +
+                               "Sfrutta al meglio tutto cio' che riesci a trovare! Buona Fortuna." +
                                Environment.NewLine + Environment.NewLine +
                                "Premi Q per tornare al gioco.";
                     break;
@@ -60,15 +60,25 @@ namespace Utility
                 case 4:
                     signText = "Comandi di Gioco:" +
                                Environment.NewLine +
-                               "W - A - S - D: Controlla il Movimento del giocatore" +
+                               "W - A - S - D: Controlla il Movimento del giocatore." +
                                Environment.NewLine +
-                               "1 - 2 - 3: Scegli l'arma corrente" +
+                               "1 - 2 - 3: Scegli l'arma corrente." +
                                Environment.NewLine +
-                               "Tasto sinistro del Mouse: Attacca con l'arma corrente" +
+                               "Tasto sinistro del Mouse: Attacca con l'arma corrente." +
                                Environment.NewLine +
-                               "R: Ricarica l'arma (Il migliore amico di ogni giocatore)" +
+                               "R: Ricarica l'arma (Il migliore amico di ogni giocatore)." +
                                Environment.NewLine +
-                               "Esc: Accedi al menu di pausa" +
+                               "Esc: Accedi al menu di pausa." +
+                               Environment.NewLine +
+                               "F5: Salva la partita." +
+                               Environment.NewLine +
+                               "F6: Carica la partita." +
+                               Environment.NewLine + Environment.NewLine +
+                               "Note:" +
+                               Environment.NewLine +
+                               "(Non tutte le armi sono disponibili dall'inizio della partita)" +
+                               Environment.NewLine +
+                               "(Non e' possibile salvare durante le bossfight)" +
                                Environment.NewLine + Environment.NewLine +
                                "Premi Q per tornare al gioco.";
                     break;
@@ -76,28 +86,29 @@ namespace Utility
                 case 5:
                     signText = "Oggetti Disponibili:" +
                                Environment.NewLine +
-                               "Cura: Ripristina parte della vita" +
+                               "Cura: Ripristina parte della vita." +
                                Environment.NewLine +
-                               "Cassa di Munizioni: Aggiunge munizioni alle scorte" +
+                               "Potenziamento: Incrementa permanentemente il valore massimo di una statistica." +
                                Environment.NewLine +
-                               "Chiave: Permette di aprire una porta bloccata" +
+                               "Cassa di Munizioni: Aggiunge munizioni alle scorte." +
+                               Environment.NewLine +
+                               "Chiave: Permette di aprire una porta bloccata." +
                                Environment.NewLine + Environment.NewLine +
                                "Premi Q per tornare al gioco.";
                     break;
 
                 case 6:
-                    signText =
-                        "Tutti hanno messo in dubbio la mia sanita' mentale quando ho nascosto un cartello sott'acqua." +
-                        Environment.NewLine +
-                        "Oooooh, sicuramente ora se ne staranno pentendo." +
-                        Environment.NewLine +
-                        "Quelle dannate bestie nascondono un segreto, e questo e' l'unico luogo che non controllerebbero mai." +
-                        Environment.NewLine +
-                        "Non e' ancora troppo tardi, possono ancora essere fermate, a patto che la creatura nascosta nei paraggi venga sconfitta." +
-                        Environment.NewLine +
-                        "Dovrebbe trovarsi in una caverna, ma purtroppo non so altro." +
-                        Environment.NewLine + Environment.NewLine +
-                        "Premi Q per tornare al gioco.";
+                    signText = "Tutti hanno messo in dubbio la mia sanita' mentale quando ho nascosto un cartello sott'acqua." +
+                               Environment.NewLine +
+                               "Oooooh, sicuramente ora se ne staranno pentendo." +
+                               Environment.NewLine +
+                               "Quelle dannate bestie nascondono un segreto, e questo e' l'unico luogo che non controllerebbero mai." +
+                               Environment.NewLine +
+                               "Non e' ancora troppo tardi, possono ancora essere fermate, a patto che la creatura nascosta nei paraggi venga sconfitta." +
+                               Environment.NewLine +
+                               "Dovrebbe trovarsi in una caverna, ma purtroppo non so altro." +
+                               Environment.NewLine + Environment.NewLine +
+                               "Premi Q per tornare al gioco.";
                     break;
 
                 case 7:
