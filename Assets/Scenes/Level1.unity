@@ -25819,7 +25819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b58e7fdfb89fbc549b36a69243aee4c0, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 65
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: b58e7fdfb89fbc549b36a69243aee4c0, type: 3}
       propertyPath: m_NavMeshLayer
@@ -29184,8 +29184,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objectToMove
       value: 
-      objectReference: {fileID: 6756958982967871917, guid: 1af5e2aba8da1924bb01a637d71678c5,
-        type: 3}
+      objectReference: {fileID: 5174399102455091381}
     - target: {fileID: 7375224080441832847, guid: a1494180fc35a7a41a15138e8dc97b7b,
         type: 3}
       propertyPath: m_LocalPosition.x
