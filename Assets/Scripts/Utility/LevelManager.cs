@@ -26,7 +26,7 @@ namespace Utility
             
             //E' AWAKE PER FARLO GIRARE PRIMA DEL LOAD SAVE, COSI CHE POSSA RECUPERARE I TRIGGERS ORIGINALI
             
-            
+            //Ma se è awake non funziona il load game mid 
             Values.SetCurrentLevel(levelId);
             Values.SetHasInteractedWithWinObject(false); //per evitare problemi dopo aver finito il gioco
             GameObject player;
@@ -39,33 +39,37 @@ namespace Utility
             Values.SetCurrentSignController(GameObject.Find(Values.SignsParentName).GetComponent<SignController>());
 
 
-            //Is changing scene è relativo al cambio di scena da livello a livello 2, non c'entra coi cambi di scena
+            //Is changing scene è relativo al cambio di scena da livello a livello 2\3, non c'entra coi cambi di scena
             //al cambio del salvataggio.
+            
+            
+            //Ergo, new game teoricamente
 
-
-            if (!Values.GetIsChangingScene())
-            {
-                player = Instantiate(Resources.Load("Prefabs/Player")) as GameObject;
-                Values.InitializeCompletedTriggers();
-
-                if (Values.GetIsLoadingSave())
-                {
-                    return; //Stops everything else, it should be ok.
-                }
-            }
-            else
+            if (Values.GetIsChangingScene())
             {
                 player = GameObject.Find(Values.OldPlayerName);
                 player.name = Values.PlayerName; //reset name
 
                 player.GetComponent<InteractionController>().Awake(); //upates it
                 player.GetComponentInChildren<EnemySpritesManager>().Awake();
-
-                Values.SetIsChangingScene(false);        //Finito di caricare nuova scena
+                player.transform.position = spawnPoint;
+                player.transform.rotation = Quaternion.Euler(spawnPointRotation);
+                Values.SetIsChangingScene(false);        //Finito di caricare nuova scena dall'endtrigger
             }
+            else if (!Values.GetIsChangingScene() && !Values.GetIsLoadingSave())
+            {
+                //Spawn normale
+                player = Instantiate(Resources.Load("Prefabs/Player")) as GameObject;
+                Values.InitializeCompletedTriggers();            
+                player.transform.position = spawnPoint;
+                player.transform.rotation = Quaternion.Euler(spawnPointRotation);
 
-            player.transform.position = spawnPoint;
-            player.transform.rotation = Quaternion.Euler(spawnPointRotation);
+
+            }
+            else
+            {
+                player = null;        //default case, non dovrebbe maia rrivarci
+            }
 
             enemiesStatus = new Dictionary<string, EnemyStatus>();
 
