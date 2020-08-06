@@ -31796,33 +31796,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8747336793080251561, guid: 35413a10ebd34954a955e249a045a9ca,
         type: 3}
-      propertyPath: doorName
-      value: bushBlockers
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747336793080251561, guid: 35413a10ebd34954a955e249a045a9ca,
-        type: 3}
       propertyPath: objectName
       value: bushBlockers
       objectReference: {fileID: 0}
     - target: {fileID: 8747336793080251561, guid: 35413a10ebd34954a955e249a045a9ca,
         type: 3}
-      propertyPath: forcePosition
+      propertyPath: zRotation
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8747336793080251561, guid: 35413a10ebd34954a955e249a045a9ca,
+        type: 3}
+      propertyPath: disableLinkedObject
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747336793080251561, guid: 35413a10ebd34954a955e249a045a9ca,
-        type: 3}
-      propertyPath: xValue
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747336793080251561, guid: 35413a10ebd34954a955e249a045a9ca,
-        type: 3}
-      propertyPath: yValue
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747336793080251561, guid: 35413a10ebd34954a955e249a045a9ca,
-        type: 3}
-      propertyPath: zValue
-      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35413a10ebd34954a955e249a045a9ca, type: 3}
