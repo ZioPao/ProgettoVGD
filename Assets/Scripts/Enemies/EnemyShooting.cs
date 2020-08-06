@@ -15,8 +15,10 @@ namespace Enemies
         
 
         [SerializeField] public GameObject projectilePrefab;
+        [SerializeField] public GameObject bulletSpawnPoint;
         [SerializeField] private float timerProjectileRate = 5f;        //How much does the enemy have to wait between 2 projectiles
         [SerializeField] private int projectileSpeed = 10;
+
 
 
         private float timerWaitingLeft;
@@ -56,7 +58,7 @@ namespace Enemies
 
             if (timerWaitingLeft <= 0)
             {
-                var projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
+                var projectile = Instantiate(projectilePrefab, bulletSpawnPoint.transform.position, transform.rotation);
                 projectile.name = "Projectile";
                 
                 ProjectileScript projScript = projectile.GetComponent<ProjectileScript>();
