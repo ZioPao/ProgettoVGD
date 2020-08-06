@@ -65,6 +65,7 @@ namespace Player
 
                 Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
                 Values.SetIsStartingNewGame(false);
+                Values.SetIsWeaponControllerDoneLoading(true);
 
                 return;
             }
