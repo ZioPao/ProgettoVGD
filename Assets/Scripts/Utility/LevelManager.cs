@@ -205,33 +205,14 @@ namespace Utility
 
             foreach (var x in interactables)
             {
-                switch (x.name)
-                {
-                    case LeverBossString:
-                        LeverScript tmpLever = x.GetComponent<LeverScript>();
-                        interactablesDictionary.Add(x.name, tmpLever.enabled);
-                        break;
-                    case "DoorOptional":
-                        OpenDoor tmpDoor = x.GetComponent<OpenDoor>();
-                        interactablesDictionary.Add(x.transform.parent.name,
-                            tmpDoor.enabled); //Parent per via di come è strutturato il prefab
-                        break;
-                }
+                interactablesDictionary.Add(x.name, x.GetComponent<IInteractableMidGame>().GetIsEnabled());
+                
             }
 
             foreach (var x in GameObject.FindGameObjectsWithTag(InteractableOverTag))
             {
-                switch (x.name)
-                {
-                    case LeverBossString:
-                        LeverScript tmpLever = x.GetComponent<LeverScript>();
-                        interactablesDictionary.Add(x.name, false);
-                        break;
-                    case "DoorOptional":
-                        OpenDoor tmpDoor = x.GetComponent<OpenDoor>();
-                        interactablesDictionary.Add(x.transform.parent.name, false);
-                        break;
-                }
+                interactablesDictionary.Add(x.name, x.GetComponent<IInteractableMidGame>().GetIsEnabled());
+
             }
 
             return interactablesDictionary;

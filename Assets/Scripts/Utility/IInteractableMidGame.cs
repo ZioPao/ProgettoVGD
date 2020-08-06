@@ -7,4 +7,6 @@ public interface IInteractableMidGame
     void InteractableBehaviour();
     void ForceActivation();
 
+    bool GetIsEnabled();
+
 }

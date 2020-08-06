@@ -99,5 +99,10 @@ namespace Utility
                 Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f); //todo maybe broken with other objects
             this.tag = Values.interactableOverTag; //To disable the "interact with e" message, again just in case
         }
+
+        public bool GetIsEnabled()
+        {
+            return enabled;
+        }
     }
 }
