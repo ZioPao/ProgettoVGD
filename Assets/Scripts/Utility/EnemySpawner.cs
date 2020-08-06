@@ -41,23 +41,26 @@ namespace Utility
 
         private void FixedUpdate()
         {
-            TimerController.RunTimer(TimerController.ENEMYSPAWN_K);
-            status.SetSpawnedEnemiesCount(enemiesSpawned.Count);
-            int enemiesSpawnedCount = status.GetSpawnedEnemiesCount();
-
-            if (TimerController.GetCurrentTime()[TimerController.ENEMYSPAWN_K] <= 0)
+            if (!Values.GetIsLoadingSave() && !Values.GetIsChangingScene())
             {
-                RemoveDestroyedEnemies();
+                TimerController.RunTimer(TimerController.ENEMYSPAWN_K);
+                status.SetSpawnedEnemiesCount(enemiesSpawned.Count);
+                int enemiesSpawnedCount = status.GetSpawnedEnemiesCount();
 
-                if (enemiesSpawnedCount < status.GetMaxEnemiesConcurrently())
+                if (TimerController.GetCurrentTime()[TimerController.ENEMYSPAWN_K] <= 0)
                 {
-                    TimerController.ResetTimer(TimerController.ENEMYSPAWN_K);
-                    SpawnCommonEnemy();
+                    RemoveDestroyedEnemies();
 
-                    //After tot enemies spawned, the spawner destroys itself
-                    status.AddOneToCounter();
-                    if (status.GetCounter() == status.GetMaxEnemiesSpawned())
-                        this.enabled = false;
+                    if (enemiesSpawnedCount < status.GetMaxEnemiesConcurrently())
+                    {
+                        TimerController.ResetTimer(TimerController.ENEMYSPAWN_K);
+                        SpawnCommonEnemy();
+
+                        //After tot enemies spawned, the spawner destroys itself
+                        status.AddOneToCounter();
+                        if (status.GetCounter() == status.GetMaxEnemiesSpawned())
+                            this.enabled = false;
+                    }
                 }
             }
         }
@@ -65,13 +68,12 @@ namespace Utility
 
         private void SpawnCommonEnemy()
         {
-
             var correctPosition = (transform.position +
                                    new Vector3(Random.Range(-rangeSpawn, rangeSpawn), 0,
                                        Random.Range(-rangeSpawn, rangeSpawn)));
             var correctRotation = Random.rotation;
-            
-            var enemy = Instantiate(enemyPrefab, correctPosition , correctRotation);
+
+            var enemy = Instantiate(enemyPrefab, correctPosition, correctRotation);
             enemy.name = customName + "_" + status.GetCounter();
 
             enemy.GetComponent<NavMeshAgent>()
@@ -80,7 +82,7 @@ namespace Utility
             {
                 enemy.transform.parent = enemiesParent.transform;
             }
-            catch (Exception )
+            catch (Exception)
             {
                 enemiesParent = GameObject.Find("Enemies");
                 enemy.transform.parent = enemiesParent.transform;

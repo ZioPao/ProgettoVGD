@@ -126,6 +126,12 @@ namespace Saving
             Values.SetCanPause(false);
             Values.SetIsLoadingSave(true);
             
+            if (Values.GetPlayerTransform() != null)
+            {
+                
+                SceneManager.MoveGameObjectToScene(Values.GetPlayerTransform().gameObject, SceneManager.GetActiveScene());
+
+            }
 
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/" + levelName, LoadSceneMode.Single);
             asyncOperation.allowSceneActivation = false;
@@ -137,24 +143,19 @@ namespace Saving
                 if (asyncOperation.progress >= 0.9f)
                 {
                     asyncOperation.allowSceneActivation = true;
-
-               
-
                     //Necessario un minimo d'attesa per determinare quando ha effettivamente caricato TUTTO.
                     yield return new WaitForSeconds(0.2f); //non ho idea di come fare il check al momento
 
-   
-                    // //todo probably totally useless
-                    // //just in case?
-                    // BinaryFormatter bf = new BinaryFormatter();
-                    // FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
-                    //
-                    // save = (Save) bf.Deserialize(file);
-                    // file.Close();
-                    
                     GameObject newPlayer = null;
                     Transform newPlayerT = null;
                     bool isPlayerLoaded = false;
+
+                    //Attende fino a che il LevelManager non ha spawnato il player, dopodiché edita
+                    //quello che è da ripristinare
+
+       
+                    
+                    newPlayer = Instantiate(Resources.Load("Prefabs/Player")) as GameObject;
 
                     while (!isPlayerLoaded)
                     {
@@ -167,6 +168,7 @@ namespace Saving
                         {
                             newPlayerT = newPlayer.transform;
                             isPlayerLoaded = true;
+                            yield return new WaitUntil(Values.GetIsWeaponControllerDoneLoading);
                         }
                     }
                     
@@ -182,6 +184,10 @@ namespace Saving
                     Values.SetHasKey(save.hasKey);
 
                     //Weapons
+                    // while (!)
+                    // {
+                    //     yield return null;        //Wait until it's done
+                    // }
 
                     foreach (var w in save.weaponsCurrentReserve)
                     {
