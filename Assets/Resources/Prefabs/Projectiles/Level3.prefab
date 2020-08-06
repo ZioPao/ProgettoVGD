@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7862359989826453289}
   - component: {fileID: 8436050570516368805}
   m_Layer: 0
-  m_Name: Proj3Base
+  m_Name: Level3
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e8c5e75630e2e9346ab545b55cbc9192, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
