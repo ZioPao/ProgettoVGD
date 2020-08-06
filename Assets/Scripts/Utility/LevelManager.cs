@@ -233,7 +233,7 @@ namespace Utility
                 x.GetComponent<EnemySpawner>().enabled = true;
             }
 
-            SignController tmp = GameObject.Find("InteractableObjects").GetComponent<SignController>();
+            SignController tmp = GameObject.Find(Values.signsParentName).GetComponent<SignController>();
             Values.SetCurrentSignController(tmp);
         }
     }

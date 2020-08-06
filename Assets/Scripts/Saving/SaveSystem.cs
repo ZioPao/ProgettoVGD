@@ -38,6 +38,7 @@ namespace Saving
 
             save.health = Values.GetHealth();
             save.stamina = Values.GetStamina();
+            save.hasKey = Values.GetHasKey();
 
             Dictionary<Values.WeaponEnum, int> weaponsCurrentAmmo = new Dictionary<Values.WeaponEnum, int>();
             foreach (Values.WeaponEnum weaponEnum in Enum.GetValues(typeof(Values.WeaponEnum)))
@@ -169,6 +170,7 @@ namespace Saving
                     Values.SetPlayerTransform(newPlayer.transform);
                     Values.SetHealth(save.health);
                     Values.SetStamina(save.stamina);
+                    Values.SetHasKey(save.hasKey);
 
                     //Weapons
                     foreach (var w in save.weaponsCurrentReserve)

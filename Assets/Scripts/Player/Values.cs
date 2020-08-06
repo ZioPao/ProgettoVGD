@@ -118,6 +118,7 @@ namespace Player
         
         
         //Objects name
+        public const string signsParentName = "Signs";
         public const string loadingCanvasName = "LoadingCanvas";
         
         
