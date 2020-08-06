@@ -68,7 +68,6 @@ namespace Player
 
                 return;
             }
-
             if (Values.GetGiveAllWeapons())
             {
                 //Da tutte le armi
@@ -105,8 +104,6 @@ namespace Player
                 Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
                 Values.SetGiveAllWeapons(false);        //Disabilita per poter fare il cambio di scena correttamente
             }
-            
-            
             else if (!Values.GetIsChangingScene())
             {
                 /*Setup Weapons*/
@@ -145,6 +142,8 @@ namespace Player
 
                 //Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
             }
+
+            Values.SetIsWeaponControllerDoneLoading(true);
         }
 
         public void ChangeWeapon()

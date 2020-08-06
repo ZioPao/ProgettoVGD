@@ -50,8 +50,8 @@ namespace Player
             var enemySpritesManager = GetComponentInChildren<EnemySpritesManager>();
             var guiController = GetComponentInChildren<UiScript>();
 
-            playerAnimations.enabled = true;
             weaponScript.enabled = true;
+            playerAnimations.enabled = true;
             interactionScript.enabled = true;
             enemySpritesManager.enabled = true;
             guiController.enabled = true;

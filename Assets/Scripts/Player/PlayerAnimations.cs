@@ -86,7 +86,7 @@ namespace Player
         void Update()
         {
             //Col fixed non girerebbe correttamente
-            if (!Values.GetIsStartingNewGame() && !Values.GetIsChangingScene() && !Values.GetIsLoadingSave() && Values.GetIsAttacking().Count != 0)
+            if (!Values.GetIsStartingNewGame() && !Values.GetIsChangingScene() && !Values.GetIsLoadingSave() && Values.GetIsWeaponControllerDoneLoading())
                 SetAnimations();
         }
 
