@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Utility;
+using UnityEngine.EventSystems;
 
 namespace Menu
 {
@@ -18,6 +19,12 @@ namespace Menu
         [SerializeField] private GameObject mainMenu, selectMenu, optionsMenu;
 
         [SerializeField] private TMP_Dropdown resolutionDropdown;
+
+        [SerializeField] private GameObject selectedOnStart;
+        [SerializeField] private GameObject selectedOnLevelSelectionOpen;
+        [SerializeField] private GameObject selectedOnLevelSelectionClose;
+        [SerializeField] private GameObject selectedOnOptionsOpen;
+        [SerializeField] private GameObject selectedOnOptionsClose;
         
         public void Start()
         {
@@ -35,6 +42,10 @@ namespace Menu
             Values.SetSettings(settings);
             settings.Init();
             settings.SetResolutionOptions(resolutionDropdown);
+
+            //Sets selected button
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(selectedOnStart);
         }
 
         public void StartNewGame()
@@ -51,8 +62,8 @@ namespace Menu
         {
             GetComponentInParent<Canvas>().enabled = false;
 
-            GameObject saveManager =
-                Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
+            GameObject saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
+
             DontDestroyOnLoad(saveManager);
             Values.SetCurrentSaveManager(saveManager);
             saveManager.GetComponent<SaveSystem>().Load();
@@ -67,11 +78,15 @@ namespace Menu
         /// </summary>
         public void SelectLevelMenu()
         {
-            
+            //Clear button selection
+            EventSystem.current.SetSelectedGameObject(null);
+
             mainMenu.SetActive(false);
             selectMenu.SetActive(true);
             Values.SetGiveAllWeapons(true);
 
+            //Sets selected button
+            EventSystem.current.SetSelectedGameObject(selectedOnLevelSelectionOpen);
 
             //todo tutte le armi di default..... usare uno sceneloader object come per il savesystem object?
 
@@ -86,9 +101,15 @@ namespace Menu
         }
         public void GetBackToMainMenuFromSelect()
         {
+            //Clear button selection
+            EventSystem.current.SetSelectedGameObject(null);
+
             selectMenu.SetActive(false);
             mainMenu.SetActive(true);
             Values.SetGiveAllWeapons(false);
+
+            //Sets selected button
+            EventSystem.current.SetSelectedGameObject(selectedOnLevelSelectionClose);
         }
 
         public void SetResolution(int index)
@@ -106,18 +127,27 @@ namespace Menu
 
         public void OptionsMenu()
         {
+            //Clear button selection
+            EventSystem.current.SetSelectedGameObject(null);
+
             mainMenu.SetActive(false);
             optionsMenu.SetActive(true);
 
+            //Sets selected button
+            EventSystem.current.SetSelectedGameObject(selectedOnOptionsOpen);
         }
 
         public void GetBackToMainMenuFromOptions()
         {
+            //Clear button selection
+            EventSystem.current.SetSelectedGameObject(null);
+
             optionsMenu.SetActive(false);
             mainMenu.SetActive(true);
+
+            //Sets selected button
+            EventSystem.current.SetSelectedGameObject(selectedOnOptionsClose);
         }
-
-
-       
+    
     }
 }
