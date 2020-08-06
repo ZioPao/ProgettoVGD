@@ -36,29 +36,31 @@ namespace Boss
         {
             if (objectToMove)
             {
-                objectToMove.transform.position = new Vector3(-1000, -1000, -1000); //lo sposta in un punto lontano
+                objectToMove.GetComponent<MeshRenderer>().enabled = false;
+                objectToMove.GetComponent<MeshCollider>().enabled = false;
+                //objectToMove.transform.position = new Vector3(-1000, -1000, -1000); //lo sposta in un punto lontano
                 Values.SetCanSave(true); //permette di salvare nuovamente
-
+        
 
                 //Fornisce una nuova arma al player
 
-                //todo forse non è necessario il check
-                if (weapon != -1)
-                {
-                    AddWeaponToPlayer();
-                }
+            //todo forse non è necessario il check
+            if (weapon != -1)
+            {
+                AddWeaponToPlayer();
+            }
 
-                if (upgrade)
-                {
-                    AddUpgradeToPlayer();
-                }
-
-
-                //Play Regular Level Soundtrack
-                Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
+            if (upgrade)
+            {
+                AddUpgradeToPlayer();
+            }
 
 
-                gameObject.SetActive(false);
+            //Play Regular Level Soundtrack
+            Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
+
+            //Disattiva il BossEndTrigger
+            gameObject.SetActive(false);
             }
         }
 
