@@ -21,6 +21,7 @@ TagManager:
   - InteractableOver
   - Health
   - Boss
+  - InteractableSign
   layers:
   - Default
   - TransparentFX

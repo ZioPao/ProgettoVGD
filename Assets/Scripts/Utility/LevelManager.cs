@@ -36,10 +36,9 @@ namespace Utility
         private void Awake()
         {
             Values.SetCurrentLevel(levelId);
-            Values.SetHasInteractedWithWinObject(false);        //per evitare problemi dopo aver finito il gioco
-            
-            
-            
+            Values.SetHasInteractedWithWinObject(false); //per evitare problemi dopo aver finito il gioco
+
+
             GameObject player;
             //print("game over: " + Values.GetIsGameOver());
 
@@ -61,8 +60,6 @@ namespace Utility
                 }
 
                 Values.SetCurrentSignController(GameObject.Find("Signs").GetComponent<SignController>());
-
-
             }
             else
             {
@@ -98,7 +95,7 @@ namespace Utility
             }
 
 
-            GetComponentInChildren<Terrain>().detailObjectDistance = 10000;        //todo rendi piu carino
+            GetComponentInChildren<Terrain>().detailObjectDistance = 10000; //todo rendi piu carino
             //allo spawn del player si attivano gli spawner
             StartCoroutine(WaitAndInitComponents());
         }
@@ -212,24 +209,25 @@ namespace Utility
 
             foreach (var x in interactables)
             {
+                //I sign son indicati sempre come Top, todo temporaneo forse?
+
                 interactablesDictionary.Add(x.name, x.GetComponent<IInteractableMidGame>().GetIsEnabled());
-                
             }
 
             foreach (var x in GameObject.FindGameObjectsWithTag(InteractableOverTag))
             {
                 interactablesDictionary.Add(x.name, x.GetComponent<IInteractableMidGame>().GetIsEnabled());
-
             }
 
             return interactablesDictionary;
         }
+
         IEnumerator WaitAndInitComponents()
         {
             //Aspetta che la navmesh sia pronta
             //todo determinare come capire se la navmesh è pronta
             yield return new WaitForSeconds(1);
-            
+
             foreach (var x in GameObject.FindGameObjectsWithTag(SpawnerTag))
             {
                 x.GetComponent<EnemySpawner>().enabled = true;
@@ -237,7 +235,6 @@ namespace Utility
 
             SignController tmp = GameObject.Find("InteractableObjects").GetComponent<SignController>();
             Values.SetCurrentSignController(tmp);
-
         }
     }
 }

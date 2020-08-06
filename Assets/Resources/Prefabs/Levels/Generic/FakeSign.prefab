@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 5711386515277768688}
   m_Layer: 0
   m_Name: Lower
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 5711386515471709239}
   m_Layer: 0
   m_Name: FakeSign
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 8337466536618018415}
   m_Layer: 0
   m_Name: Top
-  m_TagString: Interactable
+  m_TagString: InteractableSign
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

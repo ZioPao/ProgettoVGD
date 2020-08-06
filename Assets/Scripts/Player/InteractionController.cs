@@ -28,7 +28,7 @@ namespace Player
             if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out interactor,
                 Values.GetInteractionDistance()))
             {
-                if (interactor.collider.CompareTag("Interactable"))
+                if (interactor.collider.CompareTag("Interactable") || interactor.collider.CompareTag("InteractableSign"))
                 {
                     Values.SetIsNearInteractable(true);
                     if (Input.GetKeyDown("e") && !Values.GetIsInteracting())

@@ -34,7 +34,6 @@ namespace Boss
             if (isFakeBossDead && Values.GetHasInteractedWithWinObject())
             {
                 Vector3 chosenPoint;
-                var signPosition = sign.transform.position - new Vector3(0, 0.05f, 0);
                 Destroy(sign);
 
                 //Play Laugh Sound
