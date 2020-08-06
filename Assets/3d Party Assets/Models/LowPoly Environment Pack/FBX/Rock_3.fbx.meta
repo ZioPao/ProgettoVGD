@@ -75,14 +75,14 @@ ModelImporter:
     minBoneWeight: 0.001
     meshOptimizationFlags: -1
     indexFormat: 1
-    secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 4
-    secondaryUVHardAngle: 39
-    secondaryUVPackMargin: 4
+    secondaryUVAngleDistortion: 12
+    secondaryUVAreaDistortion: 22
+    secondaryUVHardAngle: 30
+    secondaryUVPackMargin: 7
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1

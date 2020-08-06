@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class Torch : MonoBehaviour
@@ -26,6 +27,7 @@ public class Torch : MonoBehaviour
         float t = Mathf.PingPong(Time.time, 0.2f);
         torchLight.color = Color.Lerp(firstColor, secondColor, t);
 
+        transform.LookAt(Values.GetPlayerTransform());
         //print(transform.right);
         transform.position = new Vector3(transform.position.x, transform.position.y, zCenter + Mathf.PingPong(Time.time * 1.5f, maxMovement) - maxMovement/2f);//move on z axis only
         //transform.forward = new Vector3(transform.forward.x, transform.forward.y,
