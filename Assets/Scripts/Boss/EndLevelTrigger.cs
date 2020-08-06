@@ -21,12 +21,12 @@ namespace Boss
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") && !alreadyExecuted)
+            if (other.CompareTag(Values.PlayerTag) && !alreadyExecuted)
             {
                 alreadyExecuted = true;
                  //Saves the old player
-                oldPlayer = GameObject.FindWithTag("Player");
-                oldPlayer.name = "oldPlayer";
+                oldPlayer = GameObject.FindWithTag(Values.PlayerTag);
+                oldPlayer.name = Values.OldPlayerName;
 
                 DontDestroyOnLoad(oldPlayer);
                 Values.SetIsChangingScene(true);
@@ -38,8 +38,6 @@ namespace Boss
         IEnumerator ChangeScene()
         {
             yield return null;
-
-  
             
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(nextLevelId, LoadSceneMode.Single);
             asyncOperation.allowSceneActivation = false;
@@ -48,36 +46,10 @@ namespace Boss
                 if (asyncOperation.progress >= 0.9f)
                 {
                     asyncOperation.allowSceneActivation = true;
-
-                    //yield return new WaitUntil(() =>  GameObject.Find("Player") != null);
-                    
-                    
-                    //Reset values of player
-                    
-                    
-                  //Set correct values
-                  ////player position 
-                    // switch (nextLevelId)
-                    // {
-                    //     case (2):
-                    //         oldPlayer.transform.position = new Vector3(16.51f, 26.632f, 13.16f);
-                    //         break;
-                    //     case (3):
-                    //         oldPlayer.transform.position = new Vector3(151, 55,45);
-                    //         break;
-                    // }
-                    
-                    //Set 
                 }
-
-
                 yield return null;
             }
-           
-
         }
-
-        
     }
     
     

@@ -115,6 +115,7 @@ namespace Player
         private static bool isStartingNewGame;
         private static bool giveAllWeapons;
         private static GameObject saveManager;
+        private static List<string> originalTriggers, originalPickups;
 
         //Tags
         public const string PlayerTag = "Player";
@@ -131,8 +132,10 @@ namespace Player
 
 
         //Objects name
-        public const string signsParentName = "Signs";
-        public const string loadingCanvasName = "LoadingCanvas";
+        public static string PlayerName = "Player";
+        public static string OldPlayerName = "oldPlayer";
+        public const string SignsParentName = "Signs";
+        public const string LoadingCanvasName = "LoadingCanvas";
 
 
         //Timers
@@ -405,7 +408,15 @@ namespace Player
         {
             return saveManager;
         }
-
+        public static List<string> GetOriginalTriggers()
+        {
+            return originalTriggers;
+        }
+        
+        public static List<string> GetOriginalPickups()
+        {
+            return originalPickups;
+        }
         public static string GetTip()
         {
             return tip;
@@ -736,7 +747,14 @@ namespace Player
         {
             saveManager = value;
         }
-
+        public static void SetOriginalTriggers(List<string> value)
+        {
+            originalTriggers = value;
+        }
+        public static void SetOriginalPickups(List<string> value)
+        {
+            originalPickups = value;
+        }
         public static void SetTip(string value)
         {
             tip = value;

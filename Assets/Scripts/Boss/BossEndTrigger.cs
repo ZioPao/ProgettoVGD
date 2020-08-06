@@ -40,11 +40,10 @@ namespace Boss
                 objectToMove.GetComponent<Collider>().enabled = false;
                 //objectToMove.transform.position = new Vector3(-1000, -1000, -1000); //lo sposta in un punto lontano
                 Values.SetCanSave(true); //permette di salvare nuovamente
-        
+            }
 
-                //Fornisce una nuova arma al player
+            //Fornisce una nuova arma al player
 
-            //todo forse non è necessario il check
             if (weapon != -1)
             {
                 AddWeaponToPlayer();
@@ -60,15 +59,17 @@ namespace Boss
             Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
 
             //Disattiva il BossEndTrigger
-            gameObject.SetActive(false);
-            }
+            enabled = false;        //Non dovrebbe servire disattivare altro todo credo
         }
 
 
         private void AddWeaponToPlayer()
         {
+            if (Values.GetHeldWeapons()[(Values.WeaponEnum) weapon])
+                return;
+
             Values.AddHeldWeapon((Values.WeaponEnum) weapon, true);
-            Values.SetTip("Hai ottenuto un: " + (Values.WeaponEnum)weapon);
+            Values.SetTip("Hai ottenuto un: " + (Values.WeaponEnum) weapon);
 
             //Reset del timer per farlo printare tramite uiscript
             TimerController.ResetTimer(TimerController.TIP_K);

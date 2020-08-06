@@ -6,7 +6,7 @@ namespace Player
 {
     public class WeaponController : MonoBehaviour
     {
-        void Start()
+        public void Start()
         {
             
             //Init di base 
@@ -33,7 +33,7 @@ namespace Player
             {
                 
                 //Di base ha solo pistola e coltello
-                Values.AddHeldWeapon(Values.WeaponEnum.Knife, false);
+                Values.AddHeldWeapon(Values.WeaponEnum.Knife, true);
                 Values.AddHeldWeapon(Values.WeaponEnum.Pistol, true);
                 Values.AddHeldWeapon(Values.WeaponEnum.SMG, false);
 
@@ -184,8 +184,12 @@ namespace Player
         {
             /*Calls Appropriate Weapon Behaviour*/
 
-            var weaponTmp = Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()];
-            weaponTmp.Action();
+            if (Values.GetWeaponBehaviours().Count != 0)
+            {
+                var weaponTmp = Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()];
+                weaponTmp.Action();
+            }
+
         }
     }
 }
