@@ -6,7 +6,7 @@ using Utility;
 
 namespace Boss
 {
-    public class BossEndTrigger : MonoBehaviour
+    public class BossEndTrigger : MonoBehaviour, ITriggerMidGame
     {
         [SerializeField] private GameObject objectToMove;
 
@@ -32,7 +32,7 @@ namespace Boss
             }
         }
 
-        private void RunTrigger()
+        public void RunTrigger()
         {
             if (objectToMove)
             {
