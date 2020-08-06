@@ -160,6 +160,10 @@ namespace Utility
         {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(Values.EnemyTag);
 
+            if (enemiesStatus == null)
+                enemiesStatus = new Dictionary<string, EnemyStatus>();
+            
+            
             foreach (var enemy in enemies)
             {
                 EnemyStatus status = enemy.GetComponent<EnemyBase>().GetStatus();
