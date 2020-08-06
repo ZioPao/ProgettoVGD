@@ -39,7 +39,9 @@ namespace Menu
 
         public void StartNewGame()
         {
-            LoadLevel(1);
+            mainMenu.SetActive(false);
+            Values.SetIsStartingNewGame(true);
+            StartCoroutine(SceneLoader.LoadNewGame(Values.WeaponEnum.Pistol));
             //StartCoroutine(SceneLoader.LoadWeapons(Values.WeaponEnum.Pistol, true));
 
             //Values.AddHeldWeapon(Values.WeaponEnum.Knife, true);

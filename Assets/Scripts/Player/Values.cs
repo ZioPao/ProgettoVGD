@@ -9,7 +9,7 @@ namespace Player
     public static class Values
     {
         //todo sarebbe più sensato dividere in più Values piuttosto che uno generico. 
-        
+
         //Hard Values (May be modified by upgrades)
         private static float boostSpeed = 5f;
         private static float jumpForce = 40f;
@@ -26,16 +26,16 @@ namespace Player
         private static float meleeDistance = 20f;
         private static float interactionDistance = 5f;
         private static float pickupDistance = 5f;
-        
+
         //Player Stats
         private static float health;
         private static float stamina;
         private static float oxygen;
         private static float maxSpeed = 10f;
-        
+
         //Current settings
         private static SettingsScript settings;
-        
+
         //State Definers
         //Collisions
         private static bool isGrounded;
@@ -60,39 +60,39 @@ namespace Player
         private static bool hasKey = false;
         private static bool isInPause = false;
         private static bool isGameOver = false;
-        private static bool hasInteractedWithWinObject = false;        //todo non viene salvato\caricato correttamente
+        private static bool hasInteractedWithWinObject = false; //todo non viene salvato\caricato correttamente
 
         //Raycasting
         private static float raycastLength = 5f;
-        private static float raycastSpread = 2f;//0.08f;
-        
+        private static float raycastSpread = 2f; //0.08f;
+
         //Transform
         private static Transform _playerTransform;
-        
-        
+
+
         //Player componenets
         private static EnemySpritesManager _enemySpritesManager;
         private static WeaponController weaponController;
         private static Rigidbody rb;
-        
+
         //Collider
         private static CapsuleCollider collider;
-        
+
         //Checks
         private static GameObject currentBoss;
         private static SignController currentSignController;
-        
+
         //Tips
         private static string tip;
-        
+
         //Weapon Types
         public enum WeaponEnum
         {
-            Knife,        //0
-            Pistol,        //1
-            SMG,            //2
+            Knife, //0
+            Pistol, //1
+            SMG, //2
         }
-        
+
         //Weapon Properties
         private static Dictionary<WeaponEnum, GameObject> weaponObjects;
         private static Dictionary<WeaponEnum, WeaponBehaviour> weaponBehaviours;
@@ -108,8 +108,9 @@ namespace Player
         private static bool isChangingScene = false;
         private static bool canSave = true;
         private static bool canPause = true;
+        private static bool isStartingNewGame;
         private static GameObject saveManager;
-        
+
         //Tags
         public const string PlayerTag = "Player";
         public const string BossSpawnerTag = "BossSpawner";
@@ -122,16 +123,16 @@ namespace Player
         public const string SpawnerTag = "Spawner";
         public const string ProjectileTag = "Projectile";
         public const string LeverBossString = "LeverBoss";
-        
-        
+
+
         //Objects name
         public const string signsParentName = "Signs";
         public const string loadingCanvasName = "LoadingCanvas";
-        
-        
+
+
         //Timers
         private static bool isTimerLoaded = false;
-        
+
         /// <summary>
         /// Getters constant player values
         /// </summary>
@@ -139,14 +140,17 @@ namespace Player
         {
             return boostSpeed;
         }
+
         public static float GetJumpForce()
         {
             return jumpForce;
         }
+
         public static float GetMovementSpeed()
         {
             return movementSpeed;
         }
+
         public static float GetMaxSpeed()
         {
             return maxSpeed;
@@ -156,56 +160,67 @@ namespace Player
         {
             return settings;
         }
-        
+
         public static float GetMaxHealth()
         {
             return maxHealth;
         }
+
         public static float GetJumpDrag()
         {
             return jumpDrag;
         }
+
         public static float GetNormaMass()
         {
             return normalMass;
         }
+
         public static float GetJumpMass()
         {
             return jumpMass;
         }
+
         public static float GetNormalDrag()
         {
             return normalDrag;
         }
+
         public static float GetMaxStamina()
         {
             return maxStamina;
         }
+
         public static float GetMaxOxygen()
         {
             return maxOxygen;
         }
+
         public static float GetRigidBodyDefaultMass()
         {
             return rigidBodyDefaultMass;
         }
+
         public static float GetProjectileDistance()
         {
             return projectileDistance;
         }
+
         public static float GetMeleeDistance()
         {
             return meleeDistance;
         }
+
         public static float GetInteractionDistance()
         {
             return interactionDistance;
         }
+
         public static float GetPickupDistance()
         {
             return pickupDistance;
         }
-        
+
         /// <summary>
         /// Getters player variables
         /// </summary>
@@ -213,10 +228,12 @@ namespace Player
         {
             return health;
         }
+
         public static float GetStamina()
         {
             return stamina;
         }
+
         public static float GetOxygen()
         {
             return oxygen;
@@ -230,79 +247,97 @@ namespace Player
         {
             return isGrounded;
         }
+
         public static bool GetIsTouchingWall()
         {
             return isTouchingWall;
         }
+
         public static bool GetIsTouchingWallWithHead()
         {
             return isTouchingWallWithHead;
         }
+
         public static float GetLastGoodYPosition()
         {
             return lastGoodYPosition;
         }
+
         public static bool GetIsInWater()
         {
             return isInWater;
         }
+
         public static bool GetIsFrozen()
         {
             return isFrozen;
         }
+
         public static bool GetIsMoving()
         {
             return isMoving;
         }
+
         public static bool GetIsRunning()
         {
             return isRunning;
         }
+
         public static bool GetIsReloading()
         {
             return isReloading;
         }
+
         public static bool GetIsReadingSign()
         {
             return isReadingSign;
         }
+
         public static bool GetIsInteracting()
         {
             return isInteracting;
         }
+
         public static bool GetIsNearInteractable()
         {
             return isNearInteractable;
         }
+
         public static bool GetIsNearPickup()
         {
             return isNearPickup;
         }
+
         public static bool GetIsUsingDoor()
         {
             return isUsingDoor;
         }
+
         public static bool GetIsUsingLever()
         {
             return isUsingLever;
         }
+
         public static bool GetHasKey()
         {
             return hasKey;
         }
+
         public static bool GetIsInPause()
         {
             return isInPause;
         }
+
         public static bool GetIsGameOver()
         {
             return isGameOver;
         }
-        
+
         public static int GetCurrentLevel()
         {
             return currentLevel;
         }
+
         public static bool GetHasInteractedWithWinObject()
         {
             return hasInteractedWithWinObject;
@@ -315,11 +350,12 @@ namespace Player
         {
             return raycastLength;
         }
+
         public static float GetRaycastSpread()
         {
             return raycastSpread;
         }
-        
+
         //Rigidbody
         public static Rigidbody GetRigidbody()
         {
@@ -330,27 +366,31 @@ namespace Player
         {
             return _playerTransform;
         }
+
         //Enemy Sprites Manager
         public static EnemySpritesManager GetEnemySpritesManager()
         {
             return _enemySpritesManager;
         }
+
         public static WeaponController GetWeaponController()
         {
             return weaponController;
         }
+
         //Collider
         public static CapsuleCollider GetCollider()
         {
             return collider;
         }
-        
+
         //Loading
 
         public static bool GetIsLoadingSave()
         {
             return isLoadingSave;
         }
+
         public static bool GetIsChangingScene()
         {
             return isChangingScene;
@@ -365,36 +405,48 @@ namespace Player
         {
             return tip;
         }
-        
+
         public static bool GetCanSave()
         {
             return canSave;
         }
+
         public static bool GetCanPause()
         {
             return canPause;
         }
+
+        public static bool GetIsStartingNewGame()
+        {
+            return isStartingNewGame;
+        }
+
         //Weapon Properties
         public static Dictionary<WeaponEnum, GameObject> GetWeaponObjects()
         {
             return weaponObjects;
         }
+
         public static Dictionary<WeaponEnum, WeaponBehaviour> GetWeaponBehaviours()
         {
             return weaponBehaviours;
         }
+
         public static Dictionary<WeaponEnum, bool> GetHeldWeapons()
         {
             return heldWeapons;
         }
+
         public static Dictionary<WeaponEnum, int> GetCurrentAmmo()
         {
             return currentAmmo;
         }
+
         public static Dictionary<WeaponEnum, int> GetAmmoReserve()
         {
             return ammoReserve;
         }
+
         public static Dictionary<WeaponEnum, int> GetReloadAmount()
         {
             return reloadAmount;
@@ -404,6 +456,7 @@ namespace Player
         {
             return isAttacking;
         }
+
         public static WeaponEnum GetCurrentWeapon()
         {
             return currentWeapon;
@@ -413,23 +466,26 @@ namespace Player
         {
             return currentBoss;
         }
+
         public static SignController GetCurrentSignController()
         {
             return currentSignController;
         }
-        
+
         /*SETTER*/
-        
+
         //Hard Values
-        
+
         public static void SetBoostSpeed(float value)
         {
             boostSpeed = value;
         }
+
         public static void SetJumpForce(float value)
         {
             jumpForce = value;
         }
+
         public static void SetMovementSpeed(float value)
         {
             movementSpeed = value;
@@ -439,38 +495,44 @@ namespace Player
         {
             settings = value;
         }
+
         public static void SetMaxHealth(float value)
         {
             maxHealth = value;
         }
+
         public static void SetMaxStamina(float value)
         {
             maxStamina = value;
         }
+
         public static void SetMaxOxygen(float value)
         {
             maxOxygen = value;
         }
-        
+
         public static void SetProjectileDistance(float value)
         {
-           projectileDistance = value;
+            projectileDistance = value;
         }
+
         public static void SetMeleeDistance(float value)
         {
             meleeDistance = value;
         }
+
         public static void SetInteractionDistance(float value)
         {
             interactionDistance = value;
         }
+
         public static void SetPickupDistance(float value)
         {
             pickupDistance = value;
         }
-        
+
         //Player Stats
-        
+
         public static void SetHealth(float value)
         {
             if ((value <= maxHealth) && (value >= 0))
@@ -481,7 +543,6 @@ namespace Player
 
         public static void AddHealth(float value)
         {
-
             if (health + value > 100)
                 health = 100;
             else
@@ -496,6 +557,7 @@ namespace Player
                 stamina = value;
             }
         }
+
         public static void SetOxygen(float value)
         {
             if ((value <= maxOxygen) && (value >= 0))
@@ -508,7 +570,7 @@ namespace Player
         {
             currentAmmo[key] = value;
         }
-        
+
         public static void SetAmmoReserve(WeaponEnum key, int value)
         {
             ammoReserve[key] = value;
@@ -521,51 +583,63 @@ namespace Player
         {
             isGrounded = value;
         }
+
         public static void SetIsTouchingWall(bool value)
         {
             isTouchingWall = value;
         }
+
         public static void SetIsTouchingWallWithHead(bool value)
         {
             isTouchingWallWithHead = value;
         }
+
         public static void SetLastGoodYPosition(float value)
         {
             lastGoodYPosition = value;
         }
+
         public static void SetIsInWater(bool value)
         {
             isInWater = value;
         }
+
         //Actions
         public static void SetIsFrozen(bool value)
         {
             isFrozen = value;
         }
+
         public static void SetIsMoving(bool value)
         {
             isMoving = value;
         }
+
         public static void SetIsRunning(bool value)
         {
             isRunning = value;
         }
+
         public static void SetIsReloading(bool value)
         {
             isReloading = value;
         }
+
         public static void SetIsReadingSign(bool value)
         {
             isReadingSign = value;
         }
+
         public static void SetIsInteracting(bool value)
         {
             isInteracting = value;
         }
+
         public static void SetIsNearInteractable(bool value)
         {
             isNearInteractable = value;
         }
+
         public static void SetIsNearPickup(bool value)
         {
             isNearPickup = value;
@@ -580,6 +654,7 @@ namespace Player
         {
             isUsingLever = value;
         }
+
         public static void SetHasKey(bool value)
         {
             hasKey = value;
@@ -589,6 +664,7 @@ namespace Player
         {
             isInPause = value;
         }
+
         public static void SetGameOver(bool value)
         {
             isGameOver = value;
@@ -598,17 +674,18 @@ namespace Player
         {
             currentLevel = value;
         }
+
         public static void SetHasInteractedWithWinObject(bool value)
         {
             hasInteractedWithWinObject = value;
         }
-        
+
         //Rigidbody
         public static void SetRigidbody(Rigidbody value)
         {
             rb = value;
         }
-        
+
         //Collider
         public static void SetCollider(CapsuleCollider value)
         {
@@ -619,57 +696,69 @@ namespace Player
         {
             _playerTransform = value;
         }
+
         public static void SetEnemySpritesManager(EnemySpritesManager value)
         {
             _enemySpritesManager = value;
         }
+
         public static void SetWeaponController(WeaponController value)
         {
             weaponController = value;
         }
+
         //Saving
         public static void SetIsLoadingSave(bool value)
         {
             isLoadingSave = value;
         }
-        
+
         public static void SetIsChangingScene(bool value)
         {
             isChangingScene = value;
         }
-        
+
         public static void SetCurrentSaveManager(GameObject value)
         {
             saveManager = value;
         }
-        
+
         public static void SetTip(string value)
         {
             tip = value;
         }
+
         public static void SetCanSave(bool value)
         {
             canSave = value;
         }
+
         public static void SetCanPause(bool value)
         {
             canPause = value;
         }
+
+        public static void SetIsStartingNewGame(bool value)
+        {
+            isStartingNewGame = value;
+        }
+
         //Weapon Properties
         public static void SetCurrentWeapon(WeaponEnum value)
         {
             currentWeapon = value;
         }
-        
+
         public static void SetCurrentBoss(GameObject value)
         {
             currentBoss = value;
         }
+
         public static void SetCurrentSignController(SignController value)
         {
             currentSignController = value;
         }
-        
+
         /*Utility Methods*/
 
         //Stat Modifiers
@@ -684,6 +773,7 @@ namespace Player
                 health += increment;
             }
         }
+
         public static void DecreaseHealth(float decrement)
         {
             if ((health - decrement) < 0)
@@ -695,6 +785,7 @@ namespace Player
                 health -= decrement;
             }
         }
+
         public static void IncreaseStamina(float increment)
         {
             if ((stamina + increment) > maxStamina)
@@ -706,6 +797,7 @@ namespace Player
                 stamina += increment;
             }
         }
+
         public static void DecreaseStamina(float decrement)
         {
             if ((stamina - decrement) < 0)
@@ -717,6 +809,7 @@ namespace Player
                 stamina -= decrement;
             }
         }
+
         public static void IncreaseOxygen(float increment)
         {
             if ((oxygen + increment) > maxOxygen)
@@ -728,6 +821,7 @@ namespace Player
                 oxygen += increment;
             }
         }
+
         public static void DecreaseOxygen(float decrement)
         {
             if ((oxygen - decrement) < 0)
@@ -739,100 +833,140 @@ namespace Player
                 oxygen -= decrement;
             }
         }
-        
+
         //Weapon Managers
         public static void InitializeWeaponObjects()
         {
             weaponObjects = new Dictionary<WeaponEnum, GameObject>();
         }
+
         public static void InitializeWeaponBehaviours()
         {
             weaponBehaviours = new Dictionary<WeaponEnum, WeaponBehaviour>();
         }
+
         public static void InitializeHeldWeapons()
         {
             heldWeapons = new Dictionary<WeaponEnum, bool>();
         }
+
         public static void InitializeCurrentAmmo()
         {
             currentAmmo = new Dictionary<WeaponEnum, int>();
         }
+
         public static void InitializeAmmoReserve()
         {
             ammoReserve = new Dictionary<WeaponEnum, int>();
         }
+
         public static void InitializeReloadAmount()
         {
             reloadAmount = new Dictionary<WeaponEnum, int>();
         }
+
         public static void InitializeIsAttacking()
         {
             isAttacking = new Dictionary<WeaponEnum, bool>();
         }
-        
+
         public static void AddWeaponObject(WeaponEnum key, GameObject value)
         {
-            weaponObjects.Add(key,value);
+            weaponObjects.Add(key, value);
         }
+
         public static void AddWeaponBehaviour(WeaponEnum key, WeaponBehaviour value)
         {
             weaponBehaviours.Add(key, value);
         }
+
         public static void AddHeldWeapon(WeaponEnum key, bool value)
         {
             if (!heldWeapons.ContainsKey(key))
             {
                 heldWeapons.Add(key, value);
-
             }
             else
             {
-                heldWeapons[key] = value;        //Replaces it
+                heldWeapons[key] = value; //Replaces it
             }
         }
+
         public static void AddCurrentAmmo(WeaponEnum key, int value)
         {
-            currentAmmo.Add(key, value);
+            if (!currentAmmo.ContainsKey(key))
+            {
+                currentAmmo.Add(key, value);
+            }
+            else
+            {
+                currentAmmo[key] = value; //Replaces it
+            }
         }
+
         public static void AddAmmoReserve(WeaponEnum key, int value)
         {
-            ammoReserve.Add(key, value);
+            if (!currentAmmo.ContainsKey(key))
+            {
+                ammoReserve.Add(key, value);
+            }
+            else
+            {
+                ammoReserve[key] = value; //Replaces it
+            }
         }
+
         public static void AddReloadAmount(WeaponEnum key, int value)
         {
-            reloadAmount.Add(key, value);
+            if (!currentAmmo.ContainsKey(key))
+            {
+                reloadAmount.Add(key, value);
+            }
+            else
+            {
+                reloadAmount[key] = value; //Replaces it
+            }
         }
+
         public static void AddIsAttacking(WeaponEnum key, bool value)
-        {
-            isAttacking.Add(key, value);
+        {          if (!currentAmmo.ContainsKey(key))
+            {
+                isAttacking.Add(key, value);
+            }
+            else
+            {
+                isAttacking[key] = value; //Replaces it
+            }
         }
 
         public static void IncrementCurrentAmmo(WeaponEnum key, int value)
         {
             currentAmmo[key] += value;
         }
+
         public static void DecrementCurrentAmmo(WeaponEnum key, int value)
         {
             currentAmmo[key] -= value;
         }
+
         public static void IncrementAmmoReserve(WeaponEnum key, int value)
         {
             ammoReserve[key] += value;
         }
+
         public static void DecrementAmmoReserve(WeaponEnum key, int value)
         {
             ammoReserve[key] -= value;
         }
+
         public static void SetIsAttacking(WeaponEnum key, bool value)
         {
             isAttacking[key] = value;
         }
-        
-        
-        
-        
+
+
         // Timer stuff
-        
+
         public static void SetIsTimerLoaded(bool value)
         {
             isTimerLoaded = value;
@@ -842,6 +976,5 @@ namespace Player
         {
             yield return new WaitUntil(() => isTimerLoaded);
         }
-
     }
 }

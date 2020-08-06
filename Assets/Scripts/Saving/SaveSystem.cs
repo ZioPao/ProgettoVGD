@@ -96,6 +96,8 @@ namespace Saving
             //Currently held weapons
             save.heldWeapons = Values.GetHeldWeapons();
 
+            save.currentWeapon = Values.GetCurrentWeapon();
+            
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
             bf.Serialize(file, save);
@@ -118,6 +120,10 @@ namespace Saving
 
         IEnumerator LoadSave(string levelName)
         {
+            
+            Values.SetCanSave(false);
+            Values.SetCanPause(false);
+            Values.SetIsLoadingSave(true);
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/" + levelName, LoadSceneMode.Single);
             asyncOperation.allowSceneActivation = false;
             GetComponentInChildren<Canvas>().enabled = true;
@@ -129,14 +135,12 @@ namespace Saving
                 {
                     asyncOperation.allowSceneActivation = true;
 
+               
 
                     //Necessario un minimo d'attesa per determinare quando ha effettivamente caricato TUTTO.
                     yield return new WaitForSeconds(0.2f); //non ho idea di come fare il check al momento
 
-                    Values.SetCanSave(false);
-                    Values.SetCanPause(false);
-                    Values.SetIsLoadingSave(true);
-
+   
                     // //todo probably totally useless
                     // //just in case?
                     // BinaryFormatter bf = new BinaryFormatter();
@@ -173,6 +177,7 @@ namespace Saving
                     Values.SetHasKey(save.hasKey);
 
                     //Weapons
+
                     foreach (var w in save.weaponsCurrentReserve)
                     {
                         Values.SetAmmoReserve(w.Key, w.Value);
@@ -189,6 +194,11 @@ namespace Saving
                         Values.SetCurrentAmmo(w.Key, w.Value);
                     }
 
+                    Values.GetWeaponObjects()[save.currentWeapon].SetActive(true);
+                    Values.SetCurrentWeapon(save.currentWeapon);
+                    
+                    /* ENEMIES */
+                    
                     //Creates them again
                     foreach (var enemy in GameObject.FindGameObjectsWithTag(Values.EnemyTag))
                     {
@@ -257,43 +267,10 @@ namespace Saving
                     foreach (var interactable in save.interactableStatus)
                     {
                         var interactableObject = currentLevel.transform.Find("InteractableObjects/" + interactable.Key);
-
                         if (!interactable.Value)
                         {
                             interactableObject.GetComponent<IInteractableMidGame>().ForceActivation();
                         }
-
-                        // //Check aggiuntivo per capire se stiamo prendendo l'object igusto o meno
-                        //
-                        // switch (interactableObject.name)
-                        // {
-                        //     
-                        //     case "LeverBoss":
-                        //         //Destroy(interactableObject);
-                        //         //StartCoroutine(InstantiatePrefab("Prefabs/Levels/Generic/Prefabs/LeverBoss"));
-                        //
-                        //         //interactableObject = GameObject.Find(interactable.Key);
-                        //         var lever = interactableObject.GetComponent<LeverScript>();
-                        //
-                        //         if (!interactable.Value)
-                        //         {
-                        //             lever.ForceActivation();
-                        //         }
-                        //
-                        //         break;
-                        //
-                        //     case "DoorPassageOptional":
-                        //         var door = interactableObject.GetComponentInChildren<OpenDoor>();
-                        //
-                        //         if (!interactable.Value)
-                        //         {
-                        //             door.ForceActivation();
-                        //         }
-                        //
-                        //         break;
-                        //     default:
-                        //         break;
-                        // }
                     }
 
 

@@ -17,13 +17,14 @@ namespace Saving
         
         //Stats base
         public float health, stamina;
+        public bool hasKey;
 
+        
+        //Armi
         public Dictionary<Values.WeaponEnum, bool> heldWeapons;
         public Dictionary<Values.WeaponEnum, int> weaponsCurrentAmmo;
         public Dictionary<Values.WeaponEnum, int> weaponsCurrentReserve;
-
-        public bool hasKey;
-        
+        public Values.WeaponEnum currentWeapon;
         
         //Nome del livello
         public string levelName;
