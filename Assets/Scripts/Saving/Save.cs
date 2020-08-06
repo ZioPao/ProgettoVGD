@@ -39,7 +39,7 @@ namespace Saving
         
         //Triggers
 
-        public List<string> triggers;
+        public HashSet<string> triggers;
         
         //Interactables
 

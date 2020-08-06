@@ -41,6 +41,8 @@ namespace Utility
             if (!Values.GetIsChangingScene())
             {
                 player = Instantiate(Resources.Load("Prefabs/Player")) as GameObject;
+                Values.InitializeCompletedTriggers();
+
                 if (Values.GetIsLoadingSave())
                 {
                     return; //Stops everything else, it should be ok.
@@ -53,6 +55,8 @@ namespace Utility
 
                 player.GetComponent<InteractionController>().Awake(); //upates it
                 player.GetComponentInChildren<EnemySpritesManager>().Awake();
+
+                Values.SetIsChangingScene(false);        //Finito di caricare nuova scena
             }
 
             player.transform.position = spawnPoint;

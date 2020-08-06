@@ -116,6 +116,7 @@ namespace Player
         private static bool giveAllWeapons;
         private static GameObject saveManager;
         private static List<string> originalTriggers, originalPickups;
+        private static HashSet<string> completedTriggers;
 
         //Tags
         public const string PlayerTag = "Player";
@@ -417,6 +418,24 @@ namespace Player
         {
             return originalPickups;
         }
+
+        public static void InitializeCompletedTriggers()
+        {
+            completedTriggers = new HashSet<string>();
+        }
+        public static HashSet<string> GetCompletedTriggers()
+        {
+
+            return completedTriggers;
+        }
+        public static void AddCompletedTrigger(string value)
+        {
+
+            completedTriggers.Add(value);
+        }
+
+        
+        
         public static string GetTip()
         {
             return tip;

@@ -59,7 +59,8 @@ namespace Boss
             Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
 
             //Disattiva il BossEndTrigger
-            enabled = false;        //Non dovrebbe servire disattivare altro todo credo
+            Values.AddCompletedTrigger(name);
+            enabled = false;        //Non dovrebbe servire disattivare altro
         }
 
 

@@ -79,7 +79,7 @@ namespace Saving
             }
 
             //Triggers
-            save.triggers = manager.GetCurrentTriggers();
+            save.triggers = Values.GetCompletedTriggers();
 
 
             //save.triggersStatus = manager.GetTriggerStatus();
@@ -282,6 +282,8 @@ namespace Saving
                     //Triggers
                     foreach (var oldT in Values.GetOriginalTriggers())
                     {
+                        
+                        //se contiene il trigger, significa che è già stato eseguito
                         if (save.triggers.Contains(oldT))
                         {
                             GameObject.Find(oldT).GetComponent<ITriggerMidGame>().RunTrigger();

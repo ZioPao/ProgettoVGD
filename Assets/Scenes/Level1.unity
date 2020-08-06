@@ -30694,8 +30694,6 @@ MonoBehaviour:
   spawnPoint: {x: 1229.75, y: 112, z: 1021.83}
   spawnPointRotation: {x: 0, y: -100, z: 0}
   levelId: 1
-  triggersStart: []
-  pickupsStart: []
 --- !u!1 &8953054492878642033
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,6 +37,7 @@ namespace Boss
                     sun.GetComponent<Light>().intensity = 0;
                 }
 
+                Values.AddCompletedTrigger(name);
                 enabled = false;        //Disattiva script
                 GetComponent<Collider>().enabled = false;        //Disattiva trigger
             }
