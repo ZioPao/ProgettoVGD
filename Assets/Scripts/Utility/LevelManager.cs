@@ -12,8 +12,6 @@ namespace Utility
 {
     public class LevelManager : MonoBehaviour
     {
-      
-
         [SerializeField] private Vector3 spawnPoint;
         [SerializeField] private Vector3 spawnPointRotation;
         [SerializeField] private int levelId;
@@ -22,28 +20,24 @@ namespace Utility
         //Enemy stuff
         public Dictionary<String, EnemyStatus> enemiesStatus;
 
-        //To save status at the start of the level. Necessary for saving
-        public List<string> triggersStart, pickupsStart;
-
-
-        private void Awake()
+        public void Start()
         {
             Values.SetCurrentLevel(levelId);
             Values.SetHasInteractedWithWinObject(false); //per evitare problemi dopo aver finito il gioco
-
-
             GameObject player;
-            //print("game over: " + Values.GetIsGameOver());
 
             //Initializes Audio Players
             Audio.SoundManager.InitializeSoundPlayer();
             Audio.SoundManager.InitializeMusicPlayer();
 
             Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
+            Values.SetCurrentSignController(GameObject.Find(Values.SignsParentName).GetComponent<SignController>());
 
 
             //Is changing scene è relativo al cambio di scena da livello a livello 2, non c'entra coi cambi di scena
             //al cambio del salvataggio.
+
+
             if (!Values.GetIsChangingScene())
             {
                 player = Instantiate(Resources.Load("Prefabs/Player")) as GameObject;
@@ -51,14 +45,11 @@ namespace Utility
                 {
                     return; //Stops everything else, it should be ok.
                 }
-
-                Values.SetCurrentSignController(GameObject.Find(Values.signsParentName).GetComponent<SignController>());
             }
             else
             {
-                //todo probabilmente non va piu
-                player = GameObject.Find("oldPlayer");
-                player.name = "Player"; //reset name
+                player = GameObject.Find(Values.OldPlayerName);
+                player.name = Values.PlayerName; //reset name
 
                 player.GetComponent<InteractionController>().Awake(); //upates it
                 player.GetComponentInChildren<EnemySpritesManager>().Awake();
@@ -75,18 +66,23 @@ namespace Utility
 
             //Per deterimnare che triggers\pickups resettare quando si carica una partita
             var tmpTriggers = GameObject.FindGameObjectsWithTag(Values.TriggerTag);
-            triggersStart = new List<string>();
+            var triggersStart = new List<string>();
             foreach (var t in tmpTriggers)
             {
                 triggersStart.Add(t.name);
             }
 
+            Values.SetOriginalTriggers(triggersStart);
+
+
             var tmpPickups = GameObject.FindGameObjectsWithTag(Values.PickupTag);
-            pickupsStart = new List<string>();
+            var pickupsStart = new List<string>();
             foreach (var p in tmpPickups)
             {
                 pickupsStart.Add(p.name);
             }
+
+            Values.SetOriginalPickups(pickupsStart);
 
 
             GetComponentInChildren<Terrain>().detailObjectDistance = 10000; //todo rendi piu carino
@@ -119,10 +115,10 @@ namespace Utility
             // return triggerStatus;
         }
 
-        public List<string> GetOriginalTriggers()
-        {
-            return triggersStart;
-        }
+        // public List<string> GetOriginalTriggers()
+        // {
+        //     return triggersStart;
+        // }
 
         public List<string> GetCurrentPickups()
         {
@@ -137,10 +133,10 @@ namespace Utility
             return list;
         }
 
-        public List<string> GetOriginalPickups()
-        {
-            return pickupsStart;
-        }
+        // public List<string> GetOriginalPickups()
+        // {
+        //     return pickupsStart;
+        // }
 
         public Dictionary<String, EnemySpawnerStatus> GetSpawnerStatus()
         {
@@ -227,7 +223,7 @@ namespace Utility
                 x.GetComponent<EnemySpawner>().enabled = true;
             }
 
-            SignController tmp = GameObject.Find(Values.signsParentName).GetComponent<SignController>();
+            SignController tmp = GameObject.Find(Values.SignsParentName).GetComponent<SignController>();
             Values.SetCurrentSignController(tmp);
         }
     }

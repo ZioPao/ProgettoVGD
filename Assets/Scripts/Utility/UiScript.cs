@@ -68,7 +68,7 @@ namespace Utility
         // Update is called once per frame
         private void Update()
         {
-            if (!Values.GetIsLoadingSave())
+            if (!Values.GetIsLoadingSave() && !Values.GetIsStartingNewGame() && !Values.GetIsChangingScene() && Values.GetWeaponBehaviours() != null)
             {
                 if (Values.GetIsGameOver())
                 {

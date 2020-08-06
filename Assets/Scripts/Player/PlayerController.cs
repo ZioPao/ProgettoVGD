@@ -68,11 +68,6 @@ namespace Player
 
                 TimerController.Setup();
             }
-
-
-
-
-
         }
 
 
@@ -101,81 +96,70 @@ namespace Player
             else
             {
                 print("game over: " + Values.GetIsGameOver());
-
             }
         }
 
         private void Update()
         {
-
-            if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && !Values.GetIsReadingSign() && Values.GetCanSave())
+            if (!Values.GetIsLoadingSave() && !Values.GetIsStartingNewGame() && !Values.GetIsChangingScene())
             {
-                GameObject saveManager;
-                if (Values.GetCurrentSaveManager() != null)
+                //SAVE
+                if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && !Values.GetIsReadingSign() &&
+                    Values.GetCanSave())
                 {
-                    saveManager = Values.GetCurrentSaveManager();
-                }
-                else
-                {
-                    saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
-                    DontDestroyOnLoad(saveManager);
-                    Values.SetCurrentSaveManager(saveManager);
-                }
+                    GameObject saveManager;
+                    if (Values.GetCurrentSaveManager() != null)
+                    {
+                        saveManager = Values.GetCurrentSaveManager();
+                    }
+                    else
+                    {
+                        saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
+                        DontDestroyOnLoad(saveManager);
+                        Values.SetCurrentSaveManager(saveManager);
+                    }
 
 
-                saveManager.GetComponent<SaveSystem>().Save();
-  
-
-            }
-
-
-            if (Input.GetKeyDown(KeyCode.F6) && !Values.GetIsReadingSign())
-            {
-                GameObject saveManager;
-                //print("game over: " + Values.GetIsGameOver());
-                if (Values.GetCurrentSaveManager() != null)
-                {
-                    saveManager = Values.GetCurrentSaveManager();
-                }
-                else
-                {
-                    saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
-                    DontDestroyOnLoad(saveManager);
-                    Values.SetCurrentSaveManager(saveManager);
+                    saveManager.GetComponent<SaveSystem>().Save();
                 }
 
-                //In caso di game over, reset tutto
-                Values.SetGameOver(false);
-                Time.timeScale = 1;
-                Values.SetHealth(1);        //tmp per evitare che riparta il game over
-                Values.SetCanSave(true);        //reset nel caso il player abbia caricato da dentro una boss battle
-                
-                saveManager.GetComponent<SaveSystem>().Load();
+                //LOAD
+                if (Input.GetKeyDown(KeyCode.F6) && !Values.GetIsReadingSign())
+                {
+                    GameObject saveManager;
+                    //print("game over: " + Values.GetIsGameOver());
+                    if (Values.GetCurrentSaveManager() != null)
+                    {
+                        saveManager = Values.GetCurrentSaveManager();
+                    }
+                    else
+                    {
+                        saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
+                        DontDestroyOnLoad(saveManager);
+                        Values.SetCurrentSaveManager(saveManager);
+                    }
 
-                //saveCanvas.enabled = false;
-            }
+                    //In caso di game over, reset tutto
+                    Values.SetGameOver(false);
+                    Time.timeScale = 1;
+                    Values.SetHealth(1); //tmp per evitare che riparta il game over
+                    Values.SetCanSave(true); //reset nel caso il player abbia caricato da dentro una boss battle
 
-            // if (Input.GetKeyDown(KeyCode.F7))
-            // {
-            //     // var interactableObject = GameObject.Find("Lever");
-            //     // interactableObject.GetComponent<LeverScript>().ForceActivation();
-            //
-            //     Values.SetHealth(0);
-            // }
+                    saveManager.GetComponent<SaveSystem>().Load();
 
-            if (!Values.GetIsFrozen() && !Values.GetIsGameOver() && !Values.GetIsInPause() && !Values.GetIsLoadingSave())
-            {
+                    //saveCanvas.enabled = false;
+                }
+
+
+                //Normal controller stuff
                 weaponScript.UseWeapon();
                 weaponScript.ChangeWeapon();
+                interactionScript.Interact();
+                interactionScript.Pickup();
+                interactionScript.SignBuffer();
             }
-
-            /* Manage actions*/
-
-            interactionScript.Interact();
-            interactionScript.Pickup();
-            interactionScript.SignBuffer();
         }
-        
+
         private void ManageHealth()
         {
             if (Values.GetHealth() <= 0 && !Values.GetIsLoadingSave())
@@ -184,7 +168,6 @@ namespace Player
                 Values.SetGameOver(true);
                 Time.timeScale = 0; //za warudo, lo dovrebbe fare una sola volta
                 return;
-
             }
 
 
@@ -221,10 +204,8 @@ namespace Player
                 Values.IncreaseStamina(Time.deltaTime * 14);
             }
         }
-        
-        
-        //Waiting methods
 
-       
+
+        //Waiting methods
     }
 }

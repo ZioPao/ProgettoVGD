@@ -11,19 +11,15 @@
 
          private TextMeshProUGUI text;
          
-         void Start()
+         void Awake()
          {
              text = GetComponentInChildren<TextMeshProUGUI>();
          }
 
          public void OnSelect(BaseEventData eventData)
          {
-
-             
-                 text.color = Color.white;
+             text.color = Color.white;
                  Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.MenuBlip);
-             
-              
          }
          
          public void OnDeselect(BaseEventData eventData)

@@ -25,6 +25,7 @@ namespace Saving
 
         private Save save;
         private GameObject currentLevel;
+        private LevelManager levelManager;
         private Canvas canvas;
 
         public void Save()
@@ -124,6 +125,8 @@ namespace Saving
             Values.SetCanSave(false);
             Values.SetCanPause(false);
             Values.SetIsLoadingSave(true);
+            
+
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/" + levelName, LoadSceneMode.Single);
             asyncOperation.allowSceneActivation = false;
             GetComponentInChildren<Canvas>().enabled = true;
@@ -148,7 +151,7 @@ namespace Saving
                     //
                     // save = (Save) bf.Deserialize(file);
                     // file.Close();
-
+                    
                     GameObject newPlayer = null;
                     Transform newPlayerT = null;
                     bool isPlayerLoaded = false;
@@ -166,7 +169,9 @@ namespace Saving
                             isPlayerLoaded = true;
                         }
                     }
-
+                    
+                    currentLevel = GameObject.FindWithTag(Values.LevelTag);
+                    levelManager = currentLevel.GetComponent<LevelManager>();
 
                     newPlayerT.position = save.playerPosition;
                     newPlayerT.rotation = save.playerRotation;
@@ -249,7 +254,8 @@ namespace Saving
                     }
 
                     //Spawners 
-                    currentLevel = GameObject.FindWithTag(Values.LevelTag);
+                    
+                    
                     foreach (var spawnerStatus in save.enemySpawnerStatus)
                     {
                         var spawnerObject = currentLevel.transform.Find("Spawners/" + spawnerStatus.Key);
@@ -272,24 +278,18 @@ namespace Saving
                             interactableObject.GetComponent<IInteractableMidGame>().ForceActivation();
                         }
                     }
-
-
-                    var tmpLevelManager = currentLevel.GetComponent<LevelManager>();
-
+                    
                     //Triggers
-                    var oldTriggers = tmpLevelManager.GetOriginalTriggers();
-                    foreach (var oldT in oldTriggers)
+                    foreach (var oldT in Values.GetOriginalTriggers())
                     {
-                        if (!save.triggers.Contains(oldT))
+                        if (save.triggers.Contains(oldT))
                         {
                             GameObject.Find(oldT).GetComponent<ITriggerMidGame>().RunTrigger();
                         }
                     }
 
                     //Pickups
-
-                    var oldPickups = tmpLevelManager.GetOriginalPickups();
-                    foreach (var oldP in oldPickups)
+                    foreach (var oldP in Values.GetOriginalPickups())
                     {
                         if (!save.pickups.Contains(oldP))
                         {
@@ -300,7 +300,7 @@ namespace Saving
                     }
 
                     Values.SetIsLoadingSave(false); //gli enemy spawner torneranno a funzionare
-                    GameObject.Find(Values.loadingCanvasName).GetComponent<Canvas>().enabled = false;
+                    GameObject.Find(Values.LoadingCanvasName).GetComponent<Canvas>().enabled = false;
                     print("Caricato");
 
                     yield return new WaitForSeconds(1);
