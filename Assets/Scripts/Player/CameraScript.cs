@@ -17,7 +17,7 @@ namespace Player
         private bool isCameraInWater;
         private PostProcessVolume post;
         private ColorGrading colorGrading;
-        private LensDistortion lensDistortion;
+        private ChromaticAberration chromaticAberration;
 
         private void Start()
         {
@@ -36,10 +36,10 @@ namespace Player
             
             /*Adds effects based on some bools*/
             post.profile.TryGetSettings(out colorGrading);
-            post.profile.TryGetSettings(out lensDistortion);
+            post.profile.TryGetSettings(out chromaticAberration);
 
             colorGrading.enabled.value = isCameraInWater;
-            lensDistortion.enabled.value = isCameraInWater;
+            chromaticAberration.enabled.value = isCameraInWater;
         }
 
         private void CameraRotation()
