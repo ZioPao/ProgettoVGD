@@ -160,6 +160,7 @@ namespace Utility
         {
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(Values.EnemyTag);
 
+            //todo non dovrebbe dare problemi ma tienilo d'occhio
             if (enemiesStatus == null)
                 enemiesStatus = new Dictionary<string, EnemyStatus>();
             

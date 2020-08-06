@@ -101,7 +101,7 @@ namespace Player
 
         private void Update()
         {
-            if (!Values.GetIsLoadingSave() && !Values.GetIsStartingNewGame() && !Values.GetIsChangingScene())
+            if (!Values.GetIsLoadingSave() && !Values.GetIsStartingNewGame() && !Values.GetIsChangingScene() && Values.GetIsWeaponControllerDoneLoading())
             {
                 //SAVE
                 if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && !Values.GetIsReadingSign() &&
