@@ -151,7 +151,7 @@ namespace Saving
 
                     while (!isPlayerLoaded)
                     {
-                        newPlayer = GameObject.FindWithTag("Player");
+                        newPlayer = GameObject.FindWithTag(Values.PlayerTag);
                         if (newPlayer == null)
                         {
                             yield return new WaitForEndOfFrame();
@@ -190,7 +190,7 @@ namespace Saving
                     }
 
                     //Creates them again
-                    foreach (var enemy in GameObject.FindGameObjectsWithTag("enemy"))
+                    foreach (var enemy in GameObject.FindGameObjectsWithTag(Values.EnemyTag))
                     {
                         Destroy(enemy);
                     }
@@ -219,8 +219,8 @@ namespace Saving
 
                     //Projectiles
 
-                    //Destroy all the old projectiles todo should be useless now
-                    foreach (var p in GameObject.FindGameObjectsWithTag("Projectile"))
+                    //Destroy all the old projectiles
+                    foreach (var p in GameObject.FindGameObjectsWithTag(Values.ProjectileTag))
                     {
                         Object.Destroy(p);
                     }
@@ -239,13 +239,13 @@ namespace Saving
                     }
 
                     //Spawners 
-                    currentLevel = GameObject.FindWithTag(Values.levelTag);
+                    currentLevel = GameObject.FindWithTag(Values.LevelTag);
                     foreach (var spawnerStatus in save.enemySpawnerStatus)
                     {
                         var spawnerObject = currentLevel.transform.Find("Spawners/" + spawnerStatus.Key);
 
                         //todo aggiungi caso speciale per bossSpawner
-                        if (!spawnerObject.CompareTag(Values.bossSpawnerTag))
+                        if (!spawnerObject.CompareTag(Values.BossSpawnerTag))
                         {
                             var tmpSpawner = spawnerObject.GetComponent<EnemySpawner>();
                             tmpSpawner.SetStatus(spawnerStatus.Value);

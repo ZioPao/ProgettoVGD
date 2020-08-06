@@ -93,7 +93,7 @@ namespace Enemies
 
             //Set Damage to player
 
-            if (c.gameObject.CompareTag(Values.playerTag))
+            if (c.gameObject.CompareTag(Values.PlayerTag))
             {
                 Values.DecreaseHealth(damage);
 

@@ -111,10 +111,17 @@ namespace Player
         private static GameObject saveManager;
         
         //Tags
-        public const string playerTag = "Player";
-        public const string bossSpawnerTag = "BossSpawner";
-        public const string levelTag = "Level";
-        public const string interactableOverTag = "InteractableOver";
+        public const string PlayerTag = "Player";
+        public const string BossSpawnerTag = "BossSpawner";
+        public const string LevelTag = "Level";
+        public const string TriggerTag = "Trigger";
+        public const string PickupTag = "Pickup";
+        public const string EnemyTag = "enemy";
+        public const string InteractableTag = "Interactable";
+        public const string InteractableOverTag = "InteractableOver";
+        public const string SpawnerTag = "Spawner";
+        public const string ProjectileTag = "Projectile";
+        public const string LeverBossString = "LeverBoss";
         
         
         //Objects name

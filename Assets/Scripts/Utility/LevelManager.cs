@@ -12,14 +12,7 @@ namespace Utility
 {
     public class LevelManager : MonoBehaviour
     {
-        private const string EnemyTag = "enemy";
-        private const string PickupTag = "Pickup";
-        private const string InteractableTag = "Interactable";
-        private const string InteractableOverTag = "InteractableOver";
-        private const string TriggerTag = "Trigger";
-        private const string SpawnerTag = "Spawner";
-        private const string ProjectileTag = "Projectile";
-        private const string LeverBossString = "LeverBoss";
+      
 
         [SerializeField] private Vector3 spawnPoint;
         [SerializeField] private Vector3 spawnPointRotation;
@@ -59,10 +52,11 @@ namespace Utility
                     return; //Stops everything else, it should be ok.
                 }
 
-                Values.SetCurrentSignController(GameObject.Find("Signs").GetComponent<SignController>());
+                Values.SetCurrentSignController(GameObject.Find(Values.signsParentName).GetComponent<SignController>());
             }
             else
             {
+                //todo probabilmente non va piu
                 player = GameObject.Find("oldPlayer");
                 player.name = "Player"; //reset name
 
@@ -80,14 +74,14 @@ namespace Utility
             Values.SetCurrentBoss(null);
 
             //Per deterimnare che triggers\pickups resettare quando si carica una partita
-            var tmpTriggers = GameObject.FindGameObjectsWithTag("Trigger");
+            var tmpTriggers = GameObject.FindGameObjectsWithTag(Values.TriggerTag);
             triggersStart = new List<string>();
             foreach (var t in tmpTriggers)
             {
                 triggersStart.Add(t.name);
             }
 
-            var tmpPickups = GameObject.FindGameObjectsWithTag("Pickup");
+            var tmpPickups = GameObject.FindGameObjectsWithTag(Values.PickupTag);
             pickupsStart = new List<string>();
             foreach (var p in tmpPickups)
             {
@@ -103,7 +97,7 @@ namespace Utility
 
         public List<string> GetCurrentTriggers()
         {
-            var triggers = GameObject.FindGameObjectsWithTag(TriggerTag);
+            var triggers = GameObject.FindGameObjectsWithTag(Values.TriggerTag);
 
             List<string> list = new List<string>();
             foreach (var x in triggers)
@@ -132,7 +126,7 @@ namespace Utility
 
         public List<string> GetCurrentPickups()
         {
-            var pickups = GameObject.FindGameObjectsWithTag(PickupTag);
+            var pickups = GameObject.FindGameObjectsWithTag(Values.PickupTag);
 
             List<string> list = new List<string>();
             foreach (var x in pickups)
@@ -150,7 +144,7 @@ namespace Utility
 
         public Dictionary<String, EnemySpawnerStatus> GetSpawnerStatus()
         {
-            GameObject[] spawners = GameObject.FindGameObjectsWithTag(SpawnerTag);
+            GameObject[] spawners = GameObject.FindGameObjectsWithTag(Values.SpawnerTag);
 
             Dictionary<String, EnemySpawnerStatus> spawnerStatus = new Dictionary<string, EnemySpawnerStatus>();
 
@@ -164,7 +158,7 @@ namespace Utility
 
         public void UpdateEnemiesStatus()
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag(EnemyTag);
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(Values.EnemyTag);
 
             foreach (var enemy in enemies)
             {
@@ -183,7 +177,7 @@ namespace Utility
 
         public List<ProjectileStatus> GetProjectileStatus()
         {
-            var projectiles = GameObject.FindGameObjectsWithTag(ProjectileTag).ToList();
+            var projectiles = GameObject.FindGameObjectsWithTag(Values.ProjectileTag).ToList();
             List<ProjectileStatus> projectilesStatus = new List<ProjectileStatus>();
 
             foreach (var x in projectiles)
@@ -197,7 +191,7 @@ namespace Utility
         public GameObject[] GetPickups()
         {
             //Prende i pickups che sono presenti al momento del salvataggio
-            var pickups = GameObject.FindGameObjectsWithTag(PickupTag);
+            var pickups = GameObject.FindGameObjectsWithTag(Values.PickupTag);
             return pickups;
             //todo non serve se sono sullo stesso livello i guess. Ma credo sia rotto con gli altri
         }
@@ -205,7 +199,7 @@ namespace Utility
         public Dictionary<string, bool> GetInteractables()
         {
             Dictionary<string, bool> interactablesDictionary = new Dictionary<string, bool>();
-            GameObject[] interactables = GameObject.FindGameObjectsWithTag(InteractableTag);
+            GameObject[] interactables = GameObject.FindGameObjectsWithTag(Values.InteractableTag);
 
             foreach (var x in interactables)
             {
@@ -214,7 +208,7 @@ namespace Utility
                 interactablesDictionary.Add(x.name, x.GetComponent<IInteractableMidGame>().GetIsEnabled());
             }
 
-            foreach (var x in GameObject.FindGameObjectsWithTag(InteractableOverTag))
+            foreach (var x in GameObject.FindGameObjectsWithTag(Values.InteractableOverTag))
             {
                 interactablesDictionary.Add(x.name, x.GetComponent<IInteractableMidGame>().GetIsEnabled());
             }
@@ -228,7 +222,7 @@ namespace Utility
             //todo determinare come capire se la navmesh è pronta
             yield return new WaitForSeconds(1);
 
-            foreach (var x in GameObject.FindGameObjectsWithTag(SpawnerTag))
+            foreach (var x in GameObject.FindGameObjectsWithTag(Values.SpawnerTag))
             {
                 x.GetComponent<EnemySpawner>().enabled = true;
             }

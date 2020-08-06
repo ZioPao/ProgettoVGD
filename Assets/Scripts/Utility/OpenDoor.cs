@@ -35,7 +35,7 @@ namespace Utility
                 isOpening = true;
                 Values.SetIsUsingDoor(false);
                 Values.SetHasKey(false);
-                tag = Values.interactableOverTag;     //To disable the "interact with e" message
+                tag = Values.InteractableOverTag;     //To disable the "interact with e" message
             }
             else
             {
@@ -58,7 +58,7 @@ namespace Utility
         public void ForceActivation()
         {
             transform.rotation = correctRotation;
-            tag = Values.interactableOverTag;     //To disable the "interact with e" message
+            tag = Values.InteractableOverTag;     //To disable the "interact with e" message
             enabled = false;
         }
 

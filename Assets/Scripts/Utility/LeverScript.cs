@@ -66,7 +66,7 @@ namespace Utility
             Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.LeverActivate);
             isMoving = true;
             //Values.SetIsUsingLever(false);
-            tag = Values.interactableOverTag; //To disable the "interact with e" message
+            tag = Values.InteractableOverTag; //To disable the "interact with e" message
         }
 
 
@@ -78,7 +78,7 @@ namespace Utility
             movingPiece.rotation = correctRotation;
             obj.rotation =
                 Quaternion.Euler(obj.eulerAngles.x, obj.eulerAngles.y, -90f); //todo maybe broken with other objects
-            tag = Values.interactableOverTag; //To disable the "interact with e" message, again just in case
+            tag = Values.InteractableOverTag; //To disable the "interact with e" message, again just in case
         }
 
         public void MoveLever()
