@@ -108,7 +108,7 @@ namespace Player
         private void Update()
         {
 
-            if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && Values.GetCanSave())
+            if (Input.GetKeyDown(KeyCode.F5) && !Values.GetIsGameOver() && !Values.GetIsReadingSign() && Values.GetCanSave())
             {
                 GameObject saveManager;
                 if (Values.GetCurrentSaveManager() != null)
@@ -129,7 +129,7 @@ namespace Player
             }
 
 
-            if (Input.GetKeyDown(KeyCode.F6))
+            if (Input.GetKeyDown(KeyCode.F6) && !Values.GetIsReadingSign())
             {
                 GameObject saveManager;
                 //print("game over: " + Values.GetIsGameOver());
