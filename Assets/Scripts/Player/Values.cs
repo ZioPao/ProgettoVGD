@@ -85,6 +85,10 @@ namespace Player
         //Tips
         private static string tip;
 
+
+        //Hitmarkers
+        private static float hitmarkerAnimationLengthener = 0.8f;
+        
         //Weapon Types
         public enum WeaponEnum
         {
@@ -407,6 +411,12 @@ namespace Player
             return tip;
         }
 
+        //Hitmarker
+        public static float GetHitmarkerAnimationLengthener()
+        {
+            return hitmarkerAnimationLengthener;
+        }
+        
         public static bool GetCanSave()
         {
             return canSave;
