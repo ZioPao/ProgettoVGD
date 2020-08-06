@@ -45037,6 +45037,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4199387544439026870}
+  - component: {fileID: 8851883508641551821}
   m_Layer: 0
   m_Name: Signs
   m_TagString: Untagged
@@ -45044,6 +45045,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8851883508641551821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851883508641551820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5feda9476352916419ea2c660f7bd9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signID: -1
 --- !u!1 &8861054472571562408
 GameObject:
   m_ObjectHideFlags: 0

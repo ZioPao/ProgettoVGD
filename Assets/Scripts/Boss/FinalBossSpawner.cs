@@ -5,6 +5,7 @@ using Player;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using Utility;
 using Random = UnityEngine.Random;
 
 namespace Boss
