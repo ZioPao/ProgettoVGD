@@ -95,7 +95,7 @@ namespace Boss
                 Resources.Load("Enemies/Level1/Boss/Wakeup_AnimController") as RuntimeAnimatorController;
 
             textureTransform.position = textureTransform.position + new Vector3(0, textureTransformModifier, 0);
-            yield return new WaitForSecondsRealtime(1.645f);
+            yield return new WaitForSecondsRealtime(1.62f);
 
             boss.GetStatus().SetForceStop(false);
 
