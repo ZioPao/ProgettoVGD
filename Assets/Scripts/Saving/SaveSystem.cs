@@ -29,9 +29,8 @@ namespace Saving
 
         public void Save()
         {
-
             StartCoroutine(ShowSaveTip());
-            
+
             //Player stats
             Transform player = Values.GetPlayerTransform();
             save.playerPosition = player.position;
@@ -76,11 +75,12 @@ namespace Saving
             {
                 ;
             }
+
             //Triggers
             save.triggers = manager.GetCurrentTriggers();
-           
-            
-           //save.triggersStatus = manager.GetTriggerStatus();
+
+
+            //save.triggersStatus = manager.GetTriggerStatus();
 
             //Levers and doors
             save.interactableStatus = manager.GetInteractables();
@@ -94,7 +94,7 @@ namespace Saving
 
             //Currently held weapons
             save.heldWeapons = Values.GetHeldWeapons();
-            
+
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
             bf.Serialize(file, save);
@@ -102,7 +102,7 @@ namespace Saving
 
             UnityEngine.Debug.Log("Saved");
         }
-        
+
 
         public void Load()
         {
@@ -128,9 +128,9 @@ namespace Saving
                 {
                     asyncOperation.allowSceneActivation = true;
 
-                    
+
                     //Necessario un minimo d'attesa per determinare quando ha effettivamente caricato TUTTO.
-                    yield return new WaitForSeconds(0.2f);        //non ho idea di come fare il check al momento
+                    yield return new WaitForSeconds(0.2f); //non ho idea di come fare il check al momento
 
                     Values.SetCanSave(false);
                     Values.SetCanPause(false);
@@ -147,7 +147,7 @@ namespace Saving
                     GameObject newPlayer = null;
                     Transform newPlayerT = null;
                     bool isPlayerLoaded = false;
-                    
+
                     while (!isPlayerLoaded)
                     {
                         newPlayer = GameObject.FindWithTag("Player");
@@ -160,11 +160,8 @@ namespace Saving
                             newPlayerT = newPlayer.transform;
                             isPlayerLoaded = true;
                         }
-
                     }
 
-                  
-                    
 
                     newPlayerT.position = save.playerPosition;
                     newPlayerT.rotation = save.playerRotation;
@@ -181,7 +178,8 @@ namespace Saving
 
                     foreach (var w in save.heldWeapons)
                     {
-                        Values.AddHeldWeapon(w.Key, w.Value);        //Dovrebbe aver fatto la reinit del weapon controller... O almeno, non dovrebbe.. I guess? Fuck
+                        Values.AddHeldWeapon(w.Key,
+                            w.Value); //Dovrebbe aver fatto la reinit del weapon controller... O almeno, non dovrebbe.. I guess? Fuck
                     }
 
                     foreach (var w in save.weaponsCurrentAmmo)
@@ -202,9 +200,10 @@ namespace Saving
                     EnemySpritesManager spritesManager = Values.GetEnemySpritesManager();
                     foreach (var element in save.enemiesStatus)
                     {
-                        GameObject tmpEnemy = Instantiate(enemyPrefab, element.Value.GetPosition(), element.Value.GetRotation(), 
-                            GameObject.Find("Enemies").transform );
-                        
+                        GameObject tmpEnemy = Instantiate(enemyPrefab, element.Value.GetPosition(),
+                            element.Value.GetRotation(),
+                            GameObject.Find("Enemies").transform);
+
                         //todo non rimette il nome corretto 
                         //todo ci dev'essere una maniera meno orribile per reiniziallizare un nemico
                         tmpEnemy.GetComponent<EnemyBase>().Reload(element.Value);
@@ -212,7 +211,7 @@ namespace Saving
                         tmpEnemy.GetComponent<EnemyIntelligence>().Start();
                         tmpEnemy.GetComponent<EnemyShooting>().Start();
 
-                        tmpEnemy.name = element.Key;        //Mette il nome corretto
+                        tmpEnemy.name = element.Key; //Mette il nome corretto
                         spritesManager.AddEnemyToEnemyList(tmpEnemy);
                     }
 
@@ -250,8 +249,6 @@ namespace Saving
                             tmpSpawner.SetStatus(spawnerStatus.Value);
                             tmpSpawner.SetEnemyPrefab(enemyPrefab);
                         }
-                        
-                        
                     }
 
                     //Interactables
@@ -259,7 +256,10 @@ namespace Saving
                     {
                         var interactableObject = currentLevel.transform.Find("InteractableObjects/" + interactable.Key);
 
-                        interactableObject.GetComponent<IInteractableMidGame>().ForceActivation();
+                        if (!interactable.Value)
+                        {
+                            interactableObject.GetComponent<IInteractableMidGame>().ForceActivation();
+                        }
 
                         // //Check aggiuntivo per capire se stiamo prendendo l'object igusto o meno
                         //
@@ -293,19 +293,17 @@ namespace Saving
                         //         break;
                         // }
                     }
-                    
-  
-                    
+
+
                     var tmpLevelManager = currentLevel.GetComponent<LevelManager>();
-                    
+
                     //Triggers
                     var oldTriggers = tmpLevelManager.GetOriginalTriggers();
                     foreach (var oldT in oldTriggers)
                     {
                         if (!save.triggers.Contains(oldT))
-                        { 
+                        {
                             GameObject.Find(oldT).GetComponent<ITriggerMidGame>().RunTrigger();
-                            
                         }
                     }
 
@@ -321,19 +319,18 @@ namespace Saving
                             Destroy(tmpPickup);
                         }
                     }
-                    Values.SetIsLoadingSave(false);        //gli enemy spawner torneranno a funzionare
+
+                    Values.SetIsLoadingSave(false); //gli enemy spawner torneranno a funzionare
                     GameObject.Find(Values.loadingCanvasName).GetComponent<Canvas>().enabled = false;
                     print("Caricato");
 
                     yield return new WaitForSeconds(1);
                     Values.SetCanPause(true);
                     Values.SetCanSave(true);
-
                 }
                 else
                 {
                     yield return null;
-
                 }
             }
         }
@@ -341,22 +338,17 @@ namespace Saving
         public IEnumerator WaitForComponentStartup<T>(EnemySpawner x, KeyValuePair<String, EnemySpawnerStatus> status,
             GameObject prefab)
         {
-    
-
             yield return new WaitForEndOfFrame();
         }
 
         private IEnumerator ShowSaveTip()
         {
-
             var canvas = GameObject.Find("SavingCanvas").GetComponent<Canvas>();
             canvas.enabled = true;
 
             yield return new WaitForSecondsRealtime(3);
-            
+
             canvas.enabled = false;
-
-
         }
     }
 }
