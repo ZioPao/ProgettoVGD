@@ -43,7 +43,7 @@ namespace Boss
                 //Fornisce una nuova arma al player
 
                 //todo forse non è necessario il check
-                if (weapon != null)
+                if (weapon != -1)
                 {
                     AddWeaponToPlayer();
                 }

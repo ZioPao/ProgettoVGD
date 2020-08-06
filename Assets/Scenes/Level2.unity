@@ -1594,7 +1594,7 @@ Transform:
   m_LocalScale: {x: 3, y: 2, z: 3}
   m_Children: []
   m_Father: {fileID: 3500835445442782005}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!64 &2316651983986479640
 MeshCollider:
@@ -1650,7 +1650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4868983561621443612}
   m_LocalRotation: {x: -0.54909396, y: 0.44378522, z: 0.5567829, w: 0.43765673}
-  m_LocalPosition: {x: 165.003, y: -23.34, z: -711.51855}
+  m_LocalPosition: {x: -626.515, y: -23.679, z: -711.51855}
   m_LocalScale: {x: 4, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 5294133601503551924}
@@ -3667,8 +3667,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4895837791089002909}
   - {fileID: 2316651983985987129}
+  - {fileID: 4895837791089002909}
   m_Father: {fileID: 4221362688348560134}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20210,8 +20210,12 @@ PrefabInstance:
         type: 3}
       propertyPath: objectToMove
       value: 
-      objectReference: {fileID: 7032375829994626814, guid: 990014f3f7afeb34bb869c44c82b2c36,
+      objectReference: {fileID: 3122910447318280429}
+    - target: {fileID: 7375224080441832846, guid: a1494180fc35a7a41a15138e8dc97b7b,
         type: 3}
+      propertyPath: weapon
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7375224080441832847, guid: a1494180fc35a7a41a15138e8dc97b7b,
         type: 3}
       propertyPath: m_LocalPosition.x
