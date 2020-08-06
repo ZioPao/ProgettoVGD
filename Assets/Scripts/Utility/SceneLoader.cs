@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,5 +34,30 @@ namespace Utility
             }
         }
 
-    }
+        // public static IEnumerator LoadWeapons(Values.WeaponEnum weapon, bool setAsMain)
+        // {
+        //
+        //     while (!Values.GetWeaponController())
+        //     {
+        //         yield return null;
+        //     }
+        //
+        //
+        //     while (!Values.GetWeaponController().GetIsDoneLoading())
+        //         yield return null;
+        //
+        //     Values.AddHeldWeapon(weapon, true);
+        //     Values.SetWeaponController(null);            //In caso di reload non si caga addosso
+        //
+        //     if (setAsMain)
+        //     {
+        //         Values.SetCurrentWeapon(weapon);
+        //         Values.GetWeaponObjects()[weapon].SetActive(true);
+        //
+        //     }
+        }
+        
+            
+        
+    
 }

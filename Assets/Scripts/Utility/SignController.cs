@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Utility
 {
-    public class SignController : MonoBehaviour
+    public class SignController : MonoBehaviour, IInteractableMidGame
     {
 
         [SerializeField] private int signID = 0;
@@ -135,6 +135,20 @@ namespace Utility
         {
             currentSignID = value;
         }
-        
+
+        public void InteractableBehaviour()
+        {
+            return;
+        }
+
+        public void ForceActivation()
+        {
+            return;
+        }
+
+        public bool GetIsEnabled()
+        {
+            return enabled;
+        }
     }
 }

@@ -70,10 +70,9 @@ namespace Player
         private static Transform _playerTransform;
         
         
-        //Enemy Sprite manager
+        //Player componenets
         private static EnemySpritesManager _enemySpritesManager;
-        
-        //Rigidbody
+        private static WeaponController weaponController;
         private static Rigidbody rb;
         
         //Collider
@@ -328,7 +327,10 @@ namespace Player
         {
             return _enemySpritesManager;
         }
-
+        public static WeaponController GetWeaponController()
+        {
+            return weaponController;
+        }
         //Collider
         public static CapsuleCollider GetCollider()
         {
@@ -613,7 +615,10 @@ namespace Player
         {
             _enemySpritesManager = value;
         }
-        
+        public static void SetWeaponController(WeaponController value)
+        {
+            weaponController = value;
+        }
         //Saving
         public static void SetIsLoadingSave(bool value)
         {

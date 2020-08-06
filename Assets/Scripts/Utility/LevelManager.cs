@@ -36,7 +36,10 @@ namespace Utility
         private void Awake()
         {
             Values.SetCurrentLevel(levelId);
-
+            Values.SetHasInteractedWithWinObject(false);        //per evitare problemi dopo aver finito il gioco
+            
+            
+            
             GameObject player;
             //print("game over: " + Values.GetIsGameOver());
 

@@ -87696,10 +87696,25 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1349376442475586359, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1349376443363877030, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349376443363877030, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1349376443402433381, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Sign2
       objectReference: {fileID: 0}
     - target: {fileID: 1552760535032494531, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
@@ -88006,10 +88021,25 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5639627891942669410, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639627893742054448, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Sign3
+      objectReference: {fileID: 0}
     - target: {fileID: 5639627893749514227, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639627893749514227, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5718020831824833125, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
@@ -88021,10 +88051,40 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5802769656742895567, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5802769657477799006, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802769657477799006, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802769657636245405, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Sign1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094079019410601259, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094079019636156136, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_Name
+      value: Sign4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094079020831569594, guid: 1af5e2aba8da1924bb01a637d71678c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6287568781403015819, guid: 1af5e2aba8da1924bb01a637d71678c5,
         type: 3}

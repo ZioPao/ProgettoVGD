@@ -6,16 +6,9 @@ namespace Player
 {
     public class WeaponController : MonoBehaviour
     {
-        
-        //Camera
-        
-
-        // Start is called before the first frame update
+   
         void Awake()
         {
-            if (!Values.GetIsChangingScene())
-            {
-                   /*Setup Weapons*/
             
             Values.InitializeWeaponObjects();
             Values.InitializeWeaponBehaviours();
@@ -32,7 +25,12 @@ namespace Player
             Values.AddWeaponBehaviour(Values.WeaponEnum.Knife, GameObject.Find("PlayerKnife").GetComponent<WeaponBehaviour>());
             Values.AddWeaponBehaviour(Values.WeaponEnum.Pistol, GameObject.Find("PlayerPistol").GetComponent<WeaponBehaviour>());
             Values.AddWeaponBehaviour(Values.WeaponEnum.SMG, GameObject.Find("PlayerSMG").GetComponent<WeaponBehaviour>());
+
+            if (!Values.GetIsChangingScene() || !Values.GetIsLoadingSave())
+            {
+                   /*Setup Weapons*/
             
+          
             //Only temporary values, in the final game the player won't have all weapons from the start
             Values.AddHeldWeapon(Values.WeaponEnum.Knife, true);
             Values.AddHeldWeapon(Values.WeaponEnum.Pistol, true);    
@@ -66,7 +64,7 @@ namespace Player
 
             Values.SetCurrentWeapon(Values.WeaponEnum.Pistol);
             }
-         
+            
         }
         
         public void ChangeWeapon()
