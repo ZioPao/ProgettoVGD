@@ -90,9 +90,11 @@ namespace Saving
             save.enemiesStatus = manager.enemiesStatus;
 
             //Projectiles
-
             save.projectileStatus = manager.GetProjectileStatus();
 
+            //Currently held weapons
+            save.heldWeapons = Values.GetHeldWeapons();
+            
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
             bf.Serialize(file, save);
@@ -109,11 +111,11 @@ namespace Saving
 
             save = (Save) bf.Deserialize(file);
             file.Close();
-            StartCoroutine(LoadLevel(save.levelName));
+            StartCoroutine(LoadSave(save.levelName));
         }
 
 
-        IEnumerator LoadLevel(string levelName)
+        IEnumerator LoadSave(string levelName)
         {
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/" + levelName, LoadSceneMode.Single);
             asyncOperation.allowSceneActivation = false;
@@ -134,13 +136,13 @@ namespace Saving
                     Values.SetCanPause(false);
                     Values.SetIsLoadingSave(true);
 
-                    //todo probably totally useless
-                    //just in case?
-                    BinaryFormatter bf = new BinaryFormatter();
-                    FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
-
-                    save = (Save) bf.Deserialize(file);
-                    file.Close();
+                    // //todo probably totally useless
+                    // //just in case?
+                    // BinaryFormatter bf = new BinaryFormatter();
+                    // FileStream file = File.Open(Application.persistentDataPath + "/gamesave.save", FileMode.Open);
+                    //
+                    // save = (Save) bf.Deserialize(file);
+                    // file.Close();
 
                     GameObject newPlayer = null;
                     Transform newPlayerT = null;
@@ -175,6 +177,11 @@ namespace Saving
                     foreach (var w in save.weaponsCurrentReserve)
                     {
                         Values.SetAmmoReserve(w.Key, w.Value);
+                    }
+
+                    foreach (var w in save.heldWeapons)
+                    {
+                        Values.AddHeldWeapon(w.Key, w.Value);        //Dovrebbe aver fatto la reinit del weapon controller... O almeno, non dovrebbe.. I guess? Fuck
                     }
 
                     foreach (var w in save.weaponsCurrentAmmo)
@@ -287,6 +294,8 @@ namespace Saving
                         // }
                     }
                     
+  
+                    
                     var tmpLevelManager = currentLevel.GetComponent<LevelManager>();
                     
                     //Triggers
@@ -316,7 +325,7 @@ namespace Saving
                     GameObject.Find(Values.loadingCanvasName).GetComponent<Canvas>().enabled = false;
                     print("Caricato");
 
-                    yield return new WaitForSeconds(2);
+                    yield return new WaitForSeconds(1);
                     Values.SetCanPause(true);
                     Values.SetCanSave(true);
 

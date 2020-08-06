@@ -18,6 +18,7 @@ namespace Saving
         //Stats base
         public float health, stamina;
 
+        public Dictionary<Values.WeaponEnum, bool> heldWeapons;
         public Dictionary<Values.WeaponEnum, int> weaponsCurrentAmmo;
         public Dictionary<Values.WeaponEnum, int> weaponsCurrentReserve;
         

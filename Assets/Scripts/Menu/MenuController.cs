@@ -36,7 +36,14 @@ namespace Menu
             settings.Init();
             settings.SetResolutionOptions(resolutionDropdown);
         }
-        
+
+        public void StartNewGame()
+        {
+            LoadLevel(1);
+            //StartCoroutine(SceneLoader.LoadWeapons(Values.WeaponEnum.Pistol, true));
+
+            //Values.AddHeldWeapon(Values.WeaponEnum.Knife, true);
+        }
 
         public void LoadGame()
         {
@@ -61,6 +68,8 @@ namespace Menu
             
             mainMenu.SetActive(false);
             selectMenu.SetActive(true);
+            
+            //todo tutte le armi di default..... usare uno sceneloader object come per il savesystem object?
 
         }
 
