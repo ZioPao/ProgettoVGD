@@ -85,10 +85,10 @@ namespace Enemies
 
             //Hitmarkers
             if (status.GetIsHit())
-            { 
+            {
                 //Controlla prima che l'animator non stesse già girando
                 if (hitmarkerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime >=
-                    hitmarkerAnimator.GetCurrentAnimatorStateInfo(0).length)
+                    hitmarkerAnimator.GetCurrentAnimatorStateInfo(0).length + Values.GetHitmarkerAnimationLengthener())
                 {
                     hitMarker.SetActive(false);
                     status.SetIsHit(false);
