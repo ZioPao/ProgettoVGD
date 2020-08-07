@@ -6,8 +6,8 @@ using UnityEngine;
 public class Torch : MonoBehaviour
 {
     private Light torchLight;
-    
-    private float zCenter;
+
+    private float zCenter, yAxisLock;
     private float maxMovement = 0.15f;
 
     private Color firstColor = new Color(82,38,24);
@@ -16,6 +16,7 @@ public class Torch : MonoBehaviour
     {
         torchLight = GetComponent<Light>();
         zCenter = transform.position.z;
+        yAxisLock = transform.position.y;
 
 
     }
@@ -41,7 +42,7 @@ public class Torch : MonoBehaviour
                 transform.LookAt(new Vector3(playerPosition.x,
                     transform.position.y,
                     playerPosition.z));
-                transform.LookAt(Values.GetPlayerTransform());
+                //transform.LookAt(Values.GetPlayerTransform());
 
             }
         }
