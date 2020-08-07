@@ -12,7 +12,7 @@ namespace Utility
 {
     public class LevelManager : MonoBehaviour
     {
-        [SerializeField] private Vector3 spawnPoint;
+        [SerializeField] private Transform spawnPoint;
         [SerializeField] private Vector3 spawnPointRotation;
         [SerializeField] private int levelId;
 
@@ -52,7 +52,7 @@ namespace Utility
 
                 player.GetComponent<InteractionController>().Awake(); //upates it
                 player.GetComponentInChildren<EnemySpritesManager>().Awake();
-                player.transform.position = spawnPoint;
+                player.transform.position = spawnPoint.position;
                 player.transform.rotation = Quaternion.Euler(spawnPointRotation);
                 Values.SetIsChangingScene(false);        //Finito di caricare nuova scena dall'endtrigger
             }
@@ -60,8 +60,8 @@ namespace Utility
             {
                 //Spawn normale
                 player = Instantiate(Resources.Load("Prefabs/Player")) as GameObject;
-                Values.InitializeCompletedTriggers();            
-                player.transform.position = spawnPoint;
+                Values.InitializeCompletedTriggers();
+                player.transform.position = spawnPoint.position;
                 player.transform.rotation = Quaternion.Euler(spawnPointRotation);
 
 

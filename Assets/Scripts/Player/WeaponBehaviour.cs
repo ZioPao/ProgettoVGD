@@ -84,10 +84,11 @@ namespace Player
             }
             
             //Timers for Attack Duration and Cooldown deplete over time
-            Utility.TimerController.RunTimer(cooldownTimer);
-            Utility.TimerController.RunTimer(attackTimer);
+            TimerController.RunTimer(cooldownTimer);
+            TimerController.RunTimer(attackTimer);
 
-            if ((Utility.TimerController.GetCurrentTime()[attackTimer] == 0) && Values.GetIsAttacking()[Values.GetCurrentWeapon()])
+            
+            if ((TimerController.GetCurrentTime()[attackTimer] == 0) && Values.GetIsAttacking().ContainsValue(true))
             {
                 Values.SetIsAttacking(Values.GetCurrentWeapon(), false);
                 gunshotLight.enabled = false;
