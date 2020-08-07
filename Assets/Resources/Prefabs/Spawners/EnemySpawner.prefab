@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 0}
+  spawnEffectPrefab: {fileID: 9081928120985500482, guid: b3080dfe8a1ce0a44a2fe5a260e6c8d0,
+    type: 3}
   maxEnemiesConcurrently: 3
   maxEnemiesSpawned: 10
   rangeSpawn: 0

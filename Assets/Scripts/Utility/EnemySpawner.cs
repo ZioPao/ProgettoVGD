@@ -12,6 +12,8 @@ namespace Utility
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private GameObject spawnEffectPrefab;
+        [SerializeField] private Color spawnEffectColor;
         [SerializeField] private int maxEnemiesConcurrently;
 
         [SerializeField] private int maxEnemiesSpawned;
@@ -91,6 +93,14 @@ namespace Utility
             enemiesSpawned.Add(enemy); //So we can check if they're destroyed or not
             Values.GetEnemySpritesManager()
                 .AddEnemyToEnemyList(enemy); //needed to make the sprite viewing works
+
+
+            var spawnEffect = Instantiate(spawnEffectPrefab, correctPosition, Quaternion.identity);
+            var spawnEffectMain = spawnEffect.GetComponent<ParticleSystem>().main;
+            spawnEffectMain.startColor = spawnEffectColor;
+
+            var light = spawnEffect.GetComponentInChildren<Light>();
+            light.color = spawnEffectColor;
         }
 
         private void RemoveDestroyedEnemies()
