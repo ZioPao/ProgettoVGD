@@ -27,6 +27,10 @@ namespace Boss
         private SpriteRenderer spriteRenderer;
         private Animator spriteAnimator;
 
+        //Name
+        private GameObject Phase1Name;
+        private GameObject Phase2Name;
+
         //Change phase
         private bool isInPhaseTwo;
 
@@ -45,6 +49,11 @@ namespace Boss
             spriteAnimator = GetComponentInChildren<Animator>();
             //enemySpawner = gameObject.AddComponent<EnemySpawner>();        //per spawnare i nemici nella fase 2    
             isInPhaseTwo = false;
+
+            //Gets boss names
+            var texture = transform.Find("Texture");
+            Phase1Name = texture.Find("NamePhase1").gameObject;
+            Phase2Name = texture.Find("NamePhase2").gameObject;
 
             FindPathUnlocker();
             //Non lo attiva fino alla seconda fase per motivi di sprites
@@ -78,6 +87,10 @@ namespace Boss
 
             //Reset health
             bossStatus.SetHealth(bossHealth);
+
+            //Change name
+            Phase1Name.SetActive(false);
+            Phase2Name.SetActive(true);
 
             //Increase projectile rate and speed
             bossShooting.SetProjectileSpawnRate(bossProjectileRate);

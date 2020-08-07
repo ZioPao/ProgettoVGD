@@ -12747,7 +12747,7 @@ MonoBehaviour:
   spawnPoint1: {fileID: 9121070389917966535}
   spawnPoint2: {fileID: 9121070391047018248}
   fakeBossName: ???
-  finalBossName: 
+  finalBossName: Pescatrice Leggendaria
 --- !u!1001 &6164173279304010103
 PrefabInstance:
   m_ObjectHideFlags: 0
