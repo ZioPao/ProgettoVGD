@@ -22,6 +22,10 @@ namespace Enemies
         //Hitmarkers
         private GameObject hitMarker;
         private Animator hitmarkerAnimator;
+
+        //Health Bar
+        private GameObject healthBar;
+        private HealthBarManager healthBarScript;
         
         private string timerName;
         private bool isReloading = false;
@@ -59,6 +63,9 @@ namespace Enemies
             hitMarker.GetComponent<SpriteRenderer>().sprite = hitmarkerSprite;
             hitmarkerAnimator = hitMarker.GetComponent<Animator>();
             hitmarkerAnimator.runtimeAnimatorController = hitmarkerAnimation;
+
+            healthBar = texture.Find("Healthbar").gameObject;
+            healthBarScript = healthBar.GetComponent<HealthBarManager>();
             
             
             texture.GetComponent<SpriteRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
@@ -103,9 +110,17 @@ namespace Enemies
                     hitmarkerAnimator.Play("hitmarker_Anim", -1, 0f);
 
                 }
-                
-              
-               
+
+                if(healthBar.activeSelf == false)
+                {
+                    healthBar.SetActive(true);
+                }
+
+                //Change Health bar color (Health bar manager)
+
+                //Change Health bar width (Health bar manager)
+
+
                 //     hitMarker.SetActive(false);
                 //
                 // if (TimerController.GetCurrentTime()[TimerController.HITMARKER_K] <= 0)
