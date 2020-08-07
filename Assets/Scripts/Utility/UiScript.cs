@@ -25,7 +25,7 @@ namespace Utility
         private TMP_Dropdown resolutionDropdown;
 
         private Text healthString, staminaText, oxygenText, ammoText, signText, tipsText;
-        private Image healthSprite;
+        private Image healthSprite, staminaSprite, oxygenSprite, ammoSprite;
 
         [SerializeField] private GameObject selectedOnPause;
         [SerializeField] private GameObject selectedOnOptionsOpen;
@@ -41,12 +41,20 @@ namespace Utility
 
 
             //health
-            healthString = GameObject.Find("health_text").GetComponent<Text>();
+            healthString = GameObject.Find("health_edit").GetComponent<Text>();
             healthSprite = GameObject.Find("health_sprite").GetComponent<Image>();
 
+            //stamina
             staminaText = GameObject.Find("stamina_edit").GetComponent<Text>();
+            staminaSprite = GameObject.Find("stamina_sprite").GetComponent<Image>();
+
+            //oxygen
             oxygenText = GameObject.Find("oxygen_edit").GetComponent<Text>();
+            oxygenSprite = GameObject.Find("oxygen_sprite").GetComponent<Image>();
+
+            //ammo
             ammoText = GameObject.Find("ammo_edit").GetComponent<Text>();
+
             signText = GameObject.Find("sign_text").GetComponent<Text>();
 
             //Pause
@@ -81,15 +89,12 @@ namespace Utility
                 }
                 else
                 {
-                    int currentHealth = Mathf.RoundToInt(Player.Values.GetHealth());
+
                     SetHealthSprite(Values.GetHealth(), Values.GetMaxHealth());
+                    SetStaminaSprite(Values.GetStamina(), Values.GetMaxStamina());
 
-                    healthString.text = currentHealth.ToString();
+                    healthString.text = Mathf.RoundToInt(Player.Values.GetHealth()).ToString();
                     staminaText.text = Mathf.RoundToInt(Player.Values.GetStamina()).ToString();
-
-                    //Prende l'arma attiva al momento
-                    //todo still pesante
-
 
                     if (!Values.GetWeaponBehaviours()[Values.GetCurrentWeapon()].GetIsMelee())
                     {
@@ -106,6 +111,8 @@ namespace Utility
 
                     if (oxygen < Values.GetMaxOxygen())
                     {
+                        SetOxygenSprite(Values.GetOxygen(), Values.GetMaxOxygen());
+
                         oxygenCanvas.SetActive(true);
                         oxygenText.text = Mathf.RoundToInt(oxygen).ToString();
                     }
@@ -298,38 +305,132 @@ namespace Utility
 
             switch (percentHealth)
             {
-                case float n when (n <= 100f && n >= 90f):
+                case float n when (n <= 100f && n > 90f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 100");
                     break;
-                case float n when (n < 90f && n >= 80f):
+                case float n when (n <= 90f && n > 80f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 090");
                     break;
-                case float n when (n < 80f && n >= 70f):
+                case float n when (n <= 80f && n > 70f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 080");
                     break;
-                case float n when (n < 70f && n >= 60f):
+                case float n when (n <= 70f && n > 60f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 070");
                     break;
-                case float n when (n < 60f && n >= 50f):
+                case float n when (n <= 60f && n > 50f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 060");
                     break;
-                case float n when (n < 50f && n >= 40f):
+                case float n when (n <= 50f && n > 40f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 050");
                     break;
-                case float n when (n < 40f && n >= 30f):
+                case float n when (n <= 40f && n > 30f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 040");
                     break;
-                case float n when (n < 30f && n >= 20f):
+                case float n when (n <= 30f && n > 20f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 030");
                     break;
-                case float n when (n < 20f && n >= 10f):
+                case float n when (n <= 20f && n > 10f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 020");
                     break;
-                case float n when (n < 10f && n >= 0f):
+                case float n when (n <= 10f && n > 0f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 010");
                     break;
                 default:
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 000");
+                    break;
+            }
+        }
+
+        private void SetStaminaSprite(float currentStamina, float maxStamina)
+        {
+
+            float percentStamina;
+
+            staminaSprite.preserveAspect = true;
+
+            percentStamina = (currentStamina / maxStamina) * 100;
+
+            switch (percentStamina)
+            {
+                case float n when (n <= 100f && n > 90f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 100");
+                    break;
+                case float n when (n <= 90f && n > 80f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 090");
+                    break;
+                case float n when (n <= 80f && n > 70f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 080");
+                    break;
+                case float n when (n <= 70f && n > 60f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 070");
+                    break;
+                case float n when (n <= 60f && n > 50f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 060");
+                    break;
+                case float n when (n <= 50f && n > 40f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 050");
+                    break;
+                case float n when (n <= 40f && n > 30f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 040");
+                    break;
+                case float n when (n <= 30f && n > 20f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 030");
+                    break;
+                case float n when (n <= 20f && n > 10f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 020");
+                    break;
+                case float n when (n <= 10f && n > 0f):
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 010");
+                    break;
+                default:
+                    staminaSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/stamina/Stamina 000");
+                    break;
+            }
+        }
+
+        private void SetOxygenSprite(float currentOxygen, float maxOxygen)
+        {
+
+            float percentOxygen;
+
+            oxygenSprite.preserveAspect = true;
+
+            percentOxygen = (currentOxygen / maxOxygen) * 100;
+
+            switch (percentOxygen)
+            {
+                case float n when (n <= 100f && n > 90f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 100");
+                    break;
+                case float n when (n <= 90f && n > 80f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 090");
+                    break;
+                case float n when (n <= 80f && n > 70f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 080");
+                    break;
+                case float n when (n <= 70f && n > 60f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 070");
+                    break;
+                case float n when (n <= 60f && n > 50f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 060");
+                    break;
+                case float n when (n <= 50f && n > 40f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 050");
+                    break;
+                case float n when (n <= 40f && n > 30f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 040");
+                    break;
+                case float n when (n <= 30f && n > 20f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 030");
+                    break;
+                case float n when (n <= 20f && n > 10f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 020");
+                    break;
+                case float n when (n <= 10f && n > 0f):
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 010");
+                    break;
+                default:
+                    oxygenSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/oxygen/Oxygen 000");
                     break;
             }
         }
