@@ -95,7 +95,7 @@ namespace Utility
                 .AddEnemyToEnemyList(enemy); //needed to make the sprite viewing works
 
 
-            var spawnEffect = Instantiate(spawnEffectPrefab, correctPosition, Quaternion.identity);
+            var spawnEffect = Instantiate(spawnEffectPrefab, correctPosition, spawnEffectPrefab.transform.rotation);
             var spawnEffectMain = spawnEffect.GetComponent<ParticleSystem>().main;
             spawnEffectMain.startColor = spawnEffectColor;
 

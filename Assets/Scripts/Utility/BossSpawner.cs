@@ -30,7 +30,7 @@ namespace Utility
 
             if (spawnEffectPrefab)
             {
-                var spawnEffect = Instantiate(spawnEffectPrefab, transform.position, Quaternion.identity);
+                var spawnEffect = Instantiate(spawnEffectPrefab, transform.position, spawnEffectPrefab.transform.rotation);
                 var spawnEffectMain = spawnEffect.GetComponent<ParticleSystem>().main;
                 spawnEffectMain.startColor = spawnEffectColor;
 
