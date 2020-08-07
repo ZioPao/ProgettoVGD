@@ -23,7 +23,7 @@ namespace Player
         private static float maxOxygen = 100f;
         private static float rigidBodyDefaultMass = 2.45f;
         private static float projectileDistance = 100f;
-        private static float meleeDistance = 20f;
+        private static float meleeDistance = 6f;
         private static float interactionDistance = 5f;
         private static float pickupDistance = 5f;
         private static float mouseSensibility = 0.5f;

@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMelee: 0
-  damagePerShot: 30
+  damagePerShot: 25
   shotSpread: 0
 --- !u!95 &850574074771676973
 Animator:
@@ -4280,7 +4280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMelee: 0
-  damagePerShot: 5
+  damagePerShot: 10
   shotSpread: 0
 --- !u!95 &3833093073162853399
 Animator:

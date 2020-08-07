@@ -2131,6 +2131,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 256395713}
     m_Modifications:
+    - target: {fileID: 8043980662495629436, guid: 12215e6cd0ed9044f910c2a1aa4883b3,
+        type: 3}
+      propertyPath: m_TagString
+      value: InteractableSign
+      objectReference: {fileID: 0}
     - target: {fileID: 8043980662952706089, guid: 12215e6cd0ed9044f910c2a1aa4883b3,
         type: 3}
       propertyPath: m_LocalPosition.x

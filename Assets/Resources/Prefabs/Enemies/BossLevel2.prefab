@@ -815,7 +815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ff1a693d21bac468136161618c5410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 450
   hitmarkerSprite: {fileID: -3456819443802960952, guid: caf6e826d80c7094a89bbd8efbf8b784,
     type: 3}
   hitmarkerAnimation: {fileID: 9100000, guid: 716f4cda56796ef4095512077e2c176a, type: 2}
@@ -898,7 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13afd955736994d469cfa74da85e4808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossHealth: 150
+  bossHealth: 750
   timerPhase: 15
   projRateDefense: 5
   projSpeedDefense: 3
