@@ -16,8 +16,9 @@ namespace Boss
         private Vector3 fakeBossLastPosition;
 
         [SerializeField] private GameObject spawnPoint1, spawnPoint2;
+        [SerializeField] private string fakeBossName = "???";
+        [SerializeField] private string finalBossName;
 
-        private const string fakeBossName = "FakeBossLevel3";
         private bool isFakeBossDead;
 
         private GameObject sign;
@@ -54,9 +55,17 @@ namespace Boss
 
                 GameObject bossPrefab = Resources.Load<GameObject>("Prefabs/Enemies/BossLevel3");
                 var boss = Instantiate(bossPrefab, chosenPoint, Quaternion.identity);
+
+                boss.name = finalBossName;
+                Values.SetCurrentBoss(boss);        //todo testare
                 boss.transform.LookAt(Values.GetPlayerTransform());
                 Values.GetEnemySpritesManager().AddEnemyToEnemyList(boss);
 
+                
+                //Attiva l'ending checker
+                GameObject.Find("ending_check").GetComponent<EndingScript>().enabled = true;
+                
+                
                 enabled = false; //disables the spawner
             }
         }
