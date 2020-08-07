@@ -43,10 +43,27 @@ namespace Menu
             Values.SetSettings(settings);
             settings.Init();
             settings.SetResolutionOptions(resolutionDropdown);
-
+            
             if (PlayerPrefs.HasKey(Values.ResolutionKey))
             {
                 SetResolution(PlayerPrefs.GetInt(Values.ResolutionKey));
+            }
+
+            if (PlayerPrefs.HasKey(Values.EffectKey))
+            {
+                Audio.SoundManager.SetEffectVolumeModifier(PlayerPrefs.GetFloat(Values.EffectKey));
+            }
+
+            if (PlayerPrefs.HasKey(Values.MusicKey))
+            {
+                Audio.SoundManager.SetTrackVolumeModifier(PlayerPrefs.GetFloat(Values.MusicKey));
+
+            }
+
+            if (PlayerPrefs.HasKey(Values.SensibilityKey))
+            {
+                Values.SetMouseSensibility(PlayerPrefs.GetFloat(Values.SensibilityKey));
+
             }
             
             
