@@ -24,6 +24,8 @@ namespace Menu
             musicSlider.value = musicSliderValue;
             sensibilitySlider.value = sensibilityValue;
 
+
+            
             effectSlider.onValueChanged.AddListener(delegate { EffectSliderCheck(); });
             musicSlider.onValueChanged.AddListener(delegate { MusicSliderCheck(); });
             sensibilitySlider.onValueChanged.AddListener(delegate { SensibilitySliderCheck(); });
