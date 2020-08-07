@@ -14,7 +14,7 @@ namespace Utility
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag(Values.PlayerTag) && Values.GetHealth() < 100)
+            if (other.CompareTag(Values.PlayerTag) && Values.GetHealth() < Values.GetMaxHealth())
             {
                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.HealthPickup);
                 Values.AddHealth(25);
