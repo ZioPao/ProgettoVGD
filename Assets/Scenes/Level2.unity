@@ -9563,9 +9563,9 @@ ReflectionProbe:
   serializedVersion: 2
   m_Type: 0
   m_Mode: 1
-  m_RefreshMode: 2
+  m_RefreshMode: 0
   m_TimeSlicingMode: 0
-  m_Resolution: 512
+  m_Resolution: 1024
   m_UpdateFrequency: 0
   m_BoxSize: {x: 10, y: 10, z: 10}
   m_BoxOffset: {x: 0, y: 0, z: 0}
@@ -9873,7 +9873,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6749119096218342276}
   - component: {fileID: 175407336727672635}
-  - component: {fileID: 998180630104900471}
   m_Layer: 0
   m_Name: Reflection Probe
   m_TagString: Untagged
@@ -9881,20 +9880,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &998180630104900471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 998180630104900470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ffda2905865af84da04546e44d52f99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  time: 15
-  probe: {fileID: 175407336727672635}
 --- !u!4 &1032899269179410996
 Transform:
   m_ObjectHideFlags: 0
