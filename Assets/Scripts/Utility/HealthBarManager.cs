@@ -15,7 +15,7 @@ namespace Utility
             percentHealth = (currentHealth / maxHealth) * 0.36f;
 
             //grazie unity
-            gameObject.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(percentHealth, 83, 100);
+            gameObject.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(percentHealth, 0.83f, 1);
         }
 
         public void ChangeHealthBarWidth (float currentHealth, float maxHealth)
