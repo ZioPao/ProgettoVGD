@@ -7924,7 +7924,7 @@ PrefabInstance:
     - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 132.67
+      value: 135.762
       objectReference: {fileID: 0}
     - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
@@ -7934,7 +7934,7 @@ PrefabInstance:
     - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 124.738
+      value: 102.361
       objectReference: {fileID: 0}
     - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
@@ -8020,7 +8020,7 @@ PrefabInstance:
     - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
       propertyPath: maxEnemiesConcurrently
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8210788485753281669, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
@@ -9887,7 +9887,7 @@ PrefabInstance:
     - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
       propertyPath: rangeSpawn
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
@@ -9923,7 +9923,7 @@ PrefabInstance:
     - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
       propertyPath: maxEnemiesConcurrently
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8210788485753281669, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
