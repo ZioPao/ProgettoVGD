@@ -7,11 +7,12 @@ namespace Player
 {
     public class CameraScript : MonoBehaviour
     {
-        [SerializeField] private float mouseSensitivity = 500;
+        [SerializeField] private float mouseSensitivityBase = 500;
         [SerializeField] private Transform player = null; //Sarebbe il player controller
 
 
-        private float maxY, minY;
+        private float mouseSensitivity;
+        private float maxY;
 
         /*Graphical stuff*/
         private bool isCameraInWater;
@@ -24,6 +25,7 @@ namespace Player
 
             post = GetComponent<PostProcessVolume>();
             Cursor.visible = false;
+            mouseSensitivity = mouseSensitivityBase * 0.5f;        //Mid slider
             Cursor.lockState = CursorLockMode.Locked;
         }
 
@@ -49,9 +51,6 @@ namespace Player
 
             //Check clamping
             maxY += mouseY;
-
-            minY -= mouseY;
-            
             if (maxY > 90.0f)
             {
                 maxY = 90.0f;
@@ -81,7 +80,12 @@ namespace Player
             eulerRotation.x = value; //La blocca
             transformCopy.eulerAngles = eulerRotation; //Setta la rotazione del player
         }
-        
+
+
+        public void UpdateMouseSensibility()
+        {
+            mouseSensitivity = Values.GetMouseSensibility() * mouseSensitivityBase;
+        }
         //Getters
 
         public bool IsCameraUnderWater()

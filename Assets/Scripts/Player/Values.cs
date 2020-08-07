@@ -26,6 +26,7 @@ namespace Player
         private static float meleeDistance = 20f;
         private static float interactionDistance = 5f;
         private static float pickupDistance = 5f;
+        private static float mouseSensibility = 0.5f;
 
         //Player Stats
         private static float health;
@@ -233,7 +234,12 @@ namespace Player
         {
             return pickupDistance;
         }
+        public static float GetMouseSensibility()
+        {
+            return mouseSensibility;
+        }
 
+        
         /// <summary>
         /// Getters player variables
         /// </summary>
@@ -588,7 +594,10 @@ namespace Player
         {
             pickupDistance = value;
         }
-
+        public static void SetMouseSensibility(float value)
+        {
+            mouseSensibility = value;
+        }
         //Player Stats
 
         public static void SetHealth(float value)
