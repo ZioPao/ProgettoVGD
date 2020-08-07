@@ -152,31 +152,36 @@ namespace Saving
 
                     //Attende fino a che il LevelManager non ha spawnato il player, dopodiché edita
                     //quello che è da ripristinare
-
-       
                     
-                    newPlayer = Instantiate(Resources.Load("Prefabs/Player")) as GameObject;
-
-                    while (!isPlayerLoaded)
-                    {
-                        newPlayer = GameObject.FindWithTag(Values.PlayerTag);
-                        if (newPlayer == null)
-                        {
-                            yield return new WaitForEndOfFrame();
-                        }
-                        else
-                        {
-                            newPlayerT = newPlayer.transform;
-                            isPlayerLoaded = true;
-                            yield return new WaitUntil(Values.GetIsWeaponControllerDoneLoading);
-                        }
-                    }
-                    
+                    while (!GameObject.FindWithTag(Values.LevelTag))
+                        yield return null;
                     currentLevel = GameObject.FindWithTag(Values.LevelTag);
                     levelManager = currentLevel.GetComponent<LevelManager>();
 
+                    Debug.LogWarning("Caricato levelmanager");
+
+                    Instantiate(Resources.Load("Prefabs/Player"));
+                    newPlayer = GameObject.FindWithTag(Values.PlayerTag);
+                    while (!isPlayerLoaded)
+                    {
+                        while (newPlayer.transform == null)
+                            yield return new WaitForEndOfFrame();
+
+                        isPlayerLoaded = true;
+                        Debug.LogWarning("Trovato player");
+                        Debug.LogWarning(newPlayer.transform);
+                    }
+
+                    yield return new WaitUntil(Values.GetIsWeaponControllerDoneLoading);
+                    while (newPlayer.transform == null)
+                    {
+                        yield return new WaitForEndOfFrame();
+                    }
+                    newPlayerT = newPlayer.transform;
+                    print("does this exist?" + newPlayerT);
                     newPlayerT.position = save.playerPosition;
                     newPlayerT.rotation = save.playerRotation;
+                  
 
                     Values.SetPlayerTransform(newPlayer.transform);
                     Values.SetHealth(save.health);

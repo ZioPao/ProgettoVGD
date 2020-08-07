@@ -61,12 +61,23 @@ namespace Menu
 
         public void LoadGame()
         {
+            print("caricamento da menu");
+
             GetComponentInParent<Canvas>().enabled = false;
 
-            GameObject saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
+            GameObject saveManager;
+            if (!Values.GetCurrentSaveManager())
+            {
+                saveManager = Instantiate(Resources.Load("Prefabs/SaveManager")) as GameObject;
+                Values.SetCurrentSaveManager(saveManager);
+
+            }
+            else
+            {
+                saveManager = Values.GetCurrentSaveManager();
+            }
 
             DontDestroyOnLoad(saveManager);
-            Values.SetCurrentSaveManager(saveManager);
             saveManager.GetComponent<SaveSystem>().Load();
         }
         public void QuitGame()
