@@ -21089,7 +21089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 8652647940364635947, guid: c17a2ada02024e545aec7ab8d0eb3674,
     type: 3}
-  customName: 
+  customName: Guardiano dei Dannati
 --- !u!1 &8388183822119010030
 GameObject:
   m_ObjectHideFlags: 0

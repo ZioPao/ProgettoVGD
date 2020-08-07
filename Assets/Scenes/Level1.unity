@@ -10550,7 +10550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 8652647940364635947, guid: f2519d44a42ff9a40886184aa72f2454,
     type: 3}
-  customName: Boss1
+  customName: Presenza Parassitica
 --- !u!1 &5174399103534121662
 GameObject:
   m_ObjectHideFlags: 0
