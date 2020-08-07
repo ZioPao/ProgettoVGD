@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileTimeMax: 15
   projectileSpeed: 15
-  damage: 20
+  damage: 25
 --- !u!1 &8076086713948433530
 GameObject:
   m_ObjectHideFlags: 0

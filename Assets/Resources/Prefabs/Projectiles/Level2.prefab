@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7862359989826453289}
   - component: {fileID: 8436050570516368805}
   m_Layer: 0
-  m_Name: Proj2Base
+  m_Name: Level2
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f049420969a4874282a750b12dc89b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileTimeMax: 15
-  projectileSpeed: 15
+  projectileTimeMax: 10
+  projectileSpeed: 5
   damage: 20
 --- !u!1 &8076086713948433530
 GameObject:
