@@ -8,9 +8,7 @@ namespace Menu
     {
         [SerializeField] private Slider effectSlider, musicSlider, sensibilitySlider;
 
-        private const string EffectKey = "effectSlider";
-        private const string MusicKey = "musicSlider";
-        private const string SensibilityKey = "sensibilitySlider";
+
 
 
         void Awake()
@@ -18,9 +16,9 @@ namespace Menu
 
             float effectSliderValue, musicSliderValue, sensibilityValue;
 
-            ManagePrefs(EffectKey, out effectSliderValue);
-            ManagePrefs(MusicKey, out musicSliderValue);
-            ManagePrefs(SensibilityKey, out sensibilityValue);
+            ManagePrefs(Values.EffectKey, out effectSliderValue);
+            ManagePrefs(Values.MusicKey, out musicSliderValue);
+            ManagePrefs(Values.SensibilityKey, out sensibilityValue);
 
             effectSlider.value = effectSliderValue;
             musicSlider.value = musicSliderValue;
@@ -34,7 +32,7 @@ namespace Menu
         private void EffectSliderCheck()
         {
             Audio.SoundManager.SetEffectVolumeModifier(effectSlider.value);
-            PlayerPrefs.SetFloat(EffectKey, effectSlider.value);
+            PlayerPrefs.SetFloat(Values.EffectKey, effectSlider.value);
             PlayerPrefs.Save();
             
         }
@@ -42,7 +40,7 @@ namespace Menu
         private void MusicSliderCheck()
         {
             Audio.SoundManager.SetTrackVolumeModifier(musicSlider.value);
-            PlayerPrefs.SetFloat(MusicKey, effectSlider.value);
+            PlayerPrefs.SetFloat(Values.MusicKey, effectSlider.value);
             PlayerPrefs.Save();
         }
 
@@ -55,7 +53,7 @@ namespace Menu
             {
                 Values.GetPlayerTransform().GetComponentInChildren<CameraScript>().UpdateMouseSensibility();
             }
-            PlayerPrefs.SetFloat(SensibilityKey, sensibilitySlider.value);
+            PlayerPrefs.SetFloat(Values.SensibilityKey, sensibilitySlider.value);
             PlayerPrefs.Save();
         }
 

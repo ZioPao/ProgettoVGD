@@ -143,6 +143,12 @@ namespace Player
         public const string SignsParentName = "Signs";
         public const string LoadingCanvasName = "LoadingCanvas";
 
+        
+        //Registry keys
+        public const string ResolutionKey = "Resolution";
+        public const string EffectKey = "effectSlider";
+        public const string MusicKey = "musicSlider";
+        public const string SensibilityKey = "sensibilitySlider";
 
         //Timers
         private static bool isTimerLoaded = false;

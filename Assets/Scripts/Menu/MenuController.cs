@@ -25,7 +25,8 @@ namespace Menu
         [SerializeField] private GameObject selectedOnLevelSelectionClose;
         [SerializeField] private GameObject selectedOnOptionsOpen;
         [SerializeField] private GameObject selectedOnOptionsClose;
-        
+
+
         public void Start()
         {
             Audio.SoundManager.InitializeSoundEffects();
@@ -43,6 +44,13 @@ namespace Menu
             settings.Init();
             settings.SetResolutionOptions(resolutionDropdown);
 
+            if (PlayerPrefs.HasKey(Values.ResolutionKey))
+            {
+                SetResolution(PlayerPrefs.GetInt(Values.ResolutionKey));
+            }
+            
+            
+            
             //Sets selected button
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(selectedOnStart);
