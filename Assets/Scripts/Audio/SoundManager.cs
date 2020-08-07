@@ -39,6 +39,7 @@ namespace Audio{
 
 		private static GameObject soundGameObject;
 		private static AudioSource effectAudioSource;
+		private static AudioLowPassFilter effectLowPass;
 		private static float effectVolumeModifier;		//Values have to be between 0 and 1
 
 
@@ -48,6 +49,7 @@ namespace Audio{
 
 		private static GameObject musicGameObject;
 		private static AudioSource musicAudioSource;
+		private static AudioLowPassFilter musicLowPass;
 		private static float trackVolumeModifier;		//Values have to be between 0 and 1
 
 		//Sound Effect Methods
@@ -213,12 +215,20 @@ namespace Audio{
         {
 			soundGameObject = new GameObject("Sound Effect Player");
 			effectAudioSource = soundGameObject.AddComponent<AudioSource>();
+			effectLowPass = soundGameObject.AddComponent<AudioLowPassFilter>();
+
+			effectLowPass.cutoffFrequency = 2000;
+			effectLowPass.enabled = false;
 		}
 
 		public static void InitializeMusicPlayer()
 		{
 			musicGameObject = new GameObject("Soundtrack Player");
 			musicAudioSource = musicGameObject.AddComponent<AudioSource>();
+			musicLowPass = musicGameObject.AddComponent<AudioLowPassFilter>();
+
+			musicLowPass.cutoffFrequency = 2000;
+			musicLowPass.enabled = false;
 		}
 
 		public static void PlaySoundEffect(SoundEffects sound){
@@ -237,6 +247,17 @@ namespace Audio{
 			musicAudioSource.clip = soundTracks[track];
 			musicAudioSource.Play();
         }
+
+		public static void EnableLowPass()
+        {
+			effectLowPass.enabled = true;
+			musicLowPass.enabled = true;
+        }
+		public static void DisableLowPass()
+		{
+			effectLowPass.enabled = false;
+			musicLowPass.enabled = false;
+		}
 
 	}
 

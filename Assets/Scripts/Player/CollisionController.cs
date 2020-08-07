@@ -88,14 +88,18 @@ namespace Player
         {
 
             if (c.gameObject.CompareTag("Water"))
+            {
                 Values.SetIsInWater(true);
+            }
 
         }
 
         private void OnTriggerExit(Collider c)
         {
             if (c.gameObject.CompareTag("Water"))
+            {
                 Values.SetIsInWater(false);
+            }
         }
         
     }
