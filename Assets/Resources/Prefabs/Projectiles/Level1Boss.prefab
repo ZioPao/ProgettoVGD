@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f049420969a4874282a750b12dc89b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileTimeMax: 15
+  projectileTimeMax: 5
   projectileSpeed: 15
   damage: 15
 --- !u!1 &8076086713948433530

@@ -17,7 +17,7 @@ namespace Utility
             if (other.CompareTag(Values.PlayerTag) && Values.GetHealth() < Values.GetMaxHealth())
             {
                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.HealthPickup);
-                Values.AddHealth(25);
+                Values.IncreaseHealth(25);
                 Destroy(gameObject);
             }
 
