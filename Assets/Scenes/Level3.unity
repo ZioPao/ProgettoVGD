@@ -31958,7 +31958,7 @@ PrefabInstance:
     - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 141.2
+      value: 146.9
       objectReference: {fileID: 0}
     - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
@@ -31968,7 +31968,7 @@ PrefabInstance:
     - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 128
+      value: 198.3
       objectReference: {fileID: 0}
     - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
@@ -32045,6 +32045,21 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnEffectColor.b
       value: 0.16233537
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: maxEnemiesConcurrently
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: maxEnemiesSpawned
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: rangeSpawn
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8210788485753281669, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}

@@ -51,7 +51,7 @@ namespace Utility
 
         public int GetMaxEnemiesSpawned()
         {
-            return maxEnemiesConcurrently;
+            return maxEnemiesSpawned;
         }
 
         public int GetMaxEnemiesConcurrently()

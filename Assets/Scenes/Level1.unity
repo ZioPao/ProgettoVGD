@@ -1753,6 +1753,142 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 821025715}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &904582470
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5174399102910327587}
+    m_Modifications:
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -603.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 68.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -335.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 8652647940364635947, guid: 8d1e001e00bdfeb4e96a96525a85ba8e,
+        type: 3}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: rangeSpawn
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: maxEnemiesConcurrently
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: spawnEffectColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: spawnEffectColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: spawnEffectColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: spawnEffectColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: maxEnemiesSpawned
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: customName
+      value: e2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210788485753281669, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemySpawner2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210788485753281669, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210788485753281669, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Spawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36f0e243d0252c241b50823d05c6cde5, type: 3}
+--- !u!4 &904582471 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 47197946911544570, guid: 36f0e243d0252c241b50823d05c6cde5,
+    type: 3}
+  m_PrefabInstance: {fileID: 904582470}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1005835280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9387,6 +9523,7 @@ Transform:
   m_Children:
   - {fileID: 5174399104024830015}
   - {fileID: 5174399103534121660}
+  - {fileID: 904582471}
   m_Father: {fileID: 5174399102813412863}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10550,6 +10687,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 8652647940364635947, guid: f2519d44a42ff9a40886184aa72f2454,
     type: 3}
+  spawnEffectPrefab: {fileID: 0}
+  spawnEffectColor: {r: 0, g: 0, b: 0, a: 0}
   customName: Presenza Parassitica
 --- !u!1 &5174399103534121662
 GameObject:
@@ -11082,7 +11221,7 @@ PrefabInstance:
     - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
       propertyPath: maxEnemiesConcurrently
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}
@@ -11103,6 +11242,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnEffectColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4537548937551051481, guid: 36f0e243d0252c241b50823d05c6cde5,
+        type: 3}
+      propertyPath: maxEnemiesSpawned
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8210788485753281669, guid: 36f0e243d0252c241b50823d05c6cde5,
         type: 3}

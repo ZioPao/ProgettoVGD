@@ -56,7 +56,7 @@ namespace Utility
             
                         
             //Enemies stuff
-            AddTimer(ENEMYSPAWN_K, 10f);
+            AddTimer(ENEMYSPAWN_K, 5f);
             AddCurrentTime(ENEMYSPAWN_K, 0f);
 
             //Timer for tips
