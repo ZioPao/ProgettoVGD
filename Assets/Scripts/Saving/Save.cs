@@ -17,6 +17,7 @@ namespace Saving
         
         //Stats base
         public float health, stamina;
+        public float maxHealth, maxStamina;
         public bool hasKey;
 
         

@@ -38,7 +38,9 @@ namespace Saving
             save.playerRotation = player.rotation;
 
             save.health = Values.GetHealth();
+            save.maxHealth = Values.GetMaxHealth();
             save.stamina = Values.GetStamina();
+            save.maxStamina = Values.GetMaxStamina();
             save.hasKey = Values.GetHasKey();
 
             Dictionary<Values.WeaponEnum, int> weaponsCurrentAmmo = new Dictionary<Values.WeaponEnum, int>();
@@ -180,14 +182,15 @@ namespace Saving
                     }
 
                     newPlayerT = newPlayer.transform;
-                    print("does this exist?" + newPlayerT);
                     newPlayerT.position = save.playerPosition;
                     newPlayerT.rotation = save.playerRotation;
 
 
                     Values.SetPlayerTransform(newPlayer.transform);
                     Values.SetHealth(save.health);
+                    Values.SetMaxHealth(save.maxHealth);
                     Values.SetStamina(save.stamina);
+                    Values.SetMaxStamina(save.maxStamina);
                     Values.SetHasKey(save.hasKey);
 
                     //Weapons

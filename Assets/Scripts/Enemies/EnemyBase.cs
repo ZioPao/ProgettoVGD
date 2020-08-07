@@ -152,8 +152,8 @@ namespace Enemies
                         objPrefab = Values.GetHealthPackPrefab();
                     }
 
-                    objPrefab.tag = Values.DynamicPickupTag;
-                    Instantiate(objPrefab, transform.position - offset, transform.rotation);
+                    var tmp = Instantiate(objPrefab, transform.position - offset, transform.rotation);
+                    tmp.tag = Values.DynamicPickupTag;        //Set correct tag, default should be "Pickup"
                 }
 
                 Destroy(gameObject);

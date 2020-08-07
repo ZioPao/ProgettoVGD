@@ -161,7 +161,9 @@ namespace Player
         {
             HealthPack,
             AmmoBox,
-            Key
+            Key,
+            HealthUpgrade,
+            StaminaUpgrade
         }
         
         /// <summary>

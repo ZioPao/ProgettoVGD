@@ -103,9 +103,6 @@
             <e p="SpritesVertexLit.shader" t="Include" />
           </e>
         </e>
-        <e p="EndingScript.cs" t="Include" />
-        <e p="KeyScript.cs" t="Include" />
-        <e p="ParticleManager.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="GitHub" t="Include">
             <e p="Editor" t="Include">
@@ -116,7 +113,6 @@
             </e>
           </e>
         </e>
-        <e p="ReflectionProbeRealTimeManager.cs" t="Include" />
         <e p="Resources" t="Include">
           <e p="Prefabs" t="Include">
             <e p="Levels" t="Include">
@@ -141,6 +137,7 @@
             <e p="BossTrigger3.cs" t="Include" />
             <e p="BossTwo.cs" t="Include" />
             <e p="DamageArea.cs" t="Include" />
+            <e p="EndingScript.cs" t="Include" />
             <e p="endLevelTrigger.cs" t="Include" />
             <e p="FakeBossThreeStartup.cs" t="Include" />
             <e p="FinalBossSpawner.cs" t="Include" />
@@ -193,9 +190,11 @@
             <e p="EnemySpawnerStatus.cs" t="Include" />
             <e p="HealthBarManager.cs" t="Include" />
             <e p="HealthScript.cs" t="Include" />
+            <e p="HealthUpgradeScript.cs" t="Include" />
             <e p="IInteractableMidGame.cs" t="Include" />
             <e p="IPickup.cs" t="Include" />
             <e p="ITriggerMidGame.cs" t="Include" />
+            <e p="KeyScript.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
             <e p="LeverScript.cs" t="Include" />
             <e p="LeverStatus.cs" t="Include" />
@@ -217,9 +216,11 @@
               </e>
             </e>
             <e p="OpenDoor.cs" t="Include" />
+            <e p="ParticleManager.cs" t="Include" />
             <e p="SceneLoader.cs" t="Include" />
             <e p="SettingsScript.cs" t="Include" />
             <e p="SignController.cs" t="Include" />
+            <e p="StaminaUpgradeScript.cs" t="Include" />
             <e p="TimerController.cs" t="Include" />
             <e p="Torch.cs" t="Include" />
             <e p="UIScript.cs" t="Include" />
