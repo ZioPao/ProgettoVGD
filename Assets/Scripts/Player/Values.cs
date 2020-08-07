@@ -134,6 +134,7 @@ namespace Player
         public const string InteractableOverTag = "InteractableOver";
         public const string SpawnerTag = "Spawner";
         public const string ProjectileTag = "Projectile";
+        public const string DynamicPickupTag = "DynamicPickup";
         public const string LeverBossString = "LeverBoss";
 
 
@@ -153,6 +154,16 @@ namespace Player
         //Timers
         private static bool isTimerLoaded = false;
 
+        //Prefabs
+        private static GameObject ammoBoxPrefab, healthPackPrefab;
+
+        public enum PickupEnum
+        {
+            HealthPack,
+            AmmoBox,
+            Key
+        }
+        
         /// <summary>
         /// Getters constant player values
         /// </summary>
@@ -1054,6 +1065,29 @@ namespace Player
         {
             isTimerLoaded = value;
         }
+        
+        
+        //prefabs 
+        public static void SetAmmoBoxPrefab(GameObject value)
+        {
+            ammoBoxPrefab = value;
+        }
+        
+        public static GameObject GetAmmoBoxPrefab()
+        {
+            return ammoBoxPrefab;
+        }
+        
+        public static void SetHealthPackPrefab(GameObject value)
+        {
+            healthPackPrefab = value;
+        }
+
+        public static GameObject GetHealthPackPrefab()
+        {
+            return healthPackPrefab;
+        }
+        
 
         public static IEnumerator WaitForTimer()
         {

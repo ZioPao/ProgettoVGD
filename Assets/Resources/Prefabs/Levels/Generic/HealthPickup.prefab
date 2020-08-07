@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3380295460724463512}
   m_Layer: 0
   m_Name: HealthPickup
-  m_TagString: Untagged
+  m_TagString: DynamicPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131a3fb06a475714e99b9d39e5ea7926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEffect: {fileID: 0}
 --- !u!65 &3380295460724463512
 BoxCollider:
   m_ObjectHideFlags: 0

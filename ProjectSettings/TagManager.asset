@@ -22,6 +22,7 @@ TagManager:
   - Health
   - Boss
   - InteractableSign
+  - DynamicPickup
   layers:
   - Default
   - TransparentFX

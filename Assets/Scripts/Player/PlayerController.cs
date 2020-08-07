@@ -161,7 +161,6 @@ namespace Player
                 weaponScript.UseWeapon();
                 weaponScript.ChangeWeapon();
                 interactionScript.Interact();
-                interactionScript.Pickup();
                 interactionScript.SignBuffer();
             }
         }

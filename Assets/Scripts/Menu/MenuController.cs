@@ -35,7 +35,12 @@ namespace Menu
             Audio.SoundManager.InitializeMusicPlayer();
             Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.TitleTrack);
             
-            Values.SetIsInPause(false);        //Evita casini al reload
+            //Set some static prefabs
+            Values.SetHealthPackPrefab(Resources.Load<GameObject>("Prefabs/Levels/Generic/HealthPickup"));
+            Values.SetAmmoBoxPrefab(Resources.Load<GameObject>("Prefabs/Levels/Generic/AmmoBox"));
+
+            Values.SetIsInPause(false);     //Evita casini al reload
+            
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
 

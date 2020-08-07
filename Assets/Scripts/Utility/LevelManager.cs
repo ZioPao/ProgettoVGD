@@ -22,10 +22,8 @@ namespace Utility
 
         public void Awake()
         {
-            
-            
             //E' AWAKE PER FARLO GIRARE PRIMA DEL LOAD SAVE, COSI CHE POSSA RECUPERARE I TRIGGERS ORIGINALI
-            
+
             //Ma se è awake non funziona il load game mid 
             Values.SetCurrentLevel(levelId);
             Values.SetHasInteractedWithWinObject(false); //per evitare problemi dopo aver finito il gioco
@@ -41,8 +39,8 @@ namespace Utility
 
             //Is changing scene è relativo al cambio di scena da livello a livello 2\3, non c'entra coi cambi di scena
             //al cambio del salvataggio.
-            
-            
+
+
             //Ergo, new game teoricamente
 
             if (Values.GetIsChangingScene())
@@ -54,7 +52,7 @@ namespace Utility
                 player.GetComponentInChildren<EnemySpritesManager>().Awake();
                 player.transform.position = spawnPoint.position;
                 player.transform.rotation = Quaternion.Euler(spawnPointRotation);
-                Values.SetIsChangingScene(false);        //Finito di caricare nuova scena dall'endtrigger
+                Values.SetIsChangingScene(false); //Finito di caricare nuova scena dall'endtrigger
             }
             else if (!Values.GetIsChangingScene() && !Values.GetIsLoadingSave())
             {
@@ -63,12 +61,10 @@ namespace Utility
                 Values.InitializeCompletedTriggers();
                 player.transform.position = spawnPoint.position;
                 player.transform.rotation = Quaternion.Euler(spawnPointRotation);
-
-
             }
             else
             {
-                player = null;        //default case, non dovrebbe maia rrivarci
+                player = null; //default case, non dovrebbe maia rrivarci
             }
 
             enemiesStatus = new Dictionary<string, EnemyStatus>();
@@ -146,10 +142,20 @@ namespace Utility
             return list;
         }
 
-        // public List<string> GetOriginalPickups()
-        // {
-        //     return pickupsStart;
-        // }
+        public List<(string, Values.PickupEnum, SerializableVector3)> GetDynamicPickups()
+        {
+            var pickups = GameObject.FindGameObjectsWithTag(Values.DynamicPickupTag);
+
+            List<(string, Values.PickupEnum, SerializableVector3)> list =
+                new List<(string, Values.PickupEnum, SerializableVector3)>();
+            foreach (var x in pickups)
+            {
+                
+                list.Add((x.name, x.GetComponent<IPickup>().GetPickupType(), x.transform.position));
+            }
+
+            return list;
+        }
 
         public Dictionary<String, EnemySpawnerStatus> GetSpawnerStatus()
         {
@@ -172,8 +178,8 @@ namespace Utility
             //todo non dovrebbe dare problemi ma tienilo d'occhio
             if (enemiesStatus == null)
                 enemiesStatus = new Dictionary<string, EnemyStatus>();
-            
-            
+
+
             foreach (var enemy in enemies)
             {
                 EnemyStatus status = enemy.GetComponent<EnemyBase>().GetStatus();

@@ -67,6 +67,9 @@ namespace Saving
             //Pickups
             save.pickups = manager.GetCurrentPickups();
 
+            //Dynamic pickups
+
+            save.dynamicPickups = manager.GetDynamicPickups();
 
             //Spawners
             try
@@ -98,7 +101,7 @@ namespace Saving
             save.heldWeapons = Values.GetHeldWeapons();
 
             save.currentWeapon = Values.GetCurrentWeapon();
-            
+
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath + "/gamesave.save");
             bf.Serialize(file, save);
@@ -121,16 +124,14 @@ namespace Saving
 
         IEnumerator LoadSave(string levelName)
         {
-            
             Values.SetCanSave(false);
             Values.SetCanPause(false);
             Values.SetIsLoadingSave(true);
-            
+
             if (Values.GetPlayerTransform() != null)
             {
-                
-                SceneManager.MoveGameObjectToScene(Values.GetPlayerTransform().gameObject, SceneManager.GetActiveScene());
-
+                SceneManager.MoveGameObjectToScene(Values.GetPlayerTransform().gameObject,
+                    SceneManager.GetActiveScene());
             }
 
             AsyncOperation asyncOperation = SceneManager.LoadSceneAsync("Scenes/" + levelName, LoadSceneMode.Single);
@@ -152,7 +153,7 @@ namespace Saving
 
                     //Attende fino a che il LevelManager non ha spawnato il player, dopodiché edita
                     //quello che è da ripristinare
-                    
+
                     while (!GameObject.FindWithTag(Values.LevelTag))
                         yield return null;
                     currentLevel = GameObject.FindWithTag(Values.LevelTag);
@@ -177,11 +178,12 @@ namespace Saving
                     {
                         yield return new WaitForEndOfFrame();
                     }
+
                     newPlayerT = newPlayer.transform;
                     print("does this exist?" + newPlayerT);
                     newPlayerT.position = save.playerPosition;
                     newPlayerT.rotation = save.playerRotation;
-                  
+
 
                     Values.SetPlayerTransform(newPlayer.transform);
                     Values.SetHealth(save.health);
@@ -212,9 +214,9 @@ namespace Saving
 
                     Values.GetWeaponObjects()[save.currentWeapon].SetActive(true);
                     Values.SetCurrentWeapon(save.currentWeapon);
-                    
+
                     /* ENEMIES */
-                    
+
                     //Creates them again
                     foreach (var enemy in GameObject.FindGameObjectsWithTag(Values.EnemyTag))
                     {
@@ -265,8 +267,8 @@ namespace Saving
                     }
 
                     //Spawners 
-                    
-                    
+
+
                     foreach (var spawnerStatus in save.enemySpawnerStatus)
                     {
                         var spawnerObject = currentLevel.transform.Find("Spawners/" + spawnerStatus.Key);
@@ -289,13 +291,12 @@ namespace Saving
                             interactableObject.GetComponent<IInteractableMidGame>().ForceActivation();
                         }
                     }
-                    
+
                     //Triggers
-              
-                    
+
+
                     foreach (var oldT in Values.GetOriginalTriggers())
                     {
-                        
                         //se contiene il trigger, significa che è già stato eseguito
                         if (save.triggers.Contains(oldT))
                         {
@@ -312,6 +313,24 @@ namespace Saving
                             var tmpPickup = GameObject.Find(oldP);
                             Destroy(tmpPickup);
                         }
+                    }
+
+                    //Dynamic pickups
+                    foreach (var p in save.dynamicPickups)
+                    {
+                        GameObject tmpPickup = null;
+                        switch (p.Item2)
+                        {
+                            case Values.PickupEnum.AmmoBox:
+
+                                tmpPickup = Instantiate(Values.GetAmmoBoxPrefab(), p.Item3, Quaternion.identity);
+                                break;
+                            case Values.PickupEnum.HealthPack:
+                                tmpPickup = Instantiate(Values.GetHealthPackPrefab(), p.Item3, Quaternion.identity);
+                                break;
+                        }
+
+                        tmpPickup.name = p.Item1;
                     }
 
                     Values.SetIsLoadingSave(false); //gli enemy spawner torneranno a funzionare

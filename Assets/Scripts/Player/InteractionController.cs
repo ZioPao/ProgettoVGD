@@ -49,43 +49,46 @@ namespace Player
             }
         }
 
-        public void Pickup()
-        {
-            RaycastHit picker;
-            if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out picker,
-                Values.GetInteractionDistance()))
-            {
-                if (picker.collider.CompareTag("Pickup"))
-                {
-                    Values.SetIsNearPickup(true);
-                    if (Input.GetKey("e"))
-                    {
-                        switch (picker.transform.name)
-                        {
-                            case "AmmoBox":
-                                CollectAmmo();
-                                Destroy(picker.transform.gameObject);
-                                break;
-
-                            case "Key":
-                                CollectKey();
-                                Destroy(picker.transform.gameObject);
-                                break;
-
-                            default:
-                                break;
-                        }
-
-                        //Play Audio
-                        Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.CollectiblePickup);
-                    }
-                }
-                else
-                {
-                    Values.SetIsNearPickup(false);
-                }
-            }
-        }
+        // public void Pickup()
+        // {
+        //     
+        //     //this stuff needs to be nuked
+        //     RaycastHit picker;
+        //     if (Physics.Raycast(cameraMain.transform.position, cameraMain.transform.forward, out picker,
+        //         Values.GetInteractionDistance()))
+        //     {
+        //         if (picker.collider.CompareTag(Values.PickupTag) || picker.collider.CompareTag(Values.DynamicPickupTag))
+        //         {
+        //             Values.SetIsNearPickup(true);
+        //             if (Input.GetKey("e"))
+        //             {
+        //                 picker.collider.GetComponent<IPickup>().UsePickup();
+        //                 // switch (picker.transform.name)
+        //                 // {
+        //                 //     case "AmmoBox":
+        //                 //         CollectAmmo();
+        //                 //         Destroy(picker.transform.gameObject);
+        //                 //         break;
+        //                 //
+        //                 //     case "Key":
+        //                 //         CollectKey();
+        //                 //         Destroy(picker.transform.gameObject);
+        //                 //         break;
+        //                 //
+        //                 //     default:
+        //                 //         break;
+        //                 // }
+        //
+        //                 //Play Audio
+        //                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.CollectiblePickup);
+        //             }
+        //         }
+        //         else
+        //         {
+        //             Values.SetIsNearPickup(false);
+        //         }
+        //     }
+        // }
 
         /*Sign Methods*/
 
@@ -108,12 +111,6 @@ namespace Player
         }
 
         /*Pickup Methods*/
-
-        private void CollectAmmo()
-        {
-            Values.IncrementAmmoReserve(Values.GetCurrentWeapon(), 25);
-        }
-
         private void CollectKey()
         {
             Values.SetHasKey(true);

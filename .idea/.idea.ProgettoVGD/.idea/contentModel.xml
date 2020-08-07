@@ -186,6 +186,7 @@
             <e p="SerializableVector3.cs" t="Include" />
           </e>
           <e p="Utility" t="Include">
+            <e p="AmmoBoxScript.cs" t="Include" />
             <e p="BossSpawner.cs" t="Include" />
             <e p="CloudScript.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
@@ -193,6 +194,7 @@
             <e p="HealthBarManager.cs" t="Include" />
             <e p="HealthScript.cs" t="Include" />
             <e p="IInteractableMidGame.cs" t="Include" />
+            <e p="IPickup.cs" t="Include" />
             <e p="ITriggerMidGame.cs" t="Include" />
             <e p="LevelManager.cs" t="Include" />
             <e p="LeverScript.cs" t="Include" />

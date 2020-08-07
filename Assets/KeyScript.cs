@@ -1,35 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Player;
+﻿using Player;
 using UnityEngine;
+using Utility;
 
-public class KeyScript : MonoBehaviour, IInteractableMidGame
+public class KeyScript : MonoBehaviour, IPickup
 {
 
-    [SerializeField] private GameObject linkedDoor;
-    public void InteractableBehaviour()
+    private void OnTriggerEnter(Collider other)
     {
-        //totally useless
-        throw new System.NotImplementedException();
-    }
-
-    public void ForceActivation()
-    {
-
-        if (!linkedDoor.CompareTag("InteractableOver"))
+        if (other.CompareTag(Values.PlayerTag))
         {
-            //todo necessario check aggiuntivo con la porta alla quale è collegata 
             Values.SetHasKey(true);
-        }
-        else
-        {
-            Values.SetHasKey(false);
+            Destroy(gameObject);
         }
 
     }
 
-    public bool GetIsEnabled()
+    public Values.PickupEnum GetPickupType()
     {
-        return enabled;
+        return Values.PickupEnum.Key;
     }
 }

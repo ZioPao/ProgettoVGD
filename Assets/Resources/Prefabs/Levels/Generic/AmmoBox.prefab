@@ -168,9 +168,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1480268812815572803}
   - component: {fileID: 5904303133239487082}
+  - component: {fileID: 6228553041236470223}
   m_Layer: 0
   m_Name: AmmoBox
-  m_TagString: Pickup
+  m_TagString: DynamicPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,8 +200,20 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2508964023926582608}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1500, y: 1500, z: 1000}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6228553041236470223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2508964023926582608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b3a6297b3bbcd4bb98175f4e69e193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -32,6 +32,7 @@ namespace Saving
         
         //Pickups
         public List<string> pickups;
+        public List<(string, Values.PickupEnum, SerializableVector3)> dynamicPickups;
         
         //Spawners
 

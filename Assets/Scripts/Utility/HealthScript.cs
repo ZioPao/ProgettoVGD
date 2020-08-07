@@ -1,27 +1,34 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Player;
 using UnityEngine;
 
-public class HealthScript : MonoBehaviour
+namespace Utility
 {
-    // Update is called once per frame
-    void FixedUpdate()
+    public class HealthScript : MonoBehaviour, IPickup
     {
-        this.transform.Rotate(0, 2, 0, 0);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (Values.GetHealth() < 100)
+        // Update is called once per frame
+        void FixedUpdate()
         {
-            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.HealthPickup);
-            Values.AddHealth(25);
-            Destroy(gameObject);
+            this.transform.Rotate(0, 2, 0, 0);
         }
 
-        //when players touch it automatically add tot health to him
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(Values.PlayerTag) && Values.GetHealth() < 100)
+            {
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.HealthPickup);
+                Values.AddHealth(25);
+                Destroy(gameObject);
+            }
+
+            //when players touch it automatically add tot health to him
+        }
+
+        public Values.PickupEnum GetPickupType()
+        {
+            return Values.PickupEnum.HealthPack;
+        }
+        
     }
-	
-}    
+}
+
