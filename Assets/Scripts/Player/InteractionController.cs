@@ -94,6 +94,7 @@ namespace Player
             if ((Values.GetIsReadingSign()) && Input.GetKeyDown("q"))
             {
                 Values.SetIsReadingSign(false);
+                Values.SetCanPause(true);
                 Values.SetIsFrozen(false);
 
 

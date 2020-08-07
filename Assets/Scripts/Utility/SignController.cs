@@ -165,6 +165,7 @@ namespace Utility
             
             signController.SetCurrentSignID(GetSignID());
             Values.SetIsReadingSign(true);
+            Values.SetCanPause(false);
             Values.SetIsFrozen(true);
         }
 
