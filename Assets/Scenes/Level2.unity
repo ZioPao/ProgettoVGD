@@ -24610,6 +24610,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 8652647940364635947, guid: c17a2ada02024e545aec7ab8d0eb3674,
     type: 3}
+  spawnEffectPrefab: {fileID: 9081928120985500482, guid: b3080dfe8a1ce0a44a2fe5a260e6c8d0,
+    type: 3}
+  spawnEffectColor: {r: 0.5754717, g: 0.14243662, b: 0.0054289913, a: 1}
   customName: Guardiano dei Dannati
 --- !u!1 &8388183822119010030
 GameObject:

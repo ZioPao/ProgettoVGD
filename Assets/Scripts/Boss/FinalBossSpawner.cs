@@ -18,6 +18,8 @@ namespace Boss
         [SerializeField] private GameObject spawnPoint1, spawnPoint2;
         [SerializeField] private string fakeBossName = "???";
         [SerializeField] private string finalBossName;
+        [SerializeField] private GameObject spawnEffectPrefab;
+        [SerializeField] private Color spawnEffectColor;
 
         private bool isFakeBossDead;
 
@@ -64,7 +66,19 @@ namespace Boss
                 
                 //Attiva l'ending checker
                 GameObject.Find("ending_check").GetComponent<EndingScript>().enabled = true;
-                
+
+                if (spawnEffectPrefab)
+                {
+                    var spawnEffect = Instantiate(spawnEffectPrefab, transform.position, Quaternion.identity);
+                    var spawnEffectMain = spawnEffect.GetComponent<ParticleSystem>().main;
+                    spawnEffectMain.startColor = spawnEffectColor;
+
+                    var light = spawnEffect.GetComponentInChildren<Light>();
+                    light.color = spawnEffectColor;
+
+                }
+               
+
                 
                 enabled = false; //disables the spawner
             }

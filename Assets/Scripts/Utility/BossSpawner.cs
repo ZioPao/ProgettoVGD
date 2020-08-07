@@ -10,6 +10,8 @@ namespace Utility
     public class BossSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject bossPrefab;
+        [SerializeField] private GameObject spawnEffectPrefab;
+        [SerializeField] private Color spawnEffectColor;
         [SerializeField] private string customName;
 
         private void Start()
@@ -25,8 +27,19 @@ namespace Utility
             }
             
             Values.GetEnemySpritesManager().AddEnemyToEnemyList(boss); //needed to make the sprite viewing works
-            
-            //Attiva il pathUnlocker
+
+            if (spawnEffectPrefab)
+            {
+                var spawnEffect = Instantiate(spawnEffectPrefab, transform.position, Quaternion.identity);
+                var spawnEffectMain = spawnEffect.GetComponent<ParticleSystem>().main;
+                spawnEffectMain.startColor = spawnEffectColor;
+
+                var light = spawnEffect.GetComponentInChildren<Light>();
+                light.color = spawnEffectColor;
+
+ 
+            }
+           
             enabled = false;        //disattiva lo spawner
         }
         

@@ -12748,6 +12748,9 @@ MonoBehaviour:
   spawnPoint2: {fileID: 9121070391047018248}
   fakeBossName: ???
   finalBossName: 
+  spawnEffectPrefab: {fileID: 9081928120985500482, guid: b3080dfe8a1ce0a44a2fe5a260e6c8d0,
+    type: 3}
+  spawnEffectColor: {r: 0.8962264, g: 0.8351777, b: 0.109914556, a: 1}
 --- !u!1001 &6164173279304010103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13571,6 +13574,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 8652647940364635947, guid: 4548e477f95c470418facb1df646caeb,
     type: 3}
+  spawnEffectPrefab: {fileID: 9081928120985500482, guid: b3080dfe8a1ce0a44a2fe5a260e6c8d0,
+    type: 3}
+  spawnEffectColor: {r: 0.014126942, g: 0.8490566, b: 0, a: 1}
   customName: ???
 --- !u!1001 &6164173280330654933
 PrefabInstance:
