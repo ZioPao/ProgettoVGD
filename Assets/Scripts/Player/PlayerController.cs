@@ -150,6 +150,12 @@ namespace Player
                     //saveCanvas.enabled = false;
                 }
 
+                //
+                // if (Input.GetKeyDown(KeyCode.F7))
+                // {
+                //     Values.SetHealth(0);
+                // }
+
 
                 //Normal controller stuff
                 weaponScript.UseWeapon();
