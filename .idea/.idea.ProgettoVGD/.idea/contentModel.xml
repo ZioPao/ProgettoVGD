@@ -186,7 +186,6 @@
             <e p="AmmoBoxScript.cs" t="Include" />
             <e p="BossSpawner.cs" t="Include" />
             <e p="CloudScript.cs" t="Include" />
-            <e p="EndingScript.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
             <e p="EnemySpawnerStatus.cs" t="Include" />
             <e p="HealthBarManager.cs" t="Include" />
