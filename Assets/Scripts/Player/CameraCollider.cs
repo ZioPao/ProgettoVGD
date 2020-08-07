@@ -18,13 +18,19 @@ namespace Player
         private void OnTriggerEnter(Collider c)
         {
             if (c.gameObject.CompareTag(WaterTag))
+            {
                 cs.SetCameraStatus(true);
+                Audio.SoundManager.EnableLowPass();
+            }
         }
 
         private void OnTriggerExit(Collider c)
         {
             if (c.gameObject.CompareTag(WaterTag))
+            {
                 cs.SetCameraStatus(false);
+                Audio.SoundManager.DisableLowPass();
+            }
         }
 
 
