@@ -12747,7 +12747,7 @@ MonoBehaviour:
   spawnPoint1: {fileID: 9121070389917966535}
   spawnPoint2: {fileID: 9121070391047018248}
   fakeBossName: ???
-  finalBossName: 
+  finalBossName: Pescatrice Leggendaria
   spawnEffectPrefab: {fileID: 9081928120985500482, guid: b3080dfe8a1ce0a44a2fe5a260e6c8d0,
     type: 3}
   spawnEffectColor: {r: 0.8962264, g: 0.8351777, b: 0.109914556, a: 1}

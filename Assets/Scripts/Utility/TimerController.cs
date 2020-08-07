@@ -33,10 +33,10 @@ namespace Utility
             InitializeTimerLength();
             InitializeCurrentTime();
 
-            AddTimer(KNIFEATTACK_K, 0.70f);
+            AddTimer(KNIFEATTACK_K, 0.35f);
             AddCurrentTime(KNIFEATTACK_K, 0f);
             
-            AddTimer(KNIFECOOLDOWN_K, 0.75f);
+            AddTimer(KNIFECOOLDOWN_K, 0.35f);
             AddCurrentTime(KNIFECOOLDOWN_K, 0f);
             
             AddTimer(PISTOLATTACK_K, 0.30f);

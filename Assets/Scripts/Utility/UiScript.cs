@@ -293,7 +293,7 @@ namespace Utility
 
             switch (health)
             {
-                case int n when (n >= 100):
+                case int n when (n <= 100):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 100");
                     break;
                 case int n when (n < 90 && n >= 80):

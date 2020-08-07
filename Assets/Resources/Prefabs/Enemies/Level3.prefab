@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ff1a693d21bac468136161618c5410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 150
   hitmarkerSprite: {fileID: -3456819443802960952, guid: a255890292dc99a4c98f411ee9fbeaac,
     type: 3}
   hitmarkerAnimation: {fileID: 9100000, guid: 009255f222f1e3148a94bb10922f5d8b, type: 2}

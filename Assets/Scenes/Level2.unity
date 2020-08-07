@@ -2210,6 +2210,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 256395713}
     m_Modifications:
+    - target: {fileID: 8043980662495629436, guid: 12215e6cd0ed9044f910c2a1aa4883b3,
+        type: 3}
+      propertyPath: m_TagString
+      value: InteractableSign
+      objectReference: {fileID: 0}
     - target: {fileID: 8043980662952706089, guid: 12215e6cd0ed9044f910c2a1aa4883b3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2278,6 +2283,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 417194093}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &417194095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8043980662495629436, guid: 12215e6cd0ed9044f910c2a1aa4883b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 417194093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &417194096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417194095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5feda9476352916419ea2c660f7bd9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  signID: 7
 --- !u!1 &437353545
 GameObject:
   m_ObjectHideFlags: 0
