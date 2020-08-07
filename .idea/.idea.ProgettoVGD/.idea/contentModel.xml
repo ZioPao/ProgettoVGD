@@ -186,6 +186,7 @@
             <e p="AmmoBoxScript.cs" t="Include" />
             <e p="BossSpawner.cs" t="Include" />
             <e p="CloudScript.cs" t="Include" />
+            <e p="EndingScript.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
             <e p="EnemySpawnerStatus.cs" t="Include" />
             <e p="HealthBarManager.cs" t="Include" />
@@ -217,6 +218,7 @@
             </e>
             <e p="OpenDoor.cs" t="Include" />
             <e p="ParticleManager.cs" t="Include" />
+            <e p="ReflectionProbeRealTimeManager.cs" t="Include" />
             <e p="SceneLoader.cs" t="Include" />
             <e p="SettingsScript.cs" t="Include" />
             <e p="SignController.cs" t="Include" />
