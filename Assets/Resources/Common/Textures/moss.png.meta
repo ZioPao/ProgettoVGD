@@ -1,0 +1,560 @@
+fileFormatVersion: 2
+guid: 4288ca6f5bc7b1c4b87f6d02319ad8d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6263006816017299157
+    second: moss_0
+  - first:
+      213: 1189573510918601163
+    second: moss_1
+  - first:
+      213: -9073765269152901165
+    second: moss_2
+  - first:
+      213: 285048257928664741
+    second: moss_3
+  - first:
+      213: -5706421173459853098
+    second: moss_4
+  - first:
+      213: 2904391728661492894
+    second: moss_5
+  - first:
+      213: 1031278049100081494
+    second: moss_6
+  - first:
+      213: -4281174778990544572
+    second: moss_7
+  - first:
+      213: 2141750180897742425
+    second: moss_8
+  - first:
+      213: 8296727524053167481
+    second: moss_9
+  - first:
+      213: -7161663347239710338
+    second: moss_10
+  - first:
+      213: -1292040983862002284
+    second: moss_11
+  - first:
+      213: 8924964758024607456
+    second: moss_12
+  - first:
+      213: -7907218410682607123
+    second: moss_13
+  - first:
+      213: -5746061579146627287
+    second: moss_14
+  - first:
+      213: -7183818806020666523
+    second: moss_15
+  - first:
+      213: -815571875727701169
+    second: moss_16
+  - first:
+      213: 3915603971166830222
+    second: moss_17
+  - first:
+      213: 7488484574688776781
+    second: moss_18
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: moss_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 628
+        width: 587
+        height: 466
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b294071db745519a0800000000000000
+      internalID: -6263006816017299157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_1
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 655
+        width: 531
+        height: 439
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc974883ec6328010800000000000000
+      internalID: 1189573510918601163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_2
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 710
+        width: 511
+        height: 304
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d75dd40092831280800000000000000
+      internalID: -9073765269152901165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_3
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 868
+        width: 341
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a69ead51e1b4f300800000000000000
+      internalID: 285048257928664741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_4
+      rect:
+        serializedVersion: 2
+        x: 1946
+        y: 627
+        width: 411
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d068293d28bec0b0800000000000000
+      internalID: -5706421173459853098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_5
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 614
+        width: 243
+        height: 187
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e94737b93e87e4820800000000000000
+      internalID: 2904391728661492894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_6
+      rect:
+        serializedVersion: 2
+        x: 1788
+        y: 800
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659a445fbe5df4e00800000000000000
+      internalID: 1031278049100081494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 342
+        width: 361
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44938ec98363694c0800000000000000
+      internalID: -4281174778990544572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_8
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 395
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95ed90a217609bd10800000000000000
+      internalID: 2141750180897742425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_9
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 279
+        width: 399
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d2565a9b5e32370800000000000000
+      internalID: 8296727524053167481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_10
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 270
+        width: 613
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7197da3129ac9c90800000000000000
+      internalID: -7161663347239710338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_11
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 271
+        width: 385
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49db8a9129fb11ee0800000000000000
+      internalID: -1292040983862002284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_12
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 355
+        width: 495
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6dfe23928dbdb70800000000000000
+      internalID: 8924964758024607456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 334
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de995ddefbae34290800000000000000
+      internalID: -7907218410682607123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_14
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 332
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 927f17d0073e140b0800000000000000
+      internalID: -5746061579146627287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_15
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 333
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b0e508bd2fd4c90800000000000000
+      internalID: -7183818806020666523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_16
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 0
+        width: 388
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b837a33b18ea4f0800000000000000
+      internalID: -815571875727701169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_17
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 27
+        width: 307
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ef186e015075630800000000000000
+      internalID: 3915603971166830222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: moss_18
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 0
+        width: 512
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4211548b017ce760800000000000000
+      internalID: 7488484574688776781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 0a9530a9e45b99d4f9203f2ec7ff75a0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
