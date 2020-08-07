@@ -10849,8 +10849,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 105.501205, y: 107.09517, z: 86.52488}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1582564913}
+  m_Children: [{fileID: 1582564913}]
   m_Father: {fileID: 5660889687016515820}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13569,7 +13568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPrefab: {fileID: 8652647940364635947, guid: 4548e477f95c470418facb1df646caeb,
     type: 3}
-  customName: FakeBossLevel3
+  customName: ???
 --- !u!1001 &6164173280330654933
 PrefabInstance:
   m_ObjectHideFlags: 0
