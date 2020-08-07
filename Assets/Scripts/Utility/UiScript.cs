@@ -82,7 +82,7 @@ namespace Utility
                 else
                 {
                     int currentHealth = Mathf.RoundToInt(Player.Values.GetHealth());
-                    SetHealthSprite(currentHealth);
+                    SetHealthSprite(Values.GetHealth(), Values.GetMaxHealth());
 
                     healthString.text = currentHealth.ToString();
                     staminaText.text = Mathf.RoundToInt(Player.Values.GetStamina()).ToString();
@@ -287,40 +287,45 @@ namespace Utility
         }
         
         
-        private void SetHealthSprite(int health)
+        private void SetHealthSprite(float currentHealth, float maxHealth)
         {
+
+            float percentHealth;
+
             healthSprite.preserveAspect = true;
 
-            switch (health)
+            percentHealth = (currentHealth / maxHealth) * 100;
+
+            switch (percentHealth)
             {
-                case int n when (n <= 100):
+                case float n when (n <= 100f && n >= 90f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 100");
                     break;
-                case int n when (n < 90 && n >= 80):
+                case float n when (n < 90f && n >= 80f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 090");
                     break;
-                case int n when (n < 80 && n >= 70):
+                case float n when (n < 80f && n >= 70f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 080");
                     break;
-                case int n when (n < 70 && n >= 60):
+                case float n when (n < 70f && n >= 60f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 070");
                     break;
-                case int n when (n < 60 && n >= 50):
+                case float n when (n < 60f && n >= 50f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 060");
                     break;
-                case int n when (n < 50 && n >= 40):
+                case float n when (n < 50f && n >= 40f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 050");
                     break;
-                case int n when (n < 40 && n >= 30):
+                case float n when (n < 40f && n >= 30f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 040");
                     break;
-                case int n when (n < 30 && n >= 20):
+                case float n when (n < 30f && n >= 20f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 030");
                     break;
-                case int n when (n < 20 && n >= 10):
+                case float n when (n < 20f && n >= 10f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 020");
                     break;
-                case int n when (n < 10 && n >= 0):
+                case float n when (n < 10f && n >= 0f):
                     healthSprite.sprite = Resources.Load<Sprite>("Common/Textures/GUI/health/Health 010");
                     break;
                 default:
