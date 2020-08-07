@@ -1,32 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Player;
+﻿using Player;
 using UnityEngine;
-using Utility;
 
-public class StaminaUpgradeScript : MonoBehaviour, IPickup
+namespace Utility
 {
-    // Update is called once per frame
-    void FixedUpdate()
+    public class StaminaUpgradeScript : MonoBehaviour, IPickup
     {
-        this.transform.Rotate(0, 2, 0, 0);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag(Values.PlayerTag))
+        // Update is called once per frame
+        void FixedUpdate()
         {
-            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.HealthPickup);
-
-            Values.SetMaxStamina(Values.GetMaxStamina() + 25);
-            Values.SetStamina(Values.GetMaxStamina());
-            Destroy(gameObject);
+            this.transform.Rotate(0, 2, 0, 0);
         }
 
-    }
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag(Values.PlayerTag))
+            {
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.HealthPickup);
 
-    public Values.PickupEnum GetPickupType()
-    {
-        return Values.PickupEnum.StaminaUpgrade;
+                Values.SetMaxStamina(Values.GetMaxStamina() + 25);
+                Values.SetStamina(Values.GetMaxStamina());
+                Destroy(gameObject);
+            }
+
+        }
+
+        public Values.PickupEnum GetPickupType()
+        {
+            return Values.PickupEnum.StaminaUpgrade;
+        }
     }
 }
