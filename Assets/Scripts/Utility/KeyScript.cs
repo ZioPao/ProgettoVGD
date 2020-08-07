@@ -9,6 +9,9 @@ public class KeyScript : MonoBehaviour, IPickup
     {
         if (other.CompareTag(Values.PlayerTag))
         {
+            //Play Audio
+            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.CollectiblePickup);
+
             Values.SetHasKey(true);
             Destroy(gameObject);
         }
