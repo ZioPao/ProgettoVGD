@@ -115,6 +115,7 @@
             </e>
           </e>
         </e>
+        <e p="ReflectionProbeRealTimeManager.cs" t="Include" />
         <e p="Resources" t="Include">
           <e p="Prefabs" t="Include">
             <e p="Levels" t="Include">
