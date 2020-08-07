@@ -82,13 +82,6 @@ namespace Enemies
         // Update is called once per frame
         void FixedUpdate()
         {
-            // TimerController.RunTimer(timerName);
-            // TimerController.RunTimer(TimerController.HITMARKER_K);
-            //
-            //
-            // //Loops it
-            // if (TimerController.GetCurrentTime()[timerName] <= 0)
-            //     TimerController.ResetTimer(timerName);
 
             //Hitmarkers
             if (status.GetIsHit())
@@ -111,24 +104,20 @@ namespace Enemies
 
                 }
 
-                if(healthBar.activeSelf == false)
+                if(!healthBar.activeSelf)
                 {
                     healthBar.SetActive(true);
                 }
 
                 //Change Health bar color (Health bar manager)
-
+                healthBarScript.ChangeHealthBarColor(status.GetHealth(), maxHealth);
+                
                 //Change Health bar width (Health bar manager)
+                healthBarScript.ChangeHealthBarWidth(status.GetHealth(), maxHealth);
 
-
-                //     hitMarker.SetActive(false);
-                //
-                // if (TimerController.GetCurrentTime()[TimerController.HITMARKER_K] <= 0)
-                // {
-                //     status.SetIsHit(false);
-                // }
             }
 
+            
             //Manage the looking at player stuff
             enemyMovement.LookPlayer();
 

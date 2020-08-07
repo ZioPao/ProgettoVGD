@@ -8,20 +8,17 @@ namespace Utility
     public class HealthBarManager : MonoBehaviour
     {
 
-        public void changeHealthBarColor(int currentHealth, int maxHealth)
+        public void ChangeHealthBarColor(float currentHealth, float maxHealth)
         {
-            float H, S, V;
+
             float percentHealth;
+            percentHealth = (currentHealth / maxHealth) * 0.36f;
 
-            Color currentColor = gameObject.GetComponent<SpriteRenderer>().color;
-            Color.RGBToHSV(currentColor, out H, out S, out V);
-
-            percentHealth = (currentHealth / maxHealth) * 100;
-
-            gameObject.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(percentHealth, S, V);
+            //grazie unity
+            gameObject.GetComponent<SpriteRenderer>().color = Color.HSVToRGB(percentHealth, 83, 100);
         }
 
-        public void changeHealthBarWidthint (int currentHealth, int maxHealth)
+        public void ChangeHealthBarWidth (float currentHealth, float maxHealth)
         {
             float percentHealth;
             Vector3 scaleChange;

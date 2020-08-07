@@ -187,6 +187,7 @@
             <e p="CloudScript.cs" t="Include" />
             <e p="EnemySpawner.cs" t="Include" />
             <e p="EnemySpawnerStatus.cs" t="Include" />
+            <e p="HealthBarManager.cs" t="Include" />
             <e p="HealthScript.cs" t="Include" />
             <e p="IInteractableMidGame.cs" t="Include" />
             <e p="ITriggerMidGame.cs" t="Include" />
