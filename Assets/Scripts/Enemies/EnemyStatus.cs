@@ -32,14 +32,23 @@ namespace Enemies
             return health;
         }
 
+        public int GetMaxHealth()
+        {
+            return maxHealth;
+        }
+
         public void SetHealth(int health)
         {
             this.health = health;
         }
 
+        public void SetMaxHealth(int value)
+        {
+            maxHealth = value;
+        }
         public void ModifyHealth(int mod)
         {
-            this.health += mod;
+            health += mod;
         }
 
         public bool GetIsHit()

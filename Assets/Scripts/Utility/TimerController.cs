@@ -18,6 +18,7 @@ namespace Utility
         public static readonly string RELOADTIME_K = "ReloadTime";
         public static readonly string ENEMYSPAWN_K = "EnemySpawn";
         public static readonly string BOSSTWOPHASE = "BossTwoPhase";
+        public static readonly string BOSSTWOREGEN = "BossTwoRegen";
         public static readonly string TIP_K = "Tip";
         
         //Timer Types
