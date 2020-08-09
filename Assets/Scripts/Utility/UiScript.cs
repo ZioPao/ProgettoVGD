@@ -20,6 +20,7 @@ namespace Utility
             pauseCanvas,
             inGameSettingsCanvas,
             gameOverCanvas,
+            keyCanvas,
             tipsCanvas;
 
         private TMP_Dropdown resolutionDropdown;
@@ -38,6 +39,7 @@ namespace Utility
             pickupCanvas = GameObject.Find("Pickup_Canvas");
             signCanvas = GameObject.Find("Sign_Canvas");
             ammoCanvas = GameObject.Find("Ammo_Canvas"); //todo credo sia inutile
+            keyCanvas = GameObject.Find("Key_Canvas");
 
 
             //health
@@ -119,6 +121,15 @@ namespace Utility
                     else
                     {
                         oxygenCanvas.SetActive(false);
+                    }
+
+                    if(Values.GetHasKey())
+                    {
+                        keyCanvas.SetActive(true);
+                    }
+                    else
+                    {
+                        keyCanvas.SetActive(false);
                     }
 
                     interactionCanvas.SetActive(Values.GetIsNearInteractable() && !Values.GetIsInteracting());

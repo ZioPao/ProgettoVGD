@@ -42,6 +42,9 @@ namespace Boss
                 Values.SetCanSave(true); //permette di salvare nuovamente
             }
 
+            //Play Regular Level Soundtrack
+            Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
+
             //Fornisce una nuova arma al player
 
             if (weapon != -1)
@@ -53,10 +56,6 @@ namespace Boss
             {
                 AddUpgradeToPlayer();
             }
-
-
-            //Play Regular Level Soundtrack
-            Audio.SoundManager.PlaySoundtrack(Audio.SoundManager.SoundTracks.LevelTrack);
 
             //Disattiva il BossEndTrigger
             Values.AddCompletedTrigger(name);
