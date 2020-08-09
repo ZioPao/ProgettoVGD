@@ -62,6 +62,10 @@ namespace Utility
                                Environment.NewLine +
                                "W - A - S - D: Controlla il Movimento del giocatore." +
                                Environment.NewLine +
+                               "Spazio: Salta." +
+                               Environment.NewLine +
+                               "Shift: Scatta nella direzione in cui ti stai muovendo." +
+                               Environment.NewLine +
                                "1 - 2 - 3: Scegli l'arma corrente." +
                                Environment.NewLine +
                                "Tasto sinistro del Mouse: Attacca con l'arma corrente." +
