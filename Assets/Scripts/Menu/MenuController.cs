@@ -108,6 +108,8 @@ namespace Menu
             }
 
             DontDestroyOnLoad(saveManager);
+            
+            Values.InitializeCompletedTriggers();
             saveManager.GetComponent<SaveSystem>().Load();
         }
         public void QuitGame()

@@ -9,11 +9,8 @@ using Utility;
 
 namespace Boss
 {
-
     public class BossTwo : MonoBehaviour, IBoss
     {
-
-
         [SerializeField] private int bossHealth = 150;
         [SerializeField] private float timerPhase = 15f;
         [SerializeField] private float projRateDefense = 5f;
@@ -24,51 +21,49 @@ namespace Boss
 
         [SerializeField] private BossEndTrigger pathUnlocker;
         private EnemyBase boss;
+        private EnemyStatus bossStatus;
         private EnemyShooting bossShooting;
+
         private EnemySpawner enemySpawner;
+
         //private SpriteRenderer spriteRenderer;
         private Light aura;
-        
+
         private bool isAttacking;
-        
-        
-        
-        
-    /*  Inizialmente identico a Nemico 1, quando subisce una certa quantità di danni cambia fase diventando molto più
-        aggressivo (Attacca sparando un maggior numero di proiettili)
-    */
+
+
+        /*  Inizialmente identico a Nemico 1, quando subisce una certa quantità di danni cambia fase diventando molto più
+            aggressivo (Attacca sparando un maggior numero di proiettili)
+        */
         private void Awake()
         {
-
             boss = GetComponent<EnemyBase>();
+            bossStatus = boss.GetStatus();
             bossShooting = GetComponent<EnemyShooting>();
             aura = GetComponentInChildren<Light>();
-            
+
             //Set boss health
-            boss.GetStatus().SetHealth(bossHealth);
+            bossStatus.SetMaxHealth(bossHealth);
+            bossStatus.SetHealth(bossHealth);
 
             Values.SetCurrentBoss(gameObject);
             FindPathUnlocker();
             ActivatePathUnlocker();
 
-            
-            
+
             //Init timer
             TimerController.AddTimer(TimerController.BOSSTWOPHASE, timerPhase);
             TimerController.AddCurrentTime(TimerController.BOSSTWOPHASE, 0f);
-            
-            
 
-            
+            TimerController.AddTimer(TimerController.BOSSTWOREGEN, 5);
+            TimerController.AddCurrentTime(TimerController.BOSSTWOREGEN, 0f);
         }
-        
+
         private void FixedUpdate()
         {
-           ManageTimer();
-
-           SetAura();
-           SetPhase();
-
+            ManageTimer();
+            SetAura();
+            SetPhase();
         }
 
         private void ManageTimer()
@@ -79,11 +74,8 @@ namespace Boss
             if (TimerController.GetCurrentTime()[TimerController.BOSSTWOPHASE] <= 0)
             {
                 //Change phase
-                if (isAttacking)
-                    isAttacking = false;
-                else
-                    isAttacking = true;
-                
+                isAttacking = !isAttacking;
+
                 TimerController.ResetTimer(TimerController.BOSSTWOPHASE);
             }
         }
@@ -94,7 +86,6 @@ namespace Boss
                 aura.color = Color.red;
             else
                 aura.color = Color.blue;
-
         }
 
         private void SetPhase()
@@ -106,9 +97,17 @@ namespace Boss
             }
             else
             {
+                TimerController.RunTimer(TimerController.BOSSTWOREGEN);
+
+                if (TimerController.GetCurrentTime()[TimerController.BOSSTWOREGEN] <= 0 &&
+                    boss.GetStatus().GetHealth() < boss.GetStatus().GetMaxHealth())
+                {
+                    bossStatus.ModifyHealth(100);
+                    TimerController.ResetTimer(TimerController.BOSSTWOREGEN);
+                }
+
                 bossShooting.SetProjectileSpawnRate(projRateDefense);
                 bossShooting.SetProjectileSpeed(projSpeedDefense);
-
             }
         }
 
