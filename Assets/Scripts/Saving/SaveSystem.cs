@@ -340,7 +340,7 @@ namespace Saving
                     print("Caricato");
 
                     
-                    yield return new WaitForSeconds(1);
+                    yield return new WaitForSeconds(0.5f);
                     Values.SetCanPause(true);
                     Values.SetCanSave(true);
                     GameObject.Find(Values.LoadingCanvasName).GetComponent<Canvas>().enabled = false;
