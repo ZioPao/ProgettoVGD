@@ -337,12 +337,14 @@ namespace Saving
                     }
 
                     Values.SetIsLoadingSave(false); //gli enemy spawner torneranno a funzionare
-                    GameObject.Find(Values.LoadingCanvasName).GetComponent<Canvas>().enabled = false;
                     print("Caricato");
 
+                    
                     yield return new WaitForSeconds(1);
                     Values.SetCanPause(true);
                     Values.SetCanSave(true);
+                    GameObject.Find(Values.LoadingCanvasName).GetComponent<Canvas>().enabled = false;
+
                 }
                 else
                 {
