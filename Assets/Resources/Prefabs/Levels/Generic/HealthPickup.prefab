@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6812860569505019960}
   - component: {fileID: 2122518507909049781}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8160227789690339594}
   - component: {fileID: 5096097605087493740}
   - component: {fileID: 3380295460724463512}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthPickup
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 8160227790351156487}
   - component: {fileID: 8160227790351156486}
   - component: {fileID: 8160227790351156489}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 8160227790500525460}
   - component: {fileID: 8160227790500525463}
   - component: {fileID: 8160227790500525462}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

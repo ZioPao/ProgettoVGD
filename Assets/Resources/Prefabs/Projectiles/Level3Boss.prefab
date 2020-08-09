@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7862359989826453288}
   - component: {fileID: 7862359989826453289}
   - component: {fileID: 8436050570516368805}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level3Boss
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 6766235947046088890}
   - component: {fileID: 7997669908800315545}
   - component: {fileID: 3935064926529219153}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

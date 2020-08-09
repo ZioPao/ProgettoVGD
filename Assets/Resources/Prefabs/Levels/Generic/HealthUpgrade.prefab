@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5822604164770536215}
   - component: {fileID: 6775445557933993433}
   - component: {fileID: 7716042878482893131}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 2792712118471052266}
   - component: {fileID: 3186629181797231665}
   - component: {fileID: 5811667825166785277}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 3333485683886838086}
   - component: {fileID: 8880778836415451601}
   - component: {fileID: 1765120819855191200}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6812860569505019960}
   - component: {fileID: 2122518507909049781}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8086044650174096430}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 8160227789690339594}
   - component: {fileID: 3380295460724463512}
   - component: {fileID: 8852053506776754701}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: HealthUpgrade
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 8160227790351156487}
   - component: {fileID: 8160227790351156486}
   - component: {fileID: 8160227790351156489}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

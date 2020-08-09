@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 198047840316875287}
   - component: {fileID: 782463068320322215}
   - component: {fileID: 6848678893231914114}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Object005
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8956153376975572161}
   - component: {fileID: 2800929983767168305}
   - component: {fileID: 4164255143364313322}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Object004
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 5904303133239487082}
   - component: {fileID: 6228553041236470223}
   - component: {fileID: 2036406248814625135}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AmmoBox
   m_TagString: Pickup
   m_Icon: {fileID: 0}

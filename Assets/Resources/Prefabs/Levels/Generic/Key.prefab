@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8493622348506599864}
   - component: {fileID: 5700527443907641476}
   - component: {fileID: 1169879209042659611}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: KeyGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8018271040284228843}
   - component: {fileID: 8018271040284228837}
   - component: {fileID: 5725750931500696294}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Key
   m_TagString: Pickup
   m_Icon: {fileID: 0}
@@ -159,4 +159,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3124cffba4c26d84aaf5dd0881bcee07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkedDoor: {fileID: 0}
