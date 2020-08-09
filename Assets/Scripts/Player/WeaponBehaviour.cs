@@ -198,6 +198,8 @@ namespace Player
             {
                 //Audio is Played
                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.ReloadFail);
+
+                TimerController.ResetTimer(TimerController.RELOADTIME_K);
             }
             
             if (TimerController.GetCurrentTime()[TimerController.RELOADTIME_K] <= 0 && Values.GetIsReloading())
