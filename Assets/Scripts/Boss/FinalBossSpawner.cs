@@ -69,7 +69,7 @@ namespace Boss
 
                 if (spawnEffectPrefab)
                 {
-                    var spawnEffect = Instantiate(spawnEffectPrefab, transform.position, spawnEffectPrefab.transform.rotation);
+                    var spawnEffect = Instantiate(spawnEffectPrefab, chosenPoint, spawnEffectPrefab.transform.rotation);
                     var spawnEffectMain = spawnEffect.GetComponent<ParticleSystem>().main;
                     spawnEffectMain.startColor = spawnEffectColor;
 
