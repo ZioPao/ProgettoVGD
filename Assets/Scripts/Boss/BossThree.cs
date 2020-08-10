@@ -65,7 +65,6 @@ namespace Boss
 
             if (isBossInProgress)
             {
-                print(boss.GetStatus().GetHealth());
                 bossShooting.SetProjectileSpawnRate(projRateAttack);
                 bossShooting.SetProjectileSpeed(projSpeedAttack);
             }
