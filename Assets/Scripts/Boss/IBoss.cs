@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IBoss
 {
-    void ChangePhase();
+    void SetPhase();
 
     void FindPathUnlocker();
     void ActivatePathUnlocker();

@@ -1,49 +1,39 @@
-﻿using Player;
+﻿using Enemies;
+using Player;
 using UnityEngine;
 using Utility;
 
-public class DamageArea : MonoBehaviour
+namespace Boss
 {
-    private string timerName = "AREADAMAGE_TIMER";
-    private bool shouldRunTimer = false;
-
-    void Start()
+    public class DamageArea : MonoBehaviour
     {
-        TimerController.AddTimer(timerName, 1f);
-        TimerController.AddCurrentTime(timerName, 0f);
-    }
+        [SerializeField] private Transform boss;
+        [SerializeField] private int absorbedHealth;
+        [SerializeField] private int firstDamage;
+        [SerializeField] private int addedDamage;
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
+        private string timerName = "AREADAMAGE_TIMER";
 
+        private EnemyStatus bossStatus;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        void Start()
         {
-            shouldRunTimer = true;
-            //decreases player health
+            
+            bossStatus = boss.GetComponent<EnemyBase>().GetStatus();
 
-            //Play sound effect
-            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.PlayerHurt);
-
-            Values.DecreaseHealth(2);
+            TimerController.AddTimer(timerName, 1f);
+            TimerController.AddCurrentTime(timerName, 0f);
+            
         }
-    }
 
 
-    private void OnTriggerStay(Collider other)
-    {
-        //if player stays in, deal damage after a while
-
-        if (other.CompareTag("Player"))
+        private void OnTriggerEnter(Collider other)
         {
-            TimerController.RunTimer(timerName);
-
-            if (TimerController.GetCurrentTime()[timerName] <= 0)
+            if (other.CompareTag(Values.PlayerTag))
             {
+
+                Values.DecreaseHealth(firstDamage);
+
                 //Play sound effect
                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.PlayerHurt);
 
@@ -51,13 +41,34 @@ public class DamageArea : MonoBehaviour
                 TimerController.ResetTimer(timerName);
             }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+
+        private void OnTriggerStay(Collider other)
         {
-            shouldRunTimer = false;
+            //if player stays in, deal damage after a while
+            //the boss gets some boosted health :) 
+
+            if (other.CompareTag(Values.PlayerTag))
+            {
+                TimerController.RunTimer(timerName);
+
+                if (TimerController.GetCurrentTime()[timerName] <= 0)
+                {
+                    if (bossStatus.GetHealth() + absorbedHealth < bossStatus.GetMaxHealth())
+                    {
+                        bossStatus.ModifyHealth(absorbedHealth);
+                    }
+                    else
+                    {
+                        bossStatus.SetHealth(bossStatus.GetMaxHealth());
+                        Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.PlayerHurt);
+
+                    }
+
+                    Values.DecreaseHealth(addedDamage);
+                    TimerController.ResetTimer(timerName);
+                }
+            }
         }
     }
 }

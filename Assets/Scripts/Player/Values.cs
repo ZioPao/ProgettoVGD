@@ -142,6 +142,7 @@ namespace Player
         public static string PlayerName = "Player";
         public static string OldPlayerName = "oldPlayer";
         public const string SignsParentName = "Signs";
+        public const string TriggersParentName = "Triggers";
         public const string LoadingCanvasName = "LoadingCanvas";
 
         

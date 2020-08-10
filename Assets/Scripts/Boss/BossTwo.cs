@@ -61,12 +61,11 @@ namespace Boss
 
         private void FixedUpdate()
         {
-            ManageTimer();
-            SetAura();
+            ManagePhases();
             SetPhase();
         }
 
-        private void ManageTimer()
+        private void ManagePhases()
         {
             TimerController.RunTimer(TimerController.BOSSTWOPHASE);
 
@@ -75,20 +74,18 @@ namespace Boss
             {
                 //Change phase
                 isAttacking = !isAttacking;
-
+                
+                SetAura();
                 TimerController.ResetTimer(TimerController.BOSSTWOPHASE);
             }
         }
 
         private void SetAura()
         {
-            if (isAttacking)
-                aura.color = Color.red;
-            else
-                aura.color = Color.blue;
+            aura.color = isAttacking ? Color.red : Color.blue;
         }
 
-        private void SetPhase()
+        public void SetPhase()
         {
             if (isAttacking)
             {
@@ -100,7 +97,7 @@ namespace Boss
                 TimerController.RunTimer(TimerController.BOSSTWOREGEN);
 
                 if (TimerController.GetCurrentTime()[TimerController.BOSSTWOREGEN] <= 0 &&
-                    boss.GetStatus().GetHealth() < boss.GetStatus().GetMaxHealth())
+                    bossStatus.GetHealth() < bossStatus.GetMaxHealth())
                 {
                     bossStatus.ModifyHealth(100);
                     TimerController.ResetTimer(TimerController.BOSSTWOREGEN);
@@ -110,15 +107,10 @@ namespace Boss
                 bossShooting.SetProjectileSpeed(projSpeedDefense);
             }
         }
-
-        public void ChangePhase()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        
         public void FindPathUnlocker()
         {
-            pathUnlocker = GameObject.Find("Triggers").GetComponentInChildren<BossEndTrigger>();
+            pathUnlocker = GameObject.Find(Values.TriggersParentName).GetComponentInChildren<BossEndTrigger>();
         }
 
         public void ActivatePathUnlocker()
