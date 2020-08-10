@@ -61,11 +61,10 @@ namespace Boss
                     else
                     {
                         bossStatus.SetHealth(bossStatus.GetMaxHealth());
-                        Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.PlayerHurt);
-
                     }
 
                     Values.DecreaseHealth(addedDamage);
+                    Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.PlayerHurt);
                     TimerController.ResetTimer(timerName);
                 }
             }
