@@ -23,9 +23,9 @@ namespace Utility
                 // Check if the load has finished
                 if (asyncOperation.progress >= 0.9f)
                 {
-                    #if UNITY_EDITOR
-                        yield return new WaitForSeconds(1);
-                    #endif
+                    // #if UNITY_EDITOR
+                    //     yield return new WaitForSeconds(1);
+                    // #endif
                     asyncOperation.allowSceneActivation = true;
                 } //spawnPoint = new Vector3(145, 67, 40); //level 3
 

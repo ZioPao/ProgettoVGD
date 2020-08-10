@@ -88,6 +88,8 @@ namespace Utility
                 if (Values.GetIsGameOver())
                 {
                     gameOverCanvas.SetActive(true);
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.Confined;        //permette di spostare il mouse nel menu
                 }
                 else
                 {

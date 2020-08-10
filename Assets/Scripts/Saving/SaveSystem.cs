@@ -340,7 +340,7 @@ namespace Saving
                     print("Caricato");
 
                     
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(1);
                     Values.SetCanPause(true);
                     Values.SetCanSave(true);
                     Values.SetHasInteractedWithWinObject(false);        //Giusto per evitare macelli eventuali dopo la fine del gioco

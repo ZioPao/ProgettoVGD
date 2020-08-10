@@ -7,13 +7,15 @@ namespace Boss
 {
     public class DamageArea : MonoBehaviour
     {
-
         [SerializeField] private Transform boss;
-    
+        [SerializeField] private int absorbedHealth;
+        [SerializeField] private int firstDamage;
+        [SerializeField] private int addedDamage;
+
         private string timerName = "AREADAMAGE_TIMER";
-        private bool shouldRunTimer = false;
-    
+
         private EnemyStatus bossStatus;
+
         void Start()
         {
             TimerController.AddTimer(timerName, 1f);
@@ -25,12 +27,9 @@ namespace Boss
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag(Values.PlayerTag))
             {
-                shouldRunTimer = true;
-                //decreases player health
-
-                Values.DecreaseHealth(1);
+                Values.DecreaseHealth(firstDamage);
             }
         }
 
@@ -40,24 +39,24 @@ namespace Boss
             //if player stays in, deal damage after a while
             //the boss gets some boosted health :) 
 
-            if (other.CompareTag("Player"))
+            if (other.CompareTag(Values.PlayerTag))
             {
                 TimerController.RunTimer(timerName);
 
                 if (TimerController.GetCurrentTime()[timerName] <= 0)
                 {
-                    bossStatus.ModifyHealth(100);
-                    Values.DecreaseHealth(3);
+                    if (bossStatus.GetHealth() + absorbedHealth < bossStatus.GetMaxHealth())
+                    {
+                        bossStatus.ModifyHealth(absorbedHealth);
+                    }
+                    else
+                    {
+                        bossStatus.SetHealth(bossStatus.GetMaxHealth());
+                    }
+
+                    Values.DecreaseHealth(addedDamage);
                     TimerController.ResetTimer(timerName);
                 }
-            }
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                shouldRunTimer = false;
             }
         }
     }

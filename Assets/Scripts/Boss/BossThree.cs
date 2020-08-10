@@ -24,6 +24,7 @@ namespace Boss
         [SerializeField] private BossEndTrigger pathUnlocker;
 
         private EnemyBase boss;
+        private EnemyStatus status;
         private EnemyShooting bossShooting;
 
 
@@ -44,9 +45,11 @@ namespace Boss
         {
             
             boss = GetComponent<EnemyBase>();
+            status = boss.GetStatus();
             bossShooting = GetComponent<EnemyShooting>();
             //Set boss health
-            boss.GetStatus().SetHealth(bossHealth);
+            status.SetHealth(bossHealth);
+            status.SetMaxHealth(bossHealth);
 
             Values.SetCurrentBoss(gameObject);
             FindPathUnlocker();
@@ -62,6 +65,7 @@ namespace Boss
 
             if (isBossInProgress)
             {
+                print(boss.GetStatus().GetHealth());
                 bossShooting.SetProjectileSpawnRate(projRateAttack);
                 bossShooting.SetProjectileSpeed(projSpeedAttack);
             }

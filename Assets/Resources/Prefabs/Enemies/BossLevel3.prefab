@@ -107,6 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d98a032db338eb47a74b80e77a5d705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: 8652647940364635946}
+  absorbedHealth: 25
+  firstDamage: 1
+  addedDamage: 3
 --- !u!1 &4730038517069980688
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,9 +918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossHealth: 1000
-  timerPhase: 15
-  projRateDefense: 5
-  projSpeedDefense: 3
   projRateAttack: 0.2
   projSpeedAttack: 10
   pathUnlocker: {fileID: 0}

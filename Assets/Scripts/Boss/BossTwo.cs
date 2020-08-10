@@ -97,7 +97,7 @@ namespace Boss
                 TimerController.RunTimer(TimerController.BOSSTWOREGEN);
 
                 if (TimerController.GetCurrentTime()[TimerController.BOSSTWOREGEN] <= 0 &&
-                    boss.GetStatus().GetHealth() < boss.GetStatus().GetMaxHealth())
+                    bossStatus.GetHealth() < bossStatus.GetMaxHealth())
                 {
                     bossStatus.ModifyHealth(100);
                     TimerController.ResetTimer(TimerController.BOSSTWOREGEN);
