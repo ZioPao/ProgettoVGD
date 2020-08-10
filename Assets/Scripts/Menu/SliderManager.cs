@@ -42,7 +42,7 @@ namespace Menu
         private void MusicSliderCheck()
         {
             Audio.SoundManager.SetTrackVolumeModifier(musicSlider.value);
-            PlayerPrefs.SetFloat(Values.MusicKey, effectSlider.value);
+            PlayerPrefs.SetFloat(Values.MusicKey, musicSlider.value);
             PlayerPrefs.Save();
         }
 

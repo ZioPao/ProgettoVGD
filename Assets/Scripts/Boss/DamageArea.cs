@@ -18,12 +18,10 @@ namespace Boss
 
         void Start()
         {
-            
             bossStatus = boss.GetComponent<EnemyBase>().GetStatus();
 
             TimerController.AddTimer(timerName, 1f);
             TimerController.AddCurrentTime(timerName, 0f);
-            
         }
 
 
@@ -31,7 +29,6 @@ namespace Boss
         {
             if (other.CompareTag(Values.PlayerTag))
             {
-
                 Values.DecreaseHealth(firstDamage);
 
                 //Play sound effect
