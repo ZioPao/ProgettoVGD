@@ -55,7 +55,7 @@ namespace Boss
             TimerController.AddTimer(TimerController.BOSSTWOPHASE, timerPhase);
             TimerController.AddCurrentTime(TimerController.BOSSTWOPHASE, 0f);
 
-            TimerController.AddTimer(TimerController.BOSSTWOREGEN, 5);
+            TimerController.AddTimer(TimerController.BOSSTWOREGEN, 2);
             TimerController.AddCurrentTime(TimerController.BOSSTWOREGEN, 0f);
         }
 
