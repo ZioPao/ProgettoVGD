@@ -26,6 +26,9 @@ public class DamageArea : MonoBehaviour
             shouldRunTimer = true;
             //decreases player health
 
+            //Play sound effect
+            Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.PlayerHurt);
+
             Values.DecreaseHealth(2);
         }
     }
@@ -41,6 +44,9 @@ public class DamageArea : MonoBehaviour
 
             if (TimerController.GetCurrentTime()[timerName] <= 0)
             {
+                //Play sound effect
+                Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.PlayerHurt);
+
                 Values.DecreaseHealth(10);
                 TimerController.ResetTimer(timerName);
             }
