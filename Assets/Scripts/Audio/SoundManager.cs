@@ -51,7 +51,8 @@ namespace Audio{
 		private static AudioSource musicAudioSource;
 		private static AudioLowPassFilter musicLowPass;
 		private static float trackVolumeModifier;		//Values have to be between 0 and 1
-
+		private static bool isFadingOutSoundtrack;
+		
 		//Sound Effect Methods
 
 		public static void InitializeSoundEffects()
@@ -248,6 +249,22 @@ namespace Audio{
 			musicAudioSource.Play();
         }
 
+		public static void StopSoundtrack()
+		{
+			musicAudioSource.Stop();
+
+		}
+
+		public static void ModifySoundtrackValue(float value)
+		{
+			musicAudioSource.volume += value;
+
+		}
+
+		public static float GetSoundtrackVolume()
+		{
+			return musicAudioSource.volume;
+		}
 		public static void EnableLowPass()
         {
 			effectLowPass.enabled = true;
