@@ -97,17 +97,18 @@ namespace Enemies
                     hitmarkerAnimator.Play("hitmarker_Anim", -1, 0f);
                 }
 
-                if (!healthBar.activeSelf)
-                {
-                    healthBar.SetActive(true);
-                }
-
-                //Change Health bar color (Health bar manager)
-                healthBarScript.ChangeHealthBarColor(status.GetHealth(), maxHealth);
-
-                //Change Health bar width (Health bar manager)
-                healthBarScript.ChangeHealthBarWidth(status.GetHealth(), maxHealth);
             }
+
+            if (!healthBar.activeSelf)
+            {
+                healthBar.SetActive(true);
+            }
+
+            //Change Health bar color (Health bar manager)
+            healthBarScript.ChangeHealthBarColor(status.GetHealth(), maxHealth);
+
+            //Change Health bar width (Health bar manager)
+            healthBarScript.ChangeHealthBarWidth(status.GetHealth(), maxHealth);
 
 
             //Manage the looking at player stuff
