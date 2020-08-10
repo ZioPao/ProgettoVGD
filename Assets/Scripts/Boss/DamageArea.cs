@@ -37,7 +37,7 @@ namespace Boss
                 //Play sound effect
                 Audio.SoundManager.PlaySoundEffect(Audio.SoundManager.SoundEffects.PlayerHurt);
 
-                Values.DecreaseHealth(10);
+                Values.DecreaseHealth(firstDamage);
                 TimerController.ResetTimer(timerName);
             }
         }

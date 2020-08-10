@@ -109,8 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boss: {fileID: 8652647940364635946}
   absorbedHealth: 25
-  firstDamage: 1
-  addedDamage: 3
+  firstDamage: 5
+  addedDamage: 2
 --- !u!1 &4730038517069980688
 GameObject:
   m_ObjectHideFlags: 0
