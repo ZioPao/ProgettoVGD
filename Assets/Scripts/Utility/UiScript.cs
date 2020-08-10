@@ -259,15 +259,15 @@ namespace Utility
         {
 
             Cursor.lockState = CursorLockMode.Confined;        //permette di spostare il mouse nel menu
-            
-            SceneManager.MoveGameObjectToScene(Values.GetPlayerTransform().gameObject, SceneManager.GetActiveScene());
-            StartCoroutine(SceneLoader.LoadScene("Scenes/MainMenu"));
-
-
             Values.SetGameOver(false);        //Evita problemi quando rinizia la partita da un game over e torni al menu
             Values.SetIsChangingScene(false);        //Reistanzia correttamente il player dal main menu
             Values.SetIsInPause(false);        //Evita casini al reload
             Cursor.visible = true;
+            SceneManager.MoveGameObjectToScene(Values.GetPlayerTransform().gameObject, SceneManager.GetActiveScene());
+            StartCoroutine(SceneLoader.LoadScene("Scenes/MainMenu"));
+
+
+
         }
         
         public void GoToInGameSettings()

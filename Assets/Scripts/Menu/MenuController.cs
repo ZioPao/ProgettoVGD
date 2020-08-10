@@ -40,7 +40,8 @@ namespace Menu
             Values.SetAmmoBoxPrefab(Resources.Load<GameObject>("Prefabs/Levels/Generic/AmmoBox"));
 
             Values.SetIsInPause(false);     //Evita casini al reload
-            
+            Values.SetGameOver(false);
+
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
 

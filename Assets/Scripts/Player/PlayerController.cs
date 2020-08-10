@@ -150,11 +150,11 @@ namespace Player
                     //saveCanvas.enabled = false;
                 }
 
-                //
-                // if (Input.GetKeyDown(KeyCode.F7))
-                // {
-                //     Values.SetHealth(0);
-                // }
+                
+                if (Input.GetKeyDown(KeyCode.F7))
+                {
+                    Values.SetHealth(0);
+                }
 
 
                 //Normal controller stuff
@@ -167,7 +167,7 @@ namespace Player
 
         private void ManageHealth()
         {
-            if (Values.GetHealth() <= 0 && !Values.GetIsLoadingSave())
+            if (Values.GetHealth() <= 0 && !Values.GetIsLoadingSave() && !Values.GetIsGameOver())
             {
                 //game over.
                 Values.SetGameOver(true);
