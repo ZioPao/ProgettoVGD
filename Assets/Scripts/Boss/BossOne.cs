@@ -64,20 +64,15 @@ namespace Boss
 
         private void FixedUpdate()
         {
-            if (!isInPhaseTwo)
+            if (!isInPhaseTwo && bossStatus.GetHealth() < 50)
             {
-                if (bossStatus.GetHealth() < 50)
-                {
-                    ChangePhase();
-                }
+                SetPhase();
             }
-
-            //check health. When health
-            //Movement is managed by BossBase... I guess?
+           
         }
 
 
-        public void ChangePhase()
+        public void SetPhase()
         {
             //Ferma il check degli sprites momentaneamente per metterglielo front ed evitare cambi strani
             Values.GetEnemySpritesManager().enabled = false;

@@ -343,6 +343,7 @@ namespace Saving
                     yield return new WaitForSeconds(0.5f);
                     Values.SetCanPause(true);
                     Values.SetCanSave(true);
+                    Values.SetHasInteractedWithWinObject(false);        //Giusto per evitare macelli eventuali dopo la fine del gioco
                     GameObject.Find(Values.LoadingCanvasName).GetComponent<Canvas>().enabled = false;
 
                 }

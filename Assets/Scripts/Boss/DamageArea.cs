@@ -1,57 +1,64 @@
-﻿using Player;
+﻿using Enemies;
+using Player;
 using UnityEngine;
 using Utility;
 
-public class DamageArea : MonoBehaviour
+namespace Boss
 {
-    private string timerName = "AREADAMAGE_TIMER";
-    private bool shouldRunTimer = false;
-
-    void Start()
+    public class DamageArea : MonoBehaviour
     {
-        TimerController.AddTimer(timerName, 1f);
-        TimerController.AddCurrentTime(timerName, 0f);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        [SerializeField] private Transform boss;
+    
+        private string timerName = "AREADAMAGE_TIMER";
+        private bool shouldRunTimer = false;
+    
+        private EnemyStatus bossStatus;
+        void Start()
         {
-            shouldRunTimer = true;
-            //decreases player health
+            TimerController.AddTimer(timerName, 1f);
+            TimerController.AddCurrentTime(timerName, 0f);
 
-            Values.DecreaseHealth(2);
+            bossStatus = boss.GetComponent<EnemyBase>().GetStatus();
         }
-    }
 
 
-    private void OnTriggerStay(Collider other)
-    {
-        //if player stays in, deal damage after a while
-
-        if (other.CompareTag("Player"))
+        private void OnTriggerEnter(Collider other)
         {
-            TimerController.RunTimer(timerName);
-
-            if (TimerController.GetCurrentTime()[timerName] <= 0)
+            if (other.CompareTag("Player"))
             {
-                Values.DecreaseHealth(10);
-                TimerController.ResetTimer(timerName);
+                shouldRunTimer = true;
+                //decreases player health
+
+                Values.DecreaseHealth(1);
             }
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
+
+        private void OnTriggerStay(Collider other)
         {
-            shouldRunTimer = false;
+            //if player stays in, deal damage after a while
+            //the boss gets some boosted health :) 
+
+            if (other.CompareTag("Player"))
+            {
+                TimerController.RunTimer(timerName);
+
+                if (TimerController.GetCurrentTime()[timerName] <= 0)
+                {
+                    bossStatus.ModifyHealth(100);
+                    Values.DecreaseHealth(3);
+                    TimerController.ResetTimer(timerName);
+                }
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                shouldRunTimer = false;
+            }
         }
     }
 }
